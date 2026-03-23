@@ -45,8 +45,9 @@ demonstrating production-grade engineering standards.
 - Polymorphic components (`as` prop)
 - Context-based theming and configuration
 
-## Basic rules
+## Workflow rules
 
+- Once a component (or feature) is fully finished and all checks pass (test, build, lint, format), commit and push it immediately before starting the next one. Never batch multiple components into a single commit.
 - Before writing any code, describe your approach and wait for approval.
 - If the requirements I give you are ambiguous, ask clarifying questions before writing any code.
 - After you finish writing any code, list the edge cases and suggest test cases to cover them.
