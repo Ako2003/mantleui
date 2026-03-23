@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
+type SetStateAction<T> = T | ((prev: T) => T);
+
 interface UseControllableParams<T> {
   /** The controlled value (from props). Pass `undefined` for uncontrolled mode. */
   value: T | undefined;
@@ -15,15 +17,17 @@ interface UseControllableParams<T> {
  * - **Controlled**: when `value` is defined, the component reflects it directly.
  * - **Uncontrolled**: when `value` is undefined, internal state is used.
  *
- * In both modes, `onChange` is called when the value changes.
+ * Supports functional updates: `setValue(prev => ...)`.
+ * In both modes, `onChange` is called with the resolved next value.
  */
 export function useControllable<T>({
   value: controlledValue,
   defaultValue,
   onChange,
-}: UseControllableParams<T>): [T, (next: T) => void] {
+}: UseControllableParams<T>): [T, (next: SetStateAction<T>) => void] {
   const isControlled = controlledValue !== undefined;
   const isControlledRef = useRef(isControlled);
+  const valueRef = useRef(controlledValue ?? defaultValue);
 
   useEffect(() => {
     if (process.env.NODE_ENV !== "production") {
@@ -42,12 +46,21 @@ export function useControllable<T>({
 
   const value = isControlled ? controlledValue : internalValue;
 
+  useEffect(() => {
+    valueRef.current = value;
+  });
+
   const setValue = useCallback(
-    (next: T) => {
+    (next: SetStateAction<T>) => {
+      const resolved =
+        typeof next === "function"
+          ? (next as (prev: T) => T)(valueRef.current)
+          : next;
+
       if (!isControlledRef.current) {
-        setInternalValue(next);
+        setInternalValue(resolved);
       }
-      onChange?.(next);
+      onChange?.(resolved);
     },
     [onChange],
   );
