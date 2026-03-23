@@ -1,0 +1,87 @@
+:root,
+[data-theme="light"] {
+  /* Colors — Primary */
+  --mantle-color-primary: #2563eb;
+  --mantle-color-primary-hover: #1d4ed8;
+  --mantle-color-primary-active: #1e40af;
+
+  /* Colors — Neutral */
+  --mantle-color-bg: #ffffff;
+  --mantle-color-bg-subtle: #f8fafc;
+  --mantle-color-bg-muted: #f1f5f9;
+  --mantle-color-text: #0f172a;
+  --mantle-color-text-muted: #64748b;
+  --mantle-color-border: #e2e8f0;
+  --mantle-color-border-hover: #cbd5e1;
+
+  /* Colors — Feedback */
+  --mantle-color-danger: #dc2626;
+  --mantle-color-danger-hover: #b91c1c;
+  --mantle-color-success: #16a34a;
+
+  /* Spacing */
+  --mantle-space-0: 0;
+  --mantle-space-1: 0.25rem;
+  --mantle-space-2: 0.5rem;
+  --mantle-space-3: 0.75rem;
+  --mantle-space-4: 1rem;
+  --mantle-space-5: 1.25rem;
+  --mantle-space-6: 1.5rem;
+  --mantle-space-8: 2rem;
+
+  /* Border radius */
+  --mantle-radius-sm: 0.25rem;
+  --mantle-radius-md: 0.375rem;
+  --mantle-radius-lg: 0.5rem;
+  --mantle-radius-full: 9999px;
+
+  /* Typography */
+  --mantle-font-sans:
+    system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  --mantle-font-mono:
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  --mantle-text-xs: 0.75rem;
+  --mantle-text-sm: 0.875rem;
+  --mantle-text-base: 1rem;
+  --mantle-text-lg: 1.125rem;
+
+  /* Shadows */
+  --mantle-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --mantle-shadow-md:
+    0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+
+  /* Transitions */
+  --mantle-duration-fast: 150ms;
+  --mantle-duration-normal: 200ms;
+
+  /* Focus ring */
+  --mantle-ring-color: #2563eb;
+  --mantle-ring-offset: 2px;
+  --mantle-ring-width: 2px;
+}
+
+[data-theme="dark"] {
+  --mantle-color-primary: #3b82f6;
+  --mantle-color-primary-hover: #60a5fa;
+  --mantle-color-primary-active: #93bbfd;
+
+  --mantle-color-bg: #0f172a;
+  --mantle-color-bg-subtle: #1e293b;
+  --mantle-color-bg-muted: #334155;
+  --mantle-color-text: #f8fafc;
+  --mantle-color-text-muted: #94a3b8;
+  --mantle-color-border: #334155;
+  --mantle-color-border-hover: #475569;
+
+  --mantle-color-danger: #ef4444;
+  --mantle-color-danger-hover: #f87171;
+  --mantle-color-success: #22c55e;
+
+  --mantle-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --mantle-shadow-md:
+    0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+
+  --mantle-ring-color: #3b82f6;
+}
