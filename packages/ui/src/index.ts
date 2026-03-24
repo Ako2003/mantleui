@@ -26,6 +26,16 @@ export type {
   TabsContentProps,
 } from "./components/Tabs";
 
+export { Popover, usePopover } from "./components/Popover";
+export type {
+  PopoverProps,
+  PopoverTriggerProps,
+  PopoverContentProps,
+  PopoverPlacement,
+  UsePopoverOptions,
+  UsePopoverReturn,
+} from "./components/Popover";
+
 // Theme
 export { ThemeProvider, useTheme } from "./theme";
 export type { ThemeProviderProps, ThemeContextValue, ThemeMode } from "./theme";
