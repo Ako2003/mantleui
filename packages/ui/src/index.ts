@@ -36,6 +36,16 @@ export type {
   UsePopoverReturn,
 } from "./components/Popover";
 
+export { DataTable, useDataTable } from "./components/DataTable";
+export type {
+  DataTableProps,
+  ColumnDef,
+  SortDirection,
+  SortState,
+  UseDataTableOptions,
+  UseDataTableReturn,
+} from "./components/DataTable";
+
 // Theme
 export { ThemeProvider, useTheme } from "./theme";
 export type { ThemeProviderProps, ThemeContextValue, ThemeMode } from "./theme";
