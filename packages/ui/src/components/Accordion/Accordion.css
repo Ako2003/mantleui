@@ -19,7 +19,7 @@
   width: 100%;
   padding: var(--mantle-space-4);
   border: none;
-  background: var(--mantle-color-bg);
+  background: transparent;
   color: var(--mantle-color-text);
   font-family: var(--mantle-font-sans);
   font-size: var(--mantle-text-sm);
@@ -54,15 +54,11 @@
 .mantle-content {
   display: grid;
   grid-template-rows: 0fr;
-  visibility: hidden;
-  transition:
-    grid-template-rows var(--mantle-duration-normal),
-    visibility var(--mantle-duration-normal);
+  transition: grid-template-rows var(--mantle-duration-normal);
 }
 
 .mantle-contentOpen {
   grid-template-rows: 1fr;
-  visibility: visible;
 }
 
 .mantle-contentInner {
@@ -75,4 +71,5 @@
   color: var(--mantle-color-text-muted);
   font-family: var(--mantle-font-sans);
   font-size: var(--mantle-text-sm);
+  line-height: 1.6;
 }
