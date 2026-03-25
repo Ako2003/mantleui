@@ -1,0 +1,72 @@
+"use client";
+
+import { LivePlayground } from "@/components/LivePlayground";
+import { PropsTable } from "@/components/PropsTable";
+
+const sizesExample = `<div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
+  <Spinner size="sm" />
+  <Spinner size="md" />
+  <Spinner size="lg" />
+</div>`;
+
+const colorsExample = `<div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
+  <Spinner color="blue" />
+  <Spinner color="red" />
+  <Spinner color="green" />
+  <Spinner color="purple" />
+  <Spinner color="neutral" />
+</div>`;
+
+const withLabelExample = `<div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+  <Spinner label="Loading..." />
+  <Spinner label="Please wait..." size="lg" />
+</div>`;
+
+const spinnerProps = [
+  {
+    name: "size",
+    type: '"sm" | "md" | "lg"',
+    default: '"md"',
+    description: "Size preset.",
+  },
+  {
+    name: "color",
+    type: '"blue" | "red" | "green" | "yellow" | "purple" | "neutral"',
+    default: '"blue"',
+    description: "Accent color.",
+  },
+  {
+    name: "label",
+    type: "string",
+    description: "Accessible label text displayed alongside the spinner.",
+  },
+];
+
+export default function SpinnerPage() {
+  return (
+    <div>
+      <h1 className="text-3xl font-bold">Spinner</h1>
+      <p className="mt-2 text-slate-600 dark:text-zinc-400">
+        An animated loading indicator available in multiple sizes and colors.
+      </p>
+
+      <h2 className="mt-10 text-xl font-semibold">Sizes</h2>
+      <div className="mt-4">
+        <LivePlayground code={sizesExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Colors</h2>
+      <div className="mt-4">
+        <LivePlayground code={colorsExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">With Label</h2>
+      <div className="mt-4">
+        <LivePlayground code={withLabelExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Props</h2>
+      <PropsTable props={spinnerProps} />
+    </div>
+  );
+}
