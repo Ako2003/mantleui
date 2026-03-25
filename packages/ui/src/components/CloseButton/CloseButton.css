@@ -1,0 +1,45 @@
+.mantle-closebutton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: var(--mantle-fg);
+  cursor: pointer;
+  border-radius: var(--mantle-radius-md);
+  padding: 0;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.mantle-closebutton:hover {
+  background-color: var(--mantle-accent-subtle);
+  color: var(--mantle-accent);
+}
+
+.mantle-closebutton:focus-visible {
+  outline: 2px solid var(--mantle-accent);
+  outline-offset: 2px;
+}
+
+.mantle-closebutton:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Sizes */
+.mantle-closebutton-sm {
+  width: 24px;
+  height: 24px;
+}
+
+.mantle-closebutton-md {
+  width: 32px;
+  height: 32px;
+}
+
+.mantle-closebutton-lg {
+  width: 40px;
+  height: 40px;
+}
