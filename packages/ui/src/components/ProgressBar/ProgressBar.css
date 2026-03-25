@@ -1,0 +1,71 @@
+.mantle-progress-bar {
+  position: relative;
+  width: 100%;
+  background: var(--mantle-bg-subtle);
+  border-radius: var(--mantle-radius-full);
+  overflow: hidden;
+}
+
+/* Sizes */
+.mantle-progress-bar-sm {
+  height: 4px;
+}
+
+.mantle-progress-bar-md {
+  height: 8px;
+}
+
+.mantle-progress-bar-lg {
+  height: 12px;
+}
+
+/* Fill bar */
+.mantle-progress-bar-fill {
+  height: 100%;
+  border-radius: var(--mantle-radius-full);
+  background: linear-gradient(
+    90deg,
+    var(--mantle-accent),
+    var(--mantle-accent-hover)
+  );
+  transition: width 0.3s ease;
+}
+
+/* Indeterminate animation */
+.mantle-progress-bar-indeterminate .mantle-progress-bar-fill {
+  width: 40% !important;
+  animation: mantle-progress-bar-slide 1.5s ease-in-out infinite;
+}
+
+@keyframes mantle-progress-bar-slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(150%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Value text */
+.mantle-progress-bar-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mantle-space-1);
+}
+
+.mantle-progress-bar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--mantle-font-sans);
+  font-size: var(--mantle-text-sm);
+  color: var(--mantle-fg);
+}
+
+.mantle-progress-bar-value {
+  font-variant-numeric: tabular-nums;
+  color: var(--mantle-fg-muted);
+}
