@@ -54,7 +54,7 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
           aria-label="Dismiss"
           onClick={onDismiss}
         >
-          \u2715
+          {"\u2715"}
         </button>
       )}
     </div>
