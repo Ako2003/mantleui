@@ -1,4 +1,12 @@
 // Components
+export { AlertDialog } from "./components/AlertDialog";
+export type {
+  AlertDialogProps,
+  AlertDialogContentProps,
+  AlertDialogActionProps,
+  AlertDialogCancelProps,
+} from "./components/AlertDialog";
+
 export { Input } from "./components/Input";
 export type { InputProps, InputSize } from "./components/Input";
 

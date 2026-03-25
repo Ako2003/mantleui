@@ -1,0 +1,129 @@
+.mantle-alertdialog-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: mantle-fadeIn var(--mantle-duration-fast) ease-out;
+}
+
+.mantle-alertdialog-positioner {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--mantle-space-4);
+}
+
+.mantle-alertdialog {
+  width: 100%;
+  max-width: 28rem;
+  border: 1px solid var(--mantle-color-border);
+  border-radius: var(--mantle-radius-lg);
+  background-color: var(--mantle-color-bg-subtle);
+  box-shadow: var(--mantle-shadow-md);
+  padding: var(--mantle-space-6);
+  animation: mantle-scaleIn var(--mantle-duration-fast) ease-out;
+}
+
+.mantle-alertdialog:focus-visible {
+  outline: none;
+}
+
+.mantle-alertdialog-title {
+  font-family: var(--mantle-font-sans);
+  font-size: var(--mantle-text-lg);
+  font-weight: 600;
+  color: var(--mantle-color-text);
+  margin: 0;
+}
+
+.mantle-alertdialog-description {
+  font-family: var(--mantle-font-sans);
+  font-size: var(--mantle-text-sm);
+  color: var(--mantle-color-text-muted);
+  margin-top: var(--mantle-space-2);
+  line-height: 1.5;
+}
+
+.mantle-alertdialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--mantle-space-2);
+  margin-top: var(--mantle-space-6);
+}
+
+.mantle-alertdialog-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.25rem;
+  padding: 0 var(--mantle-space-4);
+  border: none;
+  border-radius: var(--mantle-radius-md);
+  background-color: var(--mantle-accent);
+  color: var(--mantle-accent-text);
+  font-family: var(--mantle-font-sans);
+  font-size: var(--mantle-text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color var(--mantle-duration-fast);
+}
+
+.mantle-alertdialog-action:hover {
+  background-color: var(--mantle-accent-hover);
+}
+
+.mantle-alertdialog-action:focus-visible {
+  outline: var(--mantle-ring-width) solid var(--mantle-accent);
+  outline-offset: var(--mantle-ring-offset);
+}
+
+.mantle-alertdialog-cancel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.25rem;
+  padding: 0 var(--mantle-space-4);
+  border: 1px solid var(--mantle-color-border);
+  border-radius: var(--mantle-radius-md);
+  background-color: transparent;
+  color: var(--mantle-color-text);
+  font-family: var(--mantle-font-sans);
+  font-size: var(--mantle-text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background-color var(--mantle-duration-fast),
+    border-color var(--mantle-duration-fast);
+}
+
+.mantle-alertdialog-cancel:hover {
+  background-color: var(--mantle-color-bg-muted);
+}
+
+.mantle-alertdialog-cancel:focus-visible {
+  outline: var(--mantle-ring-width) solid var(--mantle-color-text-muted);
+  outline-offset: var(--mantle-ring-offset);
+}
+
+@keyframes mantle-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes mantle-scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
