@@ -62,6 +62,12 @@ const accordionProps = [
     default: "false",
     description: "Whether multiple items can be open at once.",
   },
+  {
+    name: "color",
+    type: '"blue" | "red" | "green" | "yellow" | "purple" | "neutral"',
+    default: '"blue"',
+    description: "Accent color for focus rings.",
+  },
 ];
 
 export default function AccordionPage() {

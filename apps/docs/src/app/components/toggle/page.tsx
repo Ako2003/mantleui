@@ -32,6 +32,21 @@ const controlledExample = `function Demo() {
 
 render(<Demo />);`;
 
+const colorsExample = `function Demo() {
+  return (
+    <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+      <Toggle color="blue" defaultPressed>Blue</Toggle>
+      <Toggle color="red" defaultPressed>Red</Toggle>
+      <Toggle color="green" defaultPressed>Green</Toggle>
+      <Toggle color="yellow" defaultPressed>Yellow</Toggle>
+      <Toggle color="purple" defaultPressed>Purple</Toggle>
+      <Toggle color="neutral" defaultPressed>Neutral</Toggle>
+    </div>
+  );
+}
+
+render(<Demo />);`;
+
 const toggleProps = [
   {
     name: "pressed",
@@ -48,6 +63,12 @@ const toggleProps = [
     name: "onPressedChange",
     type: "(pressed: boolean) => void",
     description: "Called when the pressed state changes.",
+  },
+  {
+    name: "color",
+    type: '"blue" | "red" | "green" | "yellow" | "purple" | "neutral"',
+    default: '"blue"',
+    description: "Accent color.",
   },
   {
     name: "disabled",
@@ -78,6 +99,11 @@ export default function TogglePage() {
       <h2 className="mt-10 text-xl font-semibold">Controlled</h2>
       <div className="mt-4">
         <LivePlayground code={controlledExample} noEditor />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Colors</h2>
+      <div className="mt-4">
+        <LivePlayground code={colorsExample} noEditor />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>

@@ -20,6 +20,24 @@ const loadingExample = `<div style={{ display: "flex", gap: "8px" }}>
   <Button variant="outline" loading>Loading</Button>
 </div>`;
 
+const colorsExample = `<div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+  <Button color="blue">Blue</Button>
+  <Button color="red">Red</Button>
+  <Button color="green">Green</Button>
+  <Button color="yellow">Yellow</Button>
+  <Button color="purple">Purple</Button>
+  <Button color="neutral">Neutral</Button>
+</div>`;
+
+const colorsOutlineExample = `<div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+  <Button color="blue" variant="outline">Blue</Button>
+  <Button color="red" variant="outline">Red</Button>
+  <Button color="green" variant="outline">Green</Button>
+  <Button color="yellow" variant="outline">Yellow</Button>
+  <Button color="purple" variant="outline">Purple</Button>
+  <Button color="neutral" variant="outline">Neutral</Button>
+</div>`;
+
 const polymorphicExample = `<div style={{ display: "flex", gap: "8px" }}>
   <Button as="a" href="#" variant="solid">As Link</Button>
   <Button as="span" variant="outline">As Span</Button>
@@ -37,6 +55,12 @@ const buttonProps = [
     type: '"sm" | "md" | "lg"',
     default: '"md"',
     description: "Size preset.",
+  },
+  {
+    name: "color",
+    type: '"blue" | "red" | "green" | "yellow" | "purple" | "neutral"',
+    default: '"blue"',
+    description: "Accent color.",
   },
   {
     name: "loading",
@@ -89,6 +113,16 @@ export default function ButtonPage() {
       <h2 className="mt-10 text-xl font-semibold">Sizes</h2>
       <div className="mt-4">
         <LivePlayground code={sizesExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Colors</h2>
+      <div className="mt-4">
+        <LivePlayground code={colorsExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Colors (Outline)</h2>
+      <div className="mt-4">
+        <LivePlayground code={colorsOutlineExample} />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Loading State</h2>

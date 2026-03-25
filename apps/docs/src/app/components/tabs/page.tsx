@@ -20,6 +20,25 @@ const basicExample = `<Tabs defaultValue="tab-1">
   </Tabs.Content>
 </Tabs>`;
 
+const colorsExample = `<div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+  <Tabs defaultValue="t1" color="red">
+    <Tabs.List>
+      <Tabs.Trigger value="t1">Red Tab</Tabs.Trigger>
+      <Tabs.Trigger value="t2">Another</Tabs.Trigger>
+    </Tabs.List>
+    <Tabs.Content value="t1">Red accent tabs.</Tabs.Content>
+    <Tabs.Content value="t2">Second tab content.</Tabs.Content>
+  </Tabs>
+  <Tabs defaultValue="t1" color="purple">
+    <Tabs.List>
+      <Tabs.Trigger value="t1">Purple Tab</Tabs.Trigger>
+      <Tabs.Trigger value="t2">Another</Tabs.Trigger>
+    </Tabs.List>
+    <Tabs.Content value="t1">Purple accent tabs.</Tabs.Content>
+    <Tabs.Content value="t2">Second tab content.</Tabs.Content>
+  </Tabs>
+</div>`;
+
 const tabsProps = [
   {
     name: "value",
@@ -35,6 +54,12 @@ const tabsProps = [
     name: "onValueChange",
     type: "(value: string) => void",
     description: "Called when the active tab changes.",
+  },
+  {
+    name: "color",
+    type: '"blue" | "red" | "green" | "yellow" | "purple" | "neutral"',
+    default: '"blue"',
+    description: "Accent color for the active tab indicator.",
   },
 ];
 
@@ -70,6 +95,11 @@ export default function TabsPage() {
         </kbd>{" "}
         to jump. Disabled tabs are skipped.
       </p>
+
+      <h2 className="mt-10 text-xl font-semibold">Colors</h2>
+      <div className="mt-4">
+        <LivePlayground code={colorsExample} />
+      </div>
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>
       <PropsTable props={tabsProps} />

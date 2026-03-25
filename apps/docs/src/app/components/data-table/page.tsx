@@ -59,6 +59,12 @@ const dataTableProps = [
     type: "() => ReactNode",
     description: "Render prop for empty state.",
   },
+  {
+    name: "color",
+    type: '"blue" | "red" | "green" | "yellow" | "purple" | "neutral"',
+    default: '"blue"',
+    description: "Accent color for sort indicators and focus rings.",
+  },
 ];
 
 export default function DataTablePage() {

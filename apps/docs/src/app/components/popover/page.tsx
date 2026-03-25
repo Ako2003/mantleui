@@ -80,6 +80,12 @@ const popoverProps = [
     default: '"bottom"',
     description: "Preferred placement relative to the trigger.",
   },
+  {
+    name: "color",
+    type: '"blue" | "red" | "green" | "yellow" | "purple" | "neutral"',
+    default: '"blue"',
+    description: "Accent color for focus rings.",
+  },
 ];
 
 export default function PopoverPage() {
