@@ -1,0 +1,58 @@
+.mantle-colorswatch {
+  display: inline-block;
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+/* Checkerboard behind the swatch for transparent colors */
+.mantle-colorswatch::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image:
+    linear-gradient(45deg, #ccc 25%, transparent 25%),
+    linear-gradient(-45deg, #ccc 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #ccc 75%),
+    linear-gradient(-45deg, transparent 75%, #ccc 75%);
+  background-size: 8px 8px;
+  background-position:
+    0 0,
+    0 4px,
+    4px -4px,
+    -4px 0;
+}
+
+.mantle-colorswatch-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+/* Shapes */
+.mantle-colorswatch-rounded {
+  border-radius: var(--mantle-radius-full);
+}
+
+.mantle-colorswatch-square {
+  border-radius: var(--mantle-radius-md);
+}
+
+/* Sizes */
+.mantle-colorswatch-sm {
+  width: 24px;
+  height: 24px;
+}
+
+.mantle-colorswatch-md {
+  width: 32px;
+  height: 32px;
+}
+
+.mantle-colorswatch-lg {
+  width: 40px;
+  height: 40px;
+}
