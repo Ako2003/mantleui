@@ -57,40 +57,70 @@ const headlessExample = `function Demo() {
 
 render(<Demo />);`;
 
-const placementExample = `<div style={{ display: "flex", flexWrap: "wrap", gap: "12px", justifyContent: "center", padding: "80px 40px" }}>
-  <Popover placement="top">
-    <Popover.Trigger>Top</Popover.Trigger>
-    <Popover.Content>Placement: top</Popover.Content>
-  </Popover>
-  <Popover placement="top-start">
-    <Popover.Trigger>Top Start</Popover.Trigger>
-    <Popover.Content>Placement: top-start</Popover.Content>
-  </Popover>
-  <Popover placement="top-end">
-    <Popover.Trigger>Top End</Popover.Trigger>
-    <Popover.Content>Placement: top-end</Popover.Content>
-  </Popover>
-  <Popover placement="bottom">
-    <Popover.Trigger>Bottom</Popover.Trigger>
-    <Popover.Content>Placement: bottom</Popover.Content>
-  </Popover>
-  <Popover placement="bottom-start">
-    <Popover.Trigger>Bottom Start</Popover.Trigger>
-    <Popover.Content>Placement: bottom-start</Popover.Content>
-  </Popover>
-  <Popover placement="bottom-end">
-    <Popover.Trigger>Bottom End</Popover.Trigger>
-    <Popover.Content>Placement: bottom-end</Popover.Content>
-  </Popover>
-  <Popover placement="left">
-    <Popover.Trigger>Left</Popover.Trigger>
-    <Popover.Content>Placement: left</Popover.Content>
-  </Popover>
-  <Popover placement="right">
-    <Popover.Trigger>Right</Popover.Trigger>
-    <Popover.Content>Placement: right</Popover.Content>
-  </Popover>
-</div>`;
+const placementExample = `function Demo() {
+  const [placement, setPlacement] = React.useState("bottom");
+  const placements = [
+    "top-start", "top", "top-end",
+    "left-start", null, "right-start",
+    "left", null, "right",
+    "left-end", null, "right-end",
+    "bottom-start", "bottom", "bottom-end",
+  ];
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "24px" }}>
+      <div style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(3, 1fr)",
+        gap: "6px",
+        width: "320px",
+      }}>
+        {placements.map((p, i) =>
+          p ? (
+            <button
+              key={p}
+              onClick={() => setPlacement(p)}
+              style={{
+                padding: "6px 4px",
+                fontSize: "11px",
+                borderRadius: "6px",
+                border: placement === p ? "1px solid var(--mantle-accent)" : "1px solid var(--mantle-color-border)",
+                background: placement === p ? "var(--mantle-accent-subtle)" : "transparent",
+                color: placement === p ? "var(--mantle-accent)" : "var(--mantle-color-text-muted)",
+                cursor: "pointer",
+                fontFamily: "var(--mantle-font-mono)",
+              }}
+            >
+              {p}
+            </button>
+          ) : (
+            <div key={i} style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: "11px",
+              color: "var(--mantle-color-text-muted)",
+              border: "1px dashed var(--mantle-color-border)",
+              borderRadius: "6px",
+            }}>
+              trigger
+            </div>
+          )
+        )}
+      </div>
+      <Popover placement={placement}>
+        <Popover.Trigger>Click me ({placement})</Popover.Trigger>
+        <Popover.Content>
+          <div style={{ padding: "4px" }}>
+            <strong>Placement: {placement}</strong>
+          </div>
+        </Popover.Content>
+      </Popover>
+    </div>
+  );
+}
+
+render(<Demo />);`;
 
 const popoverProps = [
   {
