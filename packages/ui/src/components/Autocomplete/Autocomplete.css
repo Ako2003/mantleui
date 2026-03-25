@@ -1,0 +1,97 @@
+.mantle-autocomplete {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mantle-space-1);
+  font-family: var(--mantle-font-sans);
+  position: relative;
+}
+
+.mantle-autocompleteLabel {
+  font-size: var(--mantle-text-sm);
+  font-weight: 500;
+  color: var(--mantle-color-text);
+}
+
+.mantle-autocompleteInput {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 2.5rem;
+  padding: 0 var(--mantle-space-3);
+  border: 1px solid var(--mantle-color-border);
+  border-radius: var(--mantle-radius-md);
+  background-color: transparent;
+  color: var(--mantle-color-text);
+  font-family: inherit;
+  font-size: var(--mantle-text-sm);
+  transition:
+    border-color var(--mantle-duration-fast),
+    box-shadow var(--mantle-duration-fast);
+}
+
+.mantle-autocompleteInput:focus {
+  outline: none;
+  border-color: var(--mantle-accent);
+  box-shadow: 0 0 0 1px var(--mantle-accent);
+}
+
+.mantle-autocompleteInput:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.mantle-autocompleteInputError {
+  border-color: var(--mantle-color-danger);
+}
+
+.mantle-autocompleteInputError:focus {
+  border-color: var(--mantle-color-danger);
+  box-shadow: 0 0 0 1px var(--mantle-color-danger);
+}
+
+.mantle-autocompleteDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  margin-top: var(--mantle-space-1);
+  padding: var(--mantle-space-1) 0;
+  border: 1px solid var(--mantle-color-border);
+  border-radius: var(--mantle-radius-md);
+  background-color: var(--mantle-color-bg-subtle);
+  box-shadow: var(--mantle-shadow-md);
+  max-height: 15rem;
+  overflow-y: auto;
+}
+
+.mantle-autocompleteOption {
+  display: flex;
+  align-items: center;
+  padding: var(--mantle-space-2) var(--mantle-space-3);
+  font-size: var(--mantle-text-sm);
+  color: var(--mantle-color-text);
+  cursor: pointer;
+  transition: background-color var(--mantle-duration-fast);
+}
+
+.mantle-autocompleteOption:hover,
+.mantle-autocompleteOptionHighlighted {
+  background-color: var(--mantle-accent-subtle);
+}
+
+.mantle-autocompleteOptionActive {
+  color: var(--mantle-accent);
+  font-weight: 500;
+}
+
+.mantle-autocompleteEmpty {
+  padding: var(--mantle-space-2) var(--mantle-space-3);
+  font-size: var(--mantle-text-sm);
+  color: var(--mantle-color-text-muted);
+}
+
+.mantle-autocompleteError {
+  font-size: var(--mantle-text-xs);
+  color: var(--mantle-color-danger);
+}
