@@ -140,20 +140,20 @@ const AccordionContent = forwardRef<HTMLDivElement, AccordionContentProps>(
   function AccordionContent({ className, children, ...rest }, ref) {
     const { isOpen, triggerId, contentId } = useAccordionItemContext();
 
+    if (!isOpen) return null;
+
     return (
       <div
         ref={ref}
         id={contentId}
         role="region"
         aria-labelledby={triggerId}
-        className={["mantle-content", isOpen && "mantle-contentOpen", className]
+        className={["mantle-contentBody", className]
           .filter(Boolean)
           .join(" ")}
         {...rest}
       >
-        <div className="mantle-contentInner">
-          <div className="mantle-contentBody">{children}</div>
-        </div>
+        {children}
       </div>
     );
   },

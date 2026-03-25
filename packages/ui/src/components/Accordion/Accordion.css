@@ -51,21 +51,6 @@
   transform: rotate(180deg);
 }
 
-.mantle-content {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows var(--mantle-duration-normal);
-}
-
-.mantle-contentOpen {
-  grid-template-rows: 1fr;
-}
-
-.mantle-contentInner {
-  overflow: hidden;
-  min-height: 0;
-}
-
 .mantle-contentBody {
   padding: 0 var(--mantle-space-4) var(--mantle-space-4);
   color: var(--mantle-color-text-muted);

@@ -141,8 +141,8 @@ describe("Accordion", () => {
   });
 
   describe("Accessibility", () => {
-    it("trigger has aria-controls pointing to content", () => {
-      renderAccordion();
+    it("trigger has aria-controls pointing to content when open", () => {
+      renderAccordion({ defaultValue: ["item-1"] });
       const trigger = screen.getByText("Section 1");
       const controlsId = trigger.getAttribute("aria-controls") ?? "";
       expect(controlsId).toBeTruthy();
