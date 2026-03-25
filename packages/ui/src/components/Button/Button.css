@@ -45,7 +45,7 @@
 }
 
 .mantle-outline {
-  background-color: rgba(255, 255, 255, 0.05);
+  background: transparent;
   border-color: var(--mantle-accent);
   color: var(--mantle-accent);
   -webkit-backdrop-filter: blur(8px);
@@ -53,16 +53,16 @@
 }
 
 .mantle-outline:hover:not(:disabled):not([aria-disabled="true"]) {
-  background-color: var(--mantle-accent-subtle);
+  background: linear-gradient(135deg, var(--mantle-accent-subtle), transparent);
 }
 
 .mantle-ghost {
-  background-color: transparent;
+  background: transparent;
   color: var(--mantle-accent);
 }
 
 .mantle-ghost:hover:not(:disabled):not([aria-disabled="true"]) {
-  background-color: rgba(255, 255, 255, 0.05);
+  background: linear-gradient(135deg, var(--mantle-accent-subtle), transparent);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
 }

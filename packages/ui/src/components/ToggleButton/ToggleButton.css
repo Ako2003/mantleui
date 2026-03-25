@@ -37,7 +37,7 @@
 
 /* Hover */
 .mantle-togglebutton:hover:not(:disabled) {
-  background-color: var(--mantle-accent-subtle);
+  background: linear-gradient(135deg, var(--mantle-accent-subtle), transparent);
   color: var(--mantle-accent);
 }
 
@@ -60,6 +60,7 @@
 
 /* Pressed + outline variant */
 .mantle-togglebutton-pressed.mantle-togglebutton-outline {
+  background: linear-gradient(135deg, var(--mantle-accent-subtle), transparent);
   border-color: var(--mantle-accent);
   color: var(--mantle-accent);
 }

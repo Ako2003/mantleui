@@ -21,11 +21,11 @@
 }
 
 .mantle-listbox-option:hover:not(.mantle-listbox-option-disabled) {
-  background-color: var(--mantle-accent-subtle);
+  background: linear-gradient(135deg, var(--mantle-accent-subtle), transparent);
 }
 
 .mantle-listbox-option-focused {
-  background-color: var(--mantle-accent-subtle);
+  background: linear-gradient(135deg, var(--mantle-accent-subtle), transparent);
   outline: none;
 }
 

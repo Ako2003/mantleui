@@ -80,7 +80,7 @@
 
 .mantle-autocompleteOption:hover,
 .mantle-autocompleteOptionHighlighted {
-  background-color: var(--mantle-accent-subtle);
+  background: linear-gradient(135deg, var(--mantle-accent-subtle), transparent);
 }
 
 .mantle-autocompleteOptionActive {
