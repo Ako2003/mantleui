@@ -1,0 +1,15 @@
+.mantle-separator {
+  border: none;
+  background-color: var(--mantle-color-border);
+  flex-shrink: 0;
+}
+
+.mantle-separator-horizontal {
+  height: 1px;
+  width: 100%;
+}
+
+.mantle-separator-vertical {
+  width: 1px;
+  height: 100%;
+}

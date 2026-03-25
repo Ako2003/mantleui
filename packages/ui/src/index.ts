@@ -8,6 +8,29 @@ export type { CheckboxProps } from "./components/Checkbox";
 export { Switch } from "./components/Switch";
 export type { SwitchProps } from "./components/Switch";
 
+export { Badge } from "./components/Badge";
+export type { BadgeProps, BadgeVariant, BadgeSize } from "./components/Badge";
+
+export { Alert } from "./components/Alert";
+export type { AlertProps, AlertVariant } from "./components/Alert";
+
+export { Card } from "./components/Card";
+export type {
+  CardProps,
+  CardHeaderProps,
+  CardBodyProps,
+  CardFooterProps,
+} from "./components/Card";
+
+export { Avatar } from "./components/Avatar";
+export type { AvatarProps, AvatarSize } from "./components/Avatar";
+
+export { Separator } from "./components/Separator";
+export type {
+  SeparatorProps,
+  SeparatorOrientation,
+} from "./components/Separator";
+
 export { Button } from "./components/Button";
 export type {
   ButtonProps,
