@@ -37,13 +37,15 @@
   position: absolute;
   top: 100%;
   left: 0;
-  z-index: 50;
+  z-index: 9999;
   min-width: 10rem;
   margin-top: var(--mantle-space-1);
   padding: var(--mantle-space-1) 0;
   border: 1px solid var(--mantle-color-border);
   border-radius: var(--mantle-radius-md);
-  background-color: var(--mantle-color-surface);
+  background-color: var(--mantle-color-bg-subtle);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   box-shadow: var(--mantle-shadow-md);
   font-family: var(--mantle-font-sans);
   font-size: var(--mantle-text-sm);
