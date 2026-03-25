@@ -40,31 +40,26 @@ render(<Demo />);`;
 const styledExample = `function Demo() {
   return (
     <div style={{ maxWidth: "400px" }}>
-      <Disclosure>
-        <Disclosure.Trigger>
-          <div style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "10px",
-            padding: "12px 16px",
-            borderRadius: "12px",
-            border: "1px solid var(--mantle-color-border)",
-            background: "linear-gradient(135deg, var(--mantle-accent-subtle), transparent)",
-            cursor: "pointer",
-          }}>
-            <span style={{ fontSize: "20px" }}>✨</span>
-            <div style={{ flex: 1 }}>
-              <div style={{ fontWeight: 600, fontSize: "14px", color: "var(--mantle-color-text)" }}>
-                Preview MantleUI Components
-              </div>
-              <div style={{ fontSize: "12px", color: "var(--mantle-color-text-muted)", marginTop: "2px" }}>
-                Click to explore the component showcase
-              </div>
+      <Disclosure style={{ border: "none", borderRadius: 0, overflow: "visible" }}>
+        <Disclosure.Trigger style={{
+          padding: 0,
+          background: "linear-gradient(135deg, var(--mantle-accent-subtle), transparent)",
+          border: "1px solid var(--mantle-color-border)",
+          borderRadius: "12px",
+          gap: "10px",
+          padding: "12px 16px",
+        }}>
+          <span style={{ fontSize: "20px" }}>✨</span>
+          <div style={{ flex: 1, textAlign: "left" }}>
+            <div style={{ fontWeight: 600, fontSize: "14px", color: "var(--mantle-color-text)" }}>
+              Preview MantleUI Components
             </div>
-            <span style={{ fontSize: "12px", color: "var(--mantle-accent)" }}>▼</span>
+            <div style={{ fontSize: "12px", color: "var(--mantle-color-text-muted)", marginTop: "2px" }}>
+              Click to explore the component showcase
+            </div>
           </div>
         </Disclosure.Trigger>
-        <Disclosure.Content>
+        <Disclosure.Content style={{ borderTop: "none", padding: 0 }}>
           <div style={{
             marginTop: "8px",
             padding: "20px",
