@@ -1,4 +1,5 @@
 import type { ButtonHTMLAttributes, HTMLAttributes } from "react";
+import type { MantleColor } from "../../theme/colors";
 
 export interface AccordionProps extends Omit<
   HTMLAttributes<HTMLDivElement>,
@@ -12,6 +13,8 @@ export interface AccordionProps extends Omit<
   onValueChange?: (value: string[]) => void;
   /** Whether multiple items can be open at once. Defaults to `false`. */
   multiple?: boolean;
+  /** Accent color. Defaults to `"blue"`. */
+  color?: MantleColor;
 }
 
 export interface AccordionItemProps extends HTMLAttributes<HTMLDivElement> {

@@ -1,5 +1,6 @@
 import type { ElementType, ReactNode } from "react";
 import type { PolymorphicComponentPropsWithRef } from "../../utils";
+import type { MantleColor } from "../../theme/colors";
 
 export type ButtonVariant = "solid" | "outline" | "ghost";
 export type ButtonSize = "sm" | "md" | "lg";
@@ -9,6 +10,8 @@ export interface ButtonOwnProps {
   variant?: ButtonVariant;
   /** Size preset. */
   size?: ButtonSize;
+  /** Accent color. Defaults to `"blue"`. */
+  color?: MantleColor;
   /** Shows a loading spinner and disables interaction. */
   loading?: boolean;
   /** Element placed before the label. */

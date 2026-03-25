@@ -29,7 +29,7 @@
 }
 
 .mantle-sortable:focus-visible {
-  outline: var(--mantle-ring-width) solid var(--mantle-ring-color);
+  outline: var(--mantle-ring-width) solid var(--mantle-accent);
   outline-offset: calc(-1 * var(--mantle-ring-width));
 }
 
@@ -41,7 +41,7 @@
 
 .mantle-sortActive {
   opacity: 1;
-  color: var(--mantle-color-primary);
+  color: var(--mantle-accent);
 }
 
 .mantle-cell {
@@ -92,7 +92,7 @@
 }
 
 .mantle-pageButton:focus-visible {
-  outline: var(--mantle-ring-width) solid var(--mantle-ring-color);
+  outline: var(--mantle-ring-width) solid var(--mantle-accent);
   outline-offset: var(--mantle-ring-offset);
 }
 

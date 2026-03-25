@@ -20,19 +20,19 @@
 }
 
 .mantle-toggle:hover:not(:disabled) {
-  background-color: var(--mantle-color-bg-muted);
-  color: var(--mantle-color-text);
+  background-color: var(--mantle-accent-subtle);
+  color: var(--mantle-accent);
 }
 
 .mantle-toggle:focus-visible {
-  outline: var(--mantle-ring-width) solid var(--mantle-ring-color);
+  outline: var(--mantle-ring-width) solid var(--mantle-accent);
   outline-offset: var(--mantle-ring-offset);
 }
 
 .mantle-pressed {
-  background-color: var(--mantle-color-bg-muted);
-  border-color: var(--mantle-color-border-hover);
-  color: var(--mantle-color-text);
+  background-color: var(--mantle-accent-subtle);
+  border-color: var(--mantle-accent);
+  color: var(--mantle-accent);
 }
 
 .mantle-toggle:disabled {

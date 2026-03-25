@@ -48,6 +48,7 @@ function DataTableInner<T>(
     columns,
     pageSize = 0,
     emptyState,
+    color = "blue",
     className,
     ...rest
   }: DataTableProps<T>,
@@ -58,6 +59,7 @@ function DataTableInner<T>(
   return (
     <div
       ref={ref}
+      data-color={color}
       className={["mantle-wrapper", className].filter(Boolean).join(" ")}
       {...rest}
     >

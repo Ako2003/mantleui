@@ -12,7 +12,15 @@ import "./Tabs.css";
 /* ─── Root ─── */
 
 const TabsRoot = forwardRef<HTMLDivElement, TabsProps>(function TabsRoot(
-  { value, defaultValue = "", onValueChange, className, children, ...rest },
+  {
+    value,
+    defaultValue = "",
+    onValueChange,
+    color = "blue",
+    className,
+    children,
+    ...rest
+  },
   ref,
 ) {
   const [activeTab, setActiveTab] = useControllable({
@@ -32,6 +40,7 @@ const TabsRoot = forwardRef<HTMLDivElement, TabsProps>(function TabsRoot(
     <TabsContext.Provider value={contextValue}>
       <div
         ref={ref}
+        data-color={color}
         className={["mantle-tabs", className].filter(Boolean).join(" ")}
         {...rest}
       >

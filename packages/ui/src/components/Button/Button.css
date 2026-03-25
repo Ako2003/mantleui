@@ -18,42 +18,41 @@
 }
 
 .mantle-button:focus-visible {
-  outline: var(--mantle-ring-width) solid var(--mantle-ring-color);
+  outline: var(--mantle-ring-width) solid var(--mantle-accent);
   outline-offset: var(--mantle-ring-offset);
 }
 
 /* Variants */
 .mantle-solid {
-  background-color: var(--mantle-color-primary);
-  color: #fff;
+  background-color: var(--mantle-accent);
+  color: var(--mantle-accent-text);
 }
 
 .mantle-solid:hover:not(:disabled):not([aria-disabled="true"]) {
-  background-color: var(--mantle-color-primary-hover);
+  background-color: var(--mantle-accent-hover);
 }
 
 .mantle-solid:active:not(:disabled):not([aria-disabled="true"]) {
-  background-color: var(--mantle-color-primary-active);
+  background-color: var(--mantle-accent-active);
 }
 
 .mantle-outline {
   background-color: transparent;
-  border-color: var(--mantle-color-border);
-  color: var(--mantle-color-text);
+  border-color: var(--mantle-accent);
+  color: var(--mantle-accent);
 }
 
 .mantle-outline:hover:not(:disabled):not([aria-disabled="true"]) {
-  background-color: var(--mantle-color-bg-muted);
-  border-color: var(--mantle-color-border-hover);
+  background-color: var(--mantle-accent-subtle);
 }
 
 .mantle-ghost {
   background-color: transparent;
-  color: var(--mantle-color-text);
+  color: var(--mantle-accent);
 }
 
 .mantle-ghost:hover:not(:disabled):not([aria-disabled="true"]) {
-  background-color: var(--mantle-color-bg-muted);
+  background-color: var(--mantle-accent-subtle);
 }
 
 /* Sizes */

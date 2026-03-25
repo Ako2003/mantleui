@@ -24,6 +24,7 @@ const AccordionRoot = forwardRef<HTMLDivElement, AccordionProps>(
       defaultValue = [],
       onValueChange,
       multiple = false,
+      color = "blue",
       className,
       children,
       ...rest
@@ -58,6 +59,7 @@ const AccordionRoot = forwardRef<HTMLDivElement, AccordionProps>(
       <AccordionContext.Provider value={contextValue}>
         <div
           ref={ref}
+          data-color={color}
           className={["mantle-accordion", className].filter(Boolean).join(" ")}
           {...rest}
         >
@@ -148,9 +150,7 @@ const AccordionContent = forwardRef<HTMLDivElement, AccordionContentProps>(
         id={contentId}
         role="region"
         aria-labelledby={triggerId}
-        className={["mantle-contentBody", className]
-          .filter(Boolean)
-          .join(" ")}
+        className={["mantle-contentBody", className].filter(Boolean).join(" ")}
         {...rest}
       >
         {children}

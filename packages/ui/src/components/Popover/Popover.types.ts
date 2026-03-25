@@ -1,4 +1,5 @@
 import type { HTMLAttributes, ReactNode } from "react";
+import type { MantleColor } from "../../theme/colors";
 
 export type PopoverPlacement = "top" | "bottom" | "left" | "right";
 
@@ -12,6 +13,8 @@ export interface PopoverProps {
   onOpenChange?: (open: boolean) => void;
   /** Preferred placement relative to the trigger. Defaults to `"bottom"`. */
   placement?: PopoverPlacement;
+  /** Accent color. Defaults to `"blue"`. */
+  color?: MantleColor;
 }
 
 export type PopoverTriggerProps = HTMLAttributes<HTMLButtonElement>;

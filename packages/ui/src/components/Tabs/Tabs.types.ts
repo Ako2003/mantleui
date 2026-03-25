@@ -1,4 +1,5 @@
 import type { ButtonHTMLAttributes, HTMLAttributes } from "react";
+import type { MantleColor } from "../../theme/colors";
 
 export interface TabsProps extends Omit<
   HTMLAttributes<HTMLDivElement>,
@@ -10,6 +11,8 @@ export interface TabsProps extends Omit<
   defaultValue?: string;
   /** Called when the active tab changes. */
   onValueChange?: (value: string) => void;
+  /** Accent color. Defaults to `"blue"`. */
+  color?: MantleColor;
 }
 
 export type TabsListProps = HTMLAttributes<HTMLDivElement>;

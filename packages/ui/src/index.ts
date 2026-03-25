@@ -48,7 +48,12 @@ export type {
 
 // Theme
 export { ThemeProvider, useTheme } from "./theme";
-export type { ThemeProviderProps, ThemeContextValue, ThemeMode } from "./theme";
+export type {
+  ThemeProviderProps,
+  ThemeContextValue,
+  ThemeMode,
+  MantleColor,
+} from "./theme";
 
 // Hooks
 export { useComposedRefs } from "./hooks";

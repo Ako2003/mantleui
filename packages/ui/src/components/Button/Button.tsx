@@ -23,6 +23,7 @@ function ButtonInner(
     as,
     variant = "solid",
     size = "md",
+    color = "blue",
     loading = false,
     disabled = false,
     startIcon,
@@ -39,6 +40,7 @@ function ButtonInner(
   return (
     <Component
       ref={ref}
+      data-color={color}
       disabled={Component === "button" ? isDisabled : undefined}
       aria-disabled={isDisabled || undefined}
       aria-busy={loading || undefined}

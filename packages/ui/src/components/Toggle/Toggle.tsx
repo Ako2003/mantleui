@@ -22,6 +22,7 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
       pressed,
       defaultPressed = false,
       onPressedChange,
+      color = "blue",
       disabled,
       onClick,
       className,
@@ -46,6 +47,7 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
       <button
         ref={ref}
         type="button"
+        data-color={color}
         aria-pressed={isPressed}
         disabled={disabled}
         onClick={handleClick}

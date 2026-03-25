@@ -18,6 +18,6 @@
 }
 
 .mantle-content:focus-visible {
-  outline: var(--mantle-ring-width) solid var(--mantle-ring-color);
+  outline: var(--mantle-ring-width) solid var(--mantle-accent);
   outline-offset: var(--mantle-ring-offset);
 }

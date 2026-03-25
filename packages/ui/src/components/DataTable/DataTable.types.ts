@@ -1,4 +1,5 @@
 import type { HTMLAttributes, ReactNode } from "react";
+import type { MantleColor } from "../../theme/colors";
 
 export type SortDirection = "asc" | "desc" | null;
 
@@ -27,6 +28,8 @@ export interface DataTableProps<T> extends HTMLAttributes<HTMLDivElement> {
   pageSize?: number;
   /** Render prop for empty state. */
   emptyState?: () => ReactNode;
+  /** Accent color. Defaults to `"blue"`. */
+  color?: MantleColor;
 }
 
 export interface UseDataTableOptions<T> {

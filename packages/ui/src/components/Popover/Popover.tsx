@@ -17,12 +17,15 @@ function PopoverRoot({
   defaultOpen,
   onOpenChange,
   placement,
+  color = "blue",
 }: PopoverProps) {
   const popover = usePopover({ open, defaultOpen, onOpenChange, placement });
 
   return (
     <PopoverContext.Provider value={popover}>
-      <div className="mantle-anchor">{children}</div>
+      <div className="mantle-anchor" data-color={color}>
+        {children}
+      </div>
     </PopoverContext.Provider>
   );
 }
