@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Providers } from "@/components/Providers";
 import { Sidebar } from "@/components/Sidebar";
+import { MobileNav } from "@/components/MobileNav";
 import { OnThisPage } from "@/components/OnThisPage";
 import { PageTransition } from "@/components/PageTransition";
 import "./globals.css";
@@ -20,9 +21,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className="bg-white text-slate-900 dark:bg-zinc-950 dark:text-zinc-50 antialiased">
         <Providers>
+          <MobileNav />
           <div className="flex min-h-screen">
             <Sidebar />
-            <main className="flex-1 px-8 py-10 lg:px-16">
+            <main className="flex-1 px-4 py-6 sm:px-8 sm:py-10 lg:px-16">
               <div className="mx-auto max-w-3xl">
                 <PageTransition>{children}</PageTransition>
               </div>
