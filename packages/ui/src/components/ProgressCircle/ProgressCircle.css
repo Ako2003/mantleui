@@ -1,0 +1,44 @@
+.mantle-progress-circle {
+  transform: rotate(-90deg);
+}
+
+.mantle-progress-circle-track {
+  stroke: var(--mantle-border);
+  opacity: 0.25;
+  fill: none;
+}
+
+.mantle-progress-circle-arc {
+  stroke: var(--mantle-accent);
+  fill: none;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+/* Wrapper for centering value text */
+.mantle-progress-circle-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mantle-progress-circle-value {
+  position: absolute;
+  font-family: var(--mantle-font-sans);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  color: var(--mantle-fg);
+}
+
+.mantle-progress-circle-value-sm {
+  font-size: var(--mantle-text-xs);
+}
+
+.mantle-progress-circle-value-md {
+  font-size: var(--mantle-text-sm);
+}
+
+.mantle-progress-circle-value-lg {
+  font-size: var(--mantle-text-base);
+}
