@@ -37,6 +37,136 @@ const controlledExample = `function Demo() {
 
 render(<Demo />);`;
 
+const styledExample = `function Demo() {
+  return (
+    <div style={{ maxWidth: "400px" }}>
+      <Disclosure>
+        <Disclosure.Trigger>
+          <div style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "10px",
+            padding: "12px 16px",
+            borderRadius: "12px",
+            border: "1px solid var(--mantle-color-border)",
+            background: "linear-gradient(135deg, var(--mantle-accent-subtle), transparent)",
+            cursor: "pointer",
+          }}>
+            <span style={{ fontSize: "20px" }}>✨</span>
+            <div style={{ flex: 1 }}>
+              <div style={{ fontWeight: 600, fontSize: "14px", color: "var(--mantle-color-text)" }}>
+                Preview MantleUI Components
+              </div>
+              <div style={{ fontSize: "12px", color: "var(--mantle-color-text-muted)", marginTop: "2px" }}>
+                Click to explore the component showcase
+              </div>
+            </div>
+            <span style={{ fontSize: "12px", color: "var(--mantle-accent)" }}>▼</span>
+          </div>
+        </Disclosure.Trigger>
+        <Disclosure.Content>
+          <div style={{
+            marginTop: "8px",
+            padding: "20px",
+            borderRadius: "12px",
+            border: "1px solid var(--mantle-color-border)",
+            backdropFilter: "blur(12px)",
+            background: "var(--mantle-color-bg-subtle)",
+          }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "12px" }}>
+              {[
+                { icon: "🎨", label: "Themes", desc: "6 colors" },
+                { icon: "🧩", label: "Components", desc: "56 total" },
+                { icon: "✅", label: "Tests", desc: "651 passing" },
+                { icon: "♿", label: "A11y", desc: "ARIA ready" },
+                { icon: "🌙", label: "Dark Mode", desc: "Built-in" },
+                { icon: "📱", label: "Responsive", desc: "Mobile first" },
+              ].map((item) => (
+                <div key={item.label} style={{
+                  textAlign: "center",
+                  padding: "12px 8px",
+                  borderRadius: "8px",
+                  border: "1px solid var(--mantle-color-border)",
+                  background: "var(--mantle-color-bg-muted)",
+                }}>
+                  <div style={{ fontSize: "24px" }}>{item.icon}</div>
+                  <div style={{ fontSize: "13px", fontWeight: 600, color: "var(--mantle-color-text)", marginTop: "6px" }}>
+                    {item.label}
+                  </div>
+                  <div style={{ fontSize: "11px", color: "var(--mantle-color-text-muted)", marginTop: "2px" }}>
+                    {item.desc}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div style={{
+              marginTop: "16px",
+              padding: "12px",
+              borderRadius: "8px",
+              background: "linear-gradient(135deg, var(--mantle-accent), var(--mantle-accent-hover))",
+              color: "white",
+              textAlign: "center",
+              fontSize: "13px",
+              fontWeight: 600,
+              cursor: "pointer",
+            }}>
+              Get Started with MantleUI →
+            </div>
+          </div>
+        </Disclosure.Content>
+      </Disclosure>
+    </div>
+  );
+}
+
+render(<Demo />);`;
+
+const faqExample = `function Demo() {
+  const faqs = [
+    { q: "What is MantleUI?", a: "A modern React component library with 56+ components, built with accessibility, dark mode, and clean architecture in mind." },
+    { q: "Is it free to use?", a: "Yes! MantleUI is open source and free for both personal and commercial projects." },
+    { q: "Does it support dark mode?", a: "Absolutely. Every component has built-in dark mode support via CSS custom properties and a ThemeProvider." },
+  ];
+
+  return (
+    <div style={{ maxWidth: "480px", display: "flex", flexDirection: "column", gap: "8px" }}>
+      {faqs.map((faq) => (
+        <Disclosure key={faq.q}>
+          <Disclosure.Trigger>
+            <div style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              padding: "12px 16px",
+              borderRadius: "10px",
+              border: "1px solid var(--mantle-color-border)",
+              fontSize: "14px",
+              fontWeight: 500,
+              color: "var(--mantle-color-text)",
+              cursor: "pointer",
+            }}>
+              {faq.q}
+              <span style={{ color: "var(--mantle-color-text-muted)", fontSize: "12px" }}>+</span>
+            </div>
+          </Disclosure.Trigger>
+          <Disclosure.Content>
+            <div style={{
+              padding: "8px 16px 12px",
+              fontSize: "13px",
+              lineHeight: "1.6",
+              color: "var(--mantle-color-text-muted)",
+            }}>
+              {faq.a}
+            </div>
+          </Disclosure.Content>
+        </Disclosure>
+      ))}
+    </div>
+  );
+}
+
+render(<Demo />);`;
+
 const disclosureProps = [
   {
     name: "open",
@@ -85,6 +215,23 @@ export default function DisclosurePage() {
       <h2 className="mt-10 text-xl font-semibold">Controlled</h2>
       <div className="mt-4">
         <LivePlayground code={controlledExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Styled Card</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        A rich, visually polished disclosure with a gradient trigger and a grid
+        of features inside.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={styledExample} noEditor />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">FAQ</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Multiple disclosures styled as a FAQ section.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={faqExample} noEditor />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>
