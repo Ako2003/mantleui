@@ -11,6 +11,10 @@
   color: var(--mantle-color-text);
 }
 
+.mantle-inputLabelError {
+  color: var(--mantle-color-danger);
+}
+
 .mantle-inputContainer {
   display: flex;
   align-items: center;

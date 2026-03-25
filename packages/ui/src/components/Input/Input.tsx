@@ -41,7 +41,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   return (
     <div className="mantle-inputWrapper" data-color={color}>
       {label && (
-        <label htmlFor={id} className="mantle-inputLabel">
+        <label
+          htmlFor={id}
+          className={["mantle-inputLabel", error && "mantle-inputLabelError"]
+            .filter(Boolean)
+            .join(" ")}
+        >
           {label}
         </label>
       )}
