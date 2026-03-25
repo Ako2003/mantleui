@@ -1,0 +1,19 @@
+.mantle-kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mantle-font-mono);
+  font-size: var(--mantle-text-xs);
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  padding: 0 var(--mantle-space-2);
+  color: var(--mantle-fg);
+  background: var(--mantle-bg-subtle);
+  border: 1px solid var(--mantle-border);
+  border-bottom-width: 2px;
+  border-radius: var(--mantle-radius-sm);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+}

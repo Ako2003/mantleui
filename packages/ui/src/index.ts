@@ -31,6 +31,27 @@ export type {
 export { Calendar } from "./components/Calendar";
 export type { CalendarProps } from "./components/Calendar";
 
+export {
+  CheckboxGroup,
+  CheckboxGroupContext,
+} from "./components/CheckboxGroup";
+export type {
+  CheckboxGroupProps,
+  CheckboxGroupContextValue,
+} from "./components/CheckboxGroup";
+
+export { Chip } from "./components/Chip";
+export type { ChipProps } from "./components/Chip";
+
+export { CloseButton } from "./components/CloseButton";
+export type { CloseButtonProps } from "./components/CloseButton";
+
+export { ColorSwatch } from "./components/ColorSwatch";
+export type { ColorSwatchProps } from "./components/ColorSwatch";
+
+export { Kbd } from "./components/Kbd";
+export type { KbdProps } from "./components/Kbd";
+
 export { Input } from "./components/Input";
 export type { InputProps, InputSize } from "./components/Input";
 
