@@ -1,0 +1,40 @@
+.mantle-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--mantle-radius-full);
+  font-family: var(--mantle-font-sans);
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Sizes */
+.mantle-badge.mantle-badge-sm {
+  height: 1.25rem;
+  padding: 0 var(--mantle-space-2);
+  font-size: var(--mantle-text-xs);
+}
+
+.mantle-badge.mantle-badge-md {
+  height: 1.5rem;
+  padding: 0 var(--mantle-space-3);
+  font-size: var(--mantle-text-sm);
+}
+
+/* Variants */
+.mantle-badge.mantle-badge-solid {
+  background-color: var(--mantle-accent);
+  color: var(--mantle-accent-text);
+}
+
+.mantle-badge.mantle-badge-outline {
+  background-color: transparent;
+  border: 1px solid var(--mantle-accent);
+  color: var(--mantle-accent);
+}
+
+.mantle-badge.mantle-badge-subtle {
+  background-color: var(--mantle-accent-subtle);
+  color: var(--mantle-accent);
+}
