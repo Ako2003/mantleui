@@ -73,6 +73,36 @@ export type {
   ProgressCircleSize,
 } from "./components/ProgressCircle";
 
+export { Modal } from "./components/Modal";
+export type {
+  ModalProps,
+  ModalContentProps,
+  ModalHeaderProps,
+  ModalBodyProps,
+  ModalFooterProps,
+} from "./components/Modal";
+
+export { Drawer } from "./components/Drawer";
+export type { DrawerProps, DrawerSide } from "./components/Drawer";
+
+export { Tooltip } from "./components/Tooltip";
+export type {
+  TooltipProps,
+  TooltipTriggerProps,
+  TooltipContentProps,
+  TooltipSide,
+} from "./components/Tooltip";
+
+export { Disclosure } from "./components/Disclosure";
+export type {
+  DisclosureProps,
+  DisclosureTriggerProps,
+  DisclosureContentProps,
+} from "./components/Disclosure";
+
+export { DisclosureGroup } from "./components/DisclosureGroup";
+export type { DisclosureGroupProps } from "./components/DisclosureGroup";
+
 export { Input } from "./components/Input";
 export type { InputProps, InputSize } from "./components/Input";
 
