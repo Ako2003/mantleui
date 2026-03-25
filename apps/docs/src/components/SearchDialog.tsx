@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { useRouter } from "next/navigation";
 import { searchData } from "@/lib/search-data";
 
@@ -161,7 +162,7 @@ export function SearchDialog() {
     );
   }
 
-  return (
+  return createPortal(
     <>
       <div
         className="fixed inset-0 z-[99998] bg-black/50 backdrop-blur-sm"
@@ -245,7 +246,8 @@ export function SearchDialog() {
           </div>
         </div>
       </div>
-    </>
+    </>,
+    document.body,
   );
 }
 
