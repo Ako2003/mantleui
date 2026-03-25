@@ -8,13 +8,13 @@
   z-index: 10000;
   padding: var(--mantle-space-1) var(--mantle-space-2);
   border-radius: var(--mantle-radius-md);
-  background-color: var(--mantle-color-bg-inverse);
-  color: var(--mantle-color-text-inverse);
+  background-color: var(--mantle-color-text);
+  color: var(--mantle-color-bg);
   font-family: var(--mantle-font-sans);
   font-size: var(--mantle-text-xs);
   line-height: 1.4;
   white-space: nowrap;
-  box-shadow: var(--mantle-shadow-sm);
+  box-shadow: var(--mantle-shadow-md);
   pointer-events: none;
   animation: mantle-tooltip-in 150ms ease-out;
 }
@@ -22,40 +22,34 @@
 /* ─── Side positioning ─── */
 
 .mantle-tooltip--top {
-  bottom: 100%;
+  bottom: calc(100% + 6px);
   left: 50%;
   transform: translateX(-50%);
-  margin-bottom: var(--mantle-space-1);
 }
 
 .mantle-tooltip--bottom {
-  top: 100%;
+  top: calc(100% + 6px);
   left: 50%;
   transform: translateX(-50%);
-  margin-top: var(--mantle-space-1);
 }
 
 .mantle-tooltip--left {
-  right: 100%;
+  right: calc(100% + 6px);
   top: 50%;
   transform: translateY(-50%);
-  margin-right: var(--mantle-space-1);
 }
 
 .mantle-tooltip--right {
-  left: 100%;
+  left: calc(100% + 6px);
   top: 50%;
   transform: translateY(-50%);
-  margin-left: var(--mantle-space-1);
 }
 
 @keyframes mantle-tooltip-in {
   from {
     opacity: 0;
-    transform: translateY(2px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
