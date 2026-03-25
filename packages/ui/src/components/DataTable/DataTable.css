@@ -1,5 +1,9 @@
 .mantle-wrapper {
   overflow-x: auto;
+  border: 1px solid var(--mantle-color-border);
+  border-radius: var(--mantle-radius-lg);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
 }
 
 .mantle-table {
@@ -11,21 +15,29 @@
 
 .mantle-headerCell {
   padding: var(--mantle-space-3) var(--mantle-space-4);
-  border-bottom: 2px solid var(--mantle-color-border);
-  background-color: var(--mantle-color-bg-subtle);
+  background: linear-gradient(
+    180deg,
+    var(--mantle-color-bg-muted),
+    var(--mantle-color-bg-subtle)
+  );
   color: var(--mantle-color-text-muted);
   font-weight: 600;
+  font-size: var(--mantle-text-xs);
   text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   white-space: nowrap;
+  border-bottom: 1px solid var(--mantle-color-border);
 }
 
 .mantle-sortable {
   cursor: pointer;
   user-select: none;
+  transition: color var(--mantle-duration-fast);
 }
 
 .mantle-sortable:hover {
-  color: var(--mantle-color-text);
+  color: var(--mantle-accent);
 }
 
 .mantle-sortable:focus-visible {
@@ -36,7 +48,8 @@
 .mantle-sortIndicator {
   display: inline-block;
   margin-left: var(--mantle-space-1);
-  opacity: 0.5;
+  opacity: 0.4;
+  transition: opacity var(--mantle-duration-fast);
 }
 
 .mantle-sortActive {
@@ -50,8 +63,20 @@
   color: var(--mantle-color-text);
 }
 
+.mantle-row {
+  transition: background-color var(--mantle-duration-fast);
+}
+
 .mantle-row:hover {
-  background-color: var(--mantle-color-bg-subtle);
+  background: linear-gradient(
+    135deg,
+    var(--mantle-accent-subtle),
+    transparent
+  );
+}
+
+.mantle-row:last-child .mantle-cell {
+  border-bottom: none;
 }
 
 .mantle-emptyRow {
@@ -66,7 +91,7 @@
   justify-content: space-between;
   padding: var(--mantle-space-3) var(--mantle-space-4);
   border-top: 1px solid var(--mantle-color-border);
-  font-size: var(--mantle-text-sm);
+  font-size: var(--mantle-text-xs);
   color: var(--mantle-color-text-muted);
 }
 
@@ -77,17 +102,27 @@
   background: transparent;
   color: var(--mantle-color-text);
   font-family: var(--mantle-font-sans);
-  font-size: var(--mantle-text-sm);
+  font-size: var(--mantle-text-xs);
   cursor: pointer;
-  transition: background-color var(--mantle-duration-fast);
+  transition: all var(--mantle-duration-fast);
 }
 
 .mantle-pageButton:hover:not(:disabled) {
-  background-color: var(--mantle-color-bg-muted);
+  background: linear-gradient(
+    135deg,
+    var(--mantle-accent-subtle),
+    transparent
+  );
+  border-color: var(--mantle-accent);
+  color: var(--mantle-accent);
+}
+
+.mantle-pageButton:active:not(:disabled) {
+  transform: scale(0.97);
 }
 
 .mantle-pageButton:disabled {
-  opacity: 0.5;
+  opacity: 0.4;
   cursor: not-allowed;
 }
 
