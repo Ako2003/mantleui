@@ -35,7 +35,7 @@ export function PropsTable({ props }: PropsTableProps) {
               <td className="px-3 py-2 text-slate-600 dark:text-zinc-400">
                 <code className="text-xs">{prop.type}</code>
               </td>
-              <td className="px-3 py-2 text-slate-500">
+              <td className="px-3 py-2 text-slate-500 dark:text-sky-400">
                 {prop.default ? (
                   <code className="text-xs">{prop.default}</code>
                 ) : (
