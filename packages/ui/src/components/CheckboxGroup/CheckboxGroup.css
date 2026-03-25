@@ -1,0 +1,24 @@
+.mantle-checkboxgroup {
+  border: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: var(--mantle-space-3);
+}
+
+.mantle-checkboxgroup-legend {
+  font-family: var(--mantle-font-sans);
+  font-size: var(--mantle-text-sm);
+  font-weight: 500;
+  color: var(--mantle-fg);
+  margin-bottom: var(--mantle-space-2);
+}
+
+.mantle-checkboxgroup-vertical {
+  flex-direction: column;
+}
+
+.mantle-checkboxgroup-horizontal {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
