@@ -1,9 +1,22 @@
 "use client";
 
+import { useSyncExternalStore } from "react";
 import { useTheme } from "@mantleui/react";
+
+const emptySubscribe = () => () => {};
 
 export function ThemeToggle() {
   const { resolvedTheme, setMode } = useTheme();
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false,
+  );
+
+  // Render a placeholder with fixed dimensions to avoid layout shift
+  if (!mounted) {
+    return <div className="h-[30px] w-[30px]" />;
+  }
 
   return (
     <button

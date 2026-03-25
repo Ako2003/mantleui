@@ -42,16 +42,22 @@ export function ThemeProvider({
   defaultMode = "system",
   storageKey = STORAGE_KEY,
 }: ThemeProviderProps) {
-  const [mode, setModeState] = useState<ThemeMode>(() => {
-    if (typeof window === "undefined" || storageKey === false) {
-      return defaultMode;
+  // Always start with defaultMode on both server and client to avoid hydration mismatch.
+  // localStorage is read in an effect after mount.
+  const [mode, setModeState] = useState<ThemeMode>(defaultMode);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    if (storageKey === false) {
+      setMounted(true);
+      return;
     }
     const stored = localStorage.getItem(storageKey);
     if (stored === "light" || stored === "dark" || stored === "system") {
-      return stored;
+      setModeState(stored);
     }
-    return defaultMode;
-  });
+    setMounted(true);
+  }, [storageKey]);
 
   const systemTheme = useSyncExternalStore(
     subscribeToSystemTheme,
@@ -73,8 +79,10 @@ export function ThemeProvider({
 
   // Apply data-theme attribute to document
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", resolvedTheme);
-  }, [resolvedTheme]);
+    if (mounted) {
+      document.documentElement.setAttribute("data-theme", resolvedTheme);
+    }
+  }, [resolvedTheme, mounted]);
 
   const value = useMemo<ThemeContextValue>(
     () => ({ resolvedTheme, mode, setMode }),
