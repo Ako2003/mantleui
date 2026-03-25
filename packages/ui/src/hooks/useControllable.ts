@@ -30,14 +30,12 @@ export function useControllable<T>({
   const valueRef = useRef(controlledValue ?? defaultValue);
 
   useEffect(() => {
-    if (process.env.NODE_ENV !== "production") {
-      if (isControlledRef.current !== isControlled) {
-        console.warn(
-          "A component switched between controlled and uncontrolled mode. " +
-            "This is likely a bug. Decide between using a controlled or " +
-            "uncontrolled value for the lifetime of the component.",
-        );
-      }
+    if (isControlledRef.current !== isControlled) {
+      console.warn(
+        "A component switched between controlled and uncontrolled mode. " +
+          "This is likely a bug. Decide between using a controlled or " +
+          "uncontrolled value for the lifetime of the component.",
+      );
     }
     isControlledRef.current = isControlled;
   }, [isControlled]);

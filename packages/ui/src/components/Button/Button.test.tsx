@@ -129,7 +129,7 @@ describe("Button", () => {
 
     it("does not set native disabled on non-button elements", () => {
       render(
-        <Button as="a" href="/" disabled>
+        <Button as="a" href="/" aria-disabled="true">
           Link
         </Button>,
       );

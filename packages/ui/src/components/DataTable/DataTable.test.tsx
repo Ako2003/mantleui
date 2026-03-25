@@ -49,7 +49,7 @@ describe("DataTable (component)", () => {
     it("renders custom cell via render prop", () => {
       render(<DataTable data={testData} columns={columns} />);
       const strongElements = screen.getAllByText("30");
-      expect(strongElements[0].tagName).toBe("STRONG");
+      expect(strongElements.at(0)?.tagName).toBe("STRONG");
     });
 
     it("renders empty state when data is empty", () => {
@@ -77,7 +77,9 @@ describe("DataTable (component)", () => {
       await user.click(screen.getByText("Name"));
       const rows = screen.getAllByRole("row");
       // Header + 5 data rows; first data row should be Alice (ascending)
-      expect(within(rows[1]).getByText("Alice")).toBeInTheDocument();
+      expect(
+        within(rows.at(1) as HTMLElement).getByText("Alice"),
+      ).toBeInTheDocument();
     });
 
     it("sorts descending on second click", async () => {
@@ -88,7 +90,9 @@ describe("DataTable (component)", () => {
       await user.click(screen.getByText("Name"));
 
       const rows = screen.getAllByRole("row");
-      expect(within(rows[1]).getByText("Eve")).toBeInTheDocument();
+      expect(
+        within(rows.at(1) as HTMLElement).getByText("Eve"),
+      ).toBeInTheDocument();
     });
 
     it("removes sort on third click", async () => {
@@ -101,7 +105,9 @@ describe("DataTable (component)", () => {
 
       // Back to original order
       const rows = screen.getAllByRole("row");
-      expect(within(rows[1]).getByText("Alice")).toBeInTheDocument();
+      expect(
+        within(rows.at(1) as HTMLElement).getByText("Alice"),
+      ).toBeInTheDocument();
     });
 
     it("does not sort on non-sortable column click", async () => {
@@ -111,7 +117,9 @@ describe("DataTable (component)", () => {
       await user.click(screen.getByText("Email"));
       // Original order preserved
       const rows = screen.getAllByRole("row");
-      expect(within(rows[1]).getByText("Alice")).toBeInTheDocument();
+      expect(
+        within(rows.at(1) as HTMLElement).getByText("Alice"),
+      ).toBeInTheDocument();
     });
 
     it("sets aria-sort on active column", async () => {
@@ -242,8 +250,8 @@ describe("useDataTable (headless)", () => {
       useDataTable({ data: testData, columns }),
     );
 
-    const ageCol = columns.find((c) => c.key === "age") ?? columns[0];
-    const value = result.current.getCellValue(testData[0], ageCol);
+    const ageCol = columns.find((c) => c.key === "age") as ColumnDef<User>;
+    const value = result.current.getCellValue(testData[0] as User, ageCol);
     // render prop returns a ReactElement, not a string
     expect(value).not.toBe("30");
   });
@@ -253,8 +261,8 @@ describe("useDataTable (headless)", () => {
       useDataTable({ data: testData, columns }),
     );
 
-    const emailCol = columns.find((c) => c.key === "email") ?? columns[0];
-    const value = result.current.getCellValue(testData[0], emailCol);
+    const emailCol = columns.find((c) => c.key === "email") as ColumnDef<User>;
+    const value = result.current.getCellValue(testData[0] as User, emailCol);
     expect(value).toBe("alice@example.com");
   });
 });
