@@ -1,0 +1,51 @@
+.mantle-timeField {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--mantle-space-1);
+  font-family: var(--mantle-font-sans);
+}
+
+.mantle-timeFieldLabel {
+  font-size: var(--mantle-text-sm);
+  font-weight: 500;
+  color: var(--mantle-color-text);
+}
+
+.mantle-timeFieldInput {
+  height: 2.5rem;
+  padding: 0 var(--mantle-space-3);
+  border: 1px solid var(--mantle-color-border);
+  border-radius: var(--mantle-radius-md);
+  background-color: transparent;
+  color: var(--mantle-color-text);
+  font-family: inherit;
+  font-size: var(--mantle-text-sm);
+  outline: none;
+  transition:
+    border-color var(--mantle-duration-fast),
+    box-shadow var(--mantle-duration-fast);
+}
+
+.mantle-timeFieldInput:focus-visible {
+  border-color: var(--mantle-accent);
+  box-shadow: 0 0 0 1px var(--mantle-accent);
+}
+
+.mantle-timeFieldInput:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.mantle-timeFieldInputError {
+  border-color: var(--mantle-color-danger);
+}
+
+.mantle-timeFieldInputError:focus-visible {
+  border-color: var(--mantle-color-danger);
+  box-shadow: 0 0 0 1px var(--mantle-color-danger);
+}
+
+.mantle-timeFieldError {
+  font-size: var(--mantle-text-xs);
+  color: var(--mantle-color-danger);
+}

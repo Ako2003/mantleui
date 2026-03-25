@@ -1,0 +1,68 @@
+.mantle-dateRangePicker {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--mantle-space-1);
+  font-family: var(--mantle-font-sans);
+  position: relative;
+}
+
+.mantle-dateRangePickerLabel {
+  font-size: var(--mantle-text-sm);
+  font-weight: 500;
+  color: var(--mantle-color-text);
+}
+
+.mantle-dateRangePickerTrigger {
+  display: flex;
+  align-items: center;
+  gap: var(--mantle-space-2);
+  height: 2.5rem;
+  padding: 0 var(--mantle-space-3);
+  border: 1px solid var(--mantle-color-border);
+  border-radius: var(--mantle-radius-md);
+  background-color: transparent;
+  color: var(--mantle-color-text);
+  font-family: inherit;
+  font-size: var(--mantle-text-sm);
+  cursor: pointer;
+  transition:
+    border-color var(--mantle-duration-fast),
+    box-shadow var(--mantle-duration-fast);
+  min-width: 18rem;
+}
+
+.mantle-dateRangePickerTrigger:focus-visible {
+  border-color: var(--mantle-accent);
+  box-shadow: 0 0 0 1px var(--mantle-accent);
+  outline: none;
+}
+
+.mantle-dateRangePickerTrigger:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.mantle-dateRangePickerTriggerError {
+  border-color: var(--mantle-color-danger);
+}
+
+.mantle-dateRangePickerPlaceholder {
+  color: var(--mantle-color-text-muted);
+}
+
+.mantle-dateRangePickerSeparator {
+  color: var(--mantle-color-text-muted);
+}
+
+.mantle-dateRangePickerPopup {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 50;
+  margin-top: var(--mantle-space-1);
+}
+
+.mantle-dateRangePickerError {
+  font-size: var(--mantle-text-xs);
+  color: var(--mantle-color-danger);
+}

@@ -1,0 +1,26 @@
+.mantle-dataField {
+  display: flex;
+  font-family: var(--mantle-font-sans);
+}
+
+.mantle-dataFieldVertical {
+  flex-direction: column;
+  gap: var(--mantle-space-1);
+}
+
+.mantle-dataFieldHorizontal {
+  flex-direction: row;
+  align-items: baseline;
+  gap: var(--mantle-space-3);
+}
+
+.mantle-dataFieldLabel {
+  font-size: var(--mantle-text-xs);
+  font-weight: 500;
+  color: var(--mantle-color-text-muted);
+}
+
+.mantle-dataFieldValue {
+  font-size: var(--mantle-text-sm);
+  color: var(--mantle-color-text);
+}

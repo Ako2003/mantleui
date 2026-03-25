@@ -1,0 +1,50 @@
+.mantle-radioCalendar {
+  display: inline-grid;
+  grid-template-columns: repeat(auto-fill, minmax(4rem, 1fr));
+  gap: var(--mantle-space-2);
+  font-family: var(--mantle-font-sans);
+}
+
+.mantle-radioCalendarItem {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--mantle-space-2);
+  border: 1px solid var(--mantle-color-border);
+  border-radius: var(--mantle-radius-md);
+  background-color: transparent;
+  color: var(--mantle-color-text);
+  font-family: inherit;
+  font-size: var(--mantle-text-sm);
+  cursor: pointer;
+  transition:
+    background-color var(--mantle-duration-fast),
+    border-color var(--mantle-duration-fast);
+}
+
+.mantle-radioCalendarItem:hover {
+  background-color: var(--mantle-accent-subtle);
+}
+
+.mantle-radioCalendarItem:focus-visible {
+  outline: var(--mantle-ring-width) solid var(--mantle-accent);
+  outline-offset: var(--mantle-ring-offset);
+}
+
+.mantle-radioCalendarItemSelected {
+  background: linear-gradient(
+    135deg,
+    var(--mantle-accent),
+    var(--mantle-accent-hover)
+  );
+  color: var(--mantle-accent-text);
+  border-color: transparent;
+}
+
+.mantle-radioCalendarItemSelected:hover {
+  background: linear-gradient(
+    135deg,
+    var(--mantle-accent-hover),
+    var(--mantle-accent-active)
+  );
+}
