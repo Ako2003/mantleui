@@ -1,4 +1,5 @@
 import { forwardRef, useCallback, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import type { DrawerProps } from "./Drawer.types";
 import "./Drawer.css";
 
@@ -36,6 +37,16 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(function Drawer(
     }
   }, [open]);
 
+  // Lock body scroll
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [open]);
+
   if (!open) return null;
 
   // Close on overlay click
@@ -43,7 +54,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(function Drawer(
     onClose();
   };
 
-  return (
+  return createPortal(
     <>
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
       <div className="mantle-drawer-overlay" onClick={handleOverlayClick} />
@@ -66,6 +77,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(function Drawer(
       >
         {children}
       </div>
-    </>
+    </>,
+    document.body,
   );
 });
