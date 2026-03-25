@@ -8,35 +8,28 @@
   overflow: hidden;
 }
 
-/* Remove borders and radius from all children — the group provides them */
-.mantle-inputGroup > * {
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
+/* Strip all borders, radius, shadows from everything inside the group */
+.mantle-inputGroup > *,
+.mantle-inputGroup > * > *,
+.mantle-inputGroup > * > * > * {
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
 }
 
-/* Restore vertical separators between children */
+/* Restore vertical separators between direct children */
 .mantle-inputGroup > *:not(:last-child) {
-  border-right: 1px solid var(--mantle-color-border);
+  border-right: 1px solid var(--mantle-color-border) !important;
 }
 
-/* Override any child container borders and focus rings */
-.mantle-inputGroup .mantle-inputContainer {
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  -webkit-backdrop-filter: none;
-  backdrop-filter: none;
-}
-
-.mantle-inputGroup .mantle-inputContainer:focus-within {
-  border: none;
-  box-shadow: none;
-}
-
-/* Make input fill the container height */
-.mantle-inputGroup .mantle-input {
+/* Make input fill the full height */
+.mantle-inputGroup .mantle-input,
+.mantle-inputGroup input {
   height: 100%;
+  flex: 1;
 }
 
 .mantle-inputGroupAddon {
