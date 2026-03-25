@@ -6,6 +6,7 @@ import {
   useEffect,
   useRef,
 } from "react";
+import { createPortal } from "react-dom";
 import type {
   AlertDialogActionProps,
   AlertDialogCancelProps,
@@ -43,12 +44,23 @@ function AlertDialogRoot({ open, onOpenChange, children }: AlertDialogProps) {
     return () => document.removeEventListener("keydown", handler);
   }, [open, onClose]);
 
+  // Lock body scroll
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [open]);
+
   if (!open) return null;
 
-  return (
+  return createPortal(
     <AlertDialogContext.Provider value={{ onClose }}>
       {children}
-    </AlertDialogContext.Provider>
+    </AlertDialogContext.Provider>,
+    document.body,
   );
 }
 
