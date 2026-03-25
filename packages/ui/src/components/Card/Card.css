@@ -1,0 +1,21 @@
+.mantle-card {
+  border: 1px solid var(--mantle-color-border);
+  border-radius: var(--mantle-radius-lg);
+  background-color: var(--mantle-color-surface);
+  font-family: var(--mantle-font-sans);
+  overflow: hidden;
+}
+
+.mantle-card-header {
+  padding: var(--mantle-space-4) var(--mantle-space-6);
+  border-bottom: 1px solid var(--mantle-color-border);
+}
+
+.mantle-card-body {
+  padding: var(--mantle-space-4) var(--mantle-space-6);
+}
+
+.mantle-card-footer {
+  padding: var(--mantle-space-4) var(--mantle-space-6);
+  border-top: 1px solid var(--mantle-color-border);
+}
