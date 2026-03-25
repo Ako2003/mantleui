@@ -47,7 +47,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
     return (
       <div className="mantle-textFieldWrapper" data-color={color}>
         {label && (
-          <label htmlFor={id} className="mantle-textFieldLabel">
+          <label htmlFor={id} className={["mantle-textFieldLabel", error && "mantle-textFieldLabelError"].filter(Boolean).join(" ")}>
             {label}
             {required && (
               <span className="mantle-textFieldRequired" aria-hidden="true">

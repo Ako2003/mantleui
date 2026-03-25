@@ -11,6 +11,10 @@
   color: var(--mantle-color-text);
 }
 
+.mantle-textFieldLabelError {
+  color: var(--mantle-color-danger);
+}
+
 .mantle-textFieldRequired {
   color: var(--mantle-color-danger);
   margin-left: var(--mantle-space-1);
@@ -50,6 +54,11 @@
 .mantle-textFieldInputError:focus {
   border-color: var(--mantle-color-danger);
   box-shadow: 0 0 0 1px var(--mantle-color-danger);
+}
+
+.mantle-textFieldInputError::placeholder {
+  color: var(--mantle-color-danger);
+  opacity: 0.6;
 }
 
 /* Sizes */
