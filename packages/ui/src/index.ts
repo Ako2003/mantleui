@@ -8,6 +8,9 @@ export type { CheckboxProps } from "./components/Checkbox";
 export { Switch } from "./components/Switch";
 export type { SwitchProps } from "./components/Switch";
 
+export { Select } from "./components/Select";
+export type { SelectProps, SelectOption } from "./components/Select";
+
 export { Badge } from "./components/Badge";
 export type { BadgeProps, BadgeVariant, BadgeSize } from "./components/Badge";
 
