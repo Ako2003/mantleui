@@ -1,0 +1,73 @@
+.mantle-switchWrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--mantle-space-2);
+  font-family: var(--mantle-font-sans);
+  font-size: var(--mantle-text-sm);
+  color: var(--mantle-color-text);
+}
+
+.mantle-switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  border: none;
+  border-radius: var(--mantle-radius-full);
+  background-color: var(--mantle-color-bg-muted);
+  cursor: pointer;
+  padding: 2px;
+  transition: background-color var(--mantle-duration-fast);
+  flex-shrink: 0;
+}
+
+.mantle-switch:focus-visible {
+  outline: var(--mantle-ring-width) solid var(--mantle-accent);
+  outline-offset: var(--mantle-ring-offset);
+}
+
+.mantle-switchChecked {
+  background-color: var(--mantle-accent);
+}
+
+.mantle-switch:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Sizes */
+.mantle-switchSm {
+  width: 2rem;
+  height: 1.125rem;
+}
+
+.mantle-switchMd {
+  width: 2.75rem;
+  height: 1.5rem;
+}
+
+/* Thumb */
+.mantle-switchThumb {
+  display: block;
+  border-radius: var(--mantle-radius-full);
+  background-color: white;
+  transition: transform var(--mantle-duration-fast);
+  box-shadow: var(--mantle-shadow-sm);
+}
+
+.mantle-switchSm .mantle-switchThumb {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.mantle-switchMd .mantle-switchThumb {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.mantle-switchChecked.mantle-switchSm .mantle-switchThumb {
+  transform: translateX(0.875rem);
+}
+
+.mantle-switchChecked.mantle-switchMd .mantle-switchThumb {
+  transform: translateX(1.25rem);
+}
