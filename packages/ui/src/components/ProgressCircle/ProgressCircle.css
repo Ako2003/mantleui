@@ -12,7 +12,7 @@
   stroke: var(--mantle-accent);
   fill: none;
   stroke-linecap: round;
-  transition: stroke-dashoffset 0.3s ease;
+  transition: stroke-dashoffset var(--mantle-duration-normal) ease-out;
 }
 
 /* Wrapper for centering value text */

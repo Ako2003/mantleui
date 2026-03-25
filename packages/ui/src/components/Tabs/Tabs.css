@@ -52,6 +52,7 @@
   right: 0;
   height: 2px;
   background-color: var(--mantle-accent);
+  transition: all var(--mantle-duration-fast);
 }
 
 .mantle-content {

@@ -64,6 +64,11 @@
   color: var(--mantle-accent);
 }
 
+/* Active press */
+.mantle-togglebutton:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
 /* Disabled */
 .mantle-togglebutton:disabled {
   opacity: 0.5;

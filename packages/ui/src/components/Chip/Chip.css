@@ -8,9 +8,7 @@
   white-space: nowrap;
   border-radius: var(--mantle-radius-full);
   cursor: default;
-  transition:
-    background-color 0.15s ease,
-    box-shadow 0.15s ease;
+  transition: all var(--mantle-duration-fast);
 }
 
 /* Sizes */
@@ -51,6 +49,10 @@
 .mantle-chip-selected.mantle-chip-outline {
   background-color: var(--mantle-accent);
   color: var(--mantle-accent-text);
+}
+
+.mantle-chip:active:not(.mantle-chip-disabled) {
+  transform: scale(0.95);
 }
 
 /* Disabled */

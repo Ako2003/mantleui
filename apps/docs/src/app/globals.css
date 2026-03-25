@@ -2,3 +2,33 @@
 @import "@mantleui/react/styles.css";
 
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* Page transition */
+@keyframes mantle-page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mantle-page-enter {
+  animation: mantle-page-enter 300ms ease-out both;
+}
+
+/* Scroll reveal */
+.mantle-reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 400ms ease-out,
+    transform 400ms ease-out;
+}
+
+.mantle-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}

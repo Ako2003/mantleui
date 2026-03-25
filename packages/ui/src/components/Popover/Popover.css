@@ -17,9 +17,21 @@
   font-family: var(--mantle-font-sans);
   font-size: var(--mantle-text-sm);
   margin: var(--mantle-space-1) 0;
+  animation: mantle-popover-in var(--mantle-duration-fast) ease-out;
 }
 
 .mantle-content:focus-visible {
   outline: var(--mantle-ring-width) solid var(--mantle-accent);
   outline-offset: var(--mantle-ring-offset);
+}
+
+@keyframes mantle-popover-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }

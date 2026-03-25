@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Providers } from "@/components/Providers";
 import { Sidebar } from "@/components/Sidebar";
 import { OnThisPage } from "@/components/OnThisPage";
+import { PageTransition } from "@/components/PageTransition";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -22,7 +23,9 @@ export default function RootLayout({
           <div className="flex min-h-screen">
             <Sidebar />
             <main className="flex-1 px-8 py-10 lg:px-16">
-              <div className="mx-auto max-w-3xl">{children}</div>
+              <div className="mx-auto max-w-3xl">
+                <PageTransition>{children}</PageTransition>
+              </div>
             </main>
             <aside className="sticky top-0 hidden h-screen w-48 shrink-0 overflow-y-auto py-10 pr-6 xl:block">
               <OnThisPage />

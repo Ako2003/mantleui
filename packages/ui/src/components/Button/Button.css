@@ -9,11 +9,7 @@
   font-weight: 500;
   line-height: 1;
   cursor: pointer;
-  transition:
-    background-color var(--mantle-duration-fast),
-    border-color var(--mantle-duration-fast),
-    color var(--mantle-duration-fast),
-    opacity var(--mantle-duration-fast);
+  transition: all var(--mantle-duration-fast);
   text-decoration: none;
 }
 
@@ -42,6 +38,10 @@
 
 .mantle-solid:active:not(:disabled):not([aria-disabled="true"]) {
   background-color: var(--mantle-accent-active);
+}
+
+.mantle-button:active:not(:disabled):not([aria-disabled="true"]) {
+  transform: scale(0.97);
 }
 
 .mantle-outline {

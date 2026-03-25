@@ -16,7 +16,7 @@
   white-space: nowrap;
   box-shadow: var(--mantle-shadow-sm);
   pointer-events: none;
-  animation: mantle-tooltip-fadeIn var(--mantle-duration-fast) ease-out;
+  animation: mantle-tooltip-in 150ms ease-out;
 }
 
 /* ─── Side positioning ─── */
@@ -49,11 +49,13 @@
   margin-left: var(--mantle-space-1);
 }
 
-@keyframes mantle-tooltip-fadeIn {
+@keyframes mantle-tooltip-in {
   from {
     opacity: 0;
+    transform: translateY(2px);
   }
   to {
     opacity: 1;
+    transform: translateY(0);
   }
 }

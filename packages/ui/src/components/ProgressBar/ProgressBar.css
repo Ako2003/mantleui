@@ -28,7 +28,7 @@
     var(--mantle-accent),
     var(--mantle-accent-hover)
   );
-  transition: width 0.3s ease;
+  transition: width var(--mantle-duration-normal) ease-out;
 }
 
 /* Indeterminate animation */
