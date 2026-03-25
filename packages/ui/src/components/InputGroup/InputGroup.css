@@ -3,31 +3,34 @@
   flex-direction: row;
   align-items: stretch;
   font-family: var(--mantle-font-sans);
+  border: 1px solid var(--mantle-color-border);
+  border-radius: var(--mantle-radius-md);
+  overflow: hidden;
 }
 
-/* Remove border-radius from children in the middle */
-.mantle-inputGroup > *:not(:first-child) {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+/* Remove borders and radius from all children — the group provides them */
+.mantle-inputGroup > * {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
 }
 
+/* Restore vertical separators between children */
 .mantle-inputGroup > *:not(:last-child) {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+  border-right: 1px solid var(--mantle-color-border);
 }
 
-/* Collapse adjacent borders */
-.mantle-inputGroup > *:not(:first-child) {
-  margin-left: -1px;
+/* Override any child container borders (e.g. Input's container) */
+.mantle-inputGroup .mantle-inputContainer {
+  border: none;
+  border-radius: 0;
 }
 
 .mantle-inputGroupAddon {
   display: flex;
   align-items: center;
   padding: 0 var(--mantle-space-3);
-  background: var(--mantle-color-bg-subtle);
-  border: 1px solid var(--mantle-color-border);
-  border-radius: var(--mantle-radius-md);
+  background: var(--mantle-color-bg-muted);
   color: var(--mantle-color-text-muted);
   font-size: var(--mantle-text-sm);
   white-space: nowrap;
