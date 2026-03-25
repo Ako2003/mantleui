@@ -72,10 +72,10 @@ export default function ButtonPage() {
   return (
     <div>
       <h1 className="text-3xl font-bold">Button</h1>
-      <p className="mt-2 text-slate-600 dark:text-slate-400">
+      <p className="mt-2 text-slate-600 dark:text-zinc-400">
         A polymorphic button component that can render as any element type via
         the{" "}
-        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-slate-800">
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
           as
         </code>{" "}
         prop.
@@ -97,9 +97,9 @@ export default function ButtonPage() {
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Polymorphic</h2>
-      <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
         Use the{" "}
-        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-slate-800">
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
           as
         </code>{" "}
         prop to render as a different element while keeping all Button styles

@@ -84,10 +84,10 @@ export default function PopoverPage() {
   return (
     <div>
       <h1 className="text-3xl font-bold">Popover</h1>
-      <p className="mt-2 text-slate-600 dark:text-slate-400">
+      <p className="mt-2 text-slate-600 dark:text-zinc-400">
         A popover with two consumption modes: a styled compound component for
         convenience, or a headless{" "}
-        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-slate-800">
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
           usePopover()
         </code>{" "}
         hook for full rendering control.
@@ -99,9 +99,9 @@ export default function PopoverPage() {
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Headless Hook</h2>
-      <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
         Use{" "}
-        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-slate-800">
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
           usePopover()
         </code>{" "}
         when you need complete control over the markup and styling.

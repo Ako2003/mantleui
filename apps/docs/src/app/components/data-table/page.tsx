@@ -65,17 +65,17 @@ export default function DataTablePage() {
   return (
     <div>
       <h1 className="text-3xl font-bold">DataTable</h1>
-      <p className="mt-2 text-slate-600 dark:text-slate-400">
+      <p className="mt-2 text-slate-600 dark:text-zinc-400">
         The most advanced component — combines render props for custom cell
         rendering, a headless{" "}
-        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-slate-800">
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
           useDataTable()
         </code>{" "}
         hook for sorting/pagination state, and compound pagination controls.
       </p>
 
       <h2 className="mt-10 text-xl font-semibold">Full Example</h2>
-      <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
         Click column headers to sort. The Age column uses a custom render prop
         for styled badges.
       </p>

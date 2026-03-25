@@ -19,9 +19,9 @@ export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="sticky top-0 hidden h-screen w-64 shrink-0 border-r border-slate-200 dark:border-slate-800 lg:block">
+    <aside className="sticky top-0 hidden h-screen w-64 shrink-0 border-r border-slate-200 dark:border-zinc-800 lg:block">
       <div className="flex h-full flex-col">
-        <div className="flex items-center justify-between border-b border-slate-200 px-6 py-4 dark:border-slate-800">
+        <div className="flex items-center justify-between border-b border-slate-200 px-6 py-4 dark:border-zinc-800">
           <Link href="/" className="text-lg font-bold">
             MantleUI
           </Link>
@@ -50,8 +50,8 @@ export function Sidebar() {
                     href={item.href}
                     className={`block rounded-md px-2 py-1.5 text-sm transition-colors ${
                       isActive
-                        ? "bg-slate-100 font-medium text-slate-900 dark:bg-slate-800 dark:text-slate-50"
-                        : "text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-900 dark:hover:text-slate-50"
+                        ? "bg-slate-100 font-medium text-slate-900 dark:bg-zinc-800 dark:text-zinc-50"
+                        : "text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-zinc-400 dark:hover:bg-zinc-900 dark:hover:text-zinc-50"
                     }`}
                   >
                     {item.label}

@@ -67,13 +67,13 @@
   --mantle-color-primary-hover: #60a5fa;
   --mantle-color-primary-active: #93bbfd;
 
-  --mantle-color-bg: #0f172a;
-  --mantle-color-bg-subtle: #1e293b;
-  --mantle-color-bg-muted: #334155;
-  --mantle-color-text: #f8fafc;
-  --mantle-color-text-muted: #94a3b8;
-  --mantle-color-border: #334155;
-  --mantle-color-border-hover: #475569;
+  --mantle-color-bg: #09090b;
+  --mantle-color-bg-subtle: #18181b;
+  --mantle-color-bg-muted: #27272a;
+  --mantle-color-text: #fafafa;
+  --mantle-color-text-muted: #a1a1aa;
+  --mantle-color-border: #27272a;
+  --mantle-color-border-hover: #3f3f46;
 
   --mantle-color-danger: #ef4444;
   --mantle-color-danger-hover: #f87171;

@@ -42,7 +42,7 @@ export default function TabsPage() {
   return (
     <div>
       <h1 className="text-3xl font-bold">Tabs</h1>
-      <p className="mt-2 text-slate-600 dark:text-slate-400">
+      <p className="mt-2 text-slate-600 dark:text-zinc-400">
         A compound tab component with roving tabindex for keyboard navigation.
         Use Arrow keys to move between tabs, Home/End to jump to first/last.
       </p>
@@ -53,19 +53,19 @@ export default function TabsPage() {
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Keyboard Navigation</h2>
-      <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
         Focus a tab and use{" "}
-        <kbd className="rounded border border-slate-300 px-1.5 py-0.5 text-xs dark:border-slate-700">
+        <kbd className="rounded border border-slate-300 px-1.5 py-0.5 text-xs dark:border-zinc-700">
           ←
         </kbd>{" "}
-        <kbd className="rounded border border-slate-300 px-1.5 py-0.5 text-xs dark:border-slate-700">
+        <kbd className="rounded border border-slate-300 px-1.5 py-0.5 text-xs dark:border-zinc-700">
           →
         </kbd>{" "}
         to navigate,{" "}
-        <kbd className="rounded border border-slate-300 px-1.5 py-0.5 text-xs dark:border-slate-700">
+        <kbd className="rounded border border-slate-300 px-1.5 py-0.5 text-xs dark:border-zinc-700">
           Home
         </kbd>{" "}
-        <kbd className="rounded border border-slate-300 px-1.5 py-0.5 text-xs dark:border-slate-700">
+        <kbd className="rounded border border-slate-300 px-1.5 py-0.5 text-xs dark:border-zinc-700">
           End
         </kbd>{" "}
         to jump. Disabled tabs are skipped.

@@ -2,7 +2,7 @@ export default function HomePage() {
   return (
     <div>
       <h1 className="text-4xl font-bold tracking-tight">MantleUI</h1>
-      <p className="mt-4 text-lg text-slate-600 dark:text-slate-400">
+      <p className="mt-4 text-lg text-slate-600 dark:text-zinc-400">
         A modern React component library built to showcase frontend
         architecture, design patterns, and technical craftsmanship.
       </p>
@@ -71,9 +71,9 @@ function FeatureCard({
   description: string;
 }) {
   return (
-    <div className="rounded-lg border border-slate-200 p-5 dark:border-slate-800">
+    <div className="rounded-lg border border-slate-200 p-5 dark:border-zinc-800">
       <h3 className="font-semibold">{title}</h3>
-      <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
+      <p className="mt-1 text-sm text-slate-600 dark:text-zinc-400">
         {description}
       </p>
     </div>
@@ -92,10 +92,10 @@ function ComponentLink({
   return (
     <a
       href={href}
-      className="flex items-center justify-between rounded-lg border border-slate-200 px-4 py-3 transition-colors hover:border-slate-300 hover:bg-slate-50 dark:border-slate-800 dark:hover:border-slate-700 dark:hover:bg-slate-900"
+      className="flex items-center justify-between rounded-lg border border-slate-200 px-4 py-3 transition-colors hover:border-slate-300 hover:bg-slate-50 dark:border-zinc-800 dark:hover:border-zinc-700 dark:hover:bg-zinc-900"
     >
       <span className="font-medium">{name}</span>
-      <span className="text-xs text-slate-500 dark:text-slate-500">
+      <span className="text-xs text-slate-500 dark:text-zinc-500">
         {pattern}
       </span>
     </a>

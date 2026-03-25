@@ -68,17 +68,17 @@ export default function AccordionPage() {
   return (
     <div>
       <h1 className="text-3xl font-bold">Accordion</h1>
-      <p className="mt-2 text-slate-600 dark:text-slate-400">
+      <p className="mt-2 text-slate-600 dark:text-zinc-400">
         A compound component using context to share state between{" "}
-        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-slate-800">
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
           Accordion.Item
         </code>
         ,{" "}
-        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-slate-800">
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
           Accordion.Trigger
         </code>
         , and{" "}
-        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-slate-800">
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
           Accordion.Content
         </code>
         .
