@@ -11,6 +11,14 @@ export type { SwitchProps } from "./components/Switch";
 export { Select } from "./components/Select";
 export type { SelectProps, SelectOption } from "./components/Select";
 
+export { Toaster, useToast } from "./components/Toast";
+export type {
+  ToastData,
+  ToastVariant,
+  ToastPosition,
+  ToasterProps,
+} from "./components/Toast";
+
 export { Badge } from "./components/Badge";
 export type { BadgeProps, BadgeVariant, BadgeSize } from "./components/Badge";
 

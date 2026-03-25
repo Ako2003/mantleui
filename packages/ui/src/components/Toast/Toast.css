@@ -1,0 +1,118 @@
+.mantle-toaster {
+  position: fixed;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: var(--mantle-space-2);
+  padding: var(--mantle-space-4);
+  pointer-events: none;
+  max-width: 24rem;
+}
+
+.mantle-toasterTopRight {
+  top: 0;
+  right: 0;
+}
+
+.mantle-toasterTopLeft {
+  top: 0;
+  left: 0;
+}
+
+.mantle-toasterBottomRight {
+  bottom: 0;
+  right: 0;
+}
+
+.mantle-toasterBottomLeft {
+  bottom: 0;
+  left: 0;
+}
+
+.mantle-toast {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--mantle-space-3);
+  padding: var(--mantle-space-3) var(--mantle-space-4);
+  border: 1px solid var(--mantle-color-border);
+  border-radius: var(--mantle-radius-lg);
+  background-color: var(--mantle-color-bg-subtle);
+  box-shadow: var(--mantle-shadow-md);
+  font-family: var(--mantle-font-sans);
+  pointer-events: auto;
+  animation: mantle-toastIn 200ms ease-out;
+}
+
+@keyframes mantle-toastIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mantle-toastIcon {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.mantle-toastInfo .mantle-toastIcon {
+  color: #3b82f6;
+}
+
+.mantle-toastSuccess .mantle-toastIcon {
+  color: #22c55e;
+}
+
+.mantle-toastWarning .mantle-toastIcon {
+  color: #eab308;
+}
+
+.mantle-toastError .mantle-toastIcon {
+  color: #ef4444;
+}
+
+.mantle-toastContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.mantle-toastTitle {
+  font-size: var(--mantle-text-sm);
+  font-weight: 500;
+  color: var(--mantle-color-text);
+}
+
+.mantle-toastDescription {
+  font-size: var(--mantle-text-xs);
+  color: var(--mantle-color-text-muted);
+  margin-top: 2px;
+}
+
+.mantle-toastDismiss {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: none;
+  background: transparent;
+  color: var(--mantle-color-text-muted);
+  cursor: pointer;
+  border-radius: var(--mantle-radius-sm);
+  padding: 0;
+  transition: color var(--mantle-duration-fast);
+}
+
+.mantle-toastDismiss:hover {
+  color: var(--mantle-color-text);
+}
+
+.mantle-toastDismiss:focus-visible {
+  outline: var(--mantle-ring-width) solid var(--mantle-ring-color);
+  outline-offset: 1px;
+}
