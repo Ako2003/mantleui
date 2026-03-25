@@ -11,8 +11,10 @@
 
 .mantle-trigger {
   position: relative;
+  flex: 1;
   padding: var(--mantle-space-2) var(--mantle-space-4);
   border: none;
+  text-align: center;
   background: transparent;
   color: var(--mantle-color-text-muted);
   font-family: var(--mantle-font-sans);
