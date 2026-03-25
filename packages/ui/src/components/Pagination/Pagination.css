@@ -34,9 +34,9 @@
 }
 
 .mantle-paginationButton-active {
-  background: var(--mantle-color-accent);
+  background: var(--mantle-accent);
   color: var(--mantle-color-accent-contrast);
-  border-color: var(--mantle-color-accent);
+  border-color: var(--mantle-accent);
 }
 
 .mantle-paginationEllipsis {

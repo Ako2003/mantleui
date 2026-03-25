@@ -10,14 +10,14 @@
   justify-content: space-between;
   font-family: var(--mantle-font-sans);
   font-size: var(--mantle-text-sm);
-  color: var(--mantle-fg);
+  color: var(--mantle-color-text);
 }
 
 .mantle-meter-track {
   width: 100%;
   height: 8px;
   border-radius: var(--mantle-radius-full);
-  background: var(--mantle-border);
+  background: var(--mantle-color-border);
   overflow: hidden;
 }
 

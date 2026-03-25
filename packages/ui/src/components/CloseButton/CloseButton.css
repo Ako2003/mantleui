@@ -4,7 +4,7 @@
   justify-content: center;
   border: none;
   background: transparent;
-  color: var(--mantle-fg);
+  color: var(--mantle-color-text);
   cursor: pointer;
   border-radius: var(--mantle-radius-md);
   padding: 0;

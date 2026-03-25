@@ -12,7 +12,7 @@
 }
 
 .mantle-spinner-track {
-  stroke: var(--mantle-border);
+  stroke: var(--mantle-color-border);
   opacity: 0.25;
 }
 

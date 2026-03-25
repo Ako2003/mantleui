@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Read(//Users/akifmursalov/Documents/project/packages/ui/src/components/**)",
-      "Read(//Users/akifmursalov/Documents/project/apps/docs/src/app/components/**)"
+      "Read(//Users/akifmursalov/Documents/project/apps/docs/src/app/components/**)",
+      "Bash(find . -name \"*.css\" -exec sed -i '' -e 's/var\\(--mantle-fg\\)/var\\(--mantle-color-text\\)/g' -e 's/var\\(--mantle-bg\\)/var\\(--mantle-color-bg\\)/g' -e 's/var\\(--mantle-border\\)/var\\(--mantle-color-border\\)/g' -e 's/var\\(--mantle-color-accent\\)/var\\(--mantle-accent\\)/g' {} +)"
     ]
   }
 }

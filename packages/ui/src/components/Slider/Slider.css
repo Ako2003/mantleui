@@ -10,7 +10,7 @@
   justify-content: space-between;
   font-family: var(--mantle-font-sans);
   font-size: var(--mantle-text-sm);
-  color: var(--mantle-fg);
+  color: var(--mantle-color-text);
 }
 
 .mantle-slider-input {
@@ -19,7 +19,7 @@
   appearance: none;
   -webkit-appearance: none;
   border-radius: var(--mantle-radius-full);
-  background: var(--mantle-border);
+  background: var(--mantle-color-border);
   outline: none;
   cursor: pointer;
 }
@@ -30,8 +30,8 @@
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: var(--mantle-color-accent);
-  border: 2px solid var(--mantle-bg);
+  background: linear-gradient(135deg, var(--mantle-accent), var(--mantle-accent-hover));
+  border: 2px solid var(--mantle-color-bg);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
@@ -40,8 +40,8 @@
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: var(--mantle-color-accent);
-  border: 2px solid var(--mantle-bg);
+  background: linear-gradient(135deg, var(--mantle-accent), var(--mantle-accent-hover));
+  border: 2px solid var(--mantle-color-bg);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
