@@ -144,7 +144,18 @@ export const DateRangePicker = forwardRef<HTMLDivElement, DateRangePickerProps>(
           .join(" ")}
         {...rest}
       >
-        {label && <span className="mantle-dateRangePickerLabel">{label}</span>}
+        {label && (
+          <span
+            className={[
+              "mantle-dateRangePickerLabel",
+              error && "mantle-dateRangePickerLabelError",
+            ]
+              .filter(Boolean)
+              .join(" ")}
+          >
+            {label}
+          </span>
+        )}
         <button
           type="button"
           disabled={disabled}
@@ -166,7 +177,14 @@ export const DateRangePicker = forwardRef<HTMLDivElement, DateRangePickerProps>(
               <span>{formatDate(endDate)}</span>
             </>
           ) : (
-            <span className="mantle-dateRangePickerPlaceholder">
+            <span
+              className={[
+                "mantle-dateRangePickerPlaceholder",
+                error && "mantle-dateRangePickerPlaceholderError",
+              ]
+                .filter(Boolean)
+                .join(" ")}
+            >
               {placeholder}
             </span>
           )}

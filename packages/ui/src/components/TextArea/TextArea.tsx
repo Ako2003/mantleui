@@ -48,7 +48,15 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     return (
       <div className="mantle-textAreaWrapper" data-color={color}>
         {label && (
-          <label htmlFor={id} className={["mantle-textAreaLabel", error && "mantle-textAreaLabelError"].filter(Boolean).join(" ")}>
+          <label
+            htmlFor={id}
+            className={[
+              "mantle-textAreaLabel",
+              error && "mantle-textAreaLabelError",
+            ]
+              .filter(Boolean)
+              .join(" ")}
+          >
             {label}
             {required && (
               <span className="mantle-textAreaRequired" aria-hidden="true">

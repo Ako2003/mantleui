@@ -12,6 +12,10 @@
   color: var(--mantle-color-text);
 }
 
+.mantle-autocompleteLabelError {
+  color: var(--mantle-color-danger);
+}
+
 .mantle-autocompleteInput {
   display: flex;
   align-items: center;
@@ -47,6 +51,11 @@
 .mantle-autocompleteInputError:focus {
   border-color: var(--mantle-color-danger);
   box-shadow: 0 0 0 1px var(--mantle-color-danger);
+}
+
+.mantle-autocompleteInputError::placeholder {
+  color: var(--mantle-color-danger);
+  opacity: 0.6;
 }
 
 .mantle-autocompleteDropdown {

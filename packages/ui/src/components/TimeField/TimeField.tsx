@@ -48,7 +48,18 @@ export const TimeField = forwardRef<HTMLInputElement, TimeFieldProps>(
         data-color={color}
         className={["mantle-timeField", className].filter(Boolean).join(" ")}
       >
-        {label && <label className="mantle-timeFieldLabel">{label}</label>}
+        {label && (
+          <label
+            className={[
+              "mantle-timeFieldLabel",
+              error && "mantle-timeFieldLabelError",
+            ]
+              .filter(Boolean)
+              .join(" ")}
+          >
+            {label}
+          </label>
+        )}
         <input
           ref={ref}
           type="time"

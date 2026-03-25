@@ -12,6 +12,10 @@
   color: var(--mantle-color-text);
 }
 
+.mantle-dateRangePickerLabelError {
+  color: var(--mantle-color-danger);
+}
+
 .mantle-dateRangePickerTrigger {
   display: flex;
   align-items: center;
@@ -48,6 +52,11 @@
 
 .mantle-dateRangePickerPlaceholder {
   color: var(--mantle-color-text-muted);
+}
+
+.mantle-dateRangePickerPlaceholderError {
+  color: var(--mantle-color-danger);
+  opacity: 0.6;
 }
 
 .mantle-dateRangePickerSeparator {

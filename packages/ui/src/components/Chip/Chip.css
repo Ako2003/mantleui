@@ -47,7 +47,11 @@
 }
 
 .mantle-chip-selected.mantle-chip-outline {
-  background: linear-gradient(135deg, var(--mantle-accent), var(--mantle-accent-hover));
+  background: linear-gradient(
+    135deg,
+    var(--mantle-accent),
+    var(--mantle-accent-hover)
+  );
   border-color: transparent;
   color: var(--mantle-accent-text);
 }

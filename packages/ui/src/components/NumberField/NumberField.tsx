@@ -92,7 +92,15 @@ export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
     return (
       <div className="mantle-numberFieldWrapper" data-color={color}>
         {label && (
-          <label htmlFor={generatedId} className="mantle-numberFieldLabel">
+          <label
+            htmlFor={generatedId}
+            className={[
+              "mantle-numberFieldLabel",
+              error && "mantle-numberFieldLabelError",
+            ]
+              .filter(Boolean)
+              .join(" ")}
+          >
             {label}
           </label>
         )}
@@ -121,7 +129,12 @@ export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
             id={generatedId}
             type="text"
             inputMode="numeric"
-            className="mantle-numberFieldInput"
+            className={[
+              "mantle-numberFieldInput",
+              error && "mantle-numberFieldInputError",
+            ]
+              .filter(Boolean)
+              .join(" ")}
             role="spinbutton"
             aria-valuenow={value}
             aria-valuemin={min}

@@ -11,6 +11,10 @@
   color: var(--mantle-color-text);
 }
 
+.mantle-numberFieldLabelError {
+  color: var(--mantle-color-danger);
+}
+
 .mantle-numberFieldContainer {
   display: flex;
   align-items: center;
@@ -76,6 +80,15 @@
 .mantle-numberFieldInput::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.mantle-numberFieldInput::placeholder {
+  color: var(--mantle-color-text-muted);
+}
+
+.mantle-numberFieldInputError::placeholder {
+  color: var(--mantle-color-danger);
+  opacity: 0.6;
 }
 
 .mantle-numberFieldInput:disabled {

@@ -11,6 +11,10 @@
   color: var(--mantle-color-text);
 }
 
+.mantle-timeFieldLabelError {
+  color: var(--mantle-color-danger);
+}
+
 .mantle-timeFieldInput {
   height: 2.5rem;
   padding: 0 var(--mantle-space-3);
@@ -44,6 +48,11 @@
 .mantle-timeFieldInputError:focus-visible {
   border-color: var(--mantle-color-danger);
   box-shadow: 0 0 0 1px var(--mantle-color-danger);
+}
+
+.mantle-timeFieldInputError::placeholder {
+  color: var(--mantle-color-danger);
+  opacity: 0.6;
 }
 
 .mantle-timeFieldError {

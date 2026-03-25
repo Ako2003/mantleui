@@ -3,7 +3,14 @@
     "allow": [
       "Read(//Users/akifmursalov/Documents/project/packages/ui/src/components/**)",
       "Read(//Users/akifmursalov/Documents/project/apps/docs/src/app/components/**)",
-      "Bash(find . -name \"*.css\" -exec sed -i '' -e 's/var\\(--mantle-fg\\)/var\\(--mantle-color-text\\)/g' -e 's/var\\(--mantle-bg\\)/var\\(--mantle-color-bg\\)/g' -e 's/var\\(--mantle-border\\)/var\\(--mantle-color-border\\)/g' -e 's/var\\(--mantle-color-accent\\)/var\\(--mantle-accent\\)/g' {} +)"
+      "Bash(find . -name \"*.css\" -exec sed -i '' -e 's/var\\(--mantle-fg\\)/var\\(--mantle-color-text\\)/g' -e 's/var\\(--mantle-bg\\)/var\\(--mantle-color-bg\\)/g' -e 's/var\\(--mantle-border\\)/var\\(--mantle-color-border\\)/g' -e 's/var\\(--mantle-color-accent\\)/var\\(--mantle-accent\\)/g' {} +)",
+      "Bash(grep -rl \"error\" /Users/akifmursalov/Documents/project/packages/ui/src/components/*/index.ts)",
+      "Bash(xargs -I{} basename {})",
+      "Bash(grep -rn \"error.*string\\\\|error?:\" /Users/akifmursalov/Documents/project/packages/ui/src/components/*/*.types.ts)",
+      "Bash(for comp:*)",
+      "Bash(do)",
+      "Bash(echo \"=== $comp ===\")",
+      "Read(//Users/akifmursalov/Documents/project/packages/ui/src/components/$comp/**)"
     ]
   }
 }

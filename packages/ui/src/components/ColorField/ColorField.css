@@ -11,6 +11,10 @@
   color: var(--mantle-color-text);
 }
 
+.mantle-colorFieldLabelError {
+  color: var(--mantle-color-danger);
+}
+
 .mantle-colorFieldInputWrapper {
   display: flex;
   align-items: center;
@@ -49,6 +53,11 @@
 
 .mantle-colorFieldInputError {
   border-color: var(--mantle-color-error, #e53e3e);
+}
+
+.mantle-colorFieldInputError::placeholder {
+  color: var(--mantle-color-danger);
+  opacity: 0.6;
 }
 
 .mantle-colorFieldError {

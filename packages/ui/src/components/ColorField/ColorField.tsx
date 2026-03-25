@@ -58,7 +58,15 @@ export const ColorField = forwardRef<HTMLInputElement, ColorFieldProps>(
         className={["mantle-colorField", className].filter(Boolean).join(" ")}
       >
         {label && (
-          <label htmlFor={id} className="mantle-colorFieldLabel">
+          <label
+            htmlFor={id}
+            className={[
+              "mantle-colorFieldLabel",
+              error && "mantle-colorFieldLabelError",
+            ]
+              .filter(Boolean)
+              .join(" ")}
+          >
             {label}
           </label>
         )}

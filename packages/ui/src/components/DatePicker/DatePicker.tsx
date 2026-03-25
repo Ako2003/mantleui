@@ -131,7 +131,18 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
         className={["mantle-datePicker", className].filter(Boolean).join(" ")}
         {...rest}
       >
-        {label && <span className="mantle-datePickerLabel">{label}</span>}
+        {label && (
+          <span
+            className={[
+              "mantle-datePickerLabel",
+              error && "mantle-datePickerLabelError",
+            ]
+              .filter(Boolean)
+              .join(" ")}
+          >
+            {label}
+          </span>
+        )}
         <button
           type="button"
           disabled={disabled}
@@ -149,7 +160,16 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
           {selectedDate ? (
             formatDate(selectedDate)
           ) : (
-            <span className="mantle-datePickerPlaceholder">{placeholder}</span>
+            <span
+              className={[
+                "mantle-datePickerPlaceholder",
+                error && "mantle-datePickerPlaceholderError",
+              ]
+                .filter(Boolean)
+                .join(" ")}
+            >
+              {placeholder}
+            </span>
           )}
         </button>
         {open && (

@@ -12,6 +12,10 @@
   color: var(--mantle-color-text);
 }
 
+.mantle-datePickerLabelError {
+  color: var(--mantle-color-danger);
+}
+
 .mantle-datePickerTrigger {
   display: flex;
   align-items: center;
@@ -47,6 +51,11 @@
 
 .mantle-datePickerPlaceholder {
   color: var(--mantle-color-text-muted);
+}
+
+.mantle-datePickerPlaceholderError {
+  color: var(--mantle-color-danger);
+  opacity: 0.6;
 }
 
 .mantle-datePickerPopup {

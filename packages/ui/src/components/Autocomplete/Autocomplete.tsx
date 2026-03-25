@@ -175,7 +175,12 @@ export const Autocomplete = forwardRef<HTMLDivElement, AutocompleteProps>(
       >
         {label && (
           <label
-            className="mantle-autocompleteLabel"
+            className={[
+              "mantle-autocompleteLabel",
+              error && "mantle-autocompleteLabelError",
+            ]
+              .filter(Boolean)
+              .join(" ")}
             id={`${generatedId}-label`}
           >
             {label}
