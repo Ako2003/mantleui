@@ -1,0 +1,59 @@
+.mantle-tooltip-trigger {
+  display: inline-flex;
+  position: relative;
+}
+
+.mantle-tooltip {
+  position: absolute;
+  z-index: 10000;
+  padding: var(--mantle-space-1) var(--mantle-space-2);
+  border-radius: var(--mantle-radius-md);
+  background-color: var(--mantle-color-bg-inverse);
+  color: var(--mantle-color-text-inverse);
+  font-family: var(--mantle-font-sans);
+  font-size: var(--mantle-text-xs);
+  line-height: 1.4;
+  white-space: nowrap;
+  box-shadow: var(--mantle-shadow-sm);
+  pointer-events: none;
+  animation: mantle-tooltip-fadeIn var(--mantle-duration-fast) ease-out;
+}
+
+/* ─── Side positioning ─── */
+
+.mantle-tooltip--top {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: var(--mantle-space-1);
+}
+
+.mantle-tooltip--bottom {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: var(--mantle-space-1);
+}
+
+.mantle-tooltip--left {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: var(--mantle-space-1);
+}
+
+.mantle-tooltip--right {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: var(--mantle-space-1);
+}
+
+@keyframes mantle-tooltip-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
