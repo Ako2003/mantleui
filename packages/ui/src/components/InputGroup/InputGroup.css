@@ -31,9 +31,19 @@
   height: 100% !important;
 }
 
-.mantle-inputGroup .mantle-inputWrapper,
+.mantle-inputGroup .mantle-inputWrapper {
+  height: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  gap: 0 !important;
+  flex: 1;
+  min-width: 0;
+}
+
 .mantle-inputGroup .mantle-inputContainer {
   height: 100% !important;
+  width: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
   gap: 0 !important;
@@ -42,8 +52,10 @@
 .mantle-inputGroup .mantle-input,
 .mantle-inputGroup input {
   height: 100% !important;
+  width: 100% !important;
   padding: 0 var(--mantle-space-3) !important;
-  flex: 1;
+  font-size: var(--mantle-text-sm);
+  min-width: 0;
 }
 
 .mantle-inputGroupAddon {
