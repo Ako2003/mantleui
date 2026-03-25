@@ -1,0 +1,50 @@
+.mantle-buttongroup {
+  display: inline-flex;
+}
+
+.mantle-buttongroupHorizontal {
+  flex-direction: row;
+}
+
+.mantle-buttongroupVertical {
+  flex-direction: column;
+}
+
+/* Horizontal: connected buttons */
+.mantle-buttongroupHorizontal > * {
+  border-radius: 0;
+}
+
+.mantle-buttongroupHorizontal > *:first-child {
+  border-top-left-radius: var(--mantle-radius-md);
+  border-bottom-left-radius: var(--mantle-radius-md);
+}
+
+.mantle-buttongroupHorizontal > *:last-child {
+  border-top-right-radius: var(--mantle-radius-md);
+  border-bottom-right-radius: var(--mantle-radius-md);
+}
+
+.mantle-buttongroupHorizontal > *:not(:first-child) {
+  margin-left: -1px;
+}
+
+/* Vertical: connected buttons */
+.mantle-buttongroupVertical > * {
+  border-radius: 0;
+  width: 100%;
+}
+
+.mantle-buttongroupVertical > *:first-child {
+  border-top-left-radius: var(--mantle-radius-md);
+  border-top-right-radius: var(--mantle-radius-md);
+}
+
+.mantle-buttongroupVertical > *:last-child {
+  border-bottom-left-radius: var(--mantle-radius-md);
+  border-bottom-right-radius: var(--mantle-radius-md);
+}
+
+.mantle-buttongroupVertical > *:not(:first-child) {
+  margin-top: -1px;
+}
