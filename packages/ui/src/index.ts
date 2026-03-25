@@ -234,6 +234,27 @@ export type {
 export { RadioCalendar } from "./components/RadioCalendar";
 export type { RadioCalendarProps } from "./components/RadioCalendar";
 
+export { ColorArea } from "./components/ColorArea";
+export type { ColorAreaProps } from "./components/ColorArea";
+
+export { ColorField } from "./components/ColorField";
+export type { ColorFieldProps } from "./components/ColorField";
+
+export { ColorSlider } from "./components/ColorSlider";
+export type {
+  ColorSliderProps,
+  ColorSliderChannel,
+} from "./components/ColorSlider";
+
+export { ColorSwatchPicker } from "./components/ColorSwatchPicker";
+export type {
+  ColorSwatchPickerProps,
+  ColorSwatchPickerSize,
+} from "./components/ColorSwatchPicker";
+
+export { ColorPicker } from "./components/ColorPicker";
+export type { ColorPickerProps } from "./components/ColorPicker";
+
 export { Input } from "./components/Input";
 export type { InputProps, InputSize } from "./components/Input";
 

@@ -1,0 +1,57 @@
+.mantle-colorField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mantle-space-1);
+  font-family: var(--mantle-font-sans);
+}
+
+.mantle-colorFieldLabel {
+  font-size: var(--mantle-text-sm);
+  font-weight: 500;
+  color: var(--mantle-color-text);
+}
+
+.mantle-colorFieldInputWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--mantle-space-2);
+}
+
+.mantle-colorFieldSwatch {
+  width: 24px;
+  height: 24px;
+  border-radius: var(--mantle-radius-sm);
+  border: 1px solid var(--mantle-color-border);
+  flex-shrink: 0;
+}
+
+.mantle-colorFieldInput {
+  flex: 1;
+  padding: var(--mantle-space-2);
+  border: 1px solid var(--mantle-color-border);
+  border-radius: var(--mantle-radius-md);
+  font-family: var(--mantle-font-mono, monospace);
+  font-size: var(--mantle-text-sm);
+  color: var(--mantle-color-text);
+  background-color: transparent;
+  outline: none;
+}
+
+.mantle-colorFieldInput:focus {
+  border-color: var(--mantle-accent);
+  box-shadow: 0 0 0 var(--mantle-ring-width) var(--mantle-accent);
+}
+
+.mantle-colorFieldInput:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.mantle-colorFieldInputError {
+  border-color: var(--mantle-color-error, #e53e3e);
+}
+
+.mantle-colorFieldError {
+  font-size: var(--mantle-text-xs);
+  color: var(--mantle-color-error, #e53e3e);
+}

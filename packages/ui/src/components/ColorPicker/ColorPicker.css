@@ -1,0 +1,6 @@
+.mantle-colorPicker {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mantle-space-3);
+  font-family: var(--mantle-font-sans);
+}

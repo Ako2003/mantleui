@@ -1,0 +1,42 @@
+.mantle-colorSwatchPicker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--mantle-space-2);
+  font-family: var(--mantle-font-sans);
+}
+
+.mantle-colorSwatchPickerItem {
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  padding: 0;
+  background: none;
+  transition:
+    box-shadow var(--mantle-duration-fast),
+    border-color var(--mantle-duration-fast);
+}
+
+.mantle-colorSwatchPickerItemInner {
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.mantle-colorSwatchPickerItemSelected {
+  border-color: var(--mantle-accent, #3b82f6);
+  box-shadow: 0 0 0 2px var(--mantle-accent, #3b82f6);
+}
+
+.mantle-colorSwatchPickerItemSm .mantle-colorSwatchPickerItemInner {
+  width: 24px;
+  height: 24px;
+}
+
+.mantle-colorSwatchPickerItemMd .mantle-colorSwatchPickerItemInner {
+  width: 32px;
+  height: 32px;
+}
+
+.mantle-colorSwatchPickerItemLg .mantle-colorSwatchPickerItemInner {
+  width: 40px;
+  height: 40px;
+}

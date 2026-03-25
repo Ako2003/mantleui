@@ -1,0 +1,59 @@
+.mantle-colorSlider {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mantle-space-1);
+  width: 100%;
+}
+
+.mantle-colorSliderInput {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 16px;
+  border-radius: var(--mantle-radius-md);
+  outline: none;
+  cursor: pointer;
+}
+
+.mantle-colorSliderInput::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.mantle-colorSliderInput::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.mantle-colorSliderHue {
+  background: linear-gradient(
+    to right,
+    hsl(0, 100%, 50%),
+    hsl(60, 100%, 50%),
+    hsl(120, 100%, 50%),
+    hsl(180, 100%, 50%),
+    hsl(240, 100%, 50%),
+    hsl(300, 100%, 50%),
+    hsl(360, 100%, 50%)
+  );
+}
+
+.mantle-colorSliderSaturation {
+  background: linear-gradient(to right, hsl(0, 0%, 50%), hsl(0, 100%, 50%));
+}
+
+.mantle-colorSliderLightness {
+  background: linear-gradient(to right, #000, #fff);
+}
