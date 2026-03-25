@@ -94,6 +94,8 @@
   border: 1px solid var(--mantle-color-border);
   border-radius: var(--mantle-radius-md);
   background-color: var(--mantle-color-bg-subtle);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   box-shadow: var(--mantle-shadow-md);
   max-height: 15rem;
   overflow-y: auto;

@@ -92,12 +92,20 @@
 }
 
 .mantle-calendarDaySelected {
-  background-color: var(--mantle-accent);
+  background: linear-gradient(
+    135deg,
+    var(--mantle-accent),
+    var(--mantle-accent-hover)
+  );
   color: var(--mantle-accent-text);
 }
 
 .mantle-calendarDaySelected:hover {
-  background-color: var(--mantle-accent-hover);
+  background: linear-gradient(
+    135deg,
+    var(--mantle-accent-hover),
+    var(--mantle-accent-active)
+  );
 }
 
 .mantle-calendarDayToday {

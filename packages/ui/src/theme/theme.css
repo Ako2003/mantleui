@@ -37,9 +37,9 @@
   --mantle-space-8: 2rem;
 
   /* Border radius */
-  --mantle-radius-sm: 0.25rem;
-  --mantle-radius-md: 0.375rem;
-  --mantle-radius-lg: 0.5rem;
+  --mantle-radius-sm: 0.375rem;
+  --mantle-radius-md: 0.5rem;
+  --mantle-radius-lg: 0.75rem;
   --mantle-radius-full: 9999px;
 
   /* Typography */

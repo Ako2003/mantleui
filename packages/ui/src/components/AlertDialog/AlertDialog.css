@@ -2,7 +2,9 @@
   position: fixed;
   inset: 0;
   z-index: 9998;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
   animation: mantle-fadeIn var(--mantle-duration-fast) ease-out;
 }
 
@@ -22,6 +24,8 @@
   border: 1px solid var(--mantle-color-border);
   border-radius: var(--mantle-radius-lg);
   background-color: var(--mantle-color-bg-subtle);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
   box-shadow: var(--mantle-shadow-md);
   padding: var(--mantle-space-6);
   animation: mantle-scaleIn var(--mantle-duration-fast) ease-out;
@@ -62,7 +66,11 @@
   padding: 0 var(--mantle-space-4);
   border: none;
   border-radius: var(--mantle-radius-md);
-  background-color: var(--mantle-accent);
+  background: linear-gradient(
+    135deg,
+    var(--mantle-accent),
+    var(--mantle-accent-hover)
+  );
   color: var(--mantle-accent-text);
   font-family: var(--mantle-font-sans);
   font-size: var(--mantle-text-sm);
@@ -72,7 +80,11 @@
 }
 
 .mantle-alertdialog-action:hover {
-  background-color: var(--mantle-accent-hover);
+  background: linear-gradient(
+    135deg,
+    var(--mantle-accent-hover),
+    var(--mantle-accent-active)
+  );
 }
 
 .mantle-alertdialog-action:focus-visible {

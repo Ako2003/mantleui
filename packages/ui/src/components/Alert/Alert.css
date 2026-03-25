@@ -6,6 +6,8 @@
   border: 1px solid var(--mantle-accent);
   border-radius: var(--mantle-radius-md);
   background-color: var(--mantle-accent-subtle);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   font-family: var(--mantle-font-sans);
 }
 

@@ -2,6 +2,8 @@
   border: 1px solid var(--mantle-color-border);
   border-radius: var(--mantle-radius-lg);
   background-color: var(--mantle-color-surface);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   font-family: var(--mantle-font-sans);
   overflow: hidden;
 }

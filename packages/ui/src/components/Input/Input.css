@@ -17,6 +17,8 @@
   border: 1px solid var(--mantle-color-border);
   border-radius: var(--mantle-radius-md);
   background-color: transparent;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
   transition:
     border-color var(--mantle-duration-fast),
     box-shadow var(--mantle-duration-fast);
