@@ -20,10 +20,23 @@
   border-right: 1px solid var(--mantle-color-border);
 }
 
-/* Override any child container borders (e.g. Input's container) */
+/* Override any child container borders and focus rings */
 .mantle-inputGroup .mantle-inputContainer {
   border: none;
   border-radius: 0;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+.mantle-inputGroup .mantle-inputContainer:focus-within {
+  border: none;
+  box-shadow: none;
+}
+
+/* Make input fill the container height */
+.mantle-inputGroup .mantle-input {
+  height: 100%;
 }
 
 .mantle-inputGroupAddon {
