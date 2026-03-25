@@ -61,7 +61,6 @@ const navItems = [
   { label: "Calendar", href: "/components/calendar" },
   { label: "DatePicker", href: "/components/date-picker" },
   { label: "DateRangePicker", href: "/components/date-range-picker" },
-  { label: "TimeField", href: "/components/time-field" },
   { label: "RadioCalendar", href: "/components/radio-calendar" },
   { heading: "Color" },
   { label: "ColorPicker", href: "/components/color-picker" },

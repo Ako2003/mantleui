@@ -29,8 +29,9 @@ function getActiveSnapshot() {
   return activeId;
 }
 
-function serverSnapshot(): never[] {
-  return [];
+const EMPTY_ITEMS: never[] = [];
+function serverSnapshot() {
+  return EMPTY_ITEMS;
 }
 
 function serverActiveSnapshot() {
