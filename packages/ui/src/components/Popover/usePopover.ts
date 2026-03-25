@@ -75,10 +75,22 @@ export function usePopover({
   }, [isOpen, closePopover]);
 
   const placementStyles: Record<string, React.CSSProperties> = {
+    // Top
     top: { bottom: "100%", left: "50%", transform: "translateX(-50%)" },
+    "top-start": { bottom: "100%", left: "0" },
+    "top-end": { bottom: "100%", right: "0" },
+    // Bottom
     bottom: { top: "100%", left: "50%", transform: "translateX(-50%)" },
+    "bottom-start": { top: "100%", left: "0" },
+    "bottom-end": { top: "100%", right: "0" },
+    // Left
     left: { right: "100%", top: "50%", transform: "translateY(-50%)" },
+    "left-start": { right: "100%", top: "0" },
+    "left-end": { right: "100%", bottom: "0" },
+    // Right
     right: { left: "100%", top: "50%", transform: "translateY(-50%)" },
+    "right-start": { left: "100%", top: "0" },
+    "right-end": { left: "100%", bottom: "0" },
   };
 
   return {
