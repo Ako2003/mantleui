@@ -6,13 +6,26 @@ import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
   { label: "Getting Started", href: "/" },
-  { heading: "Components" },
-  { label: "Button", href: "/components/button" },
+  { heading: "Form" },
+  { label: "Input", href: "/components/input" },
+  { label: "Checkbox", href: "/components/checkbox" },
+  { label: "Switch", href: "/components/switch" },
+  { label: "Select", href: "/components/select" },
   { label: "Toggle", href: "/components/toggle" },
+  { heading: "Interactive" },
+  { label: "Button", href: "/components/button" },
   { label: "Accordion", href: "/components/accordion" },
   { label: "Tabs", href: "/components/tabs" },
   { label: "Popover", href: "/components/popover" },
   { label: "DataTable", href: "/components/data-table" },
+  { heading: "Feedback" },
+  { label: "Badge", href: "/components/badge" },
+  { label: "Alert", href: "/components/alert" },
+  { label: "Toast", href: "/components/toast" },
+  { heading: "Layout" },
+  { label: "Card", href: "/components/card" },
+  { label: "Avatar", href: "/components/avatar" },
+  { label: "Separator", href: "/components/separator" },
 ] as const;
 
 export function Sidebar() {

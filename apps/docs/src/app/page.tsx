@@ -26,17 +26,41 @@ export default function HomePage() {
         />
       </div>
 
-      <h2 className="mt-14 text-2xl font-semibold">Components</h2>
+      <h2 className="mt-14 text-2xl font-semibold">Form</h2>
       <div className="mt-4 grid gap-3 sm:grid-cols-2">
         <ComponentLink
-          href="/components/button"
-          name="Button"
-          pattern="Polymorphic"
+          href="/components/input"
+          name="Input"
+          pattern="Label / Error / Icons"
+        />
+        <ComponentLink
+          href="/components/checkbox"
+          name="Checkbox"
+          pattern="Indeterminate"
+        />
+        <ComponentLink
+          href="/components/switch"
+          name="Switch"
+          pattern="Toggle Switch"
+        />
+        <ComponentLink
+          href="/components/select"
+          name="Select"
+          pattern="Custom Dropdown"
         />
         <ComponentLink
           href="/components/toggle"
           name="Toggle"
           pattern="Controlled / Uncontrolled"
+        />
+      </div>
+
+      <h2 className="mt-10 text-2xl font-semibold">Interactive</h2>
+      <div className="mt-4 grid gap-3 sm:grid-cols-2">
+        <ComponentLink
+          href="/components/button"
+          name="Button"
+          pattern="Polymorphic"
         />
         <ComponentLink
           href="/components/accordion"
@@ -57,6 +81,40 @@ export default function HomePage() {
           href="/components/data-table"
           name="DataTable"
           pattern="All Patterns"
+        />
+      </div>
+
+      <h2 className="mt-10 text-2xl font-semibold">Feedback</h2>
+      <div className="mt-4 grid gap-3 sm:grid-cols-2">
+        <ComponentLink
+          href="/components/badge"
+          name="Badge"
+          pattern="Variants + Colors"
+        />
+        <ComponentLink
+          href="/components/alert"
+          name="Alert"
+          pattern="Info / Success / Warning / Error"
+        />
+        <ComponentLink
+          href="/components/toast"
+          name="Toast"
+          pattern="Global Notifications"
+        />
+      </div>
+
+      <h2 className="mt-10 text-2xl font-semibold">Layout</h2>
+      <div className="mt-4 grid gap-3 sm:grid-cols-2">
+        <ComponentLink href="/components/card" name="Card" pattern="Compound" />
+        <ComponentLink
+          href="/components/avatar"
+          name="Avatar"
+          pattern="Image + Initials"
+        />
+        <ComponentLink
+          href="/components/separator"
+          name="Separator"
+          pattern="Divider"
         />
       </div>
     </div>
