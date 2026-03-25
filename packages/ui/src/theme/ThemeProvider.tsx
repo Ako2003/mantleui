@@ -4,7 +4,6 @@ import {
   useContext,
   useEffect,
   useMemo,
-  useState,
   useSyncExternalStore,
 } from "react";
 import type { ThemeContextValue, ThemeMode } from "./theme.types";
@@ -29,6 +28,49 @@ function subscribeToSystemTheme(callback: () => void): () => void {
   return () => mediaQuery.removeEventListener("change", callback);
 }
 
+/**
+ * Creates a subscribe/getSnapshot pair for reading a localStorage key
+ * via useSyncExternalStore, avoiding setState-in-effect lint errors.
+ */
+function createStorageStore(key: string | false, fallback: ThemeMode) {
+  const subscribers = new Set<() => void>();
+
+  function subscribe(callback: () => void) {
+    subscribers.add(callback);
+    // Listen for storage events from other tabs
+    const handler = (e: StorageEvent) => {
+      if (e.key === key) callback();
+    };
+    window.addEventListener("storage", handler);
+    return () => {
+      subscribers.delete(callback);
+      window.removeEventListener("storage", handler);
+    };
+  }
+
+  function getSnapshot(): ThemeMode {
+    if (key === false) return fallback;
+    const stored = localStorage.getItem(key);
+    if (stored === "light" || stored === "dark" || stored === "system") {
+      return stored;
+    }
+    return fallback;
+  }
+
+  function getServerSnapshot(): ThemeMode {
+    return fallback;
+  }
+
+  function set(value: ThemeMode) {
+    if (key !== false) {
+      localStorage.setItem(key, value);
+    }
+    for (const cb of subscribers) cb();
+  }
+
+  return { subscribe, getSnapshot, getServerSnapshot, set };
+}
+
 export interface ThemeProviderProps {
   children: React.ReactNode;
   /** Initial theme mode. Defaults to "system". */
@@ -42,22 +84,16 @@ export function ThemeProvider({
   defaultMode = "system",
   storageKey = STORAGE_KEY,
 }: ThemeProviderProps) {
-  // Always start with defaultMode on both server and client to avoid hydration mismatch.
-  // localStorage is read in an effect after mount.
-  const [mode, setModeState] = useState<ThemeMode>(defaultMode);
-  const [mounted, setMounted] = useState(false);
+  const store = useMemo(
+    () => createStorageStore(storageKey, defaultMode),
+    [storageKey, defaultMode],
+  );
 
-  useEffect(() => {
-    if (storageKey === false) {
-      setMounted(true);
-      return;
-    }
-    const stored = localStorage.getItem(storageKey);
-    if (stored === "light" || stored === "dark" || stored === "system") {
-      setModeState(stored);
-    }
-    setMounted(true);
-  }, [storageKey]);
+  const mode = useSyncExternalStore(
+    store.subscribe,
+    store.getSnapshot,
+    store.getServerSnapshot,
+  );
 
   const systemTheme = useSyncExternalStore(
     subscribeToSystemTheme,
@@ -69,20 +105,15 @@ export function ThemeProvider({
 
   const setMode = useCallback(
     (newMode: ThemeMode) => {
-      setModeState(newMode);
-      if (storageKey !== false) {
-        localStorage.setItem(storageKey, newMode);
-      }
+      store.set(newMode);
     },
-    [storageKey],
+    [store],
   );
 
   // Apply data-theme attribute to document
   useEffect(() => {
-    if (mounted) {
-      document.documentElement.setAttribute("data-theme", resolvedTheme);
-    }
-  }, [resolvedTheme, mounted]);
+    document.documentElement.setAttribute("data-theme", resolvedTheme);
+  }, [resolvedTheme]);
 
   const value = useMemo<ThemeContextValue>(
     () => ({ resolvedTheme, mode, setMode }),
