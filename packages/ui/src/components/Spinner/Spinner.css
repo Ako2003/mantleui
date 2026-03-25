@@ -1,0 +1,22 @@
+.mantle-spinner {
+  animation: mantle-spinner-rotate 0.75s linear infinite;
+}
+
+@keyframes mantle-spinner-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.mantle-spinner-track {
+  stroke: var(--mantle-border);
+  opacity: 0.25;
+}
+
+.mantle-spinner-arc {
+  stroke: var(--mantle-accent);
+  stroke-linecap: round;
+}
