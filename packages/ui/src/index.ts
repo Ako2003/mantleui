@@ -7,6 +7,30 @@ export type {
   AlertDialogCancelProps,
 } from "./components/AlertDialog";
 
+export { Autocomplete } from "./components/Autocomplete";
+export type {
+  AutocompleteProps,
+  AutocompleteOption,
+} from "./components/Autocomplete";
+
+export { Breadcrumb } from "./components/Breadcrumb";
+export type {
+  BreadcrumbProps,
+  BreadcrumbListProps,
+  BreadcrumbItemProps,
+  BreadcrumbLinkProps,
+  BreadcrumbSeparatorProps,
+} from "./components/Breadcrumb";
+
+export { ButtonGroup } from "./components/ButtonGroup";
+export type {
+  ButtonGroupProps,
+  ButtonGroupOrientation,
+} from "./components/ButtonGroup";
+
+export { Calendar } from "./components/Calendar";
+export type { CalendarProps } from "./components/Calendar";
+
 export { Input } from "./components/Input";
 export type { InputProps, InputSize } from "./components/Input";
 
