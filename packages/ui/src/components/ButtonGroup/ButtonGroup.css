@@ -1,5 +1,6 @@
 .mantle-buttongroup {
   display: inline-flex;
+  gap: 0;
 }
 
 .mantle-buttongroupHorizontal {
@@ -12,39 +13,41 @@
 
 /* Horizontal: connected buttons */
 .mantle-buttongroupHorizontal > * {
-  border-radius: 0;
+  border-radius: 0 !important;
 }
 
 .mantle-buttongroupHorizontal > *:first-child {
-  border-top-left-radius: var(--mantle-radius-md);
-  border-bottom-left-radius: var(--mantle-radius-md);
+  border-top-left-radius: var(--mantle-radius-md) !important;
+  border-bottom-left-radius: var(--mantle-radius-md) !important;
 }
 
 .mantle-buttongroupHorizontal > *:last-child {
-  border-top-right-radius: var(--mantle-radius-md);
-  border-bottom-right-radius: var(--mantle-radius-md);
+  border-top-right-radius: var(--mantle-radius-md) !important;
+  border-bottom-right-radius: var(--mantle-radius-md) !important;
 }
 
+/* Remove double borders between horizontal buttons */
 .mantle-buttongroupHorizontal > *:not(:first-child) {
-  margin-left: -1px;
+  border-left-width: 0 !important;
 }
 
 /* Vertical: connected buttons */
 .mantle-buttongroupVertical > * {
-  border-radius: 0;
+  border-radius: 0 !important;
   width: 100%;
 }
 
 .mantle-buttongroupVertical > *:first-child {
-  border-top-left-radius: var(--mantle-radius-md);
-  border-top-right-radius: var(--mantle-radius-md);
+  border-top-left-radius: var(--mantle-radius-md) !important;
+  border-top-right-radius: var(--mantle-radius-md) !important;
 }
 
 .mantle-buttongroupVertical > *:last-child {
-  border-bottom-left-radius: var(--mantle-radius-md);
-  border-bottom-right-radius: var(--mantle-radius-md);
+  border-bottom-left-radius: var(--mantle-radius-md) !important;
+  border-bottom-right-radius: var(--mantle-radius-md) !important;
 }
 
+/* Remove double borders between vertical buttons */
 .mantle-buttongroupVertical > *:not(:first-child) {
-  margin-top: -1px;
+  border-top-width: 0 !important;
 }
