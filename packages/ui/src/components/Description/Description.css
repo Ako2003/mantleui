@@ -1,0 +1,6 @@
+.mantle-description {
+  font-size: var(--mantle-text-xs);
+  color: var(--mantle-text-muted);
+  margin-top: var(--mantle-space-1);
+  line-height: 1.5;
+}

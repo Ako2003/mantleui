@@ -1,0 +1,16 @@
+.mantle-fieldset {
+  border: 1px solid var(--mantle-border);
+  border-radius: var(--mantle-radius-lg);
+  padding: var(--mantle-space-4);
+}
+
+.mantle-fieldset:disabled {
+  opacity: 0.5;
+}
+
+.mantle-fieldset-legend {
+  font-weight: 500;
+  font-size: var(--mantle-text-sm);
+  color: var(--mantle-text);
+  padding: 0 var(--mantle-space-1);
+}

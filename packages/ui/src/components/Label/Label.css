@@ -1,0 +1,17 @@
+.mantle-label {
+  display: inline-block;
+  font-family: var(--mantle-font-sans);
+  font-size: var(--mantle-text-sm);
+  font-weight: 500;
+  color: var(--mantle-text);
+  line-height: 1.5;
+}
+
+.mantle-label--disabled {
+  opacity: 0.5;
+}
+
+.mantle-label-required {
+  color: var(--mantle-danger);
+  margin-left: var(--mantle-space-1);
+}

@@ -103,6 +103,21 @@ export type {
 export { DisclosureGroup } from "./components/DisclosureGroup";
 export type { DisclosureGroupProps } from "./components/DisclosureGroup";
 
+export { Label } from "./components/Label";
+export type { LabelProps } from "./components/Label";
+
+export { Description } from "./components/Description";
+export type { DescriptionProps } from "./components/Description";
+
+export { ErrorMessage } from "./components/ErrorMessage";
+export type { ErrorMessageProps } from "./components/ErrorMessage";
+
+export { FieldError } from "./components/FieldError";
+export type { FieldErrorProps } from "./components/FieldError";
+
+export { Fieldset } from "./components/Fieldset";
+export type { FieldsetProps } from "./components/Fieldset";
+
 export { Input } from "./components/Input";
 export type { InputProps, InputSize } from "./components/Input";
 

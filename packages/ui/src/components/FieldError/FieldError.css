@@ -1,0 +1,5 @@
+.mantle-field-error {
+  font-size: var(--mantle-text-xs);
+  color: var(--mantle-danger);
+  line-height: 1.5;
+}

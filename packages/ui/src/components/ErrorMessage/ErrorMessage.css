@@ -1,0 +1,6 @@
+.mantle-error-message {
+  font-size: var(--mantle-text-xs);
+  color: var(--mantle-danger);
+  margin-top: var(--mantle-space-1);
+  line-height: 1.5;
+}
