@@ -1,0 +1,55 @@
+.mantle-checkboxWrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--mantle-space-2);
+  cursor: pointer;
+  font-family: var(--mantle-font-sans);
+  font-size: var(--mantle-text-sm);
+  color: var(--mantle-color-text);
+}
+
+.mantle-checkboxWrapper:has(.mantle-checkboxInput:disabled) {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.mantle-checkboxInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.mantle-checkboxControl {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.125rem;
+  height: 1.125rem;
+  border: 2px solid var(--mantle-color-border-hover);
+  border-radius: var(--mantle-radius-sm);
+  background-color: transparent;
+  transition:
+    background-color var(--mantle-duration-fast),
+    border-color var(--mantle-duration-fast);
+  flex-shrink: 0;
+}
+
+.mantle-checkboxInput:focus-visible + .mantle-checkboxControl {
+  outline: var(--mantle-ring-width) solid var(--mantle-accent);
+  outline-offset: var(--mantle-ring-offset);
+}
+
+.mantle-checkboxInput:checked + .mantle-checkboxControl,
+.mantle-checkboxInput[data-indeterminate="true"] + .mantle-checkboxControl {
+  background-color: var(--mantle-accent);
+  border-color: var(--mantle-accent);
+}
+
+.mantle-checkboxIcon {
+  color: var(--mantle-accent-text);
+  width: 12px;
+  height: 12px;
+}

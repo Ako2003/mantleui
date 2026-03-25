@@ -2,6 +2,9 @@
 export { Input } from "./components/Input";
 export type { InputProps, InputSize } from "./components/Input";
 
+export { Checkbox } from "./components/Checkbox";
+export type { CheckboxProps } from "./components/Checkbox";
+
 export { Button } from "./components/Button";
 export type {
   ButtonProps,
