@@ -22,7 +22,7 @@ function ToastIcon({ variant }: { variant: string }) {
     success: "M9 12l2 2 4-4m6 2a10 10 0 11-20 0 10 10 0 0120 0z",
     warning: "M12 9v2m0 4h.01M22 12a10 10 0 11-20 0 10 10 0 0120 0z",
     error:
-      "M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m6-2a10 10 0 11-20 0 10 10 0 0120 0z",
+      "M15 9l-6 6m0-6l6 6m1-3a10 10 0 11-20 0 10 10 0 0120 0z",
   };
 
   return (
