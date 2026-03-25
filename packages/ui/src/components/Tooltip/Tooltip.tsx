@@ -40,9 +40,16 @@ function useTooltipContext() {
 function TooltipRoot({ delayMs = 300, children }: TooltipProps) {
   const [isOpen, setIsOpen] = useState(false);
   const contentId = useId("tooltip");
+  const timerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
-  const open = useCallback(() => setIsOpen(true), []);
-  const close = useCallback(() => setIsOpen(false), []);
+  const open = useCallback(() => {
+    timerRef.current = setTimeout(() => setIsOpen(true), delayMs);
+  }, [delayMs]);
+
+  const close = useCallback(() => {
+    clearTimeout(timerRef.current);
+    setIsOpen(false);
+  }, []);
 
   const contextValue = useMemo(
     () => ({ isOpen, open, close, contentId, delayMs }),
@@ -51,7 +58,15 @@ function TooltipRoot({ delayMs = 300, children }: TooltipProps) {
 
   return (
     <TooltipContext.Provider value={contextValue}>
-      {children}
+      <div
+        className="mantle-tooltip-anchor"
+        onMouseEnter={open}
+        onMouseLeave={close}
+        onFocus={open}
+        onBlur={close}
+      >
+        {children}
+      </div>
     </TooltipContext.Provider>
   );
 }
@@ -59,46 +74,13 @@ function TooltipRoot({ delayMs = 300, children }: TooltipProps) {
 /* ─── Trigger ─── */
 
 const TooltipTrigger = forwardRef<HTMLDivElement, TooltipTriggerProps>(
-  function TooltipTrigger(
-    { children, onMouseEnter, onMouseLeave, onFocus, onBlur, ...rest },
-    ref,
-  ) {
-    const { open, close, contentId, isOpen, delayMs } = useTooltipContext();
-    const timerRef = useRef<ReturnType<typeof setTimeout> | undefined>(
-      undefined,
-    );
-
-    const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
-      onMouseEnter?.(e);
-      timerRef.current = setTimeout(open, delayMs);
-    };
-
-    const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
-      onMouseLeave?.(e);
-      clearTimeout(timerRef.current);
-      close();
-    };
-
-    const handleFocus = (e: React.FocusEvent<HTMLDivElement>) => {
-      onFocus?.(e);
-      timerRef.current = setTimeout(open, delayMs);
-    };
-
-    const handleBlur = (e: React.FocusEvent<HTMLDivElement>) => {
-      onBlur?.(e);
-      clearTimeout(timerRef.current);
-      close();
-    };
+  function TooltipTrigger({ children, ...rest }, ref) {
+    const { contentId, isOpen } = useTooltipContext();
 
     return (
       <div
         ref={ref}
-        className="mantle-tooltip-trigger"
         aria-describedby={isOpen ? contentId : undefined}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
         {...rest}
       >
         {children}

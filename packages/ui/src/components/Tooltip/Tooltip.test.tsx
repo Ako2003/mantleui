@@ -60,7 +60,7 @@ describe("Tooltip", () => {
       await user.hover(screen.getByText("Hover me"));
       const trigger = screen
         .getByText("Hover me")
-        .closest(".mantle-tooltip-trigger");
+        .closest("[aria-describedby]");
       const tooltipId = screen.getByRole("tooltip").getAttribute("id") ?? "";
       expect(trigger).toHaveAttribute("aria-describedby", tooltipId);
     });
