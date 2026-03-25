@@ -24,10 +24,11 @@ const headlessExample = `function Demo() {
         {...triggerProps}
         style={{
           padding: "8px 16px",
-          border: "1px solid #e2e8f0",
+          border: "1px solid var(--mantle-color-border)",
           borderRadius: "6px",
           cursor: "pointer",
           background: "transparent",
+          color: "var(--mantle-color-text)",
         }}
       >
         Headless Trigger
@@ -38,10 +39,11 @@ const headlessExample = `function Demo() {
           style={{
             ...contentProps.style,
             padding: "12px",
-            border: "1px solid #e2e8f0",
+            border: "1px solid var(--mantle-color-border)",
             borderRadius: "8px",
-            background: "white",
-            boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)",
+            background: "var(--mantle-color-bg-subtle)",
+            boxShadow: "var(--mantle-shadow-md)",
+            color: "var(--mantle-color-text)",
             marginTop: "4px",
             minWidth: "200px",
           }}
