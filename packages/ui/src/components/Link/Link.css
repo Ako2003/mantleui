@@ -1,0 +1,42 @@
+.mantle-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--mantle-space-1);
+  color: var(--mantle-accent);
+  font-family: var(--mantle-font-sans);
+  cursor: pointer;
+  transition:
+    color 0.15s ease,
+    text-decoration-color 0.15s ease;
+}
+
+.mantle-link:hover {
+  color: var(--mantle-accent-hover);
+}
+
+/* Underline variants */
+.mantle-link-underline-always {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.mantle-link-underline-hover {
+  text-decoration: none;
+}
+
+.mantle-link-underline-hover:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.mantle-link-underline-none {
+  text-decoration: none;
+}
+
+/* External icon */
+.mantle-link-external-icon {
+  display: inline-block;
+  width: 0.75em;
+  height: 0.75em;
+  flex-shrink: 0;
+}
