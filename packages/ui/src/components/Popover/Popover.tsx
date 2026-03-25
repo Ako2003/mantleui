@@ -49,6 +49,7 @@ const PopoverTrigger = forwardRef<HTMLButtonElement, PopoverTriggerProps>(
       <button
         ref={composedRef}
         type="button"
+        className="mantle-popoverTrigger"
         aria-expanded={triggerProps["aria-expanded"]}
         aria-haspopup={triggerProps["aria-haspopup"]}
         onClick={handleClick}

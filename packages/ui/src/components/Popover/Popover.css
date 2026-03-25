@@ -3,6 +3,34 @@
   display: inline-block;
 }
 
+.mantle-popoverTrigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+  padding: 0 var(--mantle-space-4);
+  border: 1px solid var(--mantle-color-border);
+  border-radius: var(--mantle-radius-md);
+  background: transparent;
+  color: var(--mantle-color-text);
+  font-family: var(--mantle-font-sans);
+  font-size: var(--mantle-text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--mantle-duration-fast);
+}
+
+.mantle-popoverTrigger:hover {
+  background: linear-gradient(135deg, var(--mantle-accent-subtle), transparent);
+  border-color: var(--mantle-accent);
+  color: var(--mantle-accent);
+}
+
+.mantle-popoverTrigger:focus-visible {
+  outline: var(--mantle-ring-width) solid var(--mantle-accent);
+  outline-offset: var(--mantle-ring-offset);
+}
+
 .mantle-content {
   z-index: 50;
   min-width: 12rem;
