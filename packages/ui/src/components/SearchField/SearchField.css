@@ -1,0 +1,106 @@
+.mantle-searchFieldContainer {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--mantle-color-border);
+  border-radius: var(--mantle-radius-md);
+  background: transparent;
+  font-family: var(--mantle-font-sans);
+  transition:
+    border-color var(--mantle-duration-fast),
+    box-shadow var(--mantle-duration-fast);
+}
+
+.mantle-searchFieldContainer:focus-within {
+  border-color: var(--mantle-accent);
+  box-shadow: 0 0 0 1px var(--mantle-accent);
+}
+
+.mantle-searchFieldIcon {
+  display: flex;
+  align-items: center;
+  color: var(--mantle-color-text-muted);
+  flex-shrink: 0;
+  padding-left: var(--mantle-space-3);
+}
+
+.mantle-searchFieldIcon svg {
+  width: 1em;
+  height: 1em;
+}
+
+.mantle-searchFieldInput {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--mantle-color-text);
+  font-family: inherit;
+  outline: none;
+  width: 100%;
+}
+
+.mantle-searchFieldInput::placeholder {
+  color: var(--mantle-color-text-muted);
+}
+
+.mantle-searchFieldInput:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.mantle-searchFieldClear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: var(--mantle-color-text-muted);
+  cursor: pointer;
+  flex-shrink: 0;
+  padding: 0;
+  margin-right: var(--mantle-space-2);
+  border-radius: var(--mantle-radius-sm);
+  transition: color var(--mantle-duration-fast);
+}
+
+.mantle-searchFieldClear:hover {
+  color: var(--mantle-color-text);
+}
+
+.mantle-searchFieldClear svg {
+  width: 1em;
+  height: 1em;
+}
+
+/* Sizes */
+.mantle-searchFieldSm .mantle-searchFieldInput {
+  height: 2rem;
+  padding: 0 var(--mantle-space-2);
+  font-size: var(--mantle-text-xs);
+}
+
+.mantle-searchFieldSm .mantle-searchFieldIcon,
+.mantle-searchFieldSm .mantle-searchFieldClear {
+  font-size: var(--mantle-text-xs);
+}
+
+.mantle-searchFieldMd .mantle-searchFieldInput {
+  height: 2.5rem;
+  padding: 0 var(--mantle-space-3);
+  font-size: var(--mantle-text-sm);
+}
+
+.mantle-searchFieldMd .mantle-searchFieldIcon,
+.mantle-searchFieldMd .mantle-searchFieldClear {
+  font-size: var(--mantle-text-sm);
+}
+
+.mantle-searchFieldLg .mantle-searchFieldInput {
+  height: 3rem;
+  padding: 0 var(--mantle-space-4);
+  font-size: var(--mantle-text-base);
+}
+
+.mantle-searchFieldLg .mantle-searchFieldIcon,
+.mantle-searchFieldLg .mantle-searchFieldClear {
+  font-size: var(--mantle-text-base);
+}

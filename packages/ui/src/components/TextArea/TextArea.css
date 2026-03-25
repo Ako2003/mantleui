@@ -1,0 +1,83 @@
+.mantle-textAreaWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mantle-space-1);
+  font-family: var(--mantle-font-sans);
+}
+
+.mantle-textAreaLabel {
+  font-size: var(--mantle-text-sm);
+  font-weight: 500;
+  color: var(--mantle-color-text);
+}
+
+.mantle-textAreaRequired {
+  color: var(--mantle-color-danger);
+  margin-left: var(--mantle-space-1);
+}
+
+.mantle-textAreaInput {
+  border: 1px solid var(--mantle-color-border);
+  border-radius: var(--mantle-radius-md);
+  background: transparent;
+  color: var(--mantle-color-text);
+  font-family: inherit;
+  outline: none;
+  width: 100%;
+  padding: var(--mantle-space-2) var(--mantle-space-3);
+  font-size: var(--mantle-text-sm);
+  min-height: 5rem;
+  transition:
+    border-color var(--mantle-duration-fast),
+    box-shadow var(--mantle-duration-fast);
+}
+
+.mantle-textAreaInput:focus {
+  border-color: var(--mantle-accent);
+  box-shadow: 0 0 0 1px var(--mantle-accent);
+}
+
+.mantle-textAreaInput::placeholder {
+  color: var(--mantle-color-text-muted);
+}
+
+.mantle-textAreaInput:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.mantle-textAreaInputError {
+  border-color: var(--mantle-color-danger);
+}
+
+.mantle-textAreaInputError:focus {
+  border-color: var(--mantle-color-danger);
+  box-shadow: 0 0 0 1px var(--mantle-color-danger);
+}
+
+/* Resize */
+.mantle-textAreaResizeNone {
+  resize: none;
+}
+
+.mantle-textAreaResizeVertical {
+  resize: vertical;
+}
+
+.mantle-textAreaResizeHorizontal {
+  resize: horizontal;
+}
+
+.mantle-textAreaResizeBoth {
+  resize: both;
+}
+
+.mantle-textAreaDescription {
+  font-size: var(--mantle-text-xs);
+  color: var(--mantle-color-text-muted);
+}
+
+.mantle-textAreaError {
+  font-size: var(--mantle-text-xs);
+  color: var(--mantle-color-danger);
+}

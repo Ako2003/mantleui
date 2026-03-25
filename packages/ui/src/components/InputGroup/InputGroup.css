@@ -1,0 +1,35 @@
+.mantle-inputGroup {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  font-family: var(--mantle-font-sans);
+}
+
+/* Remove border-radius from children in the middle */
+.mantle-inputGroup > *:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.mantle-inputGroup > *:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Collapse adjacent borders */
+.mantle-inputGroup > *:not(:first-child) {
+  margin-left: -1px;
+}
+
+.mantle-inputGroupAddon {
+  display: flex;
+  align-items: center;
+  padding: 0 var(--mantle-space-3);
+  background: var(--mantle-color-bg-subtle);
+  border: 1px solid var(--mantle-color-border);
+  border-radius: var(--mantle-radius-md);
+  color: var(--mantle-color-text-muted);
+  font-size: var(--mantle-text-sm);
+  white-space: nowrap;
+  flex-shrink: 0;
+}

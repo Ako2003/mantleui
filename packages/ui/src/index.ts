@@ -118,6 +118,30 @@ export type { FieldErrorProps } from "./components/FieldError";
 export { Fieldset } from "./components/Fieldset";
 export type { FieldsetProps } from "./components/Fieldset";
 
+export { TextField } from "./components/TextField";
+export type { TextFieldProps, TextFieldSize } from "./components/TextField";
+
+export { TextArea } from "./components/TextArea";
+export type { TextAreaProps, TextAreaResize } from "./components/TextArea";
+
+export { NumberField } from "./components/NumberField";
+export type {
+  NumberFieldProps,
+  NumberFieldSize,
+} from "./components/NumberField";
+
+export { SearchField } from "./components/SearchField";
+export type {
+  SearchFieldProps,
+  SearchFieldSize,
+} from "./components/SearchField";
+
+export { InputGroup } from "./components/InputGroup";
+export type {
+  InputGroupProps,
+  InputGroupAddonProps,
+} from "./components/InputGroup";
+
 export { Input } from "./components/Input";
 export type { InputProps, InputSize } from "./components/Input";
 

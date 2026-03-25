@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/akifmursalov/Documents/project/packages/ui/src/components/**)"
+    ]
+  }
+}

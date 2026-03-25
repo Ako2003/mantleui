@@ -1,0 +1,123 @@
+.mantle-numberFieldWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mantle-space-1);
+  font-family: var(--mantle-font-sans);
+}
+
+.mantle-numberFieldLabel {
+  font-size: var(--mantle-text-sm);
+  font-weight: 500;
+  color: var(--mantle-color-text);
+}
+
+.mantle-numberFieldContainer {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--mantle-color-border);
+  border-radius: var(--mantle-radius-md);
+  overflow: hidden;
+  transition:
+    border-color var(--mantle-duration-fast),
+    box-shadow var(--mantle-duration-fast);
+}
+
+.mantle-numberFieldContainer:focus-within {
+  border-color: var(--mantle-accent);
+  box-shadow: 0 0 0 1px var(--mantle-accent);
+}
+
+.mantle-numberFieldContainerError {
+  border-color: var(--mantle-color-danger);
+}
+
+.mantle-numberFieldContainerError:focus-within {
+  border-color: var(--mantle-color-danger);
+  box-shadow: 0 0 0 1px var(--mantle-color-danger);
+}
+
+.mantle-numberFieldButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: var(--mantle-color-bg-subtle);
+  color: var(--mantle-color-text);
+  cursor: pointer;
+  flex-shrink: 0;
+  font-family: inherit;
+  font-weight: 600;
+  padding: 0;
+  transition: background var(--mantle-duration-fast);
+}
+
+.mantle-numberFieldButton:hover:not(:disabled) {
+  background: var(--mantle-color-bg-hover);
+}
+
+.mantle-numberFieldButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.mantle-numberFieldInput {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--mantle-color-text);
+  font-family: inherit;
+  outline: none;
+  text-align: center;
+  width: 100%;
+  -moz-appearance: textfield;
+}
+
+.mantle-numberFieldInput::-webkit-outer-spin-button,
+.mantle-numberFieldInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.mantle-numberFieldInput:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Sizes */
+.mantle-numberFieldSm .mantle-numberFieldInput {
+  height: 2rem;
+  font-size: var(--mantle-text-xs);
+}
+
+.mantle-numberFieldSm .mantle-numberFieldButton {
+  width: 2rem;
+  height: 2rem;
+  font-size: var(--mantle-text-sm);
+}
+
+.mantle-numberFieldMd .mantle-numberFieldInput {
+  height: 2.5rem;
+  font-size: var(--mantle-text-sm);
+}
+
+.mantle-numberFieldMd .mantle-numberFieldButton {
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: var(--mantle-text-base);
+}
+
+.mantle-numberFieldLg .mantle-numberFieldInput {
+  height: 3rem;
+  font-size: var(--mantle-text-base);
+}
+
+.mantle-numberFieldLg .mantle-numberFieldButton {
+  width: 3rem;
+  height: 3rem;
+  font-size: var(--mantle-text-lg);
+}
+
+.mantle-numberFieldError {
+  font-size: var(--mantle-text-xs);
+  color: var(--mantle-color-danger);
+}

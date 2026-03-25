@@ -1,0 +1,82 @@
+.mantle-textFieldWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mantle-space-1);
+  font-family: var(--mantle-font-sans);
+}
+
+.mantle-textFieldLabel {
+  font-size: var(--mantle-text-sm);
+  font-weight: 500;
+  color: var(--mantle-color-text);
+}
+
+.mantle-textFieldRequired {
+  color: var(--mantle-color-danger);
+  margin-left: var(--mantle-space-1);
+}
+
+.mantle-textFieldInput {
+  border: 1px solid var(--mantle-color-border);
+  border-radius: var(--mantle-radius-md);
+  background: transparent;
+  color: var(--mantle-color-text);
+  font-family: inherit;
+  outline: none;
+  width: 100%;
+  transition:
+    border-color var(--mantle-duration-fast),
+    box-shadow var(--mantle-duration-fast);
+}
+
+.mantle-textFieldInput:focus {
+  border-color: var(--mantle-accent);
+  box-shadow: 0 0 0 1px var(--mantle-accent);
+}
+
+.mantle-textFieldInput::placeholder {
+  color: var(--mantle-color-text-muted);
+}
+
+.mantle-textFieldInput:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.mantle-textFieldInputError {
+  border-color: var(--mantle-color-danger);
+}
+
+.mantle-textFieldInputError:focus {
+  border-color: var(--mantle-color-danger);
+  box-shadow: 0 0 0 1px var(--mantle-color-danger);
+}
+
+/* Sizes */
+.mantle-textFieldSm {
+  height: 2rem;
+  padding: 0 var(--mantle-space-2);
+  font-size: var(--mantle-text-xs);
+}
+
+.mantle-textFieldMd {
+  height: 2.5rem;
+  padding: 0 var(--mantle-space-3);
+  font-size: var(--mantle-text-sm);
+}
+
+.mantle-textFieldLg {
+  height: 3rem;
+  padding: 0 var(--mantle-space-4);
+  font-size: var(--mantle-text-base);
+}
+
+.mantle-textFieldDescription {
+  font-size: var(--mantle-text-xs);
+  color: var(--mantle-color-text-muted);
+}
+
+.mantle-textFieldError {
+  font-size: var(--mantle-text-xs);
+  color: var(--mantle-color-danger);
+}
