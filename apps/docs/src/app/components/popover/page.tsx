@@ -57,6 +57,41 @@ const headlessExample = `function Demo() {
 
 render(<Demo />);`;
 
+const placementExample = `<div style={{ display: "flex", flexWrap: "wrap", gap: "12px", justifyContent: "center", padding: "80px 40px" }}>
+  <Popover placement="top">
+    <Popover.Trigger>Top</Popover.Trigger>
+    <Popover.Content>Placement: top</Popover.Content>
+  </Popover>
+  <Popover placement="top-start">
+    <Popover.Trigger>Top Start</Popover.Trigger>
+    <Popover.Content>Placement: top-start</Popover.Content>
+  </Popover>
+  <Popover placement="top-end">
+    <Popover.Trigger>Top End</Popover.Trigger>
+    <Popover.Content>Placement: top-end</Popover.Content>
+  </Popover>
+  <Popover placement="bottom">
+    <Popover.Trigger>Bottom</Popover.Trigger>
+    <Popover.Content>Placement: bottom</Popover.Content>
+  </Popover>
+  <Popover placement="bottom-start">
+    <Popover.Trigger>Bottom Start</Popover.Trigger>
+    <Popover.Content>Placement: bottom-start</Popover.Content>
+  </Popover>
+  <Popover placement="bottom-end">
+    <Popover.Trigger>Bottom End</Popover.Trigger>
+    <Popover.Content>Placement: bottom-end</Popover.Content>
+  </Popover>
+  <Popover placement="left">
+    <Popover.Trigger>Left</Popover.Trigger>
+    <Popover.Content>Placement: left</Popover.Content>
+  </Popover>
+  <Popover placement="right">
+    <Popover.Trigger>Right</Popover.Trigger>
+    <Popover.Content>Placement: right</Popover.Content>
+  </Popover>
+</div>`;
+
 const popoverProps = [
   {
     name: "open",
@@ -76,9 +111,9 @@ const popoverProps = [
   },
   {
     name: "placement",
-    type: '"top" | "bottom" | "left" | "right"',
+    type: '"top" | "top-start" | "top-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end" | "right" | "right-start" | "right-end"',
     default: '"bottom"',
-    description: "Preferred placement relative to the trigger.",
+    description: "Placement of the popover relative to the trigger.",
   },
   {
     name: "color",
@@ -116,6 +151,18 @@ export default function PopoverPage() {
       </p>
       <div className="mt-4">
         <LivePlayground code={headlessExample} noEditor />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Placement</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Use the{" "}
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
+          placement
+        </code>{" "}
+        prop to control where the popover appears relative to the trigger.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={placementExample} noEditor />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>
