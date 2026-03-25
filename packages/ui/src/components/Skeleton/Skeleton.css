@@ -1,0 +1,49 @@
+.mantle-skeleton {
+  display: block;
+  background: var(--mantle-bg-subtle);
+  overflow: hidden;
+  position: relative;
+}
+
+.mantle-skeleton-animate::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--mantle-bg-overlay, rgba(255, 255, 255, 0.15)) 50%,
+    transparent 100%
+  );
+  animation: mantle-skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes mantle-skeleton-shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Rounded variants */
+.mantle-skeleton-rounded-none {
+  border-radius: 0;
+}
+
+.mantle-skeleton-rounded-sm {
+  border-radius: var(--mantle-radius-sm);
+}
+
+.mantle-skeleton-rounded-md {
+  border-radius: var(--mantle-radius-md);
+}
+
+.mantle-skeleton-rounded-lg {
+  border-radius: var(--mantle-radius-lg);
+}
+
+.mantle-skeleton-rounded-full {
+  border-radius: var(--mantle-radius-full);
+}
