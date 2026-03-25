@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ThemeToggle } from "./ThemeToggle";
+import { SearchDialog } from "./SearchDialog";
 
 const navItems = [
   { label: "Getting Started", href: "/" },
@@ -99,6 +100,10 @@ export function Sidebar() {
             MantleUI
           </Link>
           <ThemeToggle />
+        </div>
+
+        <div className="px-4 pt-4">
+          <SearchDialog />
         </div>
 
         <nav className="flex-1 overflow-y-auto px-4 py-4">
