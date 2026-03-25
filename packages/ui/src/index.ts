@@ -142,6 +142,25 @@ export type {
   InputGroupAddonProps,
 } from "./components/InputGroup";
 
+export { InputOTP } from "./components/InputOTP";
+export type { InputOTPProps } from "./components/InputOTP";
+
+export { Slider } from "./components/Slider";
+export type { SliderProps } from "./components/Slider";
+
+export { Meter } from "./components/Meter";
+export type { MeterProps } from "./components/Meter";
+
+export { Form } from "./components/Form";
+export type { FormProps } from "./components/Form";
+
+export { RadioGroup, RadioGroupContext } from "./components/RadioGroup";
+export type {
+  RadioGroupProps,
+  RadioGroupItemProps,
+  RadioGroupContextValue,
+} from "./components/RadioGroup";
+
 export { Input } from "./components/Input";
 export type { InputProps, InputSize } from "./components/Input";
 

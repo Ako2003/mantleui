@@ -1,0 +1,29 @@
+.mantle-inputotp {
+  display: flex;
+  flex-direction: row;
+  gap: var(--mantle-space-2);
+}
+
+.mantle-inputotp-box {
+  width: 2.5rem;
+  height: 2.5rem;
+  text-align: center;
+  font-family: var(--mantle-font-mono);
+  font-size: var(--mantle-text-lg);
+  border: 1px solid var(--mantle-border);
+  border-radius: var(--mantle-radius-md);
+  background: var(--mantle-bg);
+  color: var(--mantle-fg);
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.mantle-inputotp-box:focus {
+  border-color: var(--mantle-color-accent);
+  box-shadow: 0 0 0 2px var(--mantle-color-accent-subtle);
+}
+
+.mantle-inputotp-box:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
