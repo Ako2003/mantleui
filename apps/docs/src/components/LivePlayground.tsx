@@ -1,12 +1,7 @@
 "use client";
 
 import React from "react";
-import {
-  LiveProvider,
-  LivePreview,
-  LiveEditor,
-  LiveError,
-} from "react-live";
+import { LiveProvider, LivePreview, LiveEditor, LiveError } from "react-live";
 import type { PrismTheme } from "prism-react-renderer";
 import * as MantleUI from "@mantleui/react";
 
@@ -18,10 +13,19 @@ const darkTheme: PrismTheme = {
     backgroundColor: "#18181b",
   },
   styles: [
-    { types: ["comment", "prolog", "doctype", "cdata"], style: { color: "#71717a" } },
+    {
+      types: ["comment", "prolog", "doctype", "cdata"],
+      style: { color: "#71717a" },
+    },
     { types: ["punctuation"], style: { color: "#a1a1aa" } },
-    { types: ["property", "tag", "boolean", "number", "constant", "symbol"], style: { color: "#7dd3fc" } },
-    { types: ["selector", "attr-name", "string", "char", "builtin"], style: { color: "#86efac" } },
+    {
+      types: ["property", "tag", "boolean", "number", "constant", "symbol"],
+      style: { color: "#7dd3fc" },
+    },
+    {
+      types: ["selector", "attr-name", "string", "char", "builtin"],
+      style: { color: "#86efac" },
+    },
     { types: ["operator", "entity", "url"], style: { color: "#a1a1aa" } },
     { types: ["atrule", "attr-value", "keyword"], style: { color: "#c4b5fd" } },
     { types: ["function", "class-name"], style: { color: "#fde68a" } },
@@ -41,7 +45,12 @@ export function LivePlayground({
   const hasRender = code.includes("render(");
 
   return (
-    <LiveProvider code={code} scope={scope} noInline={hasRender} theme={darkTheme}>
+    <LiveProvider
+      code={code}
+      scope={scope}
+      noInline={hasRender}
+      theme={darkTheme}
+    >
       <div className="overflow-hidden rounded-lg border border-slate-200 dark:border-zinc-800">
         <div className="bg-white p-6 dark:bg-zinc-950">
           <LivePreview />
