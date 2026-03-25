@@ -9,7 +9,8 @@ describe("Avatar", () => {
     const imgs = screen.getAllByRole("img", { name: "Jane Doe" });
     expect(imgs.length).toBeGreaterThanOrEqual(1);
     const imgEl =
-      imgs.at(0)?.querySelector("img") ?? imgs.find((el) => el.tagName === "IMG");
+      imgs.at(0)?.querySelector("img") ??
+      imgs.find((el) => el.tagName === "IMG");
     expect(imgEl).toBeInTheDocument();
     expect(imgEl).toHaveAttribute("src", "/photo.jpg");
     expect(imgEl).toHaveAttribute("alt", "Jane Doe");
