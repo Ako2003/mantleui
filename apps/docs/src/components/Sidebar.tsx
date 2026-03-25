@@ -54,7 +54,7 @@ export function Sidebar() {
                 return (
                   <li
                     key={i}
-                    className="px-2 pb-1 pt-4 text-xs font-semibold uppercase tracking-wider text-slate-500"
+                    className="px-2 pb-1 pt-4 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-white"
                   >
                     {item.heading}
                   </li>
