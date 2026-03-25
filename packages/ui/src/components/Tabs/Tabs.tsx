@@ -111,7 +111,7 @@ const TabsList = forwardRef<HTMLDivElement, TabsListProps>(function TabsList(
         }
       }}
       role="tablist"
-      className={["mantle-list", className].filter(Boolean).join(" ")}
+      className={["mantle-tabsList", className].filter(Boolean).join(" ")}
       onKeyDown={handleKeyDown}
       {...rest}
     >
@@ -152,8 +152,8 @@ const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
         disabled={disabled}
         onClick={handleClick}
         className={[
-          "mantle-trigger",
-          isActive && "mantle-triggerActive",
+          "mantle-tabsTrigger",
+          isActive && "mantle-tabsTriggerActive",
           className,
         ]
           .filter(Boolean)
@@ -182,7 +182,7 @@ const TabsContent = forwardRef<HTMLDivElement, TabsContentProps>(
         role="tabpanel"
         tabIndex={0}
         aria-labelledby={`${baseId}-trigger-${value}`}
-        className={["mantle-content", className].filter(Boolean).join(" ")}
+        className={["mantle-tabsContent", className].filter(Boolean).join(" ")}
         {...rest}
       >
         {children}

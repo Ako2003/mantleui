@@ -10,7 +10,8 @@
       "Bash(for comp:*)",
       "Bash(do)",
       "Bash(echo \"=== $comp ===\")",
-      "Read(//Users/akifmursalov/Documents/project/packages/ui/src/components/$comp/**)"
+      "Read(//Users/akifmursalov/Documents/project/packages/ui/src/components/$comp/**)",
+      "Bash(grep -rn \"\\\\.mantle-trigger \" /Users/akifmursalov/Documents/project/packages/ui/src/components/*/ --include=\"*.css\")"
     ]
   }
 }
