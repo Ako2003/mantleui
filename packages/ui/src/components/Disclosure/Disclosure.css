@@ -1,0 +1,47 @@
+.mantle-disclosure {
+  border: 1px solid var(--mantle-color-border);
+  border-radius: var(--mantle-radius-lg);
+  overflow: hidden;
+}
+
+.mantle-disclosure-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--mantle-space-3) var(--mantle-space-4);
+  border: none;
+  background-color: transparent;
+  color: var(--mantle-color-text);
+  font-family: var(--mantle-font-sans);
+  font-size: var(--mantle-text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color var(--mantle-duration-fast);
+}
+
+.mantle-disclosure-trigger:hover {
+  background-color: var(--mantle-color-bg-muted);
+}
+
+.mantle-disclosure-trigger:focus-visible {
+  outline: var(--mantle-ring-width) solid var(--mantle-color-text-muted);
+  outline-offset: var(--mantle-ring-offset);
+}
+
+.mantle-disclosure-chevron {
+  transition: transform var(--mantle-duration-fast) ease-out;
+}
+
+.mantle-disclosure-chevron--open {
+  transform: rotate(180deg);
+}
+
+.mantle-disclosure-content {
+  padding: var(--mantle-space-3) var(--mantle-space-4);
+  font-family: var(--mantle-font-sans);
+  font-size: var(--mantle-text-sm);
+  color: var(--mantle-color-text-muted);
+  line-height: 1.5;
+  border-top: 1px solid var(--mantle-color-border);
+}
