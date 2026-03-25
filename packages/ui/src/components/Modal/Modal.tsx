@@ -6,6 +6,7 @@ import {
   useEffect,
   useRef,
 } from "react";
+import { createPortal } from "react-dom";
 import type {
   ModalBodyProps,
   ModalContentProps,
@@ -42,12 +43,23 @@ function ModalRoot({ open, onOpenChange, children }: ModalProps) {
     return () => document.removeEventListener("keydown", handler);
   }, [open, onClose]);
 
+  // Lock body scroll when open
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [open]);
+
   if (!open) return null;
 
-  return (
+  return createPortal(
     <ModalContext.Provider value={{ onClose }}>
       {children}
-    </ModalContext.Provider>
+    </ModalContext.Provider>,
+    document.body,
   );
 }
 
