@@ -110,8 +110,8 @@ export function OnThisPage() {
   if (items.length === 0) return null;
 
   return (
-    <nav className="hidden xl:block" aria-label="On this page">
-      <div className="sticky top-10">
+    <nav aria-label="On this page">
+      <div>
         <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-zinc-400">
           On this page
         </h3>

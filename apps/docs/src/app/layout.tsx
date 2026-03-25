@@ -21,14 +21,12 @@ export default function RootLayout({
         <Providers>
           <div className="flex min-h-screen">
             <Sidebar />
-            <div className="flex flex-1 overflow-y-auto">
-              <main className="flex-1 px-8 py-10 lg:px-16">
-                <div className="mx-auto max-w-3xl">{children}</div>
-              </main>
-              <aside className="w-48 shrink-0 py-10 pr-6">
-                <OnThisPage />
-              </aside>
-            </div>
+            <main className="flex-1 px-8 py-10 lg:px-16">
+              <div className="mx-auto max-w-3xl">{children}</div>
+            </main>
+            <aside className="sticky top-0 hidden h-screen w-48 shrink-0 overflow-y-auto py-10 pr-6 xl:block">
+              <OnThisPage />
+            </aside>
           </div>
         </Providers>
       </body>
