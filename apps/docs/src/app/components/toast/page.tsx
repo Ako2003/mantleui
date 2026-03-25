@@ -4,39 +4,39 @@ import { LivePlayground } from "@/components/LivePlayground";
 import { PropsTable } from "@/components/PropsTable";
 
 const basicExample = `function Demo() {
-  const toast = useToast();
+  const { toast } = useToast();
   return (
     <div>
       <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
         <Button
           variant="outline"
-          onClick={() => toast.info("This is an informational toast.")}
+          onClick={() => toast.info({ title: "Info", description: "This is an informational toast." })}
         >
           Info
         </Button>
         <Button
           variant="outline"
           color="green"
-          onClick={() => toast.success("Your changes have been saved!")}
+          onClick={() => toast.success({ title: "Success", description: "Your changes have been saved!" })}
         >
           Success
         </Button>
         <Button
           variant="outline"
           color="yellow"
-          onClick={() => toast.warning("Your session is about to expire.")}
+          onClick={() => toast.warning({ title: "Warning", description: "Your session is about to expire." })}
         >
           Warning
         </Button>
         <Button
           variant="outline"
           color="red"
-          onClick={() => toast.error("Something went wrong. Please try again.")}
+          onClick={() => toast.error({ title: "Error", description: "Something went wrong." })}
         >
           Error
         </Button>
       </div>
-      <Toaster />
+      <Toaster position="top-right" />
     </div>
   );
 }
@@ -87,31 +87,31 @@ export default function ToastPage() {
       <ul className="mt-2 list-inside list-disc text-sm text-slate-600 dark:text-zinc-400">
         <li>
           <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
-            toast.info(message)
+            {"toast.info({ title, description, duration })"}
           </code>{" "}
           &mdash; Show an info toast
         </li>
         <li>
           <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
-            toast.success(message)
+            {"toast.success({ title, description, duration })"}
           </code>{" "}
           &mdash; Show a success toast
         </li>
         <li>
           <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
-            toast.warning(message)
+            {"toast.warning({ title, description, duration })"}
           </code>{" "}
           &mdash; Show a warning toast
         </li>
         <li>
           <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
-            toast.error(message)
+            {"toast.error({ title, description, duration })"}
           </code>{" "}
           &mdash; Show an error toast
         </li>
         <li>
           <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
-            toast.dismiss(id)
+            dismiss(id)
           </code>{" "}
           &mdash; Dismiss a toast by its ID
         </li>
