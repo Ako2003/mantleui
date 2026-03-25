@@ -8,9 +8,7 @@ const basicExample = `function Demo() {
   return (
     <div>
       <Dropdown>
-        <Dropdown.Trigger>
-          <Button variant="outline">Open Menu</Button>
-        </Dropdown.Trigger>
+        <Dropdown.Trigger>Open Menu</Dropdown.Trigger>
         <Dropdown.Menu>
           <Dropdown.Item onSelect={() => setSelected("edit")}>Edit</Dropdown.Item>
           <Dropdown.Item onSelect={() => setSelected("duplicate")}>Duplicate</Dropdown.Item>
