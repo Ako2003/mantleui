@@ -172,7 +172,12 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(function Select(
       {...rest}
     >
       {label && (
-        <label className="mantle-selectLabel" id={`${generatedId}-label`}>
+        <label
+          className={["mantle-selectLabel", error && "mantle-selectLabelError"]
+            .filter(Boolean)
+            .join(" ")}
+          id={`${generatedId}-label`}
+        >
           {label}
         </label>
       )}
@@ -200,7 +205,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(function Select(
         {selectedLabel ? (
           <span>{selectedLabel}</span>
         ) : (
-          <span className="mantle-selectPlaceholder">{placeholder}</span>
+          <span className={["mantle-selectPlaceholder", error && "mantle-selectPlaceholderError"].filter(Boolean).join(" ")}>{placeholder}</span>
         )}
         <svg
           className={[

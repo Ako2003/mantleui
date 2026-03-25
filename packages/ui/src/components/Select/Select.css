@@ -12,6 +12,10 @@
   color: var(--mantle-color-text);
 }
 
+.mantle-selectLabelError {
+  color: var(--mantle-color-danger);
+}
+
 .mantle-selectTrigger {
   display: flex;
   align-items: center;
@@ -50,6 +54,11 @@
 
 .mantle-selectPlaceholder {
   color: var(--mantle-color-text-muted);
+}
+
+.mantle-selectPlaceholderError {
+  color: var(--mantle-color-danger);
+  opacity: 0.6;
 }
 
 /* Sizes */
