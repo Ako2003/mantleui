@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import type { DataTableProps } from "./DataTable.types";
 import { useDataTable } from "./useDataTable";
-import styles from "./DataTable.module.css";
+import "./DataTable.css";
 
 function SortIcon({
   direction,
@@ -12,12 +12,16 @@ function SortIcon({
 }) {
   return (
     <span
-      className={[styles.sortIndicator, active && styles.sortActive]
+      className={["mantle-sortIndicator", active && "mantle-sortActive"]
         .filter(Boolean)
         .join(" ")}
       aria-hidden="true"
     >
-      {direction === "asc" ? "↑" : direction === "desc" ? "↓" : "↕"}
+      {direction === "asc"
+        ? "\u2191"
+        : direction === "desc"
+          ? "\u2193"
+          : "\u2195"}
     </span>
   );
 }
@@ -54,16 +58,19 @@ function DataTableInner<T>(
   return (
     <div
       ref={ref}
-      className={[styles.wrapper, className].filter(Boolean).join(" ")}
+      className={["mantle-wrapper", className].filter(Boolean).join(" ")}
       {...rest}
     >
-      <table className={styles.table} role="grid">
+      <table className="mantle-table" role="grid">
         <thead>
           <tr>
             {table.columns.map((col) => (
               <th
                 key={col.key}
-                className={[styles.headerCell, col.sortable && styles.sortable]
+                className={[
+                  "mantle-headerCell",
+                  col.sortable && "mantle-sortable",
+                ]
                   .filter(Boolean)
                   .join(" ")}
                 aria-sort={
@@ -107,15 +114,15 @@ function DataTableInner<T>(
         <tbody>
           {table.rows.length === 0 ? (
             <tr>
-              <td colSpan={columns.length} className={styles.emptyRow}>
+              <td colSpan={columns.length} className="mantle-emptyRow">
                 {emptyState ? emptyState() : "No data"}
               </td>
             </tr>
           ) : (
             table.rows.map((row, rowIndex) => (
-              <tr key={rowIndex} className={styles.row}>
+              <tr key={rowIndex} className="mantle-row">
                 {table.columns.map((col) => (
-                  <td key={col.key} className={styles.cell}>
+                  <td key={col.key} className="mantle-cell">
                     {table.getCellValue(row, col)}
                   </td>
                 ))}
@@ -126,14 +133,14 @@ function DataTableInner<T>(
       </table>
 
       {pageSize > 0 && table.pageCount > 1 && (
-        <div className={styles.pagination} aria-label="Table pagination">
+        <div className="mantle-pagination" aria-label="Table pagination">
           <span>
             Page {table.page + 1} of {table.pageCount}
           </span>
-          <div className={styles.pageButtons}>
+          <div className="mantle-pageButtons">
             <button
               type="button"
-              className={styles.pageButton}
+              className="mantle-pageButton"
               onClick={table.prevPage}
               disabled={table.page === 0}
               aria-label="Previous page"
@@ -142,7 +149,7 @@ function DataTableInner<T>(
             </button>
             <button
               type="button"
-              className={styles.pageButton}
+              className="mantle-pageButton"
               onClick={table.nextPage}
               disabled={table.page === table.pageCount - 1}
               aria-label="Next page"

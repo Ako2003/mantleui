@@ -1,15 +1,15 @@
-.wrapper {
+.mantle-wrapper {
   overflow-x: auto;
 }
 
-.table {
+.mantle-table {
   width: 100%;
   border-collapse: collapse;
   font-family: var(--mantle-font-sans);
   font-size: var(--mantle-text-sm);
 }
 
-.headerCell {
+.mantle-headerCell {
   padding: var(--mantle-space-3) var(--mantle-space-4);
   border-bottom: 2px solid var(--mantle-color-border);
   background-color: var(--mantle-color-bg-subtle);
@@ -19,48 +19,48 @@
   white-space: nowrap;
 }
 
-.sortable {
+.mantle-sortable {
   cursor: pointer;
   user-select: none;
 }
 
-.sortable:hover {
+.mantle-sortable:hover {
   color: var(--mantle-color-text);
 }
 
-.sortable:focus-visible {
+.mantle-sortable:focus-visible {
   outline: var(--mantle-ring-width) solid var(--mantle-ring-color);
   outline-offset: calc(-1 * var(--mantle-ring-width));
 }
 
-.sortIndicator {
+.mantle-sortIndicator {
   display: inline-block;
   margin-left: var(--mantle-space-1);
   opacity: 0.5;
 }
 
-.sortActive {
+.mantle-sortActive {
   opacity: 1;
   color: var(--mantle-color-primary);
 }
 
-.cell {
+.mantle-cell {
   padding: var(--mantle-space-3) var(--mantle-space-4);
   border-bottom: 1px solid var(--mantle-color-border);
   color: var(--mantle-color-text);
 }
 
-.row:hover {
+.mantle-row:hover {
   background-color: var(--mantle-color-bg-subtle);
 }
 
-.emptyRow {
+.mantle-emptyRow {
   text-align: center;
   color: var(--mantle-color-text-muted);
   padding: var(--mantle-space-8) var(--mantle-space-4);
 }
 
-.pagination {
+.mantle-pagination {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -70,7 +70,7 @@
   color: var(--mantle-color-text-muted);
 }
 
-.pageButton {
+.mantle-pageButton {
   padding: var(--mantle-space-1) var(--mantle-space-3);
   border: 1px solid var(--mantle-color-border);
   border-radius: var(--mantle-radius-md);
@@ -82,21 +82,21 @@
   transition: background-color var(--mantle-duration-fast);
 }
 
-.pageButton:hover:not(:disabled) {
+.mantle-pageButton:hover:not(:disabled) {
   background-color: var(--mantle-color-bg-muted);
 }
 
-.pageButton:disabled {
+.mantle-pageButton:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
-.pageButton:focus-visible {
+.mantle-pageButton:focus-visible {
   outline: var(--mantle-ring-width) solid var(--mantle-ring-color);
   outline-offset: var(--mantle-ring-offset);
 }
 
-.pageButtons {
+.mantle-pageButtons {
   display: flex;
   gap: var(--mantle-space-2);
 }

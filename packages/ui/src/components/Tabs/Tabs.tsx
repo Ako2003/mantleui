@@ -7,7 +7,7 @@ import type {
   TabsProps,
   TabsTriggerProps,
 } from "./Tabs.types";
-import styles from "./Tabs.module.css";
+import "./Tabs.css";
 
 /* ─── Root ─── */
 
@@ -32,7 +32,7 @@ const TabsRoot = forwardRef<HTMLDivElement, TabsProps>(function TabsRoot(
     <TabsContext.Provider value={contextValue}>
       <div
         ref={ref}
-        className={[styles.tabs, className].filter(Boolean).join(" ")}
+        className={["mantle-tabs", className].filter(Boolean).join(" ")}
         {...rest}
       >
         {children}
@@ -102,7 +102,7 @@ const TabsList = forwardRef<HTMLDivElement, TabsListProps>(function TabsList(
         }
       }}
       role="tablist"
-      className={[styles.list, className].filter(Boolean).join(" ")}
+      className={["mantle-list", className].filter(Boolean).join(" ")}
       onKeyDown={handleKeyDown}
       {...rest}
     >
@@ -142,7 +142,11 @@ const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
         aria-controls={`${baseId}-content-${value}`}
         disabled={disabled}
         onClick={handleClick}
-        className={[styles.trigger, isActive && styles.triggerActive, className]
+        className={[
+          "mantle-trigger",
+          isActive && "mantle-triggerActive",
+          className,
+        ]
           .filter(Boolean)
           .join(" ")}
         {...rest}
@@ -169,7 +173,7 @@ const TabsContent = forwardRef<HTMLDivElement, TabsContentProps>(
         role="tabpanel"
         tabIndex={0}
         aria-labelledby={`${baseId}-trigger-${value}`}
-        className={[styles.content, className].filter(Boolean).join(" ")}
+        className={["mantle-content", className].filter(Boolean).join(" ")}
         {...rest}
       >
         {children}

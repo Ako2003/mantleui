@@ -7,7 +7,7 @@ import type {
   PopoverTriggerProps,
 } from "./Popover.types";
 import { usePopover } from "./usePopover";
-import styles from "./Popover.module.css";
+import "./Popover.css";
 
 /* ─── Root ─── */
 
@@ -22,7 +22,7 @@ function PopoverRoot({
 
   return (
     <PopoverContext.Provider value={popover}>
-      <div className={styles.anchor}>{children}</div>
+      <div className="mantle-anchor">{children}</div>
     </PopoverContext.Provider>
   );
 }
@@ -72,7 +72,7 @@ const PopoverContent = forwardRef<HTMLDivElement, PopoverContentProps>(
         ref={composedRef}
         role={contentProps.role}
         style={contentProps.style}
-        className={[styles.content, className].filter(Boolean).join(" ")}
+        className={["mantle-content", className].filter(Boolean).join(" ")}
         {...rest}
       >
         {children}

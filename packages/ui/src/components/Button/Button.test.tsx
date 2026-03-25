@@ -16,13 +16,13 @@ describe("Button", () => {
     it("applies variant class", () => {
       render(<Button variant="outline">Outline</Button>);
       const button = screen.getByRole("button");
-      expect(button).toHaveClass("outline");
+      expect(button).toHaveClass("mantle-outline");
     });
 
     it("applies size class", () => {
       render(<Button size="lg">Large</Button>);
       const button = screen.getByRole("button");
-      expect(button).toHaveClass("lg");
+      expect(button).toHaveClass("mantle-lg");
     });
 
     it("renders start and end icons", () => {

@@ -146,9 +146,9 @@ describe("Toggle", () => {
       render(<Toggle>Bold</Toggle>);
       const button = screen.getByRole("button");
 
-      expect(button).not.toHaveClass("pressed");
+      expect(button).not.toHaveClass("mantle-pressed");
       await user.click(button);
-      expect(button).toHaveClass("pressed");
+      expect(button).toHaveClass("mantle-pressed");
     });
   });
 });

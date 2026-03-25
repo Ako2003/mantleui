@@ -1,10 +1,22 @@
 import { type ElementType, type Ref, forwardRef } from "react";
 import type { ButtonProps } from "./Button.types";
-import styles from "./Button.module.css";
+import "./Button.css";
 
 function classNames(...classes: (string | false | undefined)[]): string {
   return classes.filter(Boolean).join(" ");
 }
+
+const variantMap: Record<string, string> = {
+  solid: "mantle-solid",
+  outline: "mantle-outline",
+  ghost: "mantle-ghost",
+};
+
+const sizeMap: Record<string, string> = {
+  sm: "mantle-sm",
+  md: "mantle-md",
+  lg: "mantle-lg",
+};
 
 function ButtonInner(
   {
@@ -31,16 +43,16 @@ function ButtonInner(
       aria-disabled={isDisabled || undefined}
       aria-busy={loading || undefined}
       className={classNames(
-        styles.button,
-        styles[variant],
-        styles[size],
-        isDisabled && styles.disabled,
-        loading && styles.loading,
+        "mantle-button",
+        variantMap[variant],
+        sizeMap[size],
+        isDisabled && "mantle-disabled",
+        loading && "mantle-loading",
         className as string | undefined,
       )}
       {...rest}
     >
-      {loading && <span className={styles.spinner} aria-hidden="true" />}
+      {loading && <span className="mantle-spinner" aria-hidden="true" />}
       {!loading && startIcon}
       {children}
       {!loading && endIcon}

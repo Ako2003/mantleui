@@ -1,4 +1,4 @@
-.button {
+.mantle-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -17,76 +17,76 @@
   text-decoration: none;
 }
 
-.button:focus-visible {
+.mantle-button:focus-visible {
   outline: var(--mantle-ring-width) solid var(--mantle-ring-color);
   outline-offset: var(--mantle-ring-offset);
 }
 
 /* Variants */
-.solid {
+.mantle-solid {
   background-color: var(--mantle-color-primary);
   color: #fff;
 }
 
-.solid:hover:not(:disabled):not([aria-disabled="true"]) {
+.mantle-solid:hover:not(:disabled):not([aria-disabled="true"]) {
   background-color: var(--mantle-color-primary-hover);
 }
 
-.solid:active:not(:disabled):not([aria-disabled="true"]) {
+.mantle-solid:active:not(:disabled):not([aria-disabled="true"]) {
   background-color: var(--mantle-color-primary-active);
 }
 
-.outline {
+.mantle-outline {
   background-color: transparent;
   border-color: var(--mantle-color-border);
   color: var(--mantle-color-text);
 }
 
-.outline:hover:not(:disabled):not([aria-disabled="true"]) {
+.mantle-outline:hover:not(:disabled):not([aria-disabled="true"]) {
   background-color: var(--mantle-color-bg-muted);
   border-color: var(--mantle-color-border-hover);
 }
 
-.ghost {
+.mantle-ghost {
   background-color: transparent;
   color: var(--mantle-color-text);
 }
 
-.ghost:hover:not(:disabled):not([aria-disabled="true"]) {
+.mantle-ghost:hover:not(:disabled):not([aria-disabled="true"]) {
   background-color: var(--mantle-color-bg-muted);
 }
 
 /* Sizes */
-.sm {
+.mantle-sm {
   height: 2rem;
   padding: 0 var(--mantle-space-3);
   font-size: var(--mantle-text-xs);
 }
 
-.md {
+.mantle-md {
   height: 2.5rem;
   padding: 0 var(--mantle-space-4);
   font-size: var(--mantle-text-sm);
 }
 
-.lg {
+.mantle-lg {
   height: 3rem;
   padding: 0 var(--mantle-space-6);
   font-size: var(--mantle-text-base);
 }
 
 /* States */
-.disabled {
+.mantle-disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
-.loading {
+.mantle-loading {
   cursor: wait;
 }
 
 /* Spinner */
-.spinner {
+.mantle-spinner {
   display: inline-block;
   width: 1em;
   height: 1em;

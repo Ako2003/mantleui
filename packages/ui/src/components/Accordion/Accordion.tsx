@@ -13,7 +13,7 @@ import type {
   AccordionProps,
   AccordionTriggerProps,
 } from "./Accordion.types";
-import styles from "./Accordion.module.css";
+import "./Accordion.css";
 
 /* ─── Root ─── */
 
@@ -58,7 +58,7 @@ const AccordionRoot = forwardRef<HTMLDivElement, AccordionProps>(
       <AccordionContext.Provider value={contextValue}>
         <div
           ref={ref}
-          className={[styles.accordion, className].filter(Boolean).join(" ")}
+          className={["mantle-accordion", className].filter(Boolean).join(" ")}
           {...rest}
         >
           {children}
@@ -90,7 +90,7 @@ const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
       <AccordionItemContext.Provider value={itemContext}>
         <div
           ref={ref}
-          className={[styles.item, className].filter(Boolean).join(" ")}
+          className={["mantle-item", className].filter(Boolean).join(" ")}
           {...rest}
         >
           {children}
@@ -124,7 +124,7 @@ const AccordionTrigger = forwardRef<HTMLButtonElement, AccordionTriggerProps>(
         aria-controls={contentId}
         disabled={disabled}
         onClick={handleClick}
-        className={[styles.trigger, className].filter(Boolean).join(" ")}
+        className={["mantle-trigger", className].filter(Boolean).join(" ")}
         {...rest}
       >
         {children}
@@ -146,13 +146,13 @@ const AccordionContent = forwardRef<HTMLDivElement, AccordionContentProps>(
         id={contentId}
         role="region"
         aria-labelledby={triggerId}
-        className={[styles.content, isOpen && styles.contentOpen, className]
+        className={["mantle-content", isOpen && "mantle-contentOpen", className]
           .filter(Boolean)
           .join(" ")}
         {...rest}
       >
-        <div className={styles.contentInner}>
-          <div className={styles.contentBody}>{children}</div>
+        <div className="mantle-contentInner">
+          <div className="mantle-contentBody">{children}</div>
         </div>
       </div>
     );
@@ -164,7 +164,7 @@ const AccordionContent = forwardRef<HTMLDivElement, AccordionContentProps>(
 function ChevronIcon({ isOpen }: { isOpen: boolean }) {
   return (
     <svg
-      className={[styles.chevron, isOpen && styles.chevronOpen]
+      className={["mantle-chevron", isOpen && "mantle-chevronOpen"]
         .filter(Boolean)
         .join(" ")}
       width="16"

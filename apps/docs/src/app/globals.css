@@ -1,2 +1,4 @@
 @import "tailwindcss";
 @import "@mantleui/react/styles.css";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));

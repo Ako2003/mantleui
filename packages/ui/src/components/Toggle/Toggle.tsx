@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 import { useControllable } from "../../hooks";
 import { composeEventHandlers } from "../../utils";
 import type { ToggleProps } from "./Toggle.types";
-import styles from "./Toggle.module.css";
+import "./Toggle.css";
 
 /**
  * A two-state toggle button that supports both controlled and uncontrolled usage.
@@ -49,7 +49,7 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
         aria-pressed={isPressed}
         disabled={disabled}
         onClick={handleClick}
-        className={[styles.toggle, isPressed && styles.pressed, className]
+        className={["mantle-toggle", isPressed && "mantle-pressed", className]
           .filter(Boolean)
           .join(" ")}
         {...rest}
