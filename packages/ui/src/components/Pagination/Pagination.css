@@ -1,0 +1,51 @@
+.mantle-pagination {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--mantle-spacing-xs);
+}
+
+.mantle-paginationButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  height: 2rem;
+  padding: 0 var(--mantle-spacing-xs);
+  border: 1px solid var(--mantle-color-border);
+  border-radius: var(--mantle-radius-md);
+  background: var(--mantle-color-bg);
+  color: var(--mantle-color-text);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--mantle-font-size-sm);
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.mantle-paginationButton:hover:not(:disabled) {
+  background: var(--mantle-color-bg-hover);
+}
+
+.mantle-paginationButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.mantle-paginationButton-active {
+  background: var(--mantle-color-accent);
+  color: var(--mantle-color-accent-contrast);
+  border-color: var(--mantle-color-accent);
+}
+
+.mantle-paginationEllipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  height: 2rem;
+  font-size: var(--mantle-font-size-sm);
+  color: var(--mantle-color-text-muted);
+  user-select: none;
+}

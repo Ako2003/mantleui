@@ -1,0 +1,42 @@
+.mantle-scrollshadow {
+  position: relative;
+  overflow: auto;
+}
+
+.mantle-scrollshadowVertical {
+  overflow-x: hidden;
+  overflow-y: auto;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black var(--mantle-spacing-md),
+    black calc(100% - var(--mantle-spacing-md)),
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black var(--mantle-spacing-md),
+    black calc(100% - var(--mantle-spacing-md)),
+    transparent
+  );
+}
+
+.mantle-scrollshadowHorizontal {
+  overflow-x: auto;
+  overflow-y: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black var(--mantle-spacing-md),
+    black calc(100% - var(--mantle-spacing-md)),
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black var(--mantle-spacing-md),
+    black calc(100% - var(--mantle-spacing-md)),
+    transparent
+  );
+}

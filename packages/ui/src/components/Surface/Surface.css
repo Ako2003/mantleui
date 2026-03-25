@@ -1,0 +1,43 @@
+.mantle-surface {
+  background: var(--mantle-color-bg);
+  color: var(--mantle-color-text);
+}
+
+/* Elevation */
+.mantle-surface-elevation-none {
+  box-shadow: none;
+}
+
+.mantle-surface-elevation-sm {
+  box-shadow: var(--mantle-shadow-sm);
+}
+
+.mantle-surface-elevation-md {
+  box-shadow: var(--mantle-shadow-md);
+}
+
+.mantle-surface-elevation-lg {
+  box-shadow: var(--mantle-shadow-lg);
+}
+
+/* Rounded */
+.mantle-surface-rounded-none {
+  border-radius: 0;
+}
+
+.mantle-surface-rounded-sm {
+  border-radius: var(--mantle-radius-sm);
+}
+
+.mantle-surface-rounded-md {
+  border-radius: var(--mantle-radius-md);
+}
+
+.mantle-surface-rounded-lg {
+  border-radius: var(--mantle-radius-lg);
+}
+
+/* Border */
+.mantle-surface-bordered {
+  border: 1px solid var(--mantle-color-border);
+}

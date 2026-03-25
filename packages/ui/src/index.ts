@@ -185,6 +185,34 @@ export type {
 export { ComboBox } from "./components/ComboBox";
 export type { ComboBoxProps, ComboBoxOption } from "./components/ComboBox";
 
+export { ToggleButtonGroup } from "./components/ToggleButtonGroup";
+export type {
+  ToggleButtonGroupProps,
+  ToggleButtonGroupItemProps,
+  ToggleButtonGroupContextValue,
+  ToggleButtonGroupSize,
+  ToggleButtonGroupOrientation,
+} from "./components/ToggleButtonGroup";
+
+export { Toolbar } from "./components/Toolbar";
+export type { ToolbarProps, ToolbarOrientation } from "./components/Toolbar";
+
+export { Pagination } from "./components/Pagination";
+export type { PaginationProps } from "./components/Pagination";
+
+export { Surface } from "./components/Surface";
+export type {
+  SurfaceProps,
+  SurfaceElevation,
+  SurfaceRounded,
+} from "./components/Surface";
+
+export { ScrollShadow } from "./components/ScrollShadow";
+export type {
+  ScrollShadowProps,
+  ScrollShadowOrientation,
+} from "./components/ScrollShadow";
+
 export { Input } from "./components/Input";
 export type { InputProps, InputSize } from "./components/Input";
 

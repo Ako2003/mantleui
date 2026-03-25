@@ -1,0 +1,25 @@
+.mantle-toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--mantle-spacing-sm);
+}
+
+.mantle-toolbarHorizontal {
+  flex-direction: row;
+}
+
+.mantle-toolbarVertical {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Subtle separator between items */
+.mantle-toolbarHorizontal > *:not(:last-child) {
+  border-right: 1px solid var(--mantle-color-border);
+  padding-right: var(--mantle-spacing-sm);
+}
+
+.mantle-toolbarVertical > *:not(:last-child) {
+  border-bottom: 1px solid var(--mantle-color-border);
+  padding-bottom: var(--mantle-spacing-sm);
+}

@@ -1,0 +1,95 @@
+.mantle-togglebuttongroup {
+  display: inline-flex;
+}
+
+.mantle-togglebuttongroupHorizontal {
+  flex-direction: row;
+}
+
+.mantle-togglebuttongroupVertical {
+  flex-direction: column;
+}
+
+/* Horizontal: connected buttons */
+.mantle-togglebuttongroupHorizontal > * {
+  border-radius: 0;
+}
+
+.mantle-togglebuttongroupHorizontal > *:first-child {
+  border-top-left-radius: var(--mantle-radius-md);
+  border-bottom-left-radius: var(--mantle-radius-md);
+}
+
+.mantle-togglebuttongroupHorizontal > *:last-child {
+  border-top-right-radius: var(--mantle-radius-md);
+  border-bottom-right-radius: var(--mantle-radius-md);
+}
+
+.mantle-togglebuttongroupHorizontal > *:not(:first-child) {
+  margin-left: -1px;
+}
+
+/* Vertical: connected buttons */
+.mantle-togglebuttongroupVertical > * {
+  border-radius: 0;
+  width: 100%;
+}
+
+.mantle-togglebuttongroupVertical > *:first-child {
+  border-top-left-radius: var(--mantle-radius-md);
+  border-top-right-radius: var(--mantle-radius-md);
+}
+
+.mantle-togglebuttongroupVertical > *:last-child {
+  border-bottom-left-radius: var(--mantle-radius-md);
+  border-bottom-right-radius: var(--mantle-radius-md);
+}
+
+.mantle-togglebuttongroupVertical > *:not(:first-child) {
+  margin-top: -1px;
+}
+
+/* Item */
+.mantle-togglebuttongroupItem {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--mantle-color-border);
+  background: var(--mantle-color-bg);
+  color: var(--mantle-color-text);
+  cursor: pointer;
+  font-family: inherit;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.mantle-togglebuttongroupItem:hover {
+  background: var(--mantle-color-bg-hover);
+}
+
+.mantle-togglebuttongroupItem[aria-pressed="true"] {
+  background: var(--mantle-color-accent);
+  color: var(--mantle-color-accent-contrast);
+  border-color: var(--mantle-color-accent);
+}
+
+.mantle-togglebuttongroupItem:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.mantle-togglebuttongroupItem-sm {
+  padding: var(--mantle-spacing-xs) var(--mantle-spacing-sm);
+  font-size: var(--mantle-font-size-sm);
+}
+
+.mantle-togglebuttongroupItem-md {
+  padding: var(--mantle-spacing-sm) var(--mantle-spacing-md);
+  font-size: var(--mantle-font-size-md);
+}
+
+.mantle-togglebuttongroupItem-lg {
+  padding: var(--mantle-spacing-md) var(--mantle-spacing-lg);
+  font-size: var(--mantle-font-size-lg);
+}
