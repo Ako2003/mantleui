@@ -1,4 +1,7 @@
 // Components
+export { Input } from "./components/Input";
+export type { InputProps, InputSize } from "./components/Input";
+
 export { Button } from "./components/Button";
 export type {
   ButtonProps,

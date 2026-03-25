@@ -1,0 +1,100 @@
+.mantle-inputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mantle-space-1);
+  font-family: var(--mantle-font-sans);
+}
+
+.mantle-inputLabel {
+  font-size: var(--mantle-text-sm);
+  font-weight: 500;
+  color: var(--mantle-color-text);
+}
+
+.mantle-inputContainer {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--mantle-color-border);
+  border-radius: var(--mantle-radius-md);
+  background-color: transparent;
+  transition:
+    border-color var(--mantle-duration-fast),
+    box-shadow var(--mantle-duration-fast);
+}
+
+.mantle-inputContainer:focus-within {
+  border-color: var(--mantle-accent);
+  box-shadow: 0 0 0 1px var(--mantle-accent);
+}
+
+.mantle-inputContainerError {
+  border-color: var(--mantle-color-danger);
+}
+
+.mantle-inputContainerError:focus-within {
+  border-color: var(--mantle-color-danger);
+  box-shadow: 0 0 0 1px var(--mantle-color-danger);
+}
+
+.mantle-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--mantle-color-text);
+  font-family: inherit;
+  outline: none;
+  width: 100%;
+}
+
+.mantle-input::placeholder {
+  color: var(--mantle-color-text-muted);
+}
+
+.mantle-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Sizes */
+.mantle-inputSm {
+  height: 2rem;
+  padding: 0 var(--mantle-space-2);
+  font-size: var(--mantle-text-xs);
+}
+
+.mantle-inputMd {
+  height: 2.5rem;
+  padding: 0 var(--mantle-space-3);
+  font-size: var(--mantle-text-sm);
+}
+
+.mantle-inputLg {
+  height: 3rem;
+  padding: 0 var(--mantle-space-4);
+  font-size: var(--mantle-text-base);
+}
+
+.mantle-inputIcon {
+  display: flex;
+  align-items: center;
+  color: var(--mantle-color-text-muted);
+  flex-shrink: 0;
+}
+
+.mantle-inputIconStart {
+  padding-left: var(--mantle-space-3);
+}
+
+.mantle-inputIconEnd {
+  padding-right: var(--mantle-space-3);
+}
+
+.mantle-inputHelper {
+  font-size: var(--mantle-text-xs);
+  color: var(--mantle-color-text-muted);
+}
+
+.mantle-inputError {
+  font-size: var(--mantle-text-xs);
+  color: var(--mantle-color-danger);
+}
