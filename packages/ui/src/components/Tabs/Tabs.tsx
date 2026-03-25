@@ -1,4 +1,11 @@
-import { forwardRef, useCallback, useMemo, useRef } from "react";
+import {
+  forwardRef,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { useControllable, useId } from "../../hooks";
 import { TabsContext, useTabsContext } from "./Tabs.context";
 import type {
@@ -57,6 +64,39 @@ const TabsList = forwardRef<HTMLDivElement, TabsListProps>(function TabsList(
   ref,
 ) {
   const listRef = useRef<HTMLDivElement>(null);
+  const { activeTab } = useTabsContext();
+  const [indicatorStyle, setIndicatorStyle] = useState<React.CSSProperties>({
+    width: 0,
+    left: 0,
+    opacity: 0,
+  });
+
+  // Update indicator position when active tab changes
+  const updateIndicator = useCallback(() => {
+    const list = listRef.current;
+    if (!list) return;
+    const activeEl = list.querySelector(
+      '[role="tab"][aria-selected="true"]',
+    ) as HTMLElement | null;
+    if (activeEl) {
+      setIndicatorStyle({
+        width: activeEl.offsetWidth,
+        left: activeEl.offsetLeft,
+        opacity: 1,
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    updateIndicator();
+  }, [activeTab, updateIndicator]);
+
+  // Also update on resize
+  useEffect(() => {
+    const observer = new ResizeObserver(updateIndicator);
+    if (listRef.current) observer.observe(listRef.current);
+    return () => observer.disconnect();
+  }, [updateIndicator]);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     onKeyDown?.(e);
@@ -116,6 +156,7 @@ const TabsList = forwardRef<HTMLDivElement, TabsListProps>(function TabsList(
       {...rest}
     >
       {children}
+      <span className="mantle-tabsIndicator" style={indicatorStyle} />
     </div>
   );
 });
