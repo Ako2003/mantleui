@@ -53,6 +53,16 @@ export default function HomePage() {
           name="Toggle"
           pattern="Controlled / Uncontrolled"
         />
+        <ComponentLink
+          href="/components/autocomplete"
+          name="Autocomplete"
+          pattern="Searchable Dropdown"
+        />
+        <ComponentLink
+          href="/components/calendar"
+          name="Calendar"
+          pattern="Date Picker"
+        />
       </div>
 
       <h2 className="mt-10 text-2xl font-semibold">Interactive</h2>
@@ -61,6 +71,11 @@ export default function HomePage() {
           href="/components/button"
           name="Button"
           pattern="Polymorphic"
+        />
+        <ComponentLink
+          href="/components/button-group"
+          name="ButtonGroup"
+          pattern="Connected Buttons"
         />
         <ComponentLink
           href="/components/accordion"
@@ -100,6 +115,20 @@ export default function HomePage() {
           href="/components/toast"
           name="Toast"
           pattern="Global Notifications"
+        />
+        <ComponentLink
+          href="/components/alert-dialog"
+          name="AlertDialog"
+          pattern="Confirmation Modal"
+        />
+      </div>
+
+      <h2 className="mt-10 text-2xl font-semibold">Navigation</h2>
+      <div className="mt-4 grid gap-3 sm:grid-cols-2">
+        <ComponentLink
+          href="/components/breadcrumb"
+          name="Breadcrumb"
+          pattern="Path Navigation"
         />
       </div>
 
