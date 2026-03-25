@@ -128,31 +128,10 @@ const faqExample = `function Demo() {
       {faqs.map((faq) => (
         <Disclosure key={faq.q}>
           <Disclosure.Trigger>
-            <div style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              padding: "12px 16px",
-              borderRadius: "10px",
-              border: "1px solid var(--mantle-color-border)",
-              fontSize: "14px",
-              fontWeight: 500,
-              color: "var(--mantle-color-text)",
-              cursor: "pointer",
-            }}>
-              {faq.q}
-              <span style={{ color: "var(--mantle-color-text-muted)", fontSize: "12px" }}>+</span>
-            </div>
+            {faq.q}
           </Disclosure.Trigger>
           <Disclosure.Content>
-            <div style={{
-              padding: "8px 16px 12px",
-              fontSize: "13px",
-              lineHeight: "1.6",
-              color: "var(--mantle-color-text-muted)",
-            }}>
-              {faq.a}
-            </div>
+            {faq.a}
           </Disclosure.Content>
         </Disclosure>
       ))}
