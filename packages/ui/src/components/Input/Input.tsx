@@ -67,7 +67,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
         <input
           ref={ref}
           id={id}
-          className={["mantle-input", sizeMap[size]].join(" ")}
+          className={["mantle-input", sizeMap[size], error && "mantle-inputHasError"].filter(Boolean).join(" ")}
           aria-invalid={error ? true : undefined}
           aria-describedby={error ? errorId : helperText ? helperId : undefined}
           {...rest}

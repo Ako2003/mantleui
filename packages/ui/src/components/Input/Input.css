@@ -56,6 +56,11 @@
   color: var(--mantle-color-text-muted);
 }
 
+.mantle-inputHasError::placeholder {
+  color: var(--mantle-color-danger);
+  opacity: 0.6;
+}
+
 .mantle-input:disabled {
   opacity: 0.5;
   cursor: not-allowed;
