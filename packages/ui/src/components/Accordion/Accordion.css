@@ -54,15 +54,20 @@
 .mantle-content {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows var(--mantle-duration-normal);
+  visibility: hidden;
+  transition:
+    grid-template-rows var(--mantle-duration-normal),
+    visibility var(--mantle-duration-normal);
 }
 
 .mantle-contentOpen {
   grid-template-rows: 1fr;
+  visibility: visible;
 }
 
 .mantle-contentInner {
   overflow: hidden;
+  min-height: 0;
 }
 
 .mantle-contentBody {
