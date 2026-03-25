@@ -1,25 +1,21 @@
 .mantle-toolbar {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: var(--mantle-spacing-sm);
+  padding: var(--mantle-space-1);
+  border: 1px solid var(--mantle-color-border);
+  border-radius: var(--mantle-radius-lg);
+  background-color: var(--mantle-color-bg-subtle);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
 }
 
 .mantle-toolbarHorizontal {
   flex-direction: row;
+  gap: var(--mantle-space-1);
 }
 
 .mantle-toolbarVertical {
   flex-direction: column;
   align-items: stretch;
-}
-
-/* Subtle separator between items */
-.mantle-toolbarHorizontal > *:not(:last-child) {
-  border-right: 1px solid var(--mantle-color-border);
-  padding-right: var(--mantle-spacing-sm);
-}
-
-.mantle-toolbarVertical > *:not(:last-child) {
-  border-bottom: 1px solid var(--mantle-color-border);
-  padding-bottom: var(--mantle-spacing-sm);
+  gap: var(--mantle-space-1);
 }
