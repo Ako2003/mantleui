@@ -1,0 +1,41 @@
+.mantle-listbox {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--mantle-color-border);
+  border-radius: var(--mantle-radius-md);
+  overflow: hidden;
+  font-family: var(--mantle-font-sans);
+  font-size: var(--mantle-text-sm);
+}
+
+.mantle-listbox-option {
+  display: flex;
+  align-items: center;
+  padding: var(--mantle-space-2) var(--mantle-space-3);
+  cursor: pointer;
+  user-select: none;
+  color: var(--mantle-color-text);
+  transition:
+    background-color var(--mantle-duration-fast),
+    color var(--mantle-duration-fast);
+}
+
+.mantle-listbox-option:hover:not(.mantle-listbox-option-disabled) {
+  background-color: var(--mantle-accent-subtle);
+}
+
+.mantle-listbox-option-focused {
+  background-color: var(--mantle-accent-subtle);
+  outline: none;
+}
+
+.mantle-listbox-option-selected {
+  background: linear-gradient(135deg, var(--mantle-accent-subtle), transparent);
+  color: var(--mantle-accent);
+  font-weight: 500;
+}
+
+.mantle-listbox-option-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

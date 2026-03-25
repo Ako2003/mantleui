@@ -1,0 +1,54 @@
+.mantle-taggroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mantle-space-2);
+}
+
+.mantle-taggroup-label {
+  font-family: var(--mantle-font-sans);
+  font-size: var(--mantle-text-sm);
+  font-weight: 500;
+  color: var(--mantle-color-text);
+}
+
+.mantle-taggroup-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--mantle-space-2);
+}
+
+.mantle-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--mantle-space-1);
+  padding: var(--mantle-space-1) var(--mantle-space-2);
+  border-radius: var(--mantle-radius-full);
+  background-color: var(--mantle-accent-subtle);
+  color: var(--mantle-accent);
+  font-family: var(--mantle-font-sans);
+  font-size: var(--mantle-text-xs);
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.mantle-tag-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  border-radius: var(--mantle-radius-full);
+  opacity: 0.7;
+  transition: opacity var(--mantle-duration-fast);
+}
+
+.mantle-tag-remove:hover {
+  opacity: 1;
+}

@@ -1,0 +1,71 @@
+.mantle-togglebutton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--mantle-color-border);
+  border-radius: var(--mantle-radius-md);
+  background-color: transparent;
+  color: var(--mantle-color-text-muted);
+  font-family: var(--mantle-font-sans);
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color var(--mantle-duration-fast),
+    border-color var(--mantle-duration-fast),
+    color var(--mantle-duration-fast);
+}
+
+/* Sizes */
+.mantle-togglebutton-sm {
+  height: 2rem;
+  padding: 0 var(--mantle-space-2);
+  font-size: var(--mantle-text-xs);
+}
+
+.mantle-togglebutton-md {
+  height: 2.5rem;
+  padding: 0 var(--mantle-space-3);
+  font-size: var(--mantle-text-sm);
+}
+
+.mantle-togglebutton-lg {
+  height: 3rem;
+  padding: 0 var(--mantle-space-4);
+  font-size: var(--mantle-text-base);
+}
+
+/* Hover */
+.mantle-togglebutton:hover:not(:disabled) {
+  background-color: var(--mantle-accent-subtle);
+  color: var(--mantle-accent);
+}
+
+/* Focus */
+.mantle-togglebutton:focus-visible {
+  outline: var(--mantle-ring-width) solid var(--mantle-accent);
+  outline-offset: var(--mantle-ring-offset);
+}
+
+/* Pressed + solid variant */
+.mantle-togglebutton-pressed.mantle-togglebutton-solid {
+  background: linear-gradient(
+    135deg,
+    var(--mantle-accent),
+    var(--mantle-accent-hover)
+  );
+  border-color: var(--mantle-accent);
+  color: var(--mantle-accent-text);
+}
+
+/* Pressed + outline variant */
+.mantle-togglebutton-pressed.mantle-togglebutton-outline {
+  border-color: var(--mantle-accent);
+  color: var(--mantle-accent);
+}
+
+/* Disabled */
+.mantle-togglebutton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
