@@ -1,0 +1,83 @@
+.mantle-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--mantle-space-1);
+  font-family: var(--mantle-font-sans);
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  border-radius: var(--mantle-radius-full);
+  cursor: default;
+  transition:
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+/* Sizes */
+.mantle-chip-sm {
+  height: 1.5rem;
+  padding: 0 var(--mantle-space-2);
+  font-size: var(--mantle-text-xs);
+}
+
+.mantle-chip-md {
+  height: 2rem;
+  padding: 0 var(--mantle-space-3);
+  font-size: var(--mantle-text-sm);
+}
+
+/* Variants */
+.mantle-chip-solid {
+  background: var(--mantle-accent-subtle);
+  color: var(--mantle-accent);
+}
+
+.mantle-chip-outline {
+  background-color: transparent;
+  border: 1px solid var(--mantle-accent);
+  color: var(--mantle-accent);
+}
+
+/* Selected */
+.mantle-chip-selected.mantle-chip-solid {
+  background: linear-gradient(
+    135deg,
+    var(--mantle-accent),
+    var(--mantle-accent-hover)
+  );
+  color: var(--mantle-accent-text);
+}
+
+.mantle-chip-selected.mantle-chip-outline {
+  background-color: var(--mantle-accent);
+  color: var(--mantle-accent-text);
+}
+
+/* Disabled */
+.mantle-chip-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Dismiss button */
+.mantle-chip-dismiss {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+  margin-left: var(--mantle-space-1);
+  border-radius: var(--mantle-radius-full);
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  opacity: 0.7;
+  transition: opacity 0.15s ease;
+}
+
+.mantle-chip-dismiss:hover {
+  opacity: 1;
+}
