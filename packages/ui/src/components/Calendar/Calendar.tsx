@@ -146,9 +146,43 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
               />
             </svg>
           </button>
-          <span className="mantle-calendarTitle">
-            {monthName} {displayYear}
-          </span>
+          <div className="mantle-calendarSelectors">
+            <select
+              className="mantle-calendarSelect"
+              value={displayMonth}
+              onChange={(e) => {
+                if (monthProp === undefined) {
+                  setInternalMonth(Number(e.target.value));
+                }
+              }}
+              aria-label="Select month"
+            >
+              {MONTH_NAMES.map((name, i) => (
+                <option key={name} value={i}>
+                  {name}
+                </option>
+              ))}
+            </select>
+            <select
+              className="mantle-calendarSelect"
+              value={displayYear}
+              onChange={(e) => {
+                if (yearProp === undefined) {
+                  setInternalYear(Number(e.target.value));
+                }
+              }}
+              aria-label="Select year"
+            >
+              {Array.from({ length: 201 }, (_, i) => {
+                const y = today.getFullYear() - 100 + i;
+                return (
+                  <option key={y} value={y}>
+                    {y}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
           <button
             type="button"
             aria-label="Next month"
