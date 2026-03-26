@@ -3,22 +3,34 @@
 import { LivePlayground } from "@/components/LivePlayground";
 import { PropsTable } from "@/components/PropsTable";
 
-const basicExample = `<ColorArea hue={220} />`;
+const basicExample = `function Demo() {
+  const [sat, setSat] = React.useState(80);
+  const [bri, setBri] = React.useState(90);
+  return (
+    <ColorArea
+      hue={220}
+      saturation={sat}
+      brightness={bri}
+      onColorChange={(s, b) => { setSat(s); setBri(b); }}
+    />
+  );
+}
+
+render(<Demo />);`;
 
 const controlledExample = `function Demo() {
-  const [saturation, setSaturation] = React.useState(50);
-  const [brightness, setBrightness] = React.useState(50);
+  const [sat, setSat] = React.useState(50);
+  const [bri, setBri] = React.useState(50);
   return (
     <div>
       <ColorArea
         hue={220}
-        saturation={saturation}
-        brightness={brightness}
-        onSaturationChange={setSaturation}
-        onBrightnessChange={setBrightness}
+        saturation={sat}
+        brightness={bri}
+        onColorChange={(s, b) => { setSat(s); setBri(b); }}
       />
-      <p style={{ marginTop: "8px", fontSize: "14px", color: "var(--mantle-color-text)" }}>
-        Saturation: {saturation} | Brightness: {brightness}
+      <p style={{ marginTop: "8px", fontSize: "14px", color: "var(--mantle-color-text-muted)" }}>
+        Saturation: {sat} | Brightness: {bri}
       </p>
     </div>
   );
@@ -26,10 +38,20 @@ const controlledExample = `function Demo() {
 
 render(<Demo />);`;
 
-const sizeExample = `<div style={{ display: "flex", gap: "16px", alignItems: "flex-start" }}>
-  <ColorArea hue={0} size={120} />
-  <ColorArea hue={120} size={200} />
-</div>`;
+const sizeExample = `function Demo() {
+  const [s1, setS1] = React.useState(70);
+  const [b1, setB1] = React.useState(80);
+  const [s2, setS2] = React.useState(60);
+  const [b2, setB2] = React.useState(70);
+  return (
+    <div style={{ display: "flex", gap: "16px", alignItems: "flex-start" }}>
+      <ColorArea hue={0} size={120} saturation={s1} brightness={b1} onColorChange={(s, b) => { setS1(s); setB1(b); }} />
+      <ColorArea hue={120} size={200} saturation={s2} brightness={b2} onColorChange={(s, b) => { setS2(s); setB2(b); }} />
+    </div>
+  );
+}
+
+render(<Demo />);`;
 
 const colorAreaProps = [
   {
