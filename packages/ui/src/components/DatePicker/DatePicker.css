@@ -19,6 +19,7 @@
 .mantle-datePickerTrigger {
   display: flex;
   align-items: center;
+  gap: var(--mantle-space-2);
   height: 2.5rem;
   padding: 0 var(--mantle-space-3);
   border: 1px solid var(--mantle-color-border);
@@ -32,6 +33,11 @@
     border-color var(--mantle-duration-fast),
     box-shadow var(--mantle-duration-fast);
   min-width: 12rem;
+}
+
+.mantle-datePickerIcon {
+  color: var(--mantle-color-text-muted);
+  flex-shrink: 0;
 }
 
 .mantle-datePickerTrigger:focus-visible {
