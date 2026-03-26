@@ -3,9 +3,22 @@
 import { LivePlayground } from "@/components/LivePlayground";
 import { PropsTable } from "@/components/PropsTable";
 
-const basicExample = `<div style={{ maxWidth: "400px" }}>
-  <DateRangePicker label="Trip dates" placeholder="Select date range" />
-</div>`;
+const basicExample = `function Demo() {
+  const [range, setRange] = React.useState(null);
+  return (
+    <div style={{ maxWidth: "400px" }}>
+      <DateRangePicker
+        label="Trip dates"
+        placeholder="Select date range"
+        startDate={range ? range.start : undefined}
+        endDate={range ? range.end : undefined}
+        onRangeChange={setRange}
+      />
+    </div>
+  );
+}
+
+render(<Demo />);`;
 
 const controlledExample = `function Demo() {
   const [range, setRange] = React.useState(null);
@@ -29,15 +42,38 @@ const controlledExample = `function Demo() {
 
 render(<Demo />);`;
 
-const errorExample = `<div style={{ maxWidth: "400px" }}>
-  <DateRangePicker label="Period" placeholder="Select dates" error="Please select a valid range" />
-</div>`;
+const errorExample = `function Demo() {
+  const [range, setRange] = React.useState(null);
+  return (
+    <div style={{ maxWidth: "400px" }}>
+      <DateRangePicker
+        label="Period"
+        placeholder="Select dates"
+        error="Please select a valid range"
+        startDate={range ? range.start : undefined}
+        endDate={range ? range.end : undefined}
+        onRangeChange={setRange}
+      />
+    </div>
+  );
+}
 
-const colorsExample = `<div style={{ display: "flex", flexDirection: "column", gap: "16px", maxWidth: "400px" }}>
-  <DateRangePicker label="Blue" placeholder="Select..." color="blue" />
-  <DateRangePicker label="Green" placeholder="Select..." color="green" />
-  <DateRangePicker label="Purple" placeholder="Select..." color="purple" />
-</div>`;
+render(<Demo />);`;
+
+const colorsExample = `function Demo() {
+  const [r1, setR1] = React.useState(null);
+  const [r2, setR2] = React.useState(null);
+  const [r3, setR3] = React.useState(null);
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "16px", maxWidth: "400px" }}>
+      <DateRangePicker label="Blue" placeholder="Select..." color="blue" startDate={r1?.start} endDate={r1?.end} onRangeChange={setR1} />
+      <DateRangePicker label="Green" placeholder="Select..." color="green" startDate={r2?.start} endDate={r2?.end} onRangeChange={setR2} />
+      <DateRangePicker label="Purple" placeholder="Select..." color="purple" startDate={r3?.start} endDate={r3?.end} onRangeChange={setR3} />
+    </div>
+  );
+}
+
+render(<Demo />);`;
 
 const dateRangePickerProps = [
   {
