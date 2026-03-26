@@ -68,11 +68,7 @@
 }
 
 .mantle-row:hover {
-  background: linear-gradient(
-    135deg,
-    var(--mantle-accent-subtle),
-    transparent
-  );
+  background: linear-gradient(135deg, var(--mantle-accent-subtle), transparent);
 }
 
 .mantle-row:last-child .mantle-cell {
@@ -108,11 +104,7 @@
 }
 
 .mantle-pageButton:hover:not(:disabled) {
-  background: linear-gradient(
-    135deg,
-    var(--mantle-accent-subtle),
-    transparent
-  );
+  background: linear-gradient(135deg, var(--mantle-accent-subtle), transparent);
   border-color: var(--mantle-accent);
   color: var(--mantle-accent);
 }

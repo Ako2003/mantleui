@@ -1,4 +1,11 @@
-import { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import {
+  forwardRef,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { useControllable } from "../../hooks";
 import { ColorArea } from "../ColorArea";
 import { ColorSlider } from "../ColorSlider";

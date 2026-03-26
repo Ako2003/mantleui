@@ -23,6 +23,76 @@ const customSeparatorExample = `<Breadcrumb>
   <Breadcrumb.Link active>Headphones</Breadcrumb.Link>
 </Breadcrumb>`;
 
+const arrowSeparatorExample = `<Breadcrumb>
+  <Breadcrumb.Link href="#">Dashboard</Breadcrumb.Link>
+  <Breadcrumb.Separator>→</Breadcrumb.Separator>
+  <Breadcrumb.Link href="#">Settings</Breadcrumb.Link>
+  <Breadcrumb.Separator>→</Breadcrumb.Separator>
+  <Breadcrumb.Link active>Profile</Breadcrumb.Link>
+</Breadcrumb>`;
+
+const withIconsExample = `<Breadcrumb>
+  <Breadcrumb.Link href="#">
+    <span style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      Home
+    </span>
+  </Breadcrumb.Link>
+  <Breadcrumb.Separator>/</Breadcrumb.Separator>
+  <Breadcrumb.Link href="#">
+    <span style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+      Projects
+    </span>
+  </Breadcrumb.Link>
+  <Breadcrumb.Separator>/</Breadcrumb.Separator>
+  <Breadcrumb.Link active>
+    <span style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      README.md
+    </span>
+  </Breadcrumb.Link>
+</Breadcrumb>`;
+
+const longPathExample = `<Breadcrumb>
+  <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
+  <Breadcrumb.Separator>/</Breadcrumb.Separator>
+  <Breadcrumb.Link href="#">Documents</Breadcrumb.Link>
+  <Breadcrumb.Separator>/</Breadcrumb.Separator>
+  <Breadcrumb.Link href="#">2024</Breadcrumb.Link>
+  <Breadcrumb.Separator>/</Breadcrumb.Separator>
+  <Breadcrumb.Link href="#">Q4</Breadcrumb.Link>
+  <Breadcrumb.Separator>/</Breadcrumb.Separator>
+  <Breadcrumb.Link href="#">Reports</Breadcrumb.Link>
+  <Breadcrumb.Separator>/</Breadcrumb.Separator>
+  <Breadcrumb.Link active>Annual Summary.pdf</Breadcrumb.Link>
+</Breadcrumb>`;
+
+const styledExample = `<div style={{
+  padding: "10px 16px",
+  borderRadius: "10px",
+  border: "1px solid var(--mantle-color-border)",
+  background: "var(--mantle-color-bg-subtle)",
+  display: "inline-block",
+}}>
+  <Breadcrumb>
+    <Breadcrumb.Link href="#">
+      <span style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Home
+      </span>
+    </Breadcrumb.Link>
+    <Breadcrumb.Separator>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </Breadcrumb.Separator>
+    <Breadcrumb.Link href="#">Components</Breadcrumb.Link>
+    <Breadcrumb.Separator>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </Breadcrumb.Separator>
+    <Breadcrumb.Link active>Breadcrumb</Breadcrumb.Link>
+  </Breadcrumb>
+</div>`;
+
 const breadcrumbProps = [
   {
     name: "children",
@@ -85,6 +155,32 @@ export default function BreadcrumbPage() {
       <h2 className="mt-10 text-xl font-semibold">Custom Separator</h2>
       <div className="mt-4">
         <LivePlayground code={customSeparatorExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Arrow Separator</h2>
+      <div className="mt-4">
+        <LivePlayground code={arrowSeparatorExample} noEditor />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">With Icons</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Links can contain icons alongside text for better visual context.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={withIconsExample} noEditor />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Long Path</h2>
+      <div className="mt-4">
+        <LivePlayground code={longPathExample} noEditor />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Styled Container</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Wrap the breadcrumb in a styled card with chevron SVG separators.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={styledExample} noEditor />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Breadcrumb Props</h2>
