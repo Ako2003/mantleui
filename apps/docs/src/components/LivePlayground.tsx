@@ -63,13 +63,11 @@ function CopyButton({ code }: { code: string }) {
     <button
       type="button"
       onClick={handleCopy}
-      className="absolute right-2 top-2 z-10 rounded-md px-2 py-1 text-xs font-medium transition-all"
+      className="absolute right-3 top-3 z-10 rounded-md px-2.5 py-1 text-xs font-medium transition-all backdrop-blur-sm"
       style={{
-        background: copied
-          ? "rgba(34, 197, 94, 0.2)"
-          : "rgba(255, 255, 255, 0.08)",
+        background: copied ? "rgba(34, 197, 94, 0.15)" : "#27272a",
         color: copied ? "#22c55e" : "#a1a1aa",
-        border: `1px solid ${copied ? "rgba(34, 197, 94, 0.3)" : "rgba(255, 255, 255, 0.1)"}`,
+        border: `1px solid ${copied ? "rgba(34, 197, 94, 0.3)" : "#3f3f46"}`,
       }}
       aria-label={copied ? "Copied" : "Copy code"}
     >
