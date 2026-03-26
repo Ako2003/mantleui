@@ -42,13 +42,6 @@ export const Spinner = forwardRef<SVGSVGElement, SpinnerProps>(function Spinner(
       {...rest}
     >
       <circle
-        className="mantle-spinner-track"
-        cx={px / 2}
-        cy={px / 2}
-        r={radius}
-        strokeWidth={strokeWidth}
-      />
-      <circle
         className="mantle-spinner-arc"
         cx={px / 2}
         cy={px / 2}
