@@ -1,6 +1,6 @@
 .mantle-skeleton {
   display: block;
-  background: var(--mantle-bg-subtle);
+  background: var(--mantle-color-bg-muted);
   overflow: hidden;
   position: relative;
 }
