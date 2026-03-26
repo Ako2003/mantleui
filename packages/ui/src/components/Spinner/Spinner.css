@@ -10,13 +10,3 @@
     transform: rotate(360deg);
   }
 }
-
-.mantle-spinner-track {
-  stroke: currentColor;
-  opacity: 0.1;
-}
-
-.mantle-spinner-arc {
-  stroke: var(--mantle-accent);
-  stroke-linecap: round;
-}
