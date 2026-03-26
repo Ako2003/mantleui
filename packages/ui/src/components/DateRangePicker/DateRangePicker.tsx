@@ -18,8 +18,9 @@ const MONTH_SHORT = [
   "Dec",
 ];
 
-function formatDate(date: Date): string {
-  const month = MONTH_SHORT.at(date.getMonth()) as string;
+function formatDate(date: Date | null | undefined): string {
+  if (!date) return "";
+  const month = MONTH_SHORT.at(date.getMonth()) ?? "";
   const day = String(date.getDate()).padStart(2, "0");
   const year = date.getFullYear();
   return `${month} ${day}, ${year}`;
