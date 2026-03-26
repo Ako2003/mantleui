@@ -17,7 +17,7 @@
   width: 100%;
   height: 8px;
   border-radius: var(--mantle-radius-full);
-  background: var(--mantle-color-border);
+  background: var(--mantle-color-bg-muted);
   overflow: hidden;
 }
 
@@ -25,18 +25,18 @@
   height: 100%;
   border-radius: var(--mantle-radius-full);
   transition:
-    width 0.2s ease,
-    background-color 0.2s ease;
+    width var(--mantle-duration-normal) ease,
+    background-color var(--mantle-duration-normal) ease;
 }
 
 .mantle-meter-fill-optimal {
-  background-color: var(--mantle-color-green);
+  background: linear-gradient(135deg, #22c55e, #16a34a);
 }
 
 .mantle-meter-fill-suboptimal {
-  background-color: var(--mantle-color-yellow);
+  background: linear-gradient(135deg, #eab308, #ca8a04);
 }
 
 .mantle-meter-fill-critical {
-  background-color: var(--mantle-color-red);
+  background: linear-gradient(135deg, #ef4444, #dc2626);
 }
