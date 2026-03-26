@@ -73,7 +73,7 @@ export default function ToastPage() {
         Click the buttons below to trigger toasts of each variant.
       </p>
       <div className="mt-4">
-        <LivePlayground code={basicExample} />
+        <LivePlayground code={basicExample} noEditor />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">useToast API</h2>
