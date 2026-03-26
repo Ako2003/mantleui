@@ -134,14 +134,14 @@ export function LivePlayground({
         {!noEditor && (
           <div className="relative border-t border-slate-200 dark:border-zinc-800">
             <CopyButton code={code} />
-            <LiveEditor className="!font-mono !text-sm" />
+            <LiveEditor className="!font-mono !text-sm !pr-20" />
           </div>
         )}
         {noEditor && (
           <div className="relative border-t border-slate-200 dark:border-zinc-800">
             <CopyButton code={code} />
             <pre
-              className="overflow-x-auto p-4 font-mono text-sm"
+              className="overflow-x-auto p-4 pr-20 font-mono text-sm"
               style={{
                 backgroundColor: "#18181b",
                 color: "#e4e4e7",
