@@ -8,23 +8,21 @@ const basicExample = `<div style={{ maxWidth: "400px" }}>
 </div>`;
 
 const controlledExample = `function Demo() {
-  const [startDate, setStartDate] = React.useState(null);
-  const [endDate, setEndDate] = React.useState(null);
+  const [range, setRange] = React.useState(null);
   return (
     <div style={{ maxWidth: "400px" }}>
       <DateRangePicker
         label="Booking period"
         placeholder="Select dates"
-        startDate={startDate}
-        endDate={endDate}
-        onRangeChange={(start, end) => {
-          setStartDate(start);
-          setEndDate(end);
-        }}
+        startDate={range ? range.start : undefined}
+        endDate={range ? range.end : undefined}
+        onRangeChange={setRange}
       />
-      <p style={{ marginTop: "8px", fontSize: "14px", color: "var(--mantle-color-text)" }}>
-        Start: {startDate ? startDate.toLocaleDateString() : "none"} | End: {endDate ? endDate.toLocaleDateString() : "none"}
-      </p>
+      {range && (
+        <p style={{ marginTop: "8px", fontSize: "14px", color: "var(--mantle-color-text-muted)" }}>
+          Start: {range.start.toLocaleDateString()} | End: {range.end.toLocaleDateString()}
+        </p>
+      )}
     </div>
   );
 }
