@@ -38,6 +38,7 @@ export const ColorArea = forwardRef<HTMLDivElement, ColorAreaProps>(
       brightness,
       onSaturationChange,
       onBrightnessChange,
+      onColorChange,
       size = 200,
       className,
       ...rest
@@ -53,10 +54,13 @@ export const ColorArea = forwardRef<HTMLDivElement, ColorAreaProps>(
         const rect = el.getBoundingClientRect();
         const x = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
         const y = Math.max(0, Math.min(1, (clientY - rect.top) / rect.height));
-        onSaturationChange?.(Math.round(x * 100));
-        onBrightnessChange?.(Math.round((1 - y) * 100));
+        const newSat = Math.round(x * 100);
+        const newBri = Math.round((1 - y) * 100);
+        onColorChange?.(newSat, newBri);
+        onSaturationChange?.(newSat);
+        onBrightnessChange?.(newBri);
       },
-      [onSaturationChange, onBrightnessChange],
+      [onSaturationChange, onBrightnessChange, onColorChange],
     );
 
     const handlePointerDown = useCallback(

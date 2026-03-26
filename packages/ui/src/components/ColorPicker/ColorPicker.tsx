@@ -137,18 +137,11 @@ export const ColorPicker = forwardRef<HTMLDivElement, ColorPickerProps>(
       [hsb.s, hsb.b, updateFromHsb],
     );
 
-    const handleSaturationChange = useCallback(
-      (saturation: number) => {
-        updateFromHsb(hsb.h, saturation, hsb.b);
+    const handleColorChange = useCallback(
+      (saturation: number, brightness: number) => {
+        updateFromHsb(hsb.h, saturation, brightness);
       },
-      [hsb.h, hsb.b, updateFromHsb],
-    );
-
-    const handleBrightnessChange = useCallback(
-      (brightness: number) => {
-        updateFromHsb(hsb.h, hsb.s, brightness);
-      },
-      [hsb.h, hsb.s, updateFromHsb],
+      [hsb.h, updateFromHsb],
     );
 
     const handleFieldChange = useCallback(
@@ -168,8 +161,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, ColorPickerProps>(
           hue={hsb.h}
           saturation={hsb.s}
           brightness={hsb.b}
-          onSaturationChange={handleSaturationChange}
-          onBrightnessChange={handleBrightnessChange}
+          onColorChange={handleColorChange}
         />
         <ColorSlider
           channel="hue"

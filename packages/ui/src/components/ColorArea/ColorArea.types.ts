@@ -14,6 +14,8 @@ export interface ColorAreaProps extends Omit<
   onSaturationChange?: (saturation: number) => void;
   /** Called when brightness changes. */
   onBrightnessChange?: (brightness: number) => void;
+  /** Called when either saturation or brightness changes. Receives both values. */
+  onColorChange?: (saturation: number, brightness: number) => void;
   /** Size of the area in pixels. Defaults to `200`. */
   size?: number;
   /** Additional class name. */
