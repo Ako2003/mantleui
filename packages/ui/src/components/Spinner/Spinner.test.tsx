@@ -43,14 +43,16 @@ describe("Spinner", () => {
     expect(el).toHaveAttribute("height", "32");
   });
 
-  it("sets data-color attribute", () => {
+  it("renders with red stroke for color=red", () => {
     render(<Spinner color="red" />);
-    expect(screen.getByRole("status")).toHaveAttribute("data-color", "red");
+    const circle = screen.getByRole("status").querySelector("circle");
+    expect(circle).toHaveAttribute("stroke", "#ef4444");
   });
 
-  it("defaults color to blue", () => {
+  it("defaults stroke to blue", () => {
     render(<Spinner />);
-    expect(screen.getByRole("status")).toHaveAttribute("data-color", "blue");
+    const circle = screen.getByRole("status").querySelector("circle");
+    expect(circle).toHaveAttribute("stroke", "#3b82f6");
   });
 
   it("applies custom className", () => {
