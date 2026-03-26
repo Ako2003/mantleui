@@ -1,4 +1,4 @@
-import { forwardRef, useCallback, useMemo } from "react";
+import { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useControllable } from "../../hooks";
 import { ColorArea } from "../ColorArea";
 import { ColorSlider } from "../ColorSlider";
@@ -109,27 +109,46 @@ export const ColorPicker = forwardRef<HTMLDivElement, ColorPickerProps>(
       onChange: onValueChange,
     });
 
-    const hsb = useMemo(() => hexToHsb(value), [value]);
+    // Internal HSB state for smooth dragging
+    const [hsb, setHsb] = useState(() => hexToHsb(value));
+    const isInternalUpdate = useRef(false);
+
+    // Sync HSB when external value changes
+    useEffect(() => {
+      if (!isInternalUpdate.current) {
+        setHsb(hexToHsb(value));
+      }
+      isInternalUpdate.current = false;
+    }, [value]);
+
+    const updateFromHsb = useCallback(
+      (h: number, s: number, b: number) => {
+        setHsb({ h, s, b });
+        isInternalUpdate.current = true;
+        setValue(hsbToHex(h, s, b));
+      },
+      [setValue],
+    );
 
     const handleHueChange = useCallback(
       (hue: number) => {
-        setValue(hsbToHex(hue, hsb.s, hsb.b));
+        updateFromHsb(hue, hsb.s, hsb.b);
       },
-      [hsb.s, hsb.b, setValue],
+      [hsb.s, hsb.b, updateFromHsb],
     );
 
     const handleSaturationChange = useCallback(
       (saturation: number) => {
-        setValue(hsbToHex(hsb.h, saturation, hsb.b));
+        updateFromHsb(hsb.h, saturation, hsb.b);
       },
-      [hsb.h, hsb.b, setValue],
+      [hsb.h, hsb.b, updateFromHsb],
     );
 
     const handleBrightnessChange = useCallback(
       (brightness: number) => {
-        setValue(hsbToHex(hsb.h, hsb.s, brightness));
+        updateFromHsb(hsb.h, hsb.s, brightness);
       },
-      [hsb.h, hsb.s, setValue],
+      [hsb.h, hsb.s, updateFromHsb],
     );
 
     const handleFieldChange = useCallback(
