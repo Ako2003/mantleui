@@ -1,6 +1,13 @@
 .mantle-surface {
-  background: var(--mantle-color-bg);
+  background: var(--mantle-color-bg-subtle);
   color: var(--mantle-color-text);
+  font-family: var(--mantle-font-sans);
+  padding: var(--mantle-space-4);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  transition:
+    box-shadow var(--mantle-duration-fast),
+    border-color var(--mantle-duration-fast);
 }
 
 /* Elevation */
@@ -17,7 +24,9 @@
 }
 
 .mantle-surface-elevation-lg {
-  box-shadow: var(--mantle-shadow-lg);
+  box-shadow:
+    0 10px 25px -3px rgb(0 0 0 / 0.3),
+    0 4px 10px -4px rgb(0 0 0 / 0.2);
 }
 
 /* Rounded */
@@ -40,4 +49,8 @@
 /* Border */
 .mantle-surface-bordered {
   border: 1px solid var(--mantle-color-border);
+}
+
+.mantle-surface-bordered:hover {
+  border-color: var(--mantle-color-border-hover);
 }
