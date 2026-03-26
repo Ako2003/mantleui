@@ -29,7 +29,7 @@ const cssColorsExample = `<div style={{ display: "flex", gap: "12px", alignItems
   <ColorSwatch color="rgb(59, 130, 246)" />
   <ColorSwatch color="hsl(0, 84%, 60%)" />
   <ColorSwatch color="tomato" />
-  <ColorSwatch color="rgba(34, 197, 94, 0.5)" />
+  <ColorSwatch color="green" />
 </div>`;
 
 const colorSwatchProps = [
