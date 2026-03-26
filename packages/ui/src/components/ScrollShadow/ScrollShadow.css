@@ -9,15 +9,15 @@
   mask-image: linear-gradient(
     to bottom,
     transparent,
-    black var(--mantle-spacing-md),
-    black calc(100% - var(--mantle-spacing-md)),
+    black 24px,
+    black calc(100% - 24px),
     transparent
   );
   -webkit-mask-image: linear-gradient(
     to bottom,
     transparent,
-    black var(--mantle-spacing-md),
-    black calc(100% - var(--mantle-spacing-md)),
+    black 24px,
+    black calc(100% - 24px),
     transparent
   );
 }
@@ -28,15 +28,15 @@
   mask-image: linear-gradient(
     to right,
     transparent,
-    black var(--mantle-spacing-md),
-    black calc(100% - var(--mantle-spacing-md)),
+    black 24px,
+    black calc(100% - 24px),
     transparent
   );
   -webkit-mask-image: linear-gradient(
     to right,
     transparent,
-    black var(--mantle-spacing-md),
-    black calc(100% - var(--mantle-spacing-md)),
+    black 24px,
+    black calc(100% - 24px),
     transparent
   );
 }
