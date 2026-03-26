@@ -10,7 +10,7 @@ export interface ChipProps extends Omit<
   /** Accent color. Defaults to `"blue"`. */
   color?: MantleColor;
   /** Size preset. Defaults to `"md"`. */
-  size?: "sm" | "md";
+  size?: "sm" | "md" | "lg";
   /** When provided, a dismiss (X) button is shown. Called when dismissed. */
   onDismiss?: () => void;
   /** Whether the chip is selected. */

@@ -24,6 +24,12 @@
   font-size: var(--mantle-text-sm);
 }
 
+.mantle-chip-lg {
+  height: 2.5rem;
+  padding: 0 var(--mantle-space-4);
+  font-size: var(--mantle-text-base);
+}
+
 /* Variants */
 .mantle-chip-solid {
   background: var(--mantle-accent-subtle);
