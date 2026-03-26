@@ -12,8 +12,8 @@
 }
 
 .mantle-spinner-track {
-  stroke: var(--mantle-accent);
-  opacity: 0.15;
+  stroke: currentColor;
+  opacity: 0.1;
 }
 
 .mantle-spinner-arc {
