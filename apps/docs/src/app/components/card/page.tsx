@@ -13,12 +13,8 @@ const basicExample = `<Card>
 
 const fullExample = `<Card>
   <Card.Header>
-    <h3 style={{ margin: 0, fontWeight: 600, color: "var(--mantle-color-text)" }}>
-      Card Title
-    </h3>
-    <p style={{ margin: 0, fontSize: "14px", color: "#64748b" }}>
-      Card description goes here.
-    </p>
+    <h3 style={{ margin: 0, fontWeight: 600, color: "var(--mantle-color-text)" }}>Card Title</h3>
+    <p style={{ margin: "4px 0 0", fontSize: "14px", color: "var(--mantle-color-text-muted)" }}>Card description goes here.</p>
   </Card.Header>
   <Card.Body>
     <p style={{ color: "var(--mantle-color-text)" }}>
@@ -34,32 +30,64 @@ const fullExample = `<Card>
   </Card.Footer>
 </Card>`;
 
-const multipleCardsExample = `<div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "16px" }}>
-  <Card>
-    <Card.Header>
-      <h3 style={{ margin: 0, fontWeight: 600, color: "var(--mantle-color-text)" }}>Free</h3>
-    </Card.Header>
-    <Card.Body>
-      <p style={{ fontSize: "32px", fontWeight: 700, margin: 0, color: "var(--mantle-color-text)" }}>$0</p>
-      <p style={{ fontSize: "14px", color: "#64748b" }}>Perfect for getting started.</p>
-    </Card.Body>
-    <Card.Footer>
-      <Button variant="outline" style={{ width: "100%" }}>Get Started</Button>
-    </Card.Footer>
-  </Card>
-  <Card>
-    <Card.Header>
-      <h3 style={{ margin: 0, fontWeight: 600, color: "var(--mantle-color-text)" }}>Pro</h3>
-    </Card.Header>
-    <Card.Body>
-      <p style={{ fontSize: "32px", fontWeight: 700, margin: 0, color: "var(--mantle-color-text)" }}>$19</p>
-      <p style={{ fontSize: "14px", color: "#64748b" }}>For professionals and teams.</p>
-    </Card.Body>
-    <Card.Footer>
-      <Button style={{ width: "100%" }}>Upgrade</Button>
-    </Card.Footer>
-  </Card>
+const profileExample = `<Card>
+  <Card.Body>
+    <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+      <div style={{ width: "48px", height: "48px", borderRadius: "50%", background: "linear-gradient(135deg, var(--mantle-accent), var(--mantle-accent-hover))", display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontWeight: 700, fontSize: "18px" }}>JD</div>
+      <div>
+        <h3 style={{ margin: 0, fontWeight: 600, fontSize: "15px", color: "var(--mantle-color-text)" }}>Jane Doe</h3>
+        <p style={{ margin: "2px 0 0", fontSize: "13px", color: "var(--mantle-color-text-muted)" }}>Senior Frontend Engineer</p>
+      </div>
+    </div>
+    <p style={{ marginTop: "12px", fontSize: "13px", lineHeight: 1.6, color: "var(--mantle-color-text-muted)" }}>Passionate about building accessible, performant UIs with modern design patterns.</p>
+    <div style={{ display: "flex", gap: "16px", marginTop: "12px" }}>
+      <div style={{ textAlign: "center" }}><div style={{ fontWeight: 700, fontSize: "16px", color: "var(--mantle-color-text)" }}>56</div><div style={{ fontSize: "11px", color: "var(--mantle-color-text-muted)" }}>Components</div></div>
+      <div style={{ textAlign: "center" }}><div style={{ fontWeight: 700, fontSize: "16px", color: "var(--mantle-color-text)" }}>651</div><div style={{ fontSize: "11px", color: "var(--mantle-color-text-muted)" }}>Tests</div></div>
+      <div style={{ textAlign: "center" }}><div style={{ fontWeight: 700, fontSize: "16px", color: "var(--mantle-color-text)" }}>6</div><div style={{ fontSize: "11px", color: "var(--mantle-color-text-muted)" }}>Colors</div></div>
+    </div>
+  </Card.Body>
+</Card>`;
+
+const statsExample = `<div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "12px" }}>
+  {[
+    { label: "Total Users", value: "12,847", change: "+12.5%", up: true },
+    { label: "Revenue", value: "$48.2K", change: "+8.1%", up: true },
+    { label: "Bounce Rate", value: "24.3%", change: "-2.4%", up: false },
+  ].map((stat) => (
+    <Card key={stat.label}>
+      <Card.Body>
+        <p style={{ margin: 0, fontSize: "12px", color: "var(--mantle-color-text-muted)", textTransform: "uppercase", letterSpacing: "0.05em", fontWeight: 500 }}>{stat.label}</p>
+        <p style={{ margin: "8px 0 0", fontSize: "24px", fontWeight: 700, color: "var(--mantle-color-text)" }}>{stat.value}</p>
+        <p style={{ margin: "4px 0 0", fontSize: "12px", color: stat.up ? "#22c55e" : "#ef4444", fontWeight: 500 }}>{stat.change} from last month</p>
+      </Card.Body>
+    </Card>
+  ))}
 </div>`;
+
+const notificationExample = `<Card>
+  <Card.Header>
+    <h3 style={{ margin: 0, fontWeight: 600, fontSize: "15px", color: "var(--mantle-color-text)" }}>Notifications</h3>
+    <p style={{ margin: "2px 0 0", fontSize: "12px", color: "var(--mantle-color-text-muted)" }}>You have 3 unread messages</p>
+  </Card.Header>
+  <Card.Body>
+    <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+      {[
+        { icon: "\\u2728", title: "New feature released", desc: "ColorPicker component is now available", time: "2m ago" },
+        { icon: "\\ud83d\\udc1b", title: "Bug fix deployed", desc: "Fixed Spinner white ring issue", time: "1h ago" },
+        { icon: "\\ud83d\\udce6", title: "Version 1.0 published", desc: "MantleUI is now on npm", time: "3h ago" },
+      ].map((item) => (
+        <div key={item.title} style={{ display: "flex", gap: "10px", alignItems: "flex-start" }}>
+          <span style={{ fontSize: "18px" }}>{item.icon}</span>
+          <div style={{ flex: 1 }}>
+            <p style={{ margin: 0, fontSize: "13px", fontWeight: 500, color: "var(--mantle-color-text)" }}>{item.title}</p>
+            <p style={{ margin: "2px 0 0", fontSize: "12px", color: "var(--mantle-color-text-muted)" }}>{item.desc}</p>
+          </div>
+          <span style={{ fontSize: "11px", color: "var(--mantle-color-text-muted)", flexShrink: 0 }}>{item.time}</span>
+        </div>
+      ))}
+    </div>
+  </Card.Body>
+</Card>`;
 
 const cardProps = [
   {
@@ -147,9 +175,28 @@ export default function CardPage() {
         <LivePlayground code={fullExample} />
       </div>
 
-      <h2 className="mt-10 text-xl font-semibold">Card Grid</h2>
+      <h2 className="mt-10 text-xl font-semibold">Profile Card</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        A user profile card with avatar, bio, and stats.
+      </p>
       <div className="mt-4">
-        <LivePlayground code={multipleCardsExample} />
+        <LivePlayground code={profileExample} noEditor />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Stats Dashboard</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Metric cards with values and change indicators.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={statsExample} noEditor />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Notification Feed</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        A card with a list of notification items.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={notificationExample} noEditor />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Card Props</h2>

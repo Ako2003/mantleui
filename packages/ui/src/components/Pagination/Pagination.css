@@ -38,13 +38,21 @@
 }
 
 .mantle-paginationButton-active {
-  background: linear-gradient(135deg, var(--mantle-accent), var(--mantle-accent-hover));
+  background: linear-gradient(
+    135deg,
+    var(--mantle-accent),
+    var(--mantle-accent-hover)
+  );
   color: #ffffff;
   border-color: var(--mantle-accent);
 }
 
 .mantle-paginationButton-active:hover:not(:disabled) {
-  background: linear-gradient(135deg, var(--mantle-accent-hover), var(--mantle-accent-active));
+  background: linear-gradient(
+    135deg,
+    var(--mantle-accent-hover),
+    var(--mantle-accent-active)
+  );
   color: #ffffff;
 }
 
