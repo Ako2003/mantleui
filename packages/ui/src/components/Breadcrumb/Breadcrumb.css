@@ -1,4 +1,8 @@
 .mantle-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--mantle-space-2);
   font-family: var(--mantle-font-sans);
 }
 
