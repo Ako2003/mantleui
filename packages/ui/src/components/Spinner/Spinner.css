@@ -1,5 +1,8 @@
 .mantle-spinner {
-  animation: mantle-spinner-rotate 0.75s linear infinite;
+  display: inline-block;
+  border-style: solid;
+  border-radius: 9999px;
+  animation: mantle-spinner-rotate 0.6s linear infinite;
 }
 
 @keyframes mantle-spinner-rotate {

@@ -22,37 +22,34 @@ describe("Spinner", () => {
     );
   });
 
-  it("applies size attribute for sm", () => {
+  it("applies size style for sm", () => {
     render(<Spinner size="sm" />);
     const el = screen.getByRole("status");
-    expect(el).toHaveAttribute("width", "16");
-    expect(el).toHaveAttribute("height", "16");
+    expect(el.style.width).toBe("16px");
   });
 
-  it("applies size attribute for md by default", () => {
+  it("applies size style for md by default", () => {
     render(<Spinner />);
     const el = screen.getByRole("status");
-    expect(el).toHaveAttribute("width", "24");
-    expect(el).toHaveAttribute("height", "24");
+    expect(el.style.width).toBe("24px");
   });
 
-  it("applies size attribute for lg", () => {
+  it("applies size style for lg", () => {
     render(<Spinner size="lg" />);
     const el = screen.getByRole("status");
-    expect(el).toHaveAttribute("width", "32");
-    expect(el).toHaveAttribute("height", "32");
+    expect(el.style.width).toBe("32px");
   });
 
-  it("renders with red stroke for color=red", () => {
+  it("applies color for red", () => {
     render(<Spinner color="red" />);
-    const circle = screen.getByRole("status").querySelector("circle");
-    expect(circle).toHaveAttribute("stroke", "#ef4444");
+    const el = screen.getByRole("status");
+    expect(el.style.borderTopColor).toBe("#ef4444");
   });
 
-  it("defaults stroke to blue", () => {
+  it("defaults color to blue", () => {
     render(<Spinner />);
-    const circle = screen.getByRole("status").querySelector("circle");
-    expect(circle).toHaveAttribute("stroke", "#3b82f6");
+    const el = screen.getByRole("status");
+    expect(el.style.borderTopColor).toBe("#3b82f6");
   });
 
   it("applies custom className", () => {
@@ -61,8 +58,8 @@ describe("Spinner", () => {
   });
 
   it("forwards ref", () => {
-    const ref = createRef<SVGSVGElement>();
+    const ref = createRef<HTMLDivElement>();
     render(<Spinner ref={ref} />);
-    expect(ref.current).toBeInstanceOf(SVGSVGElement);
+    expect(ref.current).toBeInstanceOf(HTMLDivElement);
   });
 });
