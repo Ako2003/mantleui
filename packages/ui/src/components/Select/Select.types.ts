@@ -32,6 +32,8 @@ export interface SelectProps extends Omit<
   size?: "sm" | "md" | "lg";
   /** Label text displayed above the select. */
   label?: string;
+  /** Helper text displayed below the select. */
+  description?: string;
   /** Error message. */
   error?: string;
   /** Optional icon rendered at the start of the trigger button. */

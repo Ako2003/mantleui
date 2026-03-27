@@ -106,6 +106,94 @@ const withIconExample = `<div style={{ maxWidth: "320px" }}>
   />
 </div>`;
 
+const withDescriptionExample = `<div style={{ maxWidth: "320px" }}>
+  <Select
+    label="State"
+    placeholder="Select one"
+    description="Select your state of residence"
+    startIcon={<MapPin size={16} />}
+    options={[
+      { value: "ca", label: "California" },
+      { value: "ny", label: "New York" },
+      { value: "tx", label: "Texas" },
+      { value: "fl", label: "Florida" },
+      { value: "wa", label: "Washington" },
+    ]}
+  />
+</div>`;
+
+const countryExample = `function Demo() {
+  const [country, setCountry] = React.useState("");
+  return (
+    <div style={{ maxWidth: "320px" }}>
+      <Select
+        startIcon={<Globe size={16} />}
+        label="Country"
+        placeholder="Select country"
+        description="Choose your country for shipping"
+        value={country}
+        onValueChange={setCountry}
+        options={[
+          { value: "us", label: "🇺🇸 United States" },
+          { value: "ca", label: "🇨🇦 Canada" },
+          { value: "mx", label: "🇲🇽 Mexico" },
+          { value: "uk", label: "🇬🇧 United Kingdom" },
+          { value: "fr", label: "🇫🇷 France" },
+          { value: "de", label: "🇩🇪 Germany" },
+          { value: "es", label: "🇪🇸 Spain" },
+          { value: "it", label: "🇮🇹 Italy" },
+          { value: "jp", label: "🇯🇵 Japan" },
+          { value: "au", label: "🇦🇺 Australia" },
+        ]}
+      />
+      {country && (
+        <p style={{ marginTop: "8px", fontSize: "13px", color: "var(--mantle-color-text-muted)" }}>
+          Shipping to: {country.toUpperCase()}
+        </p>
+      )}
+    </div>
+  );
+}
+
+render(<Demo />);`;
+
+const roleExample = `function Demo() {
+  const [role, setRole] = React.useState("");
+  return (
+    <div style={{ maxWidth: "320px" }}>
+      <Select
+        startIcon={<Users size={16} />}
+        label="Role"
+        placeholder="Assign a role"
+        value={role}
+        onValueChange={setRole}
+        color="purple"
+        options={[
+          { value: "owner", label: "👑 Owner" },
+          { value: "admin", label: "🛡️ Admin" },
+          { value: "editor", label: "✏️ Editor" },
+          { value: "viewer", label: "👁️ Viewer" },
+          { value: "guest", label: "🚪 Guest", disabled: true },
+        ]}
+      />
+    </div>
+  );
+}
+
+render(<Demo />);`;
+
+const disabledExample = `<div style={{ maxWidth: "320px" }}>
+  <Select
+    label="Plan"
+    placeholder="Select a plan"
+    disabled
+    options={[
+      { value: "free", label: "Free" },
+      { value: "pro", label: "Pro" },
+    ]}
+  />
+</div>`;
+
 const selectProps = [
   {
     name: "options",
@@ -156,9 +244,19 @@ const selectProps = [
     description: "Label text displayed above the select.",
   },
   {
+    name: "description",
+    type: "string",
+    description: "Helper text displayed below the select.",
+  },
+  {
     name: "error",
     type: "string",
     description: "Error message displayed below the select.",
+  },
+  {
+    name: "startIcon",
+    type: "ReactNode",
+    description: "Icon rendered at the start of the trigger button.",
   },
 ];
 
@@ -199,6 +297,35 @@ export default function SelectPage() {
       <h2 className="mt-10 text-xl font-semibold">With Icon</h2>
       <div className="mt-4">
         <LivePlayground code={withIconExample} noEditor />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">With Description</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Helper text below the select for additional context.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={withDescriptionExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Country Selector</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        A rich select with flag emojis and a Globe icon.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={countryExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Role Assignment</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Assign user roles with emoji indicators and a disabled guest option.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={roleExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Disabled</h2>
+      <div className="mt-4">
+        <LivePlayground code={disabledExample} />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>

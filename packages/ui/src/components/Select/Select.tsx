@@ -36,6 +36,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(function Select(
     color = "blue",
     size = "md",
     label,
+    description,
     error,
     startIcon,
     className,
@@ -279,6 +280,9 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(function Select(
         <span className="mantle-selectError" role="alert">
           {error}
         </span>
+      )}
+      {!error && description && (
+        <span className="mantle-selectDescription">{description}</span>
       )}
     </div>
   );
