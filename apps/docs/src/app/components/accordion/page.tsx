@@ -150,6 +150,93 @@ const withColorsExample = `<div style={{ display: "flex", flexDirection: "column
   </Accordion>
 </div>`;
 
+const settingsExample = `<Accordion style={{ maxWidth: "500px" }}>
+  <Accordion.Item value="notifications">
+    <Accordion.Trigger>
+      <span style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+        <div style={{ width: "36px", height: "36px", borderRadius: "10px", background: "linear-gradient(135deg, #fbbf24, #f59e0b)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <Bell size={18} color="#fff" />
+        </div>
+        <div>
+          <div style={{ fontWeight: 500, color: "var(--mantle-color-text)" }}>Set Up Notifications</div>
+          <div style={{ fontSize: "12px", color: "var(--mantle-color-text-muted)" }}>Receive account activity updates</div>
+        </div>
+      </span>
+    </Accordion.Trigger>
+    <Accordion.Content>
+      Configure push notifications, email alerts, and SMS updates for your account activity, security events, and promotional offers.
+    </Accordion.Content>
+  </Accordion.Item>
+  <Accordion.Item value="extension">
+    <Accordion.Trigger>
+      <span style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+        <div style={{ width: "36px", height: "36px", borderRadius: "10px", background: "linear-gradient(135deg, #3b82f6, #2563eb)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <Compass size={18} color="#fff" />
+        </div>
+        <div>
+          <div style={{ fontWeight: 500, color: "var(--mantle-color-text)" }}>Set up Browser Extension</div>
+          <div style={{ fontSize: "12px", color: "var(--mantle-color-text-muted)" }}>Connect your browser to your account</div>
+        </div>
+      </span>
+    </Accordion.Trigger>
+    <Accordion.Content>
+      Install our browser extension for quick access to your dashboard, one-click actions, and real-time notifications directly in your browser.
+    </Accordion.Content>
+  </Accordion.Item>
+  <Accordion.Item value="security">
+    <Accordion.Trigger>
+      <span style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+        <div style={{ width: "36px", height: "36px", borderRadius: "10px", background: "linear-gradient(135deg, #8b5cf6, #7c3aed)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <Shield size={18} color="#fff" />
+        </div>
+        <div>
+          <div style={{ fontWeight: 500, color: "var(--mantle-color-text)" }}>Enable Two-Factor Auth</div>
+          <div style={{ fontSize: "12px", color: "var(--mantle-color-text-muted)" }}>Add an extra layer of security</div>
+        </div>
+      </span>
+    </Accordion.Trigger>
+    <Accordion.Content>
+      Protect your account with two-factor authentication using an authenticator app, SMS codes, or hardware security keys.
+    </Accordion.Content>
+  </Accordion.Item>
+</Accordion>`;
+
+const borderlessExample = `<Accordion style={{ border: "none", borderRadius: 0, maxWidth: "500px" }}>
+  <Accordion.Item value="q1">
+    <Accordion.Trigger>
+      <span style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+        <ShoppingCart size={18} />
+        How do I place an order?
+      </span>
+    </Accordion.Trigger>
+    <Accordion.Content>
+      Browse our catalog, add items to your cart, and proceed to checkout.
+    </Accordion.Content>
+  </Accordion.Item>
+  <Accordion.Item value="q2">
+    <Accordion.Trigger>
+      <span style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+        <ClipboardEdit size={18} />
+        Can I modify or cancel my order?
+      </span>
+    </Accordion.Trigger>
+    <Accordion.Content>
+      Yes, you can modify or cancel within 1 hour of placing your order.
+    </Accordion.Content>
+  </Accordion.Item>
+  <Accordion.Item value="q3">
+    <Accordion.Trigger>
+      <span style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+        <CreditCard size={18} />
+        What payment methods do you accept?
+      </span>
+    </Accordion.Trigger>
+    <Accordion.Content>
+      We accept all major credit cards, PayPal, Apple Pay, and bank transfers.
+    </Accordion.Content>
+  </Accordion.Item>
+</Accordion>`;
+
 const accordionProps = [
   {
     name: "value",
@@ -225,6 +312,22 @@ export default function AccordionPage() {
       </p>
       <div className="mt-4">
         <LivePlayground code={withColorsExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Settings Panel</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Rich trigger content with gradient icon badges and descriptions.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={settingsExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Borderless</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Clean look without the outer border — just dividers between items.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={borderlessExample} />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>

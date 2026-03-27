@@ -142,18 +142,27 @@ const AccordionContent = forwardRef<HTMLDivElement, AccordionContentProps>(
   function AccordionContent({ className, children, ...rest }, ref) {
     const { isOpen, triggerId, contentId } = useAccordionItemContext();
 
-    if (!isOpen) return null;
-
     return (
       <div
-        ref={ref}
-        id={contentId}
-        role="region"
-        aria-labelledby={triggerId}
-        className={["mantle-contentBody", className].filter(Boolean).join(" ")}
-        {...rest}
+        className={[
+          "mantle-accordionContent",
+          isOpen && "mantle-accordionContentOpen",
+        ]
+          .filter(Boolean)
+          .join(" ")}
       >
-        {children}
+        <div
+          ref={ref}
+          id={contentId}
+          role="region"
+          aria-labelledby={triggerId}
+          className={["mantle-accordionContentInner", className]
+            .filter(Boolean)
+            .join(" ")}
+          {...rest}
+        >
+          {children}
+        </div>
       </div>
     );
   },
