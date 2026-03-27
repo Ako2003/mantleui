@@ -2,7 +2,7 @@
 
 import React, { useCallback, useState } from "react";
 import { LiveProvider, LivePreview, LiveError } from "react-live";
-import type { PrismTheme } from "prism-react-renderer";
+import { Highlight, type PrismTheme } from "prism-react-renderer";
 import * as MantleUI from "@mantleui/react";
 import { useTheme } from "@mantleui/react";
 import * as LucideIcons from "lucide-react";
@@ -142,9 +142,24 @@ export function LivePlayground({ code }: LivePlaygroundProps) {
         <LiveError className="border-t border-red-200 bg-red-50 px-4 py-2 text-sm text-red-700 dark:border-red-900 dark:bg-red-950 dark:text-red-400" />
         <div className="relative border-t border-slate-200 dark:border-zinc-800">
           <CopyButton code={code} />
-          <pre className="m-0 overflow-x-auto bg-slate-50 p-4 font-mono text-sm text-slate-800 dark:bg-zinc-900 dark:text-zinc-300">
-            <code>{code}</code>
-          </pre>
+          <Highlight code={code.trim()} language="tsx" theme={theme}>
+            {({ style, tokens, getLineProps, getTokenProps }) => (
+              <pre
+                className="m-0 overflow-x-auto bg-slate-50 p-4 font-mono text-sm dark:bg-zinc-900"
+                style={{ ...style, background: undefined }}
+              >
+                <code>
+                  {tokens.map((line, i) => (
+                    <div key={i} {...getLineProps({ line })}>
+                      {line.map((token, j) => (
+                        <span key={j} {...getTokenProps({ token })} />
+                      ))}
+                    </div>
+                  ))}
+                </code>
+              </pre>
+            )}
+          </Highlight>
         </div>
       </div>
     </LiveProvider>
