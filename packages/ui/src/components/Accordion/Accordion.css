@@ -71,7 +71,7 @@
 
 .mantle-accordionContentInner {
   overflow: hidden;
-  padding: 0 var(--mantle-space-4) 0;
+  padding: var(--mantle-space-2) var(--mantle-space-4) 0;
   color: var(--mantle-color-text-muted);
   font-family: var(--mantle-font-sans);
   font-size: var(--mantle-text-sm);

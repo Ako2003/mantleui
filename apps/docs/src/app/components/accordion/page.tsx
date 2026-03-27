@@ -150,7 +150,7 @@ const withColorsExample = `<div style={{ display: "flex", flexDirection: "column
   </Accordion>
 </div>`;
 
-const settingsExample = `<Accordion style={{ maxWidth: "500px" }}>
+const settingsExample = `<Accordion>
   <Accordion.Item value="notifications">
     <Accordion.Trigger>
       <span style={{ display: "flex", alignItems: "center", gap: "12px" }}>
@@ -201,7 +201,7 @@ const settingsExample = `<Accordion style={{ maxWidth: "500px" }}>
   </Accordion.Item>
 </Accordion>`;
 
-const borderlessExample = `<Accordion style={{ border: "none", borderRadius: 0, maxWidth: "500px" }}>
+const borderlessExample = `<Accordion style={{ border: "none", borderRadius: 0 }}>
   <Accordion.Item value="q1">
     <Accordion.Trigger>
       <span style={{ display: "flex", alignItems: "center", gap: "12px" }}>
