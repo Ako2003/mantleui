@@ -12,7 +12,8 @@
       "Bash(echo \"=== $comp ===\")",
       "Read(//Users/akifmursalov/Documents/project/packages/ui/src/components/$comp/**)",
       "Bash(grep -rn \"\\\\.mantle-trigger \" /Users/akifmursalov/Documents/project/packages/ui/src/components/*/ --include=\"*.css\")",
-      "Bash(grep -rn \"startIcon\\\\|endIcon\\\\|startContent\\\\|endContent\" /Users/akifmursalov/Documents/project/packages/ui/src/components/*/**.types.ts)"
+      "Bash(grep -rn \"startIcon\\\\|endIcon\\\\|startContent\\\\|endContent\" /Users/akifmursalov/Documents/project/packages/ui/src/components/*/**.types.ts)",
+      "Bash(pnpm --filter @mantleui/docs build)"
     ]
   }
 }

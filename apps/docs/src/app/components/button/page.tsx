@@ -38,6 +38,15 @@ const colorsOutlineExample = `<div style={{ display: "flex", gap: "8px", flexWra
   <Button color="neutral" variant="outline">Neutral</Button>
 </div>`;
 
+const withIconsExample = `<div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+  <Button startIcon={<Search size={16} />}>Search</Button>
+  <Button startIcon={<Download size={16} />} variant="outline">Download</Button>
+  <Button endIcon={<ArrowRight size={16} />}>Continue</Button>
+  <Button startIcon={<Plus size={16} />} color="green">Create New</Button>
+  <Button startIcon={<Trash2 size={16} />} color="red" variant="outline">Delete</Button>
+  <Button startIcon={<Settings size={16} />} variant="ghost">Settings</Button>
+</div>`;
+
 const polymorphicExample = `<div style={{ display: "flex", gap: "8px" }}>
   <Button as="a" href="#" variant="solid">As Link</Button>
   <Button as="span" variant="outline">As Span</Button>
@@ -141,6 +150,11 @@ export default function ButtonPage() {
       </p>
       <div className="mt-4">
         <LivePlayground code={polymorphicExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">With Icons</h2>
+      <div className="mt-4">
+        <LivePlayground code={withIconsExample} noEditor />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>

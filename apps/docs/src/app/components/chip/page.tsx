@@ -54,6 +54,13 @@ const disabledExample = `<div style={{ display: "flex", gap: "8px", alignItems: 
   <Chip disabled variant="outline">Disabled Outline</Chip>
 </div>`;
 
+const withIconsExample = `<div style={{ display: "flex", gap: "8px", flexWrap: "wrap", alignItems: "center" }}>
+  <Chip startIcon={<Check size={14} />} color="green">Verified</Chip>
+  <Chip startIcon={<Star size={14} />} color="yellow">Featured</Chip>
+  <Chip startIcon={<AlertCircle size={14} />} color="red" variant="outline">Critical</Chip>
+  <Chip startIcon={<Info size={14} />}>Info</Chip>
+</div>`;
+
 const chipProps = [
   {
     name: "variant",
@@ -135,6 +142,11 @@ export default function ChipPage() {
       <h2 className="mt-10 text-xl font-semibold">Disabled</h2>
       <div className="mt-4">
         <LivePlayground code={disabledExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">With Icons</h2>
+      <div className="mt-4">
+        <LivePlayground code={withIconsExample} noEditor />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>

@@ -33,6 +33,13 @@ const colorsSubtleExample = `<div style={{ display: "flex", gap: "8px", flexWrap
   <Badge color="neutral" variant="subtle">Neutral</Badge>
 </div>`;
 
+const withIconsExample = `<div style={{ display: "flex", gap: "8px", flexWrap: "wrap", alignItems: "center" }}>
+  <Badge startIcon={<Check size={12} />} color="green">Approved</Badge>
+  <Badge startIcon={<AlertCircle size={12} />} color="red">Error</Badge>
+  <Badge startIcon={<Loader2 size={12} />} color="yellow">Pending</Badge>
+  <Badge startIcon={<Star size={12} />} color="purple">Premium</Badge>
+</div>`;
+
 const badgeProps = [
   {
     name: "variant",
@@ -86,6 +93,11 @@ export default function BadgePage() {
       <h2 className="mt-10 text-xl font-semibold">Colors (Subtle)</h2>
       <div className="mt-4">
         <LivePlayground code={colorsSubtleExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">With Icons</h2>
+      <div className="mt-4">
+        <LivePlayground code={withIconsExample} noEditor />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>

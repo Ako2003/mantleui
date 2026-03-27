@@ -92,6 +92,20 @@ const controlledExample = `function Demo() {
 
 render(<Demo />);`;
 
+const withIconExample = `<div style={{ maxWidth: "320px" }}>
+  <Select
+    startIcon={<Globe size={16} />}
+    label="Country"
+    placeholder="Select country"
+    options={[
+      { value: "us", label: "United States" },
+      { value: "uk", label: "United Kingdom" },
+      { value: "de", label: "Germany" },
+      { value: "jp", label: "Japan" },
+    ]}
+  />
+</div>`;
+
 const selectProps = [
   {
     name: "options",
@@ -180,6 +194,11 @@ export default function SelectPage() {
       <h2 className="mt-10 text-xl font-semibold">Controlled</h2>
       <div className="mt-4">
         <LivePlayground code={controlledExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">With Icon</h2>
+      <div className="mt-4">
+        <LivePlayground code={withIconExample} noEditor />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>

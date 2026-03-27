@@ -44,6 +44,12 @@ const controlledExample = `function Demo() {
 
 render(<Demo />);`;
 
+const withIconsExample = `<div style={{ display: "flex", gap: "8px" }}>
+  <ToggleButton startIcon={<Star size={16} />} defaultPressed>Favorite</ToggleButton>
+  <ToggleButton startIcon={<Heart size={16} />} color="red">Like</ToggleButton>
+  <ToggleButton startIcon={<Bookmark size={16} />} variant="solid" color="purple">Save</ToggleButton>
+</div>`;
+
 const toggleButtonProps = [
   {
     name: "pressed",
@@ -119,6 +125,11 @@ export default function ToggleButtonPage() {
       <h2 className="mt-10 text-xl font-semibold">Controlled</h2>
       <div className="mt-4">
         <LivePlayground code={controlledExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">With Icons</h2>
+      <div className="mt-4">
+        <LivePlayground code={withIconsExample} noEditor />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>

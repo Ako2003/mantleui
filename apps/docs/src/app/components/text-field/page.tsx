@@ -39,6 +39,12 @@ const colorsExample = `<div style={{ display: "flex", flexDirection: "column", g
   <TextField color="purple" label="Purple" placeholder="Purple focus ring" />
 </div>`;
 
+const withIconsExample = `<div style={{ display: "flex", flexDirection: "column", gap: "12px", maxWidth: "320px" }}>
+  <TextField startIcon={<Mail size={16} />} label="Email" placeholder="you@example.com" />
+  <TextField startIcon={<Lock size={16} />} label="Password" placeholder="Enter password" type="password" />
+  <TextField startIcon={<Search size={16} />} endIcon={<ArrowRight size={16} />} placeholder="Search..." />
+</div>`;
+
 const textFieldProps = [
   {
     name: "label",
@@ -113,6 +119,11 @@ export default function TextFieldPage() {
       <h2 className="mt-10 text-xl font-semibold">Colors</h2>
       <div className="mt-4">
         <LivePlayground code={colorsExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">With Icons</h2>
+      <div className="mt-4">
+        <LivePlayground code={withIconsExample} noEditor />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>

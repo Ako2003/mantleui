@@ -5,8 +5,9 @@ import { LiveProvider, LivePreview, LiveEditor, LiveError } from "react-live";
 import type { PrismTheme } from "prism-react-renderer";
 import * as MantleUI from "@mantleui/react";
 import { useTheme } from "@mantleui/react";
+import * as LucideIcons from "lucide-react";
 
-const scope = { React, ...MantleUI };
+const scope = { React, ...MantleUI, ...LucideIcons };
 
 const darkTheme: PrismTheme = {
   plain: {

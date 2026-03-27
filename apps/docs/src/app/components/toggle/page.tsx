@@ -47,6 +47,12 @@ const colorsExample = `function Demo() {
 
 render(<Demo />);`;
 
+const withIconsExample = `<div style={{ display: "flex", gap: "8px" }}>
+  <Toggle startIcon={<Bold size={16} />}>Bold</Toggle>
+  <Toggle startIcon={<Italic size={16} />}>Italic</Toggle>
+  <Toggle startIcon={<Underline size={16} />}>Underline</Toggle>
+</div>`;
+
 const toggleProps = [
   {
     name: "pressed",
@@ -104,6 +110,11 @@ export default function TogglePage() {
       <h2 className="mt-10 text-xl font-semibold">Colors</h2>
       <div className="mt-4">
         <LivePlayground code={colorsExample} noEditor />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">With Icons</h2>
+      <div className="mt-4">
+        <LivePlayground code={withIconsExample} noEditor />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>
