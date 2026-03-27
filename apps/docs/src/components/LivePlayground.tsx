@@ -4,6 +4,7 @@ import React, { useCallback, useState } from "react";
 import { LiveProvider, LivePreview, LiveEditor, LiveError } from "react-live";
 import type { PrismTheme } from "prism-react-renderer";
 import * as MantleUI from "@mantleui/react";
+import { useTheme } from "@mantleui/react";
 
 const scope = { React, ...MantleUI };
 
@@ -30,6 +31,32 @@ const darkTheme: PrismTheme = {
     { types: ["atrule", "attr-value", "keyword"], style: { color: "#c4b5fd" } },
     { types: ["function", "class-name"], style: { color: "#fde68a" } },
     { types: ["regex", "important", "variable"], style: { color: "#fca5a5" } },
+  ],
+};
+
+const lightTheme: PrismTheme = {
+  plain: {
+    color: "#1e293b",
+    backgroundColor: "#f8fafc",
+  },
+  styles: [
+    {
+      types: ["comment", "prolog", "doctype", "cdata"],
+      style: { color: "#94a3b8" },
+    },
+    { types: ["punctuation"], style: { color: "#64748b" } },
+    {
+      types: ["property", "tag", "boolean", "number", "constant", "symbol"],
+      style: { color: "#0369a1" },
+    },
+    {
+      types: ["selector", "attr-name", "string", "char", "builtin"],
+      style: { color: "#15803d" },
+    },
+    { types: ["operator", "entity", "url"], style: { color: "#64748b" } },
+    { types: ["atrule", "attr-value", "keyword"], style: { color: "#7c3aed" } },
+    { types: ["function", "class-name"], style: { color: "#b45309" } },
+    { types: ["regex", "important", "variable"], style: { color: "#dc2626" } },
   ],
 };
 
@@ -86,13 +113,15 @@ export function LivePlayground({
   noEditor = false,
 }: LivePlaygroundProps) {
   const hasRender = code.includes("render(");
+  const { resolvedTheme } = useTheme();
+  const theme = resolvedTheme === "dark" ? darkTheme : lightTheme;
 
   return (
     <LiveProvider
       code={code}
       scope={scope}
       noInline={hasRender}
-      theme={darkTheme}
+      theme={theme}
     >
       <div className="rounded-lg border border-slate-200 dark:border-zinc-800">
         <div className="rounded-t-lg bg-white p-6 dark:bg-zinc-950">
