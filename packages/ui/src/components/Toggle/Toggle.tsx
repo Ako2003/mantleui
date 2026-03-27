@@ -23,6 +23,7 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
       defaultPressed = false,
       onPressedChange,
       color = "blue",
+      startIcon,
       disabled,
       onClick,
       className,
@@ -56,6 +57,7 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
           .join(" ")}
         {...rest}
       >
+        {startIcon}
         {children}
       </button>
     );

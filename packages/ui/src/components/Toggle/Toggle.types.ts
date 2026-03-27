@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes } from "react";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
 import type { MantleColor } from "../../theme/colors";
 
 export interface ToggleProps extends Omit<
@@ -13,4 +13,6 @@ export interface ToggleProps extends Omit<
   onPressedChange?: (pressed: boolean) => void;
   /** Accent color. Defaults to `"blue"`. */
   color?: MantleColor;
+  /** Optional icon rendered before children. */
+  startIcon?: ReactNode;
 }

@@ -20,6 +20,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: var(--mantle-space-2);
   width: 100%;
   border: 1px solid var(--mantle-color-border);
   border-radius: var(--mantle-radius-md);

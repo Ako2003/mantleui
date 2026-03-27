@@ -19,6 +19,8 @@ export interface ChipProps extends Omit<
   onSelectedChange?: (selected: boolean) => void;
   /** Whether the chip is disabled. */
   disabled?: boolean;
+  /** Optional icon rendered before children. */
+  startIcon?: ReactNode;
   /** Chip content. */
   children?: ReactNode;
 }

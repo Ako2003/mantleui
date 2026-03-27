@@ -28,6 +28,8 @@ export const ToggleButton = forwardRef<HTMLButtonElement, ToggleButtonProps>(
       variant = "outline",
       color = "blue",
       size = "md",
+      startIcon,
+      endIcon,
       disabled,
       onClick,
       className,
@@ -67,7 +69,9 @@ export const ToggleButton = forwardRef<HTMLButtonElement, ToggleButtonProps>(
           .join(" ")}
         {...rest}
       >
+        {startIcon}
         {children}
+        {endIcon}
       </button>
     );
   },

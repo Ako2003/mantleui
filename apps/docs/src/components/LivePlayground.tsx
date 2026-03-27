@@ -95,11 +95,29 @@ function CopyButton({ code }: { code: string }) {
       aria-label={copied ? "Copied" : "Copy code"}
     >
       {copied ? (
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
           <path d="M20 6L9 17l-5-5" />
         </svg>
       ) : (
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
           <rect x="8" y="8" width="12" height="12" rx="2" />
           <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" />
         </svg>
@@ -117,12 +135,7 @@ export function LivePlayground({
   const theme = resolvedTheme === "dark" ? darkTheme : lightTheme;
 
   return (
-    <LiveProvider
-      code={code}
-      scope={scope}
-      noInline={hasRender}
-      theme={theme}
-    >
+    <LiveProvider code={code} scope={scope} noInline={hasRender} theme={theme}>
       <div className="rounded-lg border border-slate-200 dark:border-zinc-800">
         <div className="rounded-t-lg bg-white p-6 dark:bg-zinc-950">
           <LivePreview />

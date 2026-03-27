@@ -20,6 +20,7 @@ export const Chip = forwardRef<HTMLSpanElement, ChipProps>(function Chip(
     selected = false,
     onSelectedChange,
     disabled = false,
+    startIcon,
     className,
     children,
     onClick,
@@ -65,6 +66,7 @@ export const Chip = forwardRef<HTMLSpanElement, ChipProps>(function Chip(
       }}
       {...rest}
     >
+      {startIcon}
       {children}
       {onDismiss && (
         <button

@@ -37,6 +37,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(function Select(
     size = "md",
     label,
     error,
+    startIcon,
     className,
     onKeyDown,
     ...rest
@@ -202,6 +203,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(function Select(
           .filter(Boolean)
           .join(" ")}
       >
+        {startIcon}
         {selectedLabel ? (
           <span>{selectedLabel}</span>
         ) : (

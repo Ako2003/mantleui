@@ -11,6 +11,8 @@ export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
   size?: BadgeSize;
   /** Accent color. Defaults to `"blue"`. */
   color?: MantleColor;
+  /** Optional icon rendered before children. */
+  startIcon?: ReactNode;
   /** Badge content. */
   children?: ReactNode;
 }

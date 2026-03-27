@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes } from "react";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
 import type { MantleColor } from "../../theme/colors";
 
 export type ToggleButtonVariant = "solid" | "outline";
@@ -20,4 +20,8 @@ export interface ToggleButtonProps extends Omit<
   color?: MantleColor;
   /** Size preset. Defaults to `"md"`. */
   size?: ToggleButtonSize;
+  /** Optional icon rendered before children. */
+  startIcon?: ReactNode;
+  /** Optional icon rendered after children. */
+  endIcon?: ReactNode;
 }

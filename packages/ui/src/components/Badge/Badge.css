@@ -2,6 +2,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: var(--mantle-space-1);
   border-radius: var(--mantle-radius-full);
   font-family: var(--mantle-font-sans);
   font-weight: 500;

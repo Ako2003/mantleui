@@ -27,6 +27,8 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       required,
       color = "blue",
       size = "md",
+      startIcon,
+      endIcon,
       className,
       id: idProp,
       ...rest
@@ -64,22 +66,26 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
             )}
           </label>
         )}
-        <input
-          ref={ref}
-          id={id}
-          className={[
-            "mantle-textFieldInput",
-            sizeMap[size],
-            error && "mantle-textFieldInputError",
-            className,
-          ]
-            .filter(Boolean)
-            .join(" ")}
-          aria-invalid={error ? true : undefined}
-          aria-describedby={describedBy}
-          required={required}
-          {...rest}
-        />
+        <div className="mantle-textFieldInputWrapper">
+          {startIcon}
+          <input
+            ref={ref}
+            id={id}
+            className={[
+              "mantle-textFieldInput",
+              sizeMap[size],
+              error && "mantle-textFieldInputError",
+              className,
+            ]
+              .filter(Boolean)
+              .join(" ")}
+            aria-invalid={error ? true : undefined}
+            aria-describedby={describedBy}
+            required={required}
+            {...rest}
+          />
+          {endIcon}
+        </div>
         {error && (
           <span id={errorId} className="mantle-textFieldError" role="alert">
             {error}

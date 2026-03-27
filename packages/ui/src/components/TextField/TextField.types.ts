@@ -1,4 +1,4 @@
-import type { InputHTMLAttributes } from "react";
+import type { InputHTMLAttributes, ReactNode } from "react";
 import type { MantleColor } from "../../theme/colors";
 
 export type TextFieldSize = "sm" | "md" | "lg";
@@ -19,4 +19,8 @@ export interface TextFieldProps extends Omit<
   color?: MantleColor;
   /** Size preset. Defaults to `"md"`. */
   size?: TextFieldSize;
+  /** Optional icon rendered before the input. */
+  startIcon?: ReactNode;
+  /** Optional icon rendered after the input. */
+  endIcon?: ReactNode;
 }

@@ -16,6 +16,7 @@ export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(function Badge(
     variant = "subtle",
     size = "sm",
     color = "blue",
+    startIcon,
     className,
     children,
     ...rest
@@ -36,6 +37,7 @@ export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(function Badge(
         .join(" ")}
       {...rest}
     >
+      {startIcon}
       {children}
     </span>
   );

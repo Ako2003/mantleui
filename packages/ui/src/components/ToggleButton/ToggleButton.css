@@ -2,6 +2,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: var(--mantle-space-2);
   border: 1px solid var(--mantle-color-border);
   border-radius: var(--mantle-radius-md);
   background-color: transparent;

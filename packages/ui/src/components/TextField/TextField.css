@@ -20,6 +20,12 @@
   margin-left: var(--mantle-space-1);
 }
 
+.mantle-textFieldInputWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--mantle-space-2);
+}
+
 .mantle-textFieldInput {
   border: 1px solid var(--mantle-color-border);
   border-radius: var(--mantle-radius-md);

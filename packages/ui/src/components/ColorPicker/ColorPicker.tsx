@@ -1,11 +1,4 @@
-import {
-  forwardRef,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import { forwardRef, useCallback, useMemo } from "react";
 import { useControllable } from "../../hooks";
 import { ColorArea } from "../ColorArea";
 import { ColorSlider } from "../ColorSlider";
@@ -116,22 +109,10 @@ export const ColorPicker = forwardRef<HTMLDivElement, ColorPickerProps>(
       onChange: onValueChange,
     });
 
-    // Internal HSB state for smooth dragging
-    const [hsb, setHsb] = useState(() => hexToHsb(value));
-    const isInternalUpdate = useRef(false);
-
-    // Sync HSB when external value changes
-    useEffect(() => {
-      if (!isInternalUpdate.current) {
-        setHsb(hexToHsb(value));
-      }
-      isInternalUpdate.current = false;
-    }, [value]);
+    const hsb = useMemo(() => hexToHsb(value), [value]);
 
     const updateFromHsb = useCallback(
       (h: number, s: number, b: number) => {
-        setHsb({ h, s, b });
-        isInternalUpdate.current = true;
         setValue(hsbToHex(h, s, b));
       },
       [setValue],

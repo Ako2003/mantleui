@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from "react";
+import type { HTMLAttributes, ReactNode } from "react";
 import type { MantleColor } from "../../theme/colors";
 
 export interface SelectOption {
@@ -34,4 +34,6 @@ export interface SelectProps extends Omit<
   label?: string;
   /** Error message. */
   error?: string;
+  /** Optional icon rendered at the start of the trigger button. */
+  startIcon?: ReactNode;
 }
