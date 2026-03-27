@@ -1,0 +1,192 @@
+.mantle-multiselect {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mantle-space-1);
+  font-family: var(--mantle-font-sans);
+  position: relative;
+}
+
+.mantle-multiselectLabel {
+  font-size: var(--mantle-text-sm);
+  font-weight: 500;
+  color: var(--mantle-color-text);
+}
+
+.mantle-multiselectLabelError {
+  color: var(--mantle-color-danger);
+}
+
+.mantle-multiselectTrigger {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--mantle-space-1);
+  min-height: 2.5rem;
+  padding: var(--mantle-space-1) var(--mantle-space-2);
+  border: 1px solid var(--mantle-color-border);
+  border-radius: var(--mantle-radius-md);
+  background: transparent;
+  cursor: pointer;
+  transition:
+    border-color var(--mantle-duration-fast),
+    box-shadow var(--mantle-duration-fast);
+}
+
+.mantle-multiselectTrigger:focus-within {
+  border-color: var(--mantle-accent);
+  box-shadow: 0 0 0 1px var(--mantle-accent);
+}
+
+.mantle-multiselectTriggerError {
+  border-color: var(--mantle-color-danger);
+}
+
+.mantle-multiselectTriggerDisabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.mantle-multiselectPlaceholder {
+  color: var(--mantle-color-text-muted);
+  font-size: var(--mantle-text-sm);
+  padding: 0 var(--mantle-space-1);
+}
+
+.mantle-multiselectChip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--mantle-space-1);
+  padding: 2px var(--mantle-space-2);
+  border-radius: var(--mantle-radius-full);
+  background: var(--mantle-accent-subtle);
+  color: var(--mantle-accent);
+  font-size: var(--mantle-text-xs);
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.mantle-multiselectChipRemove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border: none;
+  background: transparent;
+  color: inherit;
+  opacity: 0.6;
+  cursor: pointer;
+  padding: 0;
+  border-radius: var(--mantle-radius-full);
+  transition: opacity var(--mantle-duration-fast);
+}
+
+.mantle-multiselectChipRemove:hover {
+  opacity: 1;
+}
+
+.mantle-multiselectActions {
+  display: flex;
+  align-items: center;
+  gap: var(--mantle-space-1);
+  margin-left: auto;
+  flex-shrink: 0;
+  color: var(--mantle-color-text-muted);
+}
+
+.mantle-multiselectClear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: var(--mantle-color-text-muted);
+  cursor: pointer;
+  padding: 2px;
+  border-radius: var(--mantle-radius-sm);
+  transition: color var(--mantle-duration-fast);
+}
+
+.mantle-multiselectClear:hover {
+  color: var(--mantle-color-text);
+}
+
+.mantle-multiselectChevron {
+  transition: transform var(--mantle-duration-fast);
+  color: var(--mantle-color-text-muted);
+  flex-shrink: 0;
+}
+
+.mantle-multiselectChevronOpen {
+  transform: rotate(180deg);
+}
+
+.mantle-multiselectDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  margin-top: var(--mantle-space-1);
+  padding: var(--mantle-space-1) 0;
+  border: 1px solid var(--mantle-color-border);
+  border-radius: var(--mantle-radius-md);
+  background-color: var(--mantle-color-bg-subtle);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--mantle-shadow-md);
+  max-height: 15rem;
+  overflow-y: auto;
+  animation: mantle-dropdown-in var(--mantle-duration-fast) ease-out;
+}
+
+.mantle-multiselectOption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--mantle-space-2) var(--mantle-space-3);
+  font-size: var(--mantle-text-sm);
+  color: var(--mantle-color-text);
+  cursor: pointer;
+  transition: background-color var(--mantle-duration-fast);
+}
+
+.mantle-multiselectOption:hover:not(.mantle-multiselectOptionDisabled) {
+  background: linear-gradient(135deg, var(--mantle-accent-subtle), transparent);
+}
+
+.mantle-multiselectOptionSelected {
+  color: var(--mantle-accent);
+  font-weight: 500;
+}
+
+.mantle-multiselectOptionDisabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.mantle-multiselectOptionCheck {
+  color: var(--mantle-accent);
+}
+
+.mantle-multiselectDescription {
+  font-size: var(--mantle-text-xs);
+  color: var(--mantle-color-text-muted);
+}
+
+.mantle-multiselectError {
+  font-size: var(--mantle-text-xs);
+  color: var(--mantle-color-danger);
+}
+
+@keyframes mantle-dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

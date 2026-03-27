@@ -13,6 +13,12 @@ export type {
   AutocompleteOption,
 } from "./components/Autocomplete";
 
+export { MultiSelect } from "./components/MultiSelect";
+export type {
+  MultiSelectProps,
+  MultiSelectOption,
+} from "./components/MultiSelect";
+
 export { Breadcrumb } from "./components/Breadcrumb";
 export type {
   BreadcrumbProps,
