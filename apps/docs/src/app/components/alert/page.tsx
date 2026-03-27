@@ -41,6 +41,74 @@ const dismissibleExample = `function Demo() {
 
 render(<Demo />);`;
 
+const usageExample = `<div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+  <Alert variant="info" title="New features available">
+    Check out our latest updates including dark mode support and improved accessibility features.
+  </Alert>
+
+  <Alert variant="info" title="Update available">
+    <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "12px" }}>
+      <span>A new version of the application is available. Please refresh to get the latest features and bug fixes.</span>
+      <Button size="sm" color="blue">Refresh</Button>
+    </div>
+  </Alert>
+
+  <Alert variant="error" title="Unable to connect to server">
+    <div>
+      <p style={{ margin: "0 0 8px" }}>We're experiencing connection issues. Please try the following:</p>
+      <ul style={{ margin: 0, paddingLeft: "20px", display: "flex", flexDirection: "column", gap: "4px" }}>
+        <li>Check your internet connection</li>
+        <li>Refresh the page</li>
+        <li>Clear your browser cache</li>
+      </ul>
+      <div style={{ marginTop: "12px" }}>
+        <Button size="sm" color="red" variant="outline">Retry</Button>
+      </div>
+    </div>
+  </Alert>
+
+  <Alert variant="success" title="Profile updated successfully" onDismiss={() => {}} />
+
+  <Alert variant="warning" title="Scheduled maintenance">
+    Our services will be unavailable on Sunday, March 15th from 2:00 AM to 6:00 AM UTC for scheduled maintenance.
+  </Alert>
+</div>`;
+
+const withActionsExample = `function Demo() {
+  const [dismissed, setDismissed] = React.useState([]);
+
+  const alerts = [
+    { id: "update", variant: "info", title: "System update", desc: "A critical security update is available. Update now to stay protected.", action: "Update Now" },
+    { id: "storage", variant: "warning", title: "Storage almost full", desc: "You've used 90% of your storage. Consider upgrading your plan or removing unused files.", action: "Manage Storage" },
+    { id: "payment", variant: "error", title: "Payment failed", desc: "Your last payment was declined. Please update your payment method to avoid service interruption.", action: "Update Payment" },
+  ];
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+      {alerts.filter(a => !dismissed.includes(a.id)).map((alert) => (
+        <Alert
+          key={alert.id}
+          variant={alert.variant}
+          title={alert.title}
+          onDismiss={() => setDismissed([...dismissed, alert.id])}
+        >
+          <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "12px" }}>
+            <span>{alert.desc}</span>
+            <Button size="sm" color={alert.variant === "error" ? "red" : alert.variant === "warning" ? "yellow" : "blue"} variant="outline">
+              {alert.action}
+            </Button>
+          </div>
+        </Alert>
+      ))}
+      {dismissed.length > 0 && (
+        <Button size="sm" variant="ghost" onClick={() => setDismissed([])}>Reset all alerts</Button>
+      )}
+    </div>
+  );
+}
+
+render(<Demo />);`;
+
 const alertProps = [
   {
     name: "variant",
@@ -95,6 +163,23 @@ export default function AlertPage() {
       </p>
       <div className="mt-4">
         <LivePlayground code={dismissibleExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Usage</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Alerts with descriptions, action buttons, bullet lists, and dismissible
+        variants.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={usageExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Interactive Actions</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Dismissible alerts with action buttons. Try dismissing and resetting.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={withActionsExample} />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>
