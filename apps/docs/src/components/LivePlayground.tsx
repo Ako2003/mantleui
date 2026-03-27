@@ -63,8 +63,8 @@ function CopyButton({ code }: { code: string }) {
     <button
       type="button"
       onClick={handleCopy}
-      className="absolute right-3 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-md transition-colors hover:bg-zinc-700/50"
-      style={{ color: copied ? "#22c55e" : "#71717a" }}
+      className="absolute right-3 top-5 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-md text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600 dark:text-zinc-500 dark:hover:bg-zinc-700/50 dark:hover:text-zinc-300"
+      style={copied ? { color: "#22c55e" } : undefined}
       aria-label={copied ? "Copied" : "Copy code"}
     >
       {copied ? (
@@ -108,14 +108,7 @@ export function LivePlayground({
         {noEditor && (
           <div className="relative border-t border-slate-200 dark:border-zinc-800">
             <CopyButton code={code} />
-            <pre
-              className="overflow-x-auto p-4 font-mono text-sm"
-              style={{
-                backgroundColor: "#18181b",
-                color: "#e4e4e7",
-                margin: 0,
-              }}
-            >
+            <pre className="m-0 overflow-x-auto bg-slate-50 p-4 font-mono text-sm text-slate-800 dark:bg-zinc-900 dark:text-zinc-300">
               <code>{code}</code>
             </pre>
           </div>
