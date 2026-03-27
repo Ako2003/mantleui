@@ -143,10 +143,14 @@ export function LivePlayground({ code }: LivePlaygroundProps) {
         <div className="relative border-t border-slate-200 dark:border-zinc-800">
           <CopyButton code={code} />
           <Highlight code={code.trim()} language="tsx" theme={theme}>
-            {({ style, tokens, getLineProps, getTokenProps }) => (
+            {({ style: highlightStyle, tokens, getLineProps, getTokenProps }) => {
+              const safeStyle = { ...highlightStyle };
+              delete safeStyle.background;
+              delete safeStyle.backgroundColor;
+              return (
               <pre
                 className="m-0 overflow-x-auto bg-slate-50 p-4 font-mono text-sm dark:bg-zinc-900"
-                style={{ ...style, background: undefined }}
+                style={safeStyle}
               >
                 <code>
                   {tokens.map((line, i) => (
@@ -158,7 +162,8 @@ export function LivePlayground({ code }: LivePlaygroundProps) {
                   ))}
                 </code>
               </pre>
-            )}
+              );
+            }}
           </Highlight>
         </div>
       </div>
