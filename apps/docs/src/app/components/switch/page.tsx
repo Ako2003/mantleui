@@ -26,6 +26,44 @@ const colorsExample = `<div style={{ display: "flex", flexDirection: "column", g
   <Switch color="neutral" defaultChecked label="Neutral" />
 </div>`;
 
+const withThumbIconExample = `<div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+  <Switch
+    label="Dark mode"
+    thumbIcon={<Moon size={12} />}
+    defaultChecked
+  />
+  <Switch
+    label="Notifications"
+    thumbIcon={<Bell size={12} />}
+    color="green"
+    defaultChecked
+  />
+  <Switch
+    label="Wi-Fi"
+    thumbIcon={<Wifi size={12} />}
+    color="purple"
+  />
+</div>`;
+
+const withDescriptionExample = `<div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+  <Switch
+    label="Marketing emails"
+    description="Receive emails about new products, features, and promotions."
+    defaultChecked
+  />
+  <Switch
+    label="Security alerts"
+    description="Get notified about unusual account activity."
+    defaultChecked
+    color="green"
+  />
+  <Switch
+    label="Beta features"
+    description="Try experimental features before they are released."
+    color="purple"
+  />
+</div>`;
+
 const controlledExample = `function Demo() {
   const [enabled, setEnabled] = React.useState(false);
   return (
@@ -80,6 +118,16 @@ const switchProps = [
     default: "false",
     description: "Disables the switch.",
   },
+  {
+    name: "description",
+    type: "ReactNode",
+    description: "Description text displayed below the label.",
+  },
+  {
+    name: "thumbIcon",
+    type: "ReactNode",
+    description: "Icon displayed inside the switch thumb.",
+  },
 ];
 
 export default function SwitchPage() {
@@ -109,6 +157,22 @@ export default function SwitchPage() {
       <h2 className="mt-10 text-xl font-semibold">Colors</h2>
       <div className="mt-4">
         <LivePlayground code={colorsExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">With Thumb Icon</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Display an icon inside the switch thumb that reflects the toggle state.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={withThumbIconExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">With Description</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Add descriptive text below the label for additional context.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={withDescriptionExample} />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Controlled</h2>

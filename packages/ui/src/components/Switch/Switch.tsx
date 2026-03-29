@@ -22,6 +22,8 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
       color = "blue",
       size = "md",
       label,
+      description,
+      thumbIcon,
       disabled,
       onClick,
       className,
@@ -62,7 +64,11 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
           .join(" ")}
         {...rest}
       >
-        <span className="mantle-switchThumb" />
+        <span className="mantle-switchThumb">
+          {thumbIcon && (
+            <span className="mantle-switchThumbIcon">{thumbIcon}</span>
+          )}
+        </span>
       </button>
     );
 
@@ -71,7 +77,12 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
     return (
       <label className="mantle-switchWrapper">
         {switchEl}
-        <span>{label}</span>
+        <div className="mantle-switchLabelGroup">
+          <span>{label}</span>
+          {description && (
+            <span className="mantle-switchDescription">{description}</span>
+          )}
+        </div>
       </label>
     );
   },

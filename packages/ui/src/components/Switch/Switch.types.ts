@@ -17,4 +17,8 @@ export interface SwitchProps extends Omit<
   size?: "sm" | "md";
   /** Label content displayed next to the switch. */
   label?: ReactNode;
+  /** Description text displayed below the label. */
+  description?: ReactNode;
+  /** Icon displayed inside the switch thumb. */
+  thumbIcon?: ReactNode;
 }
