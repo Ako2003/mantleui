@@ -22,6 +22,8 @@ export const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
       size,
       variant,
       color = "blue",
+      pill = false,
+      divider = false,
       className,
       ...rest
     },
@@ -40,7 +42,13 @@ export const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
         data-orientation={orientation}
         data-size={size}
         data-variant={variant}
-        className={["mantle-buttongroup", orientationClass, className]
+        className={[
+          "mantle-buttongroup",
+          orientationClass,
+          pill && "mantle-buttongroupPill",
+          divider && "mantle-buttongroupDivider",
+          className,
+        ]
           .filter(Boolean)
           .join(" ")}
         {...rest}

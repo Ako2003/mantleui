@@ -17,6 +17,10 @@ export interface ButtonGroupProps extends Omit<
   variant?: "solid" | "outline" | "ghost";
   /** Accent color. Defaults to `"blue"`. */
   color?: MantleColor;
+  /** Use pill-shaped (fully rounded) corners. Defaults to `false`. */
+  pill?: boolean;
+  /** Show divider lines between buttons. Defaults to `false`. */
+  divider?: boolean;
   /** Additional class name. */
   className?: string;
 }
