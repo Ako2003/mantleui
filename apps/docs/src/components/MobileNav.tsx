@@ -21,6 +21,7 @@ const navItems = [
   { label: "RadioGroup", href: "/components/radio-group" },
   { label: "Switch", href: "/components/switch" },
   { label: "Select", href: "/components/select" },
+  { label: "MultiSelect", href: "/components/multi-select" },
   { label: "Toggle", href: "/components/toggle" },
   { label: "Slider", href: "/components/slider" },
   { label: "NumberField", href: "/components/number-field" },

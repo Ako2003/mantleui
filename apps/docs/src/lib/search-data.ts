@@ -47,6 +47,7 @@ export const searchData: SearchItem[] = [
   { title: "RadioGroup", href: "/components/radio-group", category: "Form" },
   { title: "Switch", href: "/components/switch", category: "Form" },
   { title: "Select", href: "/components/select", category: "Form" },
+  { title: "MultiSelect", href: "/components/multi-select", category: "Form" },
   { title: "Toggle", href: "/components/toggle", category: "Form" },
   { title: "Slider", href: "/components/slider", category: "Form" },
   { title: "NumberField", href: "/components/number-field", category: "Form" },
