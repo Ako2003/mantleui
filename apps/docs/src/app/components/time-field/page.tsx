@@ -21,10 +21,6 @@ const controlledExample = `function Demo() {
 
 render(<Demo />);`;
 
-const stepExample = `<div style={{ maxWidth: "240px" }}>
-  <TimeField label="With 15-min steps" step={900} />
-</div>`;
-
 const errorExample = `<div style={{ maxWidth: "240px" }}>
   <TimeField label="Start time" error="Please enter a valid time" />
 </div>`;
@@ -67,11 +63,6 @@ const timeFieldProps = [
     default: '"blue"',
     description: "Accent color for the focus ring.",
   },
-  {
-    name: "step",
-    type: "number",
-    description: "Step interval in seconds for time increments.",
-  },
 ];
 
 export default function TimeFieldPage() {
@@ -91,11 +82,6 @@ export default function TimeFieldPage() {
       <h2 className="mt-10 text-xl font-semibold">Controlled</h2>
       <div className="mt-4">
         <LivePlayground code={controlledExample} />
-      </div>
-
-      <h2 className="mt-10 text-xl font-semibold">Step Interval</h2>
-      <div className="mt-4">
-        <LivePlayground code={stepExample} />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Error</h2>

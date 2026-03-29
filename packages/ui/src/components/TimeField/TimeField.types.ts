@@ -1,10 +1,6 @@
-import type { InputHTMLAttributes } from "react";
 import type { MantleColor } from "../../theme/colors";
 
-export interface TimeFieldProps extends Omit<
-  InputHTMLAttributes<HTMLInputElement>,
-  "type" | "color" | "defaultValue" | "value" | "onChange"
-> {
+export interface TimeFieldProps {
   /** The time value as "HH:mm" (controlled). */
   value?: string;
   /** The initial time value (uncontrolled). */
@@ -13,6 +9,8 @@ export interface TimeFieldProps extends Omit<
   onValueChange?: (value: string) => void;
   /** Label displayed above the input. */
   label?: string;
+  /** Description text displayed below the input. */
+  description?: string;
   /** Error message displayed below the input. */
   error?: string;
   /** Accent color. Defaults to `"blue"`. */
@@ -21,6 +19,6 @@ export interface TimeFieldProps extends Omit<
   disabled?: boolean;
   /** Additional class name on the wrapper. */
   className?: string;
-  /** Step in minutes. Defaults to `1`. */
+  /** Step in minutes for the dropdown options. Defaults to `1`. */
   step?: number;
 }

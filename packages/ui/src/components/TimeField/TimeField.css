@@ -1,9 +1,14 @@
+/* ─── Root ─── */
+
 .mantle-timeField {
-  display: inline-flex;
+  position: relative;
+  display: flex;
   flex-direction: column;
   gap: var(--mantle-space-1);
   font-family: var(--mantle-font-sans);
 }
+
+/* ─── Label ─── */
 
 .mantle-timeFieldLabel {
   font-size: var(--mantle-text-sm);
@@ -15,47 +20,182 @@
   color: var(--mantle-color-danger);
 }
 
-.mantle-timeFieldInput {
+/* ─── Trigger ─── */
+
+.mantle-timeFieldTrigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--mantle-space-2);
+  width: 100%;
   height: 2.5rem;
-  padding: 0 var(--mantle-space-3);
+  padding: 0 var(--mantle-space-2) 0 var(--mantle-space-3);
   border: 1px solid var(--mantle-color-border);
   border-radius: var(--mantle-radius-md);
-  background-color: transparent;
-  color: var(--mantle-color-text);
-  color-scheme: dark light;
-  font-family: inherit;
-  font-size: var(--mantle-text-sm);
-  outline: none;
+  background: transparent;
+  cursor: pointer;
   transition:
     border-color var(--mantle-duration-fast),
     box-shadow var(--mantle-duration-fast);
 }
 
-.mantle-timeFieldInput:focus-visible {
+.mantle-timeFieldTrigger:focus-within {
   border-color: var(--mantle-accent);
   box-shadow: 0 0 0 1px var(--mantle-accent);
 }
 
-.mantle-timeFieldInput:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.mantle-timeFieldInputError {
+.mantle-timeFieldTriggerError {
   border-color: var(--mantle-color-danger);
 }
 
-.mantle-timeFieldInputError:focus-visible {
+.mantle-timeFieldTriggerError:focus-within {
   border-color: var(--mantle-color-danger);
   box-shadow: 0 0 0 1px var(--mantle-color-danger);
 }
 
-.mantle-timeFieldInputError::placeholder {
-  color: var(--mantle-color-danger);
-  opacity: 0.6;
+.mantle-timeFieldTriggerDisabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
 }
+
+/* ─── Segments ─── */
+
+.mantle-timeFieldSegments {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+}
+
+.mantle-timeFieldSegment {
+  width: 2.2ch;
+  border: none;
+  background: transparent;
+  color: var(--mantle-color-text);
+  font-family: inherit;
+  font-size: var(--mantle-text-sm);
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  outline: none;
+  padding: 2px 0;
+  border-radius: var(--mantle-radius-sm);
+}
+
+.mantle-timeFieldSegment:focus {
+  background: var(--mantle-accent-subtle);
+  color: var(--mantle-accent);
+}
+
+.mantle-timeFieldSeparator {
+  font-size: var(--mantle-text-sm);
+  color: var(--mantle-color-text-muted);
+  font-weight: 600;
+}
+
+/* ─── Clock Button ─── */
+
+.mantle-timeFieldClockBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: var(--mantle-radius-sm);
+  background: transparent;
+  color: var(--mantle-color-text-muted);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background var(--mantle-duration-fast);
+}
+
+.mantle-timeFieldClockBtn:hover {
+  background: var(--mantle-color-bg-muted);
+  color: var(--mantle-color-text);
+}
+
+/* ─── Dropdown ─── */
+
+.mantle-timeFieldDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: var(--mantle-space-1);
+  display: flex;
+  border: 1px solid var(--mantle-color-border);
+  border-radius: var(--mantle-radius-lg);
+  background: var(--mantle-color-bg);
+  box-shadow: var(--mantle-shadow-lg, 0 10px 25px -5px rgb(0 0 0 / 0.15));
+  z-index: 50;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.mantle-timeFieldDropdownDivider {
+  width: 1px;
+  background: var(--mantle-color-border);
+}
+
+/* ─── Scroll Column ─── */
+
+.mantle-timeFieldColumn {
+  display: flex;
+  flex-direction: column;
+  max-height: 220px;
+  overflow-y: auto;
+  padding: var(--mantle-space-1);
+  scrollbar-width: none;
+  overscroll-behavior: contain;
+}
+
+.mantle-timeFieldColumn::-webkit-scrollbar {
+  display: none;
+}
+
+/* ─── Option ─── */
+
+.mantle-timeFieldOption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 52px;
+  height: 36px;
+  border: none;
+  border-radius: var(--mantle-radius-sm);
+  background: transparent;
+  color: var(--mantle-color-text);
+  font-family: inherit;
+  font-size: var(--mantle-text-sm);
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition:
+    background var(--mantle-duration-fast),
+    color var(--mantle-duration-fast);
+}
+
+.mantle-timeFieldOption:hover {
+  background: var(--mantle-color-bg-muted);
+}
+
+.mantle-timeFieldOptionSelected {
+  background: var(--mantle-accent);
+  color: var(--mantle-accent-text, #fff);
+  font-weight: 600;
+}
+
+.mantle-timeFieldOptionSelected:hover {
+  background: var(--mantle-accent-hover);
+}
+
+/* ─── Error & Description ─── */
 
 .mantle-timeFieldError {
   font-size: var(--mantle-text-xs);
   color: var(--mantle-color-danger);
+}
+
+.mantle-timeFieldDescription {
+  font-size: var(--mantle-text-xs);
+  color: var(--mantle-color-text-muted);
 }
