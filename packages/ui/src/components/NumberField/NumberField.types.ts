@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import type { MantleColor } from "../../theme/colors";
 
 export type NumberFieldSize = "sm" | "md" | "lg";
@@ -27,4 +28,8 @@ export interface NumberFieldProps {
   disabled?: boolean;
   /** Additional CSS class name. */
   className?: string;
+  /** Content displayed before the input value (e.g. "$", "€"). */
+  prefix?: ReactNode;
+  /** Content displayed after the input value (e.g. "%", "kg"). */
+  suffix?: ReactNode;
 }

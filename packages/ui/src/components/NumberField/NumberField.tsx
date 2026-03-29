@@ -33,6 +33,8 @@ export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
       size = "md",
       disabled,
       className,
+      prefix,
+      suffix,
     },
     ref,
   ) {
@@ -124,28 +126,37 @@ export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
           >
             -
           </button>
-          <input
-            ref={ref}
-            id={generatedId}
-            type="text"
-            inputMode="numeric"
-            className={[
-              "mantle-numberFieldInput",
-              error && "mantle-numberFieldInputError",
-            ]
-              .filter(Boolean)
-              .join(" ")}
-            role="spinbutton"
-            aria-valuenow={value}
-            aria-valuemin={min}
-            aria-valuemax={max}
-            aria-invalid={error ? true : undefined}
-            aria-describedby={error ? errorId : undefined}
-            value={value}
-            onChange={handleChange}
-            onKeyDown={handleKeyDown}
-            disabled={disabled}
-          />
+          <div className="mantle-numberFieldInputArea">
+            {prefix && (
+              <span className="mantle-numberFieldAffix">{prefix}</span>
+            )}
+            <input
+              ref={ref}
+              id={generatedId}
+              type="text"
+              inputMode="numeric"
+              className={[
+                "mantle-numberFieldInput",
+                error && "mantle-numberFieldInputError",
+              ]
+                .filter(Boolean)
+                .join(" ")}
+              style={{ width: `${Math.max(String(value).length, 1) + 1}ch` }}
+              role="spinbutton"
+              aria-valuenow={value}
+              aria-valuemin={min}
+              aria-valuemax={max}
+              aria-invalid={error ? true : undefined}
+              aria-describedby={error ? errorId : undefined}
+              value={value}
+              onChange={handleChange}
+              onKeyDown={handleKeyDown}
+              disabled={disabled}
+            />
+            {suffix && (
+              <span className="mantle-numberFieldAffix">{suffix}</span>
+            )}
+          </div>
           <button
             type="button"
             className="mantle-numberFieldButton"

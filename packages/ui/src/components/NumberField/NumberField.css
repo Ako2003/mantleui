@@ -64,15 +64,33 @@
   cursor: not-allowed;
 }
 
-.mantle-numberFieldInput {
+.mantle-numberFieldInputArea {
   flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.mantle-numberFieldAffix {
+  color: var(--mantle-color-text-muted);
+  font-size: inherit;
+  font-weight: 500;
+  flex-shrink: 0;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.mantle-numberFieldInput {
   border: none;
   background: transparent;
   color: var(--mantle-color-text);
   font-family: inherit;
   outline: none;
   text-align: center;
-  width: 100%;
+  min-width: 2ch;
   -moz-appearance: textfield;
 }
 

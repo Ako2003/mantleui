@@ -45,6 +45,35 @@ const sizesExample = `<div style={{ display: "flex", flexDirection: "column", ga
   <NumberField size="lg" label="Large" defaultValue={3} />
 </div>`;
 
+const prefixSuffixExample = `<div style={{ display: "flex", flexDirection: "column", gap: "16px", maxWidth: "320px" }}>
+  <NumberField label="Price (USD)" prefix="$" defaultValue={49} min={0} step={1} />
+  <NumberField label="Price (EUR)" prefix="€" defaultValue={39} min={0} step={1} />
+  <NumberField label="Discount" suffix="%" defaultValue={15} min={0} max={100} />
+  <NumberField label="Weight" suffix="kg" defaultValue={5} min={0} step={0.5} />
+</div>`;
+
+const currencyExample = `function Demo() {
+  const [amount, setAmount] = React.useState(99.99);
+  return (
+    <div style={{ maxWidth: "320px" }}>
+      <NumberField
+        label="Payment Amount"
+        prefix="$"
+        value={amount}
+        onValueChange={setAmount}
+        min={0}
+        step={0.01}
+        color="green"
+      />
+      <p style={{ marginTop: "8px", fontSize: "13px", color: "var(--mantle-color-text-muted)" }}>
+        Total: ${"$"}{amount.toFixed(2)}
+      </p>
+    </div>
+  );
+}
+
+render(<Demo />);`;
+
 const colorsExample = `<div style={{ display: "flex", flexDirection: "column", gap: "12px", maxWidth: "320px" }}>
   <NumberField color="blue" label="Blue" defaultValue={1} />
   <NumberField color="green" label="Green" defaultValue={2} />
@@ -105,6 +134,16 @@ const numberFieldProps = [
     default: '"md"',
     description: "Size preset.",
   },
+  {
+    name: "prefix",
+    type: "ReactNode",
+    description: 'Content displayed before the value (e.g. "$", "€").',
+  },
+  {
+    name: "suffix",
+    type: "ReactNode",
+    description: 'Content displayed after the value (e.g. "%", "kg").',
+  },
 ];
 
 export default function NumberFieldPage() {
@@ -139,6 +178,23 @@ export default function NumberFieldPage() {
       <h2 className="mt-10 text-xl font-semibold">With Error</h2>
       <div className="mt-4">
         <LivePlayground code={withErrorExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Prefix & Suffix</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Add currency symbols, units, or other indicators before or after the
+        value.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={prefixSuffixExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Currency Input</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        A controlled payment input with a dollar prefix.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={currencyExample} />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Sizes</h2>
