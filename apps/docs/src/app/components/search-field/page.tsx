@@ -54,6 +54,13 @@ const withClearExample = `function Demo() {
 
 render(<Demo />);`;
 
+const customIconExample = `<div style={{ display: "flex", flexDirection: "column", gap: "12px", maxWidth: "320px" }}>
+  <SearchField startIcon={<Filter size={16} />} placeholder="Filter results..." />
+  <SearchField startIcon={<MapPin size={16} />} placeholder="Search locations..." />
+  <SearchField startIcon={<Users size={16} />} placeholder="Find people..." />
+  <SearchField startIcon={<FileText size={16} />} placeholder="Search documents..." />
+</div>`;
+
 const searchFieldProps = [
   {
     name: "value",
@@ -92,6 +99,11 @@ const searchFieldProps = [
     default: '"md"',
     description: "Size preset.",
   },
+  {
+    name: "startIcon",
+    type: "ReactNode",
+    description: "Custom icon to replace the default magnifying glass.",
+  },
 ];
 
 export default function SearchFieldPage() {
@@ -123,6 +135,18 @@ export default function SearchFieldPage() {
       </p>
       <div className="mt-4">
         <LivePlayground code={withClearExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Custom Icon</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Replace the default magnifying glass with any icon via the{" "}
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
+          startIcon
+        </code>{" "}
+        prop.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={customIconExample} />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Sizes</h2>

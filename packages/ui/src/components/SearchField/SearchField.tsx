@@ -30,6 +30,7 @@ export const SearchField = forwardRef<HTMLInputElement, SearchFieldProps>(
       size = "md",
       disabled,
       className,
+      startIcon,
     },
     ref,
   ) {
@@ -59,15 +60,17 @@ export const SearchField = forwardRef<HTMLInputElement, SearchFieldProps>(
         data-color={color}
       >
         <span className="mantle-searchFieldIcon" aria-hidden="true">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <circle cx="11" cy="11" r="8" />
-            <path d="m21 21-4.35-4.35" />
-          </svg>
+          {startIcon ?? (
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.35-4.35" />
+            </svg>
+          )}
         </span>
         <input
           ref={ref}

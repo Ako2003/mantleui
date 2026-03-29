@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import type { MantleColor } from "../../theme/colors";
 
 export type SearchFieldSize = "sm" | "md" | "lg";
@@ -21,4 +22,6 @@ export interface SearchFieldProps {
   disabled?: boolean;
   /** Additional CSS class name. */
   className?: string;
+  /** Custom icon to replace the default magnifying glass. */
+  startIcon?: ReactNode;
 }
