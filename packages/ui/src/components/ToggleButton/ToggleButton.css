@@ -50,18 +50,14 @@
 
 /* Pressed + solid variant */
 .mantle-togglebutton-pressed.mantle-togglebutton-solid {
-  background: linear-gradient(
-    135deg,
-    var(--mantle-accent),
-    var(--mantle-accent-hover)
-  );
+  background-color: var(--mantle-accent);
   border-color: var(--mantle-accent);
   color: var(--mantle-accent-text);
 }
 
 /* Pressed + outline variant */
 .mantle-togglebutton-pressed.mantle-togglebutton-outline {
-  background: linear-gradient(135deg, var(--mantle-accent-subtle), transparent);
+  background-color: var(--mantle-accent-subtle);
   border-color: var(--mantle-accent);
   color: var(--mantle-accent);
 }

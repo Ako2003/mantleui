@@ -44,11 +44,114 @@ const controlledExample = `function Demo() {
 
 render(<Demo />);`;
 
-const withIconsExample = `<div style={{ display: "flex", gap: "8px" }}>
-  <ToggleButton startIcon={<Star size={16} />} defaultPressed>Favorite</ToggleButton>
-  <ToggleButton startIcon={<Heart size={16} />} color="red">Like</ToggleButton>
-  <ToggleButton startIcon={<Bookmark size={16} />} variant="solid" color="purple">Save</ToggleButton>
-</div>`;
+const withIconsExample = `function Demo() {
+  const [fav, setFav] = React.useState(true);
+  const [like, setLike] = React.useState(false);
+  const [save, setSave] = React.useState(false);
+  return (
+    <div style={{ display: "flex", gap: "8px" }}>
+      <ToggleButton pressed={fav} onPressedChange={setFav} startIcon={<Star size={16} fill={fav ? "currentColor" : "none"} />} color="yellow" variant="solid">Favorite</ToggleButton>
+      <ToggleButton pressed={like} onPressedChange={setLike} startIcon={<Heart size={16} fill={like ? "currentColor" : "none"} />} color="red" variant="solid">Like</ToggleButton>
+      <ToggleButton pressed={save} onPressedChange={setSave} startIcon={<Bookmark size={16} fill={save ? "currentColor" : "none"} />} color="blue" variant="solid">Save</ToggleButton>
+    </div>
+  );
+}
+
+render(<Demo />);`;
+
+const iconOnlyExample = `function Demo() {
+  const [liked, setLiked] = React.useState(false);
+  const [saved, setSaved] = React.useState(false);
+  const [starred, setStarred] = React.useState(true);
+  const [pinned, setPinned] = React.useState(false);
+
+  const circleStyle = {
+    borderRadius: "9999px",
+    width: "44px",
+    height: "44px",
+    padding: 0,
+  };
+
+  return (
+    <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
+      <ToggleButton
+        pressed={liked}
+        onPressedChange={setLiked}
+        color="red"
+        variant="solid"
+        style={circleStyle}
+      >
+        <Heart size={20} fill={liked ? "currentColor" : "none"} />
+      </ToggleButton>
+      <ToggleButton
+        pressed={saved}
+        onPressedChange={setSaved}
+        color="blue"
+        style={circleStyle}
+      >
+        <Bookmark size={20} fill={saved ? "currentColor" : "none"} />
+      </ToggleButton>
+      <ToggleButton
+        pressed={starred}
+        onPressedChange={setStarred}
+        color="yellow"
+        variant="solid"
+        style={circleStyle}
+      >
+        <Star size={20} fill={starred ? "currentColor" : "none"} />
+      </ToggleButton>
+      <ToggleButton
+        pressed={pinned}
+        onPressedChange={setPinned}
+        color="purple"
+        variant="solid"
+        style={circleStyle}
+      >
+        <Pin size={18} fill={pinned ? "currentColor" : "none"} />
+      </ToggleButton>
+    </div>
+  );
+}
+
+render(<Demo />);`;
+
+const socialActionsExample = `function Demo() {
+  const [liked, setLiked] = React.useState(false);
+  const [likes, setLikes] = React.useState(128);
+  const [saved, setSaved] = React.useState(false);
+
+  return (
+    <div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+        <ToggleButton
+          pressed={liked}
+          onPressedChange={(v) => {
+            setLiked(v);
+            setLikes((n) => v ? n + 1 : n - 1);
+          }}
+          color="red"
+          variant="solid"
+          style={{ borderRadius: "9999px", width: "40px", height: "40px", padding: 0 }}
+        >
+          <Heart size={18} fill={liked ? "currentColor" : "none"} />
+        </ToggleButton>
+        <span style={{ fontSize: "14px", fontWeight: 500, color: "var(--mantle-color-text)", minWidth: "2ch" }}>
+          {likes}
+        </span>
+      </div>
+      <ToggleButton
+        pressed={saved}
+        onPressedChange={setSaved}
+        color="blue"
+        style={{ borderRadius: "9999px", width: "40px", height: "40px", padding: 0 }}
+      >
+        <Bookmark size={18} fill={saved ? "currentColor" : "none"} />
+      </ToggleButton>
+    </div>
+  );
+}
+
+render(<Demo />);`;
 
 const toggleButtonProps = [
   {
@@ -70,7 +173,7 @@ const toggleButtonProps = [
   {
     name: "variant",
     type: '"solid" | "outline" | "ghost"',
-    default: '"outline"',
+    default: '"solid"',
     description: "Visual style variant.",
   },
   {
@@ -130,6 +233,23 @@ export default function ToggleButtonPage() {
       <h2 className="mt-10 text-xl font-semibold">With Icons</h2>
       <div className="mt-4">
         <LivePlayground code={withIconsExample} noEditor />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Icon-Only (Circular)</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Circular toggle buttons for actions like like, save, star, and pin. The
+        icon fills when pressed.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={iconOnlyExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Social Actions</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Like with counter and bookmark — common social media patterns.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={socialActionsExample} />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>

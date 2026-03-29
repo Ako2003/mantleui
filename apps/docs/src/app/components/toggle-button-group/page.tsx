@@ -54,6 +54,25 @@ const verticalExample = `<ToggleButtonGroup orientation="vertical" defaultValue=
   <ToggleButton value="bottom">Bottom</ToggleButton>
 </ToggleButtonGroup>`;
 
+const textFormattingExample = `function Demo() {
+  const [formats, setFormats] = React.useState(["bold"]);
+  return (
+    <ToggleButtonGroup
+      multiple
+      value={formats}
+      onValueChange={setFormats}
+      color="neutral"
+    >
+      <ToggleButton value="bold"><Bold size={18} /></ToggleButton>
+      <ToggleButton value="italic"><Italic size={18} /></ToggleButton>
+      <ToggleButton value="underline"><Underline size={18} /></ToggleButton>
+      <ToggleButton value="strikethrough"><Strikethrough size={18} /></ToggleButton>
+    </ToggleButtonGroup>
+  );
+}
+
+render(<Demo />);`;
+
 const toggleButtonGroupProps = [
   {
     name: "value",
@@ -123,6 +142,14 @@ export default function ToggleButtonGroupPage() {
       <h2 className="mt-10 text-xl font-semibold">Sizes</h2>
       <div className="mt-4">
         <LivePlayground code={sizesExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Text Formatting</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        A toolbar-style group with icon-only toggle buttons for text formatting.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={textFormattingExample} />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Vertical</h2>

@@ -25,7 +25,7 @@ export const ToggleButton = forwardRef<HTMLButtonElement, ToggleButtonProps>(
       pressed,
       defaultPressed = false,
       onPressedChange,
-      variant = "outline",
+      variant = "solid",
       color = "blue",
       size = "md",
       startIcon,

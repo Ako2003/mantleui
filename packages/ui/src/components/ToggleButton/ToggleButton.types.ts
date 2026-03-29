@@ -14,7 +14,7 @@ export interface ToggleButtonProps extends Omit<
   defaultPressed?: boolean;
   /** Called when the pressed state changes. */
   onPressedChange?: (pressed: boolean) => void;
-  /** Visual variant. Defaults to `"outline"`. */
+  /** Visual variant. Defaults to `"solid"`. */
   variant?: ToggleButtonVariant;
   /** Accent color. Defaults to `"blue"`. */
   color?: MantleColor;
