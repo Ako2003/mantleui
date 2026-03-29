@@ -25,11 +25,7 @@
 
 /* Variants */
 .mantle-badge.mantle-badge-solid {
-  background: linear-gradient(
-    135deg,
-    var(--mantle-accent),
-    var(--mantle-accent-hover)
-  );
+  background-color: var(--mantle-accent);
   color: var(--mantle-accent-text);
 }
 

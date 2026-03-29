@@ -66,24 +66,20 @@
   padding: 0 var(--mantle-space-4);
   border: none;
   border-radius: var(--mantle-radius-md);
-  background: linear-gradient(
-    135deg,
-    var(--mantle-accent),
-    var(--mantle-accent-hover)
-  );
+  background-color: var(--mantle-accent);
   color: var(--mantle-accent-text);
   font-family: var(--mantle-font-sans);
   font-size: var(--mantle-text-sm);
   font-weight: 500;
   cursor: pointer;
-  transition: background-color var(--mantle-duration-fast);
+  transition: background var(--mantle-duration-fast);
 }
 
 .mantle-alertdialog-action:hover {
   background: linear-gradient(
     135deg,
-    var(--mantle-accent-hover),
-    var(--mantle-accent-active)
+    var(--mantle-accent),
+    var(--mantle-accent-hover)
   );
 }
 

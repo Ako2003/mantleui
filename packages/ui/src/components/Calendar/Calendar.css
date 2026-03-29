@@ -117,19 +117,15 @@
 }
 
 .mantle-calendarDaySelected {
-  background: linear-gradient(
-    135deg,
-    var(--mantle-accent),
-    var(--mantle-accent-hover)
-  );
+  background-color: var(--mantle-accent);
   color: var(--mantle-accent-text);
 }
 
 .mantle-calendarDaySelected:hover {
   background: linear-gradient(
     135deg,
-    var(--mantle-accent-hover),
-    var(--mantle-accent-active)
+    var(--mantle-accent),
+    var(--mantle-accent-hover)
   );
 }
 

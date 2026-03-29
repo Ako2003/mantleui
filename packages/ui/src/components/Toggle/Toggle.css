@@ -18,7 +18,7 @@
 }
 
 .mantle-toggle:hover:not(:disabled) {
-  background-color: var(--mantle-accent-subtle);
+  background: linear-gradient(135deg, var(--mantle-accent-subtle), transparent);
   color: var(--mantle-accent);
 }
 
@@ -28,9 +28,9 @@
 }
 
 .mantle-pressed {
-  background: linear-gradient(135deg, var(--mantle-accent-subtle), transparent);
+  background-color: var(--mantle-accent);
   border-color: var(--mantle-accent);
-  color: var(--mantle-accent);
+  color: var(--mantle-accent-text);
 }
 
 .mantle-toggle:active:not(:disabled) {

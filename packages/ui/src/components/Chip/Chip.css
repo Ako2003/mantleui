@@ -44,20 +44,12 @@
 
 /* Selected */
 .mantle-chip-selected.mantle-chip-solid {
-  background: linear-gradient(
-    135deg,
-    var(--mantle-accent),
-    var(--mantle-accent-hover)
-  );
+  background-color: var(--mantle-accent);
   color: var(--mantle-accent-text);
 }
 
 .mantle-chip-selected.mantle-chip-outline {
-  background: linear-gradient(
-    135deg,
-    var(--mantle-accent),
-    var(--mantle-accent-hover)
-  );
+  background-color: var(--mantle-accent);
   border-color: transparent;
   color: var(--mantle-accent-text);
 }

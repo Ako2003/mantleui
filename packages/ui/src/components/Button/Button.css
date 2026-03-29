@@ -20,19 +20,15 @@
 
 /* Variants */
 .mantle-solid {
-  background: linear-gradient(
-    135deg,
-    var(--mantle-accent),
-    var(--mantle-accent-hover)
-  );
+  background-color: var(--mantle-accent);
   color: var(--mantle-accent-text);
 }
 
 .mantle-solid:hover:not(:disabled):not([aria-disabled="true"]) {
   background: linear-gradient(
     135deg,
-    var(--mantle-accent-hover),
-    var(--mantle-accent-active)
+    var(--mantle-accent),
+    var(--mantle-accent-hover)
   );
 }
 
@@ -57,14 +53,21 @@
 }
 
 .mantle-ghost {
-  background: transparent;
-  color: var(--mantle-accent);
+  background-color: var(--mantle-color-bg-muted);
+  border-color: var(--mantle-color-border);
+  color: var(--mantle-color-text);
 }
 
 .mantle-ghost:hover:not(:disabled):not([aria-disabled="true"]) {
   background: linear-gradient(135deg, var(--mantle-accent-subtle), transparent);
+  color: var(--mantle-accent);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
+}
+
+.mantle-ghost:active:not(:disabled):not([aria-disabled="true"]) {
+  background-color: var(--mantle-accent-subtle);
+  color: var(--mantle-accent);
 }
 
 /* Sizes */

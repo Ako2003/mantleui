@@ -32,11 +32,7 @@
 }
 
 .mantle-radioCalendarItemSelected {
-  background: linear-gradient(
-    135deg,
-    var(--mantle-accent),
-    var(--mantle-accent-hover)
-  );
+  background-color: var(--mantle-accent);
   color: var(--mantle-accent-text);
   border-color: transparent;
 }
@@ -44,7 +40,7 @@
 .mantle-radioCalendarItemSelected:hover {
   background: linear-gradient(
     135deg,
-    var(--mantle-accent-hover),
-    var(--mantle-accent-active)
+    var(--mantle-accent),
+    var(--mantle-accent-hover)
   );
 }
