@@ -152,7 +152,11 @@ export { InputOTP } from "./components/InputOTP";
 export type { InputOTPProps } from "./components/InputOTP";
 
 export { Slider } from "./components/Slider";
-export type { SliderProps } from "./components/Slider";
+export type {
+  SliderProps,
+  SliderSingleProps,
+  SliderRangeProps,
+} from "./components/Slider";
 
 export { Meter } from "./components/Meter";
 export type { MeterProps } from "./components/Meter";
