@@ -133,33 +133,6 @@ const avatarTooltipExample = `<div style={{ display: "flex", gap: "8px" }}>
   </Tooltip>
 </div>`;
 
-const colorsExample = `<div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-  <Tooltip>
-    <Tooltip.Trigger>
-      <Button color="blue" size="sm">Blue</Button>
-    </Tooltip.Trigger>
-    <Tooltip.Content>Default tooltip</Tooltip.Content>
-  </Tooltip>
-  <Tooltip>
-    <Tooltip.Trigger>
-      <Button color="red" size="sm">Red</Button>
-    </Tooltip.Trigger>
-    <Tooltip.Content>Danger action</Tooltip.Content>
-  </Tooltip>
-  <Tooltip>
-    <Tooltip.Trigger>
-      <Button color="green" size="sm">Green</Button>
-    </Tooltip.Trigger>
-    <Tooltip.Content>Success action</Tooltip.Content>
-  </Tooltip>
-  <Tooltip>
-    <Tooltip.Trigger>
-      <Button color="purple" size="sm">Purple</Button>
-    </Tooltip.Trigger>
-    <Tooltip.Content>Premium feature</Tooltip.Content>
-  </Tooltip>
-</div>`;
-
 const disabledButtonExample = `<div style={{ display: "flex", gap: "12px" }}>
   <Tooltip>
     <Tooltip.Trigger>
@@ -249,11 +222,6 @@ export default function TooltipPage() {
       </p>
       <div className="mt-4">
         <LivePlayground code={avatarTooltipExample} />
-      </div>
-
-      <h2 className="mt-10 text-xl font-semibold">With Colors</h2>
-      <div className="mt-4">
-        <LivePlayground code={colorsExample} />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Disabled Button</h2>
