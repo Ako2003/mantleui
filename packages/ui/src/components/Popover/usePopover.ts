@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useControllable } from "../../hooks";
 import type {
   PopoverPlacement,
@@ -65,18 +65,31 @@ export function usePopover({
   const contentRef = useRef<HTMLElement | null>(null);
   const [portalStyle, setPortalStyle] = useState<React.CSSProperties>({});
 
-  const openPopover = useCallback(() => setIsOpen(true), [setIsOpen]);
-  const closePopover = useCallback(() => setIsOpen(false), [setIsOpen]);
-  const togglePopover = useCallback(
-    () => setIsOpen((prev: boolean) => !prev),
-    [setIsOpen],
-  );
+  const closePopover = useCallback(() => {
+    setIsOpen(false);
+    setPortalStyle({});
+  }, [setIsOpen]);
 
-  // Sync position before paint
-  useLayoutEffect(() => {
-    if (!portal || !isOpen || !triggerRef.current) return;
-    setPortalStyle(calcPosition(triggerRef.current, placement));
-  }, [portal, isOpen, placement]);
+  // Compute position eagerly when toggling open
+  const togglePopover = useCallback(() => {
+    setIsOpen((prev: boolean) => {
+      const next = !prev;
+      if (next && portal && triggerRef.current) {
+        setPortalStyle(calcPosition(triggerRef.current, placement));
+      }
+      if (!next) {
+        setPortalStyle({});
+      }
+      return next;
+    });
+  }, [setIsOpen, portal, placement]);
+
+  const openPopover = useCallback(() => {
+    if (portal && triggerRef.current) {
+      setPortalStyle(calcPosition(triggerRef.current, placement));
+    }
+    setIsOpen(true);
+  }, [setIsOpen, portal, placement]);
 
   // Keep position updated on scroll/resize
   useEffect(() => {
@@ -142,15 +155,9 @@ export function usePopover({
     "right-end": { left: "100%", bottom: "0" },
   };
 
-  // Compute initial style synchronously for portal mode
-  const getPortalStyle = (): React.CSSProperties => {
-    if (!portal) return { position: "absolute", ...relativePlacement[placement] };
-    // If we already have computed style, use it
-    if (portalStyle.position) return portalStyle;
-    // Otherwise compute from trigger ref synchronously
-    if (triggerRef.current) return calcPosition(triggerRef.current, placement);
-    return { position: "fixed", opacity: 0 };
-  };
+  const contentStyle: React.CSSProperties = portal
+    ? portalStyle
+    : { position: "absolute", ...relativePlacement[placement] };
 
   return {
     isOpen,
@@ -170,7 +177,7 @@ export function usePopover({
         contentRef.current = node;
       },
       role: "dialog" as const,
-      style: getPortalStyle(),
+      style: contentStyle,
     },
   };
 }
