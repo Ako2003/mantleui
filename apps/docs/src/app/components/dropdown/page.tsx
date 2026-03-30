@@ -277,6 +277,15 @@ const userMenuExample = `function Demo() {
 
 render(<Demo />);`;
 
+const dropdownProps = [
+  {
+    name: "color",
+    type: '"blue" | "red" | "green" | "yellow" | "purple" | "neutral"',
+    default: '"blue"',
+    description: "Accent color for item hover and focus effects.",
+  },
+];
+
 const dropdownItemProps = [
   {
     name: "onSelect",
@@ -357,6 +366,9 @@ export default function DropdownPage() {
       <div className="mt-4">
         <LivePlayground code={userMenuExample} />
       </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Dropdown Props</h2>
+      <PropsTable props={dropdownProps} />
 
       <h2 className="mt-10 text-xl font-semibold">Dropdown.Item Props</h2>
       <PropsTable props={dropdownItemProps} />
