@@ -60,6 +60,50 @@
   pointer-events: none;
 }
 
+/* ─── Pill variant ─── */
+
+.mantle-tabsListPill {
+  border-bottom: none;
+  background-color: var(--mantle-color-bg-muted);
+  border-radius: var(--mantle-radius-full);
+  padding: 4px;
+  gap: 0;
+}
+
+.mantle-tabsListPill .mantle-tabsTrigger {
+  border-radius: var(--mantle-radius-full);
+  z-index: 1;
+}
+
+.mantle-tabsListPill .mantle-tabsTriggerActive {
+  color: var(--mantle-color-text);
+}
+
+.mantle-tabsIndicatorPill {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  border-radius: var(--mantle-radius-full);
+  background-color: var(--mantle-color-bg-subtle);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition:
+    left 300ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    width 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+}
+
+/* ─── Separator ─── */
+
+.mantle-tabsSeparator {
+  width: 1px;
+  align-self: stretch;
+  margin: 8px 0;
+  background-color: var(--mantle-color-border);
+  flex-shrink: 0;
+}
+
+/* ─── Content ─── */
+
 .mantle-tabsContent {
   padding: var(--mantle-space-4) 0;
 }

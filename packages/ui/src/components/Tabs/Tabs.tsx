@@ -24,6 +24,7 @@ const TabsRoot = forwardRef<HTMLDivElement, TabsProps>(function TabsRoot(
     defaultValue = "",
     onValueChange,
     color = "blue",
+    variant = "underline",
     className,
     children,
     ...rest
@@ -39,8 +40,8 @@ const TabsRoot = forwardRef<HTMLDivElement, TabsProps>(function TabsRoot(
   const baseId = useId("tabs");
 
   const contextValue = useMemo(
-    () => ({ activeTab, setActiveTab, baseId }),
-    [activeTab, setActiveTab, baseId],
+    () => ({ activeTab, setActiveTab, baseId, variant }),
+    [activeTab, setActiveTab, baseId, variant],
   );
 
   return (
@@ -64,7 +65,8 @@ const TabsList = forwardRef<HTMLDivElement, TabsListProps>(function TabsList(
   ref,
 ) {
   const listRef = useRef<HTMLDivElement>(null);
-  const { activeTab } = useTabsContext();
+  const { activeTab, variant } = useTabsContext();
+  const isPill = variant === "pill";
   const [indicatorStyle, setIndicatorStyle] = useState<React.CSSProperties>({
     width: 0,
     left: 0,
@@ -151,12 +153,16 @@ const TabsList = forwardRef<HTMLDivElement, TabsListProps>(function TabsList(
         }
       }}
       role="tablist"
-      className={["mantle-tabsList", className].filter(Boolean).join(" ")}
+      className={[
+        "mantle-tabsList",
+        isPill && "mantle-tabsListPill",
+        className,
+      ].filter(Boolean).join(" ")}
       onKeyDown={handleKeyDown}
       {...rest}
     >
       {children}
-      <span className="mantle-tabsIndicator" style={indicatorStyle} />
+      <span className={isPill ? "mantle-tabsIndicatorPill" : "mantle-tabsIndicator"} style={indicatorStyle} />
     </div>
   );
 });
@@ -232,6 +238,12 @@ const TabsContent = forwardRef<HTMLDivElement, TabsContentProps>(
   },
 );
 
+/* ─── Separator ─── */
+
+function TabsSeparator() {
+  return <span className="mantle-tabsSeparator" aria-hidden="true" />;
+}
+
 /* ─── Compound Export ─── */
 
 /**
@@ -253,4 +265,5 @@ export const Tabs = Object.assign(TabsRoot, {
   List: TabsList,
   Trigger: TabsTrigger,
   Content: TabsContent,
+  Separator: TabsSeparator,
 });

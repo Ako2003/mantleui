@@ -39,6 +39,42 @@ const colorsExample = `<div style={{ display: "flex", flexDirection: "column", g
   </Tabs>
 </div>`;
 
+const pillExample = `<Tabs variant="pill" defaultValue="reports">
+  <Tabs.List>
+    <Tabs.Trigger value="overview">Overview</Tabs.Trigger>
+    <Tabs.Trigger value="analytics">Analytics</Tabs.Trigger>
+    <Tabs.Trigger value="reports">Reports</Tabs.Trigger>
+  </Tabs.List>
+  <Tabs.Content value="overview">
+    A summary of your project activity.
+  </Tabs.Content>
+  <Tabs.Content value="analytics">
+    Detailed analytics and metrics.
+  </Tabs.Content>
+  <Tabs.Content value="reports">
+    Generate and download detailed reports.
+  </Tabs.Content>
+</Tabs>`;
+
+const pillWithSeparatorExample = `<Tabs variant="pill" defaultValue="reports">
+  <Tabs.List>
+    <Tabs.Trigger value="overview">Overview</Tabs.Trigger>
+    <Tabs.Separator />
+    <Tabs.Trigger value="analytics">Analytics</Tabs.Trigger>
+    <Tabs.Separator />
+    <Tabs.Trigger value="reports">Reports</Tabs.Trigger>
+  </Tabs.List>
+  <Tabs.Content value="overview">
+    A summary of your project activity.
+  </Tabs.Content>
+  <Tabs.Content value="analytics">
+    Detailed analytics and metrics.
+  </Tabs.Content>
+  <Tabs.Content value="reports">
+    Generate and download detailed reports.
+  </Tabs.Content>
+</Tabs>`;
+
 const tabsProps = [
   {
     name: "value",
@@ -60,6 +96,12 @@ const tabsProps = [
     type: '"blue" | "red" | "green" | "yellow" | "purple" | "neutral"',
     default: '"blue"',
     description: "Accent color for the active tab indicator.",
+  },
+  {
+    name: "variant",
+    type: '"underline" | "pill"',
+    default: '"underline"',
+    description: "Visual variant. Pill uses a rounded container with sliding background.",
   },
 ];
 
@@ -95,6 +137,26 @@ export default function TabsPage() {
         </kbd>{" "}
         to jump. Disabled tabs are skipped.
       </p>
+
+      <h2 className="mt-10 text-xl font-semibold">Pill Variant</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        A rounded pill-style tab list with a sliding background indicator.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={pillExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">With Separator</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Add{" "}
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
+          {"<Tabs.Separator />"}
+        </code>{" "}
+        between triggers to display separator lines.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={pillWithSeparatorExample} />
+      </div>
 
       <h2 className="mt-10 text-xl font-semibold">Colors</h2>
       <div className="mt-4">

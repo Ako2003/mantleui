@@ -1,6 +1,8 @@
 import type { ButtonHTMLAttributes, HTMLAttributes } from "react";
 import type { MantleColor } from "../../theme/colors";
 
+export type TabsVariant = "underline" | "pill";
+
 export interface TabsProps extends Omit<
   HTMLAttributes<HTMLDivElement>,
   "onChange"
@@ -13,6 +15,8 @@ export interface TabsProps extends Omit<
   onValueChange?: (value: string) => void;
   /** Accent color. Defaults to `"blue"`. */
   color?: MantleColor;
+  /** Visual variant. Defaults to `"underline"`. */
+  variant?: TabsVariant;
 }
 
 export type TabsListProps = HTMLAttributes<HTMLDivElement>;
