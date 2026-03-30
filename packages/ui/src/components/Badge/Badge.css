@@ -23,6 +23,12 @@
   font-size: var(--mantle-text-sm);
 }
 
+.mantle-badge.mantle-badge-lg {
+  height: 1.75rem;
+  padding: 0 var(--mantle-space-4);
+  font-size: var(--mantle-text-base);
+}
+
 /* Variants */
 .mantle-badge.mantle-badge-solid {
   background-color: var(--mantle-accent);
