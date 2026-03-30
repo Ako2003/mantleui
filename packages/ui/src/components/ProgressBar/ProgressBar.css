@@ -1,7 +1,7 @@
 .mantle-progress-bar {
   position: relative;
   width: 100%;
-  background: var(--mantle-bg-subtle);
+  background-color: var(--mantle-color-bg-muted);
   border-radius: var(--mantle-radius-full);
   overflow: hidden;
 }
