@@ -57,7 +57,11 @@ function ToastIcon({ variant }: { variant: string }) {
 function Toast({ toast, onDismiss }: ToastProps) {
   return (
     <div
-      className={["mantle-toast", variantClassMap[toast.variant]]
+      className={[
+        "mantle-toast",
+        variantClassMap[toast.variant],
+        toast.dismissing && "mantle-toastDismissing",
+      ]
         .filter(Boolean)
         .join(" ")}
       role="alert"

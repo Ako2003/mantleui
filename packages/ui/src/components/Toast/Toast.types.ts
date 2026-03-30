@@ -13,6 +13,8 @@ export interface ToastData {
   title?: string;
   description?: ReactNode;
   duration?: number;
+  /** @internal Used for exit animation. */
+  dismissing?: boolean;
 }
 
 export interface ToastProps {

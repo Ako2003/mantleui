@@ -29,6 +29,7 @@ describe("Toast", () => {
     });
 
     it("dismisses a toast", () => {
+      vi.useFakeTimers();
       const { result } = renderHook(() => useToast());
 
       let id: string;
@@ -42,7 +43,17 @@ describe("Toast", () => {
         result.current.dismiss(id);
       });
 
+      // Still present but marked as dismissing
+      expect(result.current.toasts).toHaveLength(1);
+      expect(result.current.toasts.at(0)?.dismissing).toBe(true);
+
+      // Removed after animation delay
+      act(() => {
+        vi.advanceTimersByTime(200);
+      });
+
       expect(result.current.toasts).toHaveLength(0);
+      vi.useRealTimers();
     });
 
     it("supports all variants", () => {
@@ -68,8 +79,17 @@ describe("Toast", () => {
 
       expect(result.current.toasts).toHaveLength(1);
 
+      // Duration fires dismiss
       act(() => {
         vi.advanceTimersByTime(1000);
+      });
+
+      // Dismissing animation in progress
+      expect(result.current.toasts).toHaveLength(1);
+
+      // Animation completes, fully removed
+      act(() => {
+        vi.advanceTimersByTime(200);
       });
 
       expect(result.current.toasts).toHaveLength(0);
@@ -113,7 +133,8 @@ describe("Toast", () => {
     });
 
     it("dismisses on close button click", async () => {
-      const user = userEvent.setup();
+      vi.useFakeTimers({ shouldAdvanceTime: true });
+      const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime });
       const { result } = renderHook(() => useToast());
 
       act(() => {
@@ -122,7 +143,14 @@ describe("Toast", () => {
 
       render(<Toaster />);
       await user.click(screen.getByRole("button", { name: "Dismiss" }));
+
+      // Wait for animation to complete
+      act(() => {
+        vi.advanceTimersByTime(200);
+      });
+
       expect(screen.queryByText("Dismissible")).not.toBeInTheDocument();
+      vi.useRealTimers();
     });
   });
 });

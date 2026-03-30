@@ -54,8 +54,18 @@ function addToast(
 }
 
 function dismissToast(id: string) {
-  toasts = toasts.filter((t) => t.id !== id);
+  // Mark as dismissing for exit animation
+  const toast = toasts.find((t) => t.id === id);
+  if (!toast || toast.dismissing) return;
+
+  toasts = toasts.map((t) => (t.id === id ? { ...t, dismissing: true } : t));
   emitChange();
+
+  // Remove after animation
+  setTimeout(() => {
+    toasts = toasts.filter((t) => t.id !== id);
+    emitChange();
+  }, 200);
 }
 
 /**

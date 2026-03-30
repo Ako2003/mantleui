@@ -5,8 +5,29 @@ import { PropsTable } from "@/components/PropsTable";
 
 const basicExample = `function Demo() {
   const { toast } = useToast();
+  const [pos, setPos] = React.useState("bottom-right");
+  const positions = ["top-left", "top-right", "bottom-left", "bottom-right"];
+
   return (
-    <div>
+    <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+      <div>
+        <div style={{ fontSize: "12px", fontWeight: 500, color: "var(--mantle-color-text-muted)", marginBottom: "6px" }}>
+          Position
+        </div>
+        <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
+          {positions.map((p) => (
+            <Button
+              key={p}
+              size="sm"
+              variant={pos === p ? "solid" : "outline"}
+              color="neutral"
+              onClick={() => setPos(p)}
+            >
+              {p}
+            </Button>
+          ))}
+        </div>
+      </div>
       <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
         <Button
           variant="outline"
@@ -36,7 +57,7 @@ const basicExample = `function Demo() {
           Error
         </Button>
       </div>
-      <Toaster position="bottom-right" />
+      <Toaster position={pos} />
     </div>
   );
 }
