@@ -14,10 +14,10 @@ const sizesExample = `<div style={{ display: "flex", flexDirection: "column", ga
 </div>`;
 
 const colorsExample = `<div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-  <ProgressBar value={60} color="blue" />
-  <ProgressBar value={60} color="red" />
-  <ProgressBar value={60} color="green" />
-  <ProgressBar value={60} color="purple" />
+  <ProgressBar value={70} color="blue" label="Blue" showValue />
+  <ProgressBar value={70} color="green" label="Green" showValue />
+  <ProgressBar value={70} color="red" label="Red" showValue />
+  <ProgressBar value={70} color="purple" label="Purple" showValue />
 </div>`;
 
 const indeterminateExample = `<ProgressBar indeterminate label="Loading..." />`;

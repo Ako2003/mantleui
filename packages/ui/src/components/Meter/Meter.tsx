@@ -35,7 +35,8 @@ function getMeterSegment(
 
   // Optimum is in the middle range
   if (value >= resolvedLow && value <= resolvedHigh) return "optimal";
-  return "suboptimal";
+  if (value < resolvedLow) return "suboptimal";
+  return "critical";
 }
 
 /**

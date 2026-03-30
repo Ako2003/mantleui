@@ -30,13 +30,13 @@
 }
 
 .mantle-meter-fill-optimal {
-  background: linear-gradient(135deg, #22c55e, #16a34a);
+  background-color: #22c55e;
 }
 
 .mantle-meter-fill-suboptimal {
-  background: linear-gradient(135deg, #eab308, #ca8a04);
+  background-color: #eab308;
 }
 
 .mantle-meter-fill-critical {
-  background: linear-gradient(135deg, #ef4444, #dc2626);
+  background-color: #ef4444;
 }
