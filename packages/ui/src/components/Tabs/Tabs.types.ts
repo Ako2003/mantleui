@@ -2,6 +2,7 @@ import type { ButtonHTMLAttributes, HTMLAttributes } from "react";
 import type { MantleColor } from "../../theme/colors";
 
 export type TabsVariant = "underline" | "pill";
+export type TabsOrientation = "horizontal" | "vertical";
 
 export interface TabsProps extends Omit<
   HTMLAttributes<HTMLDivElement>,
@@ -17,6 +18,8 @@ export interface TabsProps extends Omit<
   color?: MantleColor;
   /** Visual variant. Defaults to `"underline"`. */
   variant?: TabsVariant;
+  /** Layout orientation. Defaults to `"horizontal"`. */
+  orientation?: TabsOrientation;
 }
 
 export type TabsListProps = HTMLAttributes<HTMLDivElement>;

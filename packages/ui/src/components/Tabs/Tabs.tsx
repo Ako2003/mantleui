@@ -25,6 +25,7 @@ const TabsRoot = forwardRef<HTMLDivElement, TabsProps>(function TabsRoot(
     onValueChange,
     color = "blue",
     variant = "underline",
+    orientation = "horizontal",
     className,
     children,
     ...rest
@@ -40,8 +41,8 @@ const TabsRoot = forwardRef<HTMLDivElement, TabsProps>(function TabsRoot(
   const baseId = useId("tabs");
 
   const contextValue = useMemo(
-    () => ({ activeTab, setActiveTab, baseId, variant }),
-    [activeTab, setActiveTab, baseId, variant],
+    () => ({ activeTab, setActiveTab, baseId, variant, orientation }),
+    [activeTab, setActiveTab, baseId, variant, orientation],
   );
 
   return (
@@ -49,7 +50,11 @@ const TabsRoot = forwardRef<HTMLDivElement, TabsProps>(function TabsRoot(
       <div
         ref={ref}
         data-color={color}
-        className={["mantle-tabs", className].filter(Boolean).join(" ")}
+        className={[
+          "mantle-tabs",
+          orientation === "vertical" && "mantle-tabsVertical",
+          className,
+        ].filter(Boolean).join(" ")}
         {...rest}
       >
         {children}
@@ -65,8 +70,9 @@ const TabsList = forwardRef<HTMLDivElement, TabsListProps>(function TabsList(
   ref,
 ) {
   const listRef = useRef<HTMLDivElement>(null);
-  const { activeTab, variant } = useTabsContext();
+  const { activeTab, variant, orientation } = useTabsContext();
   const isPill = variant === "pill";
+  const isVertical = orientation === "vertical";
   const [indicatorStyle, setIndicatorStyle] = useState<React.CSSProperties>({
     width: 0,
     left: 0,
@@ -81,13 +87,21 @@ const TabsList = forwardRef<HTMLDivElement, TabsListProps>(function TabsList(
       '[role="tab"][aria-selected="true"]',
     ) as HTMLElement | null;
     if (activeEl) {
-      setIndicatorStyle({
-        width: activeEl.offsetWidth,
-        left: activeEl.offsetLeft,
-        opacity: 1,
-      });
+      if (isVertical) {
+        setIndicatorStyle({
+          height: activeEl.offsetHeight,
+          top: activeEl.offsetTop,
+          opacity: 1,
+        });
+      } else {
+        setIndicatorStyle({
+          width: activeEl.offsetWidth,
+          left: activeEl.offsetLeft,
+          opacity: 1,
+        });
+      }
     }
-  }, []);
+  }, [isVertical]);
 
   useEffect(() => {
     updateIndicator();
@@ -120,11 +134,14 @@ const TabsList = forwardRef<HTMLDivElement, TabsListProps>(function TabsList(
 
     let nextIndex: number | undefined;
 
+    const nextKey = isVertical ? "ArrowDown" : "ArrowRight";
+    const prevKey = isVertical ? "ArrowUp" : "ArrowLeft";
+
     switch (e.key) {
-      case "ArrowRight":
+      case nextKey:
         nextIndex = (currentIndex + 1) % triggers.length;
         break;
-      case "ArrowLeft":
+      case prevKey:
         nextIndex = (currentIndex - 1 + triggers.length) % triggers.length;
         break;
       case "Home":
@@ -153,9 +170,11 @@ const TabsList = forwardRef<HTMLDivElement, TabsListProps>(function TabsList(
         }
       }}
       role="tablist"
+      aria-orientation={orientation}
       className={[
         "mantle-tabsList",
         isPill && "mantle-tabsListPill",
+        isVertical && "mantle-tabsListVertical",
         className,
       ].filter(Boolean).join(" ")}
       onKeyDown={handleKeyDown}

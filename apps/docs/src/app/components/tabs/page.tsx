@@ -75,6 +75,48 @@ const pillWithSeparatorExample = `<Tabs variant="pill" defaultValue="reports">
   </Tabs.Content>
 </Tabs>`;
 
+const verticalExample = `<Tabs orientation="vertical" defaultValue="general">
+  <Tabs.List>
+    <Tabs.Trigger value="general">General</Tabs.Trigger>
+    <Tabs.Trigger value="security">Security</Tabs.Trigger>
+    <Tabs.Trigger value="notifications">Notifications</Tabs.Trigger>
+    <Tabs.Trigger value="billing">Billing</Tabs.Trigger>
+  </Tabs.List>
+  <Tabs.Content value="general">
+    Manage your general account settings.
+  </Tabs.Content>
+  <Tabs.Content value="security">
+    Update your password and two-factor authentication.
+  </Tabs.Content>
+  <Tabs.Content value="notifications">
+    Configure email and push notification preferences.
+  </Tabs.Content>
+  <Tabs.Content value="billing">
+    View invoices and manage payment methods.
+  </Tabs.Content>
+</Tabs>`;
+
+const verticalPillExample = `<Tabs orientation="vertical" variant="pill" defaultValue="profile">
+  <Tabs.List>
+    <Tabs.Trigger value="profile">Profile</Tabs.Trigger>
+    <Tabs.Trigger value="appearance">Appearance</Tabs.Trigger>
+    <Tabs.Trigger value="integrations">Integrations</Tabs.Trigger>
+    <Tabs.Trigger value="advanced">Advanced</Tabs.Trigger>
+  </Tabs.List>
+  <Tabs.Content value="profile">
+    Edit your name, avatar, and bio.
+  </Tabs.Content>
+  <Tabs.Content value="appearance">
+    Customize theme, colors, and layout.
+  </Tabs.Content>
+  <Tabs.Content value="integrations">
+    Connect third-party services and APIs.
+  </Tabs.Content>
+  <Tabs.Content value="advanced">
+    Developer settings and experimental features.
+  </Tabs.Content>
+</Tabs>`;
+
 const tabsProps = [
   {
     name: "value",
@@ -102,6 +144,12 @@ const tabsProps = [
     type: '"underline" | "pill"',
     default: '"underline"',
     description: "Visual variant. Pill uses a rounded container with sliding background.",
+  },
+  {
+    name: "orientation",
+    type: '"horizontal" | "vertical"',
+    default: '"horizontal"',
+    description: "Layout orientation. Vertical renders tabs as a sidebar.",
   },
 ];
 
@@ -161,6 +209,20 @@ export default function TabsPage() {
       <h2 className="mt-10 text-xl font-semibold">Colors</h2>
       <div className="mt-4">
         <LivePlayground code={colorsExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Vertical</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Sidebar-style tabs with content on the right. Uses ArrowUp/Down for
+        keyboard navigation.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={verticalExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Vertical Pill</h2>
+      <div className="mt-4">
+        <LivePlayground code={verticalPillExample} />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>

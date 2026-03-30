@@ -92,13 +92,79 @@
   pointer-events: none;
 }
 
+/* ─── Vertical ─── */
+
+.mantle-tabsVertical {
+  flex-direction: row;
+}
+
+.mantle-tabsListVertical {
+  flex-direction: column;
+  border-bottom: none;
+  border-right: 1px solid var(--mantle-color-border);
+  gap: 0;
+  min-width: 160px;
+}
+
+.mantle-tabsListVertical .mantle-tabsTrigger {
+  text-align: left;
+  flex: none;
+}
+
+/* Vertical underline indicator */
+.mantle-tabsListVertical > .mantle-tabsIndicator {
+  bottom: auto;
+  left: auto;
+  right: -1px;
+  width: 2px;
+  height: auto;
+  transition:
+    top 300ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    height 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Vertical pill */
+.mantle-tabsListVertical.mantle-tabsListPill {
+  border-right: none;
+  border-radius: var(--mantle-radius-lg);
+}
+
+.mantle-tabsListVertical.mantle-tabsListPill .mantle-tabsTrigger {
+  border-radius: var(--mantle-radius-md);
+}
+
+.mantle-tabsListVertical > .mantle-tabsIndicatorPill {
+  top: auto;
+  bottom: auto;
+  left: 4px;
+  right: 4px;
+  border-radius: var(--mantle-radius-md);
+  transition:
+    top 300ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    height 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Vertical content */
+.mantle-tabsVertical > .mantle-tabsContent {
+  padding: 0 var(--mantle-space-4);
+  flex: 1;
+}
+
+/* Vertical separator */
+.mantle-tabsListVertical .mantle-tabsSeparator {
+  width: auto;
+  height: 1px;
+  margin: 4px 10px;
+  align-self: stretch;
+}
+
 /* ─── Separator ─── */
 
 .mantle-tabsSeparator {
   width: 1px;
   align-self: center;
   height: 16px;
-  margin: 0 4px;
+  margin: 0 10px;
   background-color: var(--mantle-color-border-hover);
   flex-shrink: 0;
   z-index: 2;
