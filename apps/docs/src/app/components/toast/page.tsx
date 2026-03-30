@@ -45,26 +45,27 @@ render(<Demo />);`;
 
 const positionsExample = `function Demo() {
   const { toast } = useToast();
+  const [pos, setPos] = React.useState("top-right");
   const positions = ["top-left", "top-right", "bottom-left", "bottom-right"];
 
   return (
     <div>
       <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-        {positions.map((pos) => (
+        {positions.map((p) => (
           <Button
-            key={pos}
-            variant="outline"
+            key={p}
+            variant={pos === p ? "solid" : "outline"}
             size="sm"
-            onClick={() => toast.info({ title: pos, description: "Toast appears here." })}
+            onClick={() => {
+              setPos(p);
+              toast.info({ title: p, description: "Toast appears here." });
+            }}
           >
-            {pos}
+            {p}
           </Button>
         ))}
       </div>
-      <Toaster position="top-left" />
-      <Toaster position="top-right" />
-      <Toaster position="bottom-left" />
-      <Toaster position="bottom-right" />
+      <Toaster position={pos} />
     </div>
   );
 }
