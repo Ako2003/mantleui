@@ -52,7 +52,7 @@ function useDropdownContext() {
  * </Dropdown>
  * ```
  */
-function DropdownRoot({ children }: DropdownProps) {
+function DropdownRoot({ children, color = "blue" }: DropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [focusedIndex, setFocusedIndex] = useState(-1);
   const [itemCount, setItemCount] = useState(0);
@@ -87,7 +87,7 @@ function DropdownRoot({ children }: DropdownProps) {
         setItemCount,
       }}
     >
-      <div ref={containerRef} className="mantle-dropdown">
+      <div ref={containerRef} className="mantle-dropdown" data-color={color}>
         {children}
       </div>
     </DropdownContext.Provider>

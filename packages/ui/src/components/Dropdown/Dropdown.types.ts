@@ -1,8 +1,11 @@
 import type { ButtonHTMLAttributes, HTMLAttributes, ReactNode } from "react";
+import type { MantleColor } from "../../theme/colors";
 
 export interface DropdownProps {
   /** Dropdown content (Trigger, Menu, etc.). */
   children: ReactNode;
+  /** Accent color for hover effects. Defaults to `"blue"`. */
+  color?: MantleColor;
 }
 
 export interface DropdownTriggerProps extends ButtonHTMLAttributes<HTMLButtonElement> {

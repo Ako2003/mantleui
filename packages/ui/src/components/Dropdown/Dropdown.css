@@ -64,12 +64,12 @@
 }
 
 .mantle-dropdown-item:hover:not(.mantle-dropdown-item-disabled) {
-  background: linear-gradient(135deg, var(--mantle-accent-subtle), transparent);
+  background-color: var(--mantle-accent-subtle);
   color: var(--mantle-accent);
 }
 
 .mantle-dropdown-item-focused {
-  background: linear-gradient(135deg, var(--mantle-accent-subtle), transparent);
+  background-color: var(--mantle-accent-subtle);
   color: var(--mantle-accent);
 }
 
