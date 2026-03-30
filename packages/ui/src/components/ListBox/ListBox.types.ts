@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from "react";
+import type { HTMLAttributes, ReactNode } from "react";
 import type { MantleColor } from "../../theme/colors";
 
 export interface ListBoxItem {
@@ -26,4 +26,6 @@ export interface ListBoxProps extends Omit<
   multiple?: boolean;
   /** Accent color. Defaults to `"blue"`. */
   color?: MantleColor;
+  /** Custom render function for each item. Receives the item and whether it's selected. */
+  renderItem?: (item: ListBoxItem, selected: boolean) => ReactNode;
 }

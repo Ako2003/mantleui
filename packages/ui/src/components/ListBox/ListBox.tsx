@@ -35,6 +35,7 @@ export const ListBox = forwardRef<HTMLDivElement, ListBoxProps>(
       onValueChange,
       multiple = false,
       color = "blue",
+      renderItem,
       className,
       ...rest
     },
@@ -143,7 +144,7 @@ export const ListBox = forwardRef<HTMLDivElement, ListBoxProps>(
                 .filter(Boolean)
                 .join(" ")}
             >
-              {item.label ?? item.value}
+              {renderItem ? renderItem(item, isSelected) : (item.label ?? item.value)}
             </div>
           );
         })}

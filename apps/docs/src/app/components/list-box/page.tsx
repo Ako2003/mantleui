@@ -73,6 +73,88 @@ const colorsExample = `<div style={{ display: "flex", gap: "16px", flexWrap: "wr
   />
 </div>`;
 
+const userListExample = `function Demo() {
+  const users = [
+    { value: "bob", label: "Bob", email: "bob@mantleui.com" },
+    { value: "fred", label: "Fred", email: "fred@mantleui.com" },
+    { value: "martha", label: "Martha", email: "martha@mantleui.com" },
+    { value: "alice", label: "Alice", email: "alice@mantleui.com" },
+  ];
+
+  return (
+    <div style={{ maxWidth: "360px" }}>
+      <ListBox
+        items={users}
+        multiple
+        defaultValue={["bob", "fred", "martha"]}
+        renderItem={(item, selected) => (
+          <div style={{ display: "flex", alignItems: "center", gap: "12px", width: "100%" }}>
+            <Avatar name={item.label} size="md" />
+            <div style={{ flex: 1 }}>
+              <div style={{ fontWeight: 600, fontSize: "14px", color: "var(--mantle-color-text)" }}>
+                {item.label}
+              </div>
+              <div style={{ fontSize: "12px", color: "var(--mantle-color-text-muted)" }}>
+                {item.email}
+              </div>
+            </div>
+            {selected && (
+              <Check size={18} style={{ color: "var(--mantle-accent, #3b82f6)", flexShrink: 0 }} />
+            )}
+          </div>
+        )}
+      />
+    </div>
+  );
+}
+
+render(<Demo />);`;
+
+const teamMembersExample = `function Demo() {
+  const [selected, setSelected] = React.useState(["admin"]);
+  const roles = [
+    { value: "admin", label: "Admin", desc: "Full access to all resources" },
+    { value: "editor", label: "Editor", desc: "Can edit and publish content" },
+    { value: "viewer", label: "Viewer", desc: "Read-only access" },
+    { value: "guest", label: "Guest", desc: "Limited access", disabled: true },
+  ];
+
+  return (
+    <div style={{ maxWidth: "360px" }}>
+      <ListBox
+        items={roles}
+        value={selected}
+        onValueChange={setSelected}
+        color="purple"
+        renderItem={(item, sel) => (
+          <div style={{ display: "flex", alignItems: "center", gap: "12px", width: "100%" }}>
+            <div style={{
+              width: "36px", height: "36px", borderRadius: "8px",
+              background: sel ? "var(--mantle-accent, #8b5cf6)" : "var(--mantle-color-bg-muted)",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              color: sel ? "#fff" : "var(--mantle-color-text-muted)",
+              flexShrink: 0, transition: "all 150ms ease",
+            }}>
+              <Shield size={18} />
+            </div>
+            <div style={{ flex: 1 }}>
+              <div style={{ fontWeight: 600, fontSize: "14px", color: "var(--mantle-color-text)" }}>
+                {item.label}
+              </div>
+              <div style={{ fontSize: "12px", color: "var(--mantle-color-text-muted)" }}>
+                {item.desc}
+              </div>
+            </div>
+            {sel && <Check size={18} style={{ color: "var(--mantle-accent, #8b5cf6)", flexShrink: 0 }} />}
+          </div>
+        )}
+      />
+    </div>
+  );
+}
+
+render(<Demo />);`;
+
 const listBoxProps = [
   {
     name: "items",
@@ -106,6 +188,11 @@ const listBoxProps = [
     default: '"blue"',
     description: "Accent color for selected items.",
   },
+  {
+    name: "renderItem",
+    type: "(item: ListBoxItem, selected: boolean) => ReactNode",
+    description: "Custom render function for each item. Receives the item data and selection state.",
+  },
 ];
 
 export default function ListBoxPage() {
@@ -135,6 +222,22 @@ export default function ListBoxPage() {
       <h2 className="mt-10 text-xl font-semibold">Colors</h2>
       <div className="mt-4">
         <LivePlayground code={colorsExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">User List</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Custom rendered items with avatars, names, emails, and check icons.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={userListExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Role Selection</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Selectable roles with icon badges, descriptions, and a disabled option.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={teamMembersExample} />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>
