@@ -249,8 +249,8 @@ export function LivePlayground({ code }: LivePlaygroundProps) {
 
   return (
     <LiveProvider code={code} scope={scope} noInline={hasRender} theme={theme}>
-      <div className="rounded-lg border border-slate-200 dark:border-zinc-800">
-        <div className="rounded-t-lg bg-white p-6 dark:bg-zinc-950">
+      <div className="rounded-lg border border-slate-200 dark:border-zinc-800" style={{ overflow: "visible" }}>
+        <div className="rounded-t-lg bg-white p-6 dark:bg-zinc-950" style={{ overflow: "visible" }}>
           <LivePreview />
         </div>
         <LiveError className="border-t border-red-200 bg-red-50 px-4 py-2 text-sm text-red-700 dark:border-red-900 dark:bg-red-950 dark:text-red-400" />
