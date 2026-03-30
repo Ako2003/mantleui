@@ -65,47 +65,76 @@
 
 /* ─── Animations ─── */
 
+/* ─── Closing ─── */
+
+.mantle-drawer-overlay-closing {
+  animation: mantle-drawer-fadeOut 250ms ease-in forwards;
+}
+
+.mantle-drawer--right-closing {
+  animation: mantle-drawer-slideOutRight 250ms ease-in forwards;
+}
+
+.mantle-drawer--left-closing {
+  animation: mantle-drawer-slideOutLeft 250ms ease-in forwards;
+}
+
+.mantle-drawer--bottom-closing {
+  animation: mantle-drawer-slideOutBottom 250ms ease-in forwards;
+}
+
+.mantle-drawer--top-closing {
+  animation: mantle-drawer-slideOutTop 250ms ease-in forwards;
+}
+
+/* ─── Animations ─── */
+
 @keyframes mantle-drawer-fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes mantle-drawer-fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
 
 @keyframes mantle-drawer-slideInRight {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes mantle-drawer-slideOutRight {
+  from { transform: translateX(0); }
+  to { transform: translateX(100%); }
 }
 
 @keyframes mantle-drawer-slideInLeft {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0);
-  }
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes mantle-drawer-slideOutLeft {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
 }
 
 @keyframes mantle-drawer-slideInBottom {
-  from {
-    transform: translateY(100%);
-  }
-  to {
-    transform: translateY(0);
-  }
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes mantle-drawer-slideOutBottom {
+  from { transform: translateY(0); }
+  to { transform: translateY(100%); }
 }
 
 @keyframes mantle-drawer-slideInTop {
-  from {
-    transform: translateY(-100%);
-  }
-  to {
-    transform: translateY(0);
-  }
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes mantle-drawer-slideOutTop {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100%); }
 }
