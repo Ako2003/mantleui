@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useControllable } from "../../hooks";
 import type { UsePopoverOptions, UsePopoverReturn } from "./Popover.types";
 
@@ -42,8 +42,8 @@ export function usePopover({
     [setIsOpen],
   );
 
-  // Calculate fixed position when using portal mode
-  useEffect(() => {
+  // Calculate fixed position when using portal mode (useLayoutEffect to avoid jump)
+  useLayoutEffect(() => {
     if (!portal || !isOpen || !triggerRef.current) return;
 
     const updatePosition = () => {
