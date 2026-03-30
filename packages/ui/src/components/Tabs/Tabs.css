@@ -96,10 +96,11 @@
 
 .mantle-tabsSeparator {
   width: 1px;
-  align-self: stretch;
-  margin: 8px 0;
-  background-color: var(--mantle-color-border);
+  align-self: center;
+  height: 16px;
+  background-color: var(--mantle-color-border-hover);
   flex-shrink: 0;
+  z-index: 2;
 }
 
 /* ─── Content ─── */
