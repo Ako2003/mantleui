@@ -34,22 +34,22 @@ const withIconsExample = `function Demo() {
       <Dropdown.Menu>
         <Dropdown.Item onSelect={() => {}}>
           <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-            <span>📄</span> New File
+            <FileText size={15} /> New File
           </span>
         </Dropdown.Item>
         <Dropdown.Item onSelect={() => {}}>
           <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-            <span>📁</span> New Folder
+            <Plus size={15} /> New Folder
           </span>
         </Dropdown.Item>
         <Dropdown.Item onSelect={() => {}}>
           <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-            <span>📋</span> Paste
+            <ClipboardEdit size={15} /> Paste
           </span>
         </Dropdown.Item>
         <Dropdown.Item onSelect={() => {}} disabled>
           <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-            <span>🗑️</span> Delete
+            <Trash2 size={15} /> Delete
           </span>
         </Dropdown.Item>
       </Dropdown.Menu>
