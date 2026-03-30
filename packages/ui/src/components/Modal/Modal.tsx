@@ -8,6 +8,7 @@ import {
 } from "react";
 import { createPortal } from "react-dom";
 import type {
+  ModalBackdrop,
   ModalBodyProps,
   ModalContentProps,
   ModalFooterProps,
@@ -18,6 +19,7 @@ import "./Modal.css";
 
 const ModalContext = createContext<{
   onClose: () => void;
+  backdrop: ModalBackdrop;
 } | null>(null);
 
 function useModalContext() {
@@ -30,7 +32,7 @@ function useModalContext() {
 
 /* ─── Root ─── */
 
-function ModalRoot({ open, onOpenChange, children }: ModalProps) {
+function ModalRoot({ open, onOpenChange, backdrop = "opaque", children }: ModalProps) {
   const onClose = useCallback(() => onOpenChange(false), [onOpenChange]);
 
   // Close on Escape
@@ -56,7 +58,7 @@ function ModalRoot({ open, onOpenChange, children }: ModalProps) {
   if (!open) return null;
 
   return createPortal(
-    <ModalContext.Provider value={{ onClose }}>
+    <ModalContext.Provider value={{ onClose, backdrop }}>
       {children}
     </ModalContext.Provider>,
     document.body,
@@ -67,7 +69,7 @@ function ModalRoot({ open, onOpenChange, children }: ModalProps) {
 
 const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(
   function ModalContent({ children, className, ...rest }, ref) {
-    const { onClose } = useModalContext();
+    const { onClose, backdrop } = useModalContext();
     const contentRef = useRef<HTMLDivElement>(null);
 
     // Focus the dialog on mount
@@ -82,7 +84,11 @@ const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(
 
     return (
       <>
-        <div className="mantle-modal-overlay" />
+        <div className={[
+          "mantle-modal-overlay",
+          backdrop === "blur" && "mantle-modal-overlay-blur",
+          backdrop === "transparent" && "mantle-modal-overlay-transparent",
+        ].filter(Boolean).join(" ")} />
         {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
         <div className="mantle-modal-positioner" onClick={handleOverlayClick}>
           <div

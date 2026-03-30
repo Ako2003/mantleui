@@ -218,6 +218,56 @@ const upgradeExample = `function Demo() {
 
 render(<Demo />);`;
 
+const backdropExample = `function Demo() {
+  const [opaqueOpen, setOpaqueOpen] = React.useState(false);
+  const [blurOpen, setBlurOpen] = React.useState(false);
+  const [transparentOpen, setTransparentOpen] = React.useState(false);
+  return (
+    <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+      <Button onClick={() => setOpaqueOpen(true)}>Opaque</Button>
+      <Modal open={opaqueOpen} onOpenChange={setOpaqueOpen} backdrop="opaque">
+        <Modal.Content>
+          <Modal.Header>Opaque Backdrop</Modal.Header>
+          <Modal.Body>
+            The default dark overlay that blocks the background content.
+          </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={() => setOpaqueOpen(false)}>Close</Button>
+          </Modal.Footer>
+        </Modal.Content>
+      </Modal>
+
+      <Button variant="outline" onClick={() => setBlurOpen(true)}>Blur</Button>
+      <Modal open={blurOpen} onOpenChange={setBlurOpen} backdrop="blur">
+        <Modal.Content>
+          <Modal.Header>Blur Backdrop</Modal.Header>
+          <Modal.Body>
+            A frosted glass effect that blurs the background while keeping it partially visible.
+          </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={() => setBlurOpen(false)}>Close</Button>
+          </Modal.Footer>
+        </Modal.Content>
+      </Modal>
+
+      <Button variant="ghost" onClick={() => setTransparentOpen(true)}>Transparent</Button>
+      <Modal open={transparentOpen} onOpenChange={setTransparentOpen} backdrop="transparent">
+        <Modal.Content>
+          <Modal.Header>Transparent Backdrop</Modal.Header>
+          <Modal.Body>
+            No backdrop — the background is fully visible. Click outside to close.
+          </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={() => setTransparentOpen(false)}>Close</Button>
+          </Modal.Footer>
+        </Modal.Content>
+      </Modal>
+    </div>
+  );
+}
+
+render(<Demo />);`;
+
 const modalProps = [
   {
     name: "open",
@@ -228,6 +278,12 @@ const modalProps = [
     name: "onOpenChange",
     type: "(open: boolean) => void",
     description: "Called when the open state changes.",
+  },
+  {
+    name: "backdrop",
+    type: '"opaque" | "blur" | "transparent"',
+    default: '"opaque"',
+    description: "Backdrop style behind the modal.",
   },
 ];
 
@@ -312,6 +368,15 @@ export default function ModalPage() {
       </p>
       <div className="mt-4">
         <LivePlayground code={upgradeExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Backdrop</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Three backdrop styles: opaque (dark overlay), blur (frosted glass), and
+        transparent (no backdrop).
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={backdropExample} />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Modal Props</h2>

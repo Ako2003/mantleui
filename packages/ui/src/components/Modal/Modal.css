@@ -1,3 +1,4 @@
+/* Backdrop — opaque (default) */
 .mantle-modal-overlay {
   position: fixed;
   inset: 0;
@@ -6,6 +7,20 @@
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   animation: mantle-modal-fadeIn var(--mantle-duration-fast) ease-out;
+}
+
+/* Backdrop — blur only */
+.mantle-modal-overlay-blur {
+  background-color: rgba(0, 0, 0, 0.15);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+/* Backdrop — transparent */
+.mantle-modal-overlay-transparent {
+  background-color: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 
 .mantle-modal-positioner {
