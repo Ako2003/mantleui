@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import { createPortal } from "react-dom";
 import { useComposedRefs } from "../../hooks";
 import { PopoverContext, usePopoverContext } from "./Popover.context";
 import type {
@@ -71,7 +72,7 @@ const PopoverContent = forwardRef<HTMLDivElement, PopoverContentProps>(
 
     if (!isOpen) return null;
 
-    return (
+    return createPortal(
       <div
         ref={composedRef}
         role={contentProps.role}
@@ -80,7 +81,8 @@ const PopoverContent = forwardRef<HTMLDivElement, PopoverContentProps>(
         {...rest}
       >
         {children}
-      </div>
+      </div>,
+      document.body,
     );
   },
 );

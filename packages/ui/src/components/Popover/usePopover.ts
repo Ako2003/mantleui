@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useControllable } from "../../hooks";
 import type { UsePopoverOptions, UsePopoverReturn } from "./Popover.types";
 
@@ -32,6 +32,7 @@ export function usePopover({
 
   const triggerRef = useRef<HTMLElement | null>(null);
   const contentRef = useRef<HTMLElement | null>(null);
+  const [posStyle, setPosStyle] = useState<React.CSSProperties>({});
 
   const openPopover = useCallback(() => setIsOpen(true), [setIsOpen]);
   const closePopover = useCallback(() => setIsOpen(false), [setIsOpen]);
@@ -39,6 +40,68 @@ export function usePopover({
     () => setIsOpen((prev: boolean) => !prev),
     [setIsOpen],
   );
+
+  // Calculate position when open
+  useEffect(() => {
+    if (!isOpen || !triggerRef.current) return;
+
+    const updatePosition = () => {
+      const trigger = triggerRef.current;
+      if (!trigger) return;
+
+      const rect = trigger.getBoundingClientRect();
+      const gap = 8;
+      const style: React.CSSProperties = {
+        position: "fixed",
+      };
+
+      if (placement.startsWith("bottom")) {
+        style.top = rect.bottom + gap;
+      } else if (placement.startsWith("top")) {
+        style.bottom = window.innerHeight - rect.top + gap;
+      } else if (placement.startsWith("left")) {
+        style.right = window.innerWidth - rect.left + gap;
+      } else if (placement.startsWith("right")) {
+        style.left = rect.right + gap;
+      }
+
+      // Horizontal alignment
+      if (placement === "bottom" || placement === "top") {
+        style.left = rect.left + rect.width / 2;
+        style.transform = "translateX(-50%)";
+      } else if (
+        placement === "bottom-start" ||
+        placement === "top-start"
+      ) {
+        style.left = rect.left;
+      } else if (placement === "bottom-end" || placement === "top-end") {
+        style.right = window.innerWidth - rect.right;
+      }
+
+      // Vertical alignment for left/right
+      if (placement === "left" || placement === "right") {
+        style.top = rect.top + rect.height / 2;
+        style.transform = "translateY(-50%)";
+      } else if (
+        placement === "left-start" ||
+        placement === "right-start"
+      ) {
+        style.top = rect.top;
+      } else if (placement === "left-end" || placement === "right-end") {
+        style.bottom = window.innerHeight - rect.bottom;
+      }
+
+      setPosStyle(style);
+    };
+
+    updatePosition();
+    window.addEventListener("scroll", updatePosition, true);
+    window.addEventListener("resize", updatePosition);
+    return () => {
+      window.removeEventListener("scroll", updatePosition, true);
+      window.removeEventListener("resize", updatePosition);
+    };
+  }, [isOpen, placement]);
 
   // Close on Escape
   useEffect(() => {
@@ -74,25 +137,6 @@ export function usePopover({
     return () => document.removeEventListener("mousedown", handleClick);
   }, [isOpen, closePopover]);
 
-  const placementStyles: Record<string, React.CSSProperties> = {
-    // Top
-    top: { bottom: "100%", left: "50%", transform: "translateX(-50%)" },
-    "top-start": { bottom: "100%", left: "0" },
-    "top-end": { bottom: "100%", right: "0" },
-    // Bottom
-    bottom: { top: "100%", left: "50%", transform: "translateX(-50%)" },
-    "bottom-start": { top: "100%", left: "0" },
-    "bottom-end": { top: "100%", right: "0" },
-    // Left
-    left: { right: "100%", top: "50%", transform: "translateY(-50%)" },
-    "left-start": { right: "100%", top: "0" },
-    "left-end": { right: "100%", bottom: "0" },
-    // Right
-    right: { left: "100%", top: "50%", transform: "translateY(-50%)" },
-    "right-start": { left: "100%", top: "0" },
-    "right-end": { left: "100%", bottom: "0" },
-  };
-
   return {
     isOpen,
     open: openPopover,
@@ -111,10 +155,7 @@ export function usePopover({
         contentRef.current = node;
       },
       role: "dialog" as const,
-      style: {
-        position: "absolute",
-        ...placementStyles[placement],
-      },
+      style: posStyle,
     },
   };
 }
