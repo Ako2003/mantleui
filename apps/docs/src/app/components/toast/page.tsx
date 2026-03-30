@@ -36,36 +36,7 @@ const basicExample = `function Demo() {
           Error
         </Button>
       </div>
-      <Toaster position="top-right" />
-    </div>
-  );
-}
-
-render(<Demo />);`;
-
-const positionsExample = `function Demo() {
-  const { toast } = useToast();
-  const [pos, setPos] = React.useState("top-right");
-  const positions = ["top-left", "top-right", "bottom-left", "bottom-right"];
-
-  return (
-    <div>
-      <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-        {positions.map((p) => (
-          <Button
-            key={p}
-            variant={pos === p ? "solid" : "outline"}
-            size="sm"
-            onClick={() => {
-              setPos(p);
-              toast.info({ title: p, description: "Toast appears here." });
-            }}
-          >
-            {p}
-          </Button>
-        ))}
-      </div>
-      <Toaster position={pos} />
+      <Toaster position="bottom-right" />
     </div>
   );
 }
@@ -95,7 +66,6 @@ const promiseExample = `function Demo() {
         <Button onClick={handleSave} color="green">Save Changes</Button>
         <Button onClick={handleDelete} color="red" variant="outline">Delete Item</Button>
       </div>
-      <Toaster position="bottom-right" />
     </div>
   );
 }
@@ -130,7 +100,6 @@ const customDurationExample = `function Demo() {
           10s Toast
         </Button>
       </div>
-      <Toaster position="top-right" />
     </div>
   );
 }
@@ -173,16 +142,6 @@ const realWorldExample = `function Demo() {
           Invite Member
         </Button>
         <Button
-          startIcon={<CreditCard size={16} />}
-          color="green"
-          onClick={() => toast.success({
-            title: "Payment processed",
-            description: "Your subscription has been renewed for $19/mo.",
-          })}
-        >
-          Pay Now
-        </Button>
-        <Button
           startIcon={<Shield size={16} />}
           color="red"
           variant="outline"
@@ -194,7 +153,6 @@ const realWorldExample = `function Demo() {
           Access Admin
         </Button>
       </div>
-      <Toaster position="bottom-right" />
     </div>
   );
 }
@@ -226,20 +184,12 @@ export default function ToastPage() {
         component to display them.
       </p>
 
-      <h2 className="mt-10 text-xl font-semibold">Basic Usage</h2>
+      <h2 className="mt-10 text-xl font-semibold">Variants</h2>
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
         Click the buttons below to trigger toasts of each variant.
       </p>
       <div className="mt-4">
-        <LivePlayground code={basicExample} noEditor />
-      </div>
-
-      <h2 className="mt-10 text-xl font-semibold">Positions</h2>
-      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
-        Toasts can appear in any corner of the screen.
-      </p>
-      <div className="mt-4">
-        <LivePlayground code={positionsExample} />
+        <LivePlayground code={basicExample} />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Async Actions</h2>
