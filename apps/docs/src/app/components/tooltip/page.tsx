@@ -52,6 +52,131 @@ const delayExample = `<div style={{ display: "flex", gap: "12px" }}>
   </Tooltip>
 </div>`;
 
+const withIconsExample = `<div style={{ display: "flex", gap: "8px" }}>
+  <Tooltip>
+    <Tooltip.Trigger>
+      <Button variant="ghost" startIcon={<Heart size={16} />} />
+    </Tooltip.Trigger>
+    <Tooltip.Content>Add to favorites</Tooltip.Content>
+  </Tooltip>
+  <Tooltip>
+    <Tooltip.Trigger>
+      <Button variant="ghost" startIcon={<Bookmark size={16} />} />
+    </Tooltip.Trigger>
+    <Tooltip.Content>Save for later</Tooltip.Content>
+  </Tooltip>
+  <Tooltip>
+    <Tooltip.Trigger>
+      <Button variant="ghost" startIcon={<Download size={16} />} />
+    </Tooltip.Trigger>
+    <Tooltip.Content>Download file</Tooltip.Content>
+  </Tooltip>
+  <Tooltip>
+    <Tooltip.Trigger>
+      <Button variant="ghost" startIcon={<Trash2 size={16} />} color="red" />
+    </Tooltip.Trigger>
+    <Tooltip.Content>Delete item</Tooltip.Content>
+  </Tooltip>
+</div>`;
+
+const toolbarExample = `<div style={{
+  display: "inline-flex",
+  gap: "2px",
+  padding: "4px",
+  borderRadius: "10px",
+  background: "var(--mantle-color-bg-muted)",
+}}>
+  <Tooltip delayMs={200}>
+    <Tooltip.Trigger>
+      <Button variant="ghost" size="sm" startIcon={<Bold size={16} />} />
+    </Tooltip.Trigger>
+    <Tooltip.Content>Bold (Ctrl+B)</Tooltip.Content>
+  </Tooltip>
+  <Tooltip delayMs={200}>
+    <Tooltip.Trigger>
+      <Button variant="ghost" size="sm" startIcon={<Italic size={16} />} />
+    </Tooltip.Trigger>
+    <Tooltip.Content>Italic (Ctrl+I)</Tooltip.Content>
+  </Tooltip>
+  <Tooltip delayMs={200}>
+    <Tooltip.Trigger>
+      <Button variant="ghost" size="sm" startIcon={<Underline size={16} />} />
+    </Tooltip.Trigger>
+    <Tooltip.Content>Underline (Ctrl+U)</Tooltip.Content>
+  </Tooltip>
+  <Tooltip delayMs={200}>
+    <Tooltip.Trigger>
+      <Button variant="ghost" size="sm" startIcon={<Strikethrough size={16} />} />
+    </Tooltip.Trigger>
+    <Tooltip.Content>Strikethrough</Tooltip.Content>
+  </Tooltip>
+</div>`;
+
+const avatarTooltipExample = `<div style={{ display: "flex", gap: "8px" }}>
+  <Tooltip>
+    <Tooltip.Trigger>
+      <Avatar name="Alice Johnson" size="md" />
+    </Tooltip.Trigger>
+    <Tooltip.Content>Alice Johnson — Online</Tooltip.Content>
+  </Tooltip>
+  <Tooltip>
+    <Tooltip.Trigger>
+      <Avatar name="Bob Smith" size="md" />
+    </Tooltip.Trigger>
+    <Tooltip.Content>Bob Smith — Away</Tooltip.Content>
+  </Tooltip>
+  <Tooltip>
+    <Tooltip.Trigger>
+      <Avatar name="Carol Lee" size="md" />
+    </Tooltip.Trigger>
+    <Tooltip.Content>Carol Lee — Offline</Tooltip.Content>
+  </Tooltip>
+</div>`;
+
+const colorsExample = `<div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+  <Tooltip>
+    <Tooltip.Trigger>
+      <Button color="blue" size="sm">Blue</Button>
+    </Tooltip.Trigger>
+    <Tooltip.Content>Default tooltip</Tooltip.Content>
+  </Tooltip>
+  <Tooltip>
+    <Tooltip.Trigger>
+      <Button color="red" size="sm">Red</Button>
+    </Tooltip.Trigger>
+    <Tooltip.Content>Danger action</Tooltip.Content>
+  </Tooltip>
+  <Tooltip>
+    <Tooltip.Trigger>
+      <Button color="green" size="sm">Green</Button>
+    </Tooltip.Trigger>
+    <Tooltip.Content>Success action</Tooltip.Content>
+  </Tooltip>
+  <Tooltip>
+    <Tooltip.Trigger>
+      <Button color="purple" size="sm">Purple</Button>
+    </Tooltip.Trigger>
+    <Tooltip.Content>Premium feature</Tooltip.Content>
+  </Tooltip>
+</div>`;
+
+const disabledButtonExample = `<div style={{ display: "flex", gap: "12px" }}>
+  <Tooltip>
+    <Tooltip.Trigger>
+      <span style={{ display: "inline-block" }}>
+        <Button disabled>Can't click me</Button>
+      </span>
+    </Tooltip.Trigger>
+    <Tooltip.Content>This action is currently unavailable</Tooltip.Content>
+  </Tooltip>
+  <Tooltip>
+    <Tooltip.Trigger>
+      <Button>Enabled</Button>
+    </Tooltip.Trigger>
+    <Tooltip.Content>Click to proceed</Tooltip.Content>
+  </Tooltip>
+</div>`;
+
 const tooltipProps = [
   {
     name: "delayMs",
@@ -99,6 +224,48 @@ export default function TooltipPage() {
       <h2 className="mt-10 text-xl font-semibold">Custom Delay</h2>
       <div className="mt-4">
         <LivePlayground code={delayExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Icon Buttons</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Tooltips are essential for icon-only buttons to communicate their
+        purpose.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={withIconsExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Toolbar</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        A formatting toolbar with tooltips showing keyboard shortcuts.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={toolbarExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Avatar Tooltips</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Show user details on hover over avatars.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={avatarTooltipExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">With Colors</h2>
+      <div className="mt-4">
+        <LivePlayground code={colorsExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Disabled Button</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Wrap a disabled button in a{" "}
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
+          {"<span>"}
+        </code>{" "}
+        so the tooltip trigger can still receive hover events.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={disabledButtonExample} />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Tooltip Props</h2>
