@@ -1,5 +1,6 @@
 import { forwardRef, useCallback, useMemo, useRef } from "react";
 import { useControllable } from "../../hooks";
+import { resolveColor } from "../../utils";
 import type {
   SliderProps,
   SliderRangeProps,
@@ -154,6 +155,8 @@ const SingleSlider = forwardRef<HTMLDivElement, SliderSingleProps>(
     },
     ref,
   ) {
+    const { dataColor, colorStyle } = resolveColor(color);
+
     const [value, setValue] = useControllable<number>({
       value: valueProp,
       defaultValue,
@@ -217,7 +220,8 @@ const SingleSlider = forwardRef<HTMLDivElement, SliderSingleProps>(
     return (
       <div
         ref={ref}
-        data-color={color}
+        data-color={dataColor}
+        style={colorStyle}
         className={[
           "mantle-slider",
           sizeClass,
@@ -314,6 +318,8 @@ const RangeSlider = forwardRef<HTMLDivElement, SliderRangeProps>(
     },
     ref,
   ) {
+    const { dataColor, colorStyle } = resolveColor(color);
+
     const [value, setValue] = useControllable<[number, number]>({
       value: valueProp,
       defaultValue,
@@ -403,7 +409,8 @@ const RangeSlider = forwardRef<HTMLDivElement, SliderRangeProps>(
     return (
       <div
         ref={ref}
-        data-color={color}
+        data-color={dataColor}
+        style={colorStyle}
         className={[
           "mantle-slider",
           sizeClass,

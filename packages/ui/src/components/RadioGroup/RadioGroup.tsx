@@ -1,5 +1,6 @@
 import { createContext, forwardRef, useCallback, useContext } from "react";
 import { useControllable } from "../../hooks";
+import { resolveColor } from "../../utils";
 import type {
   RadioGroupContextValue,
   RadioGroupItemProps,
@@ -39,6 +40,8 @@ const RadioGroupRoot = forwardRef<HTMLDivElement, RadioGroupProps>(
     },
     ref,
   ) {
+    const { dataColor, colorStyle } = resolveColor(color);
+
     const [value, setValue] = useControllable<string>({
       value: valueProp,
       defaultValue,
@@ -58,7 +61,8 @@ const RadioGroupRoot = forwardRef<HTMLDivElement, RadioGroupProps>(
           ref={ref}
           role="radiogroup"
           aria-label={label}
-          data-color={color}
+          data-color={dataColor}
+          style={colorStyle}
           className={[
             "mantle-radiogroup",
             `mantle-radiogroup-${orientation}`,

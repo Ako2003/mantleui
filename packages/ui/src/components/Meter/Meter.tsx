@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import { resolveColor } from "../../utils";
 import type { MeterProps } from "./Meter.types";
 import "./Meter.css";
 
@@ -61,6 +62,7 @@ export const Meter = forwardRef<HTMLDivElement, MeterProps>(function Meter(
   },
   ref,
 ) {
+  const { dataColor, colorStyle } = resolveColor(color);
   const clampedValue = Math.min(Math.max(value, min), max);
   const percentage = ((clampedValue - min) / (max - min)) * 100;
   const segment = getMeterSegment(clampedValue, min, max, low, high, optimum);
@@ -73,7 +75,8 @@ export const Meter = forwardRef<HTMLDivElement, MeterProps>(function Meter(
       aria-valuemin={min}
       aria-valuemax={max}
       aria-label={label}
-      data-color={color}
+      data-color={dataColor}
+      style={colorStyle}
       className={["mantle-meter", className].filter(Boolean).join(" ")}
       {...rest}
     >

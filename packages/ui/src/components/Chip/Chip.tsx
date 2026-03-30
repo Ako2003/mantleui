@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import { resolveColor } from "../../utils";
 import type { ChipProps } from "./Chip.types";
 import "./Chip.css";
 
@@ -28,6 +29,8 @@ export const Chip = forwardRef<HTMLSpanElement, ChipProps>(function Chip(
   },
   ref,
 ) {
+  const { dataColor, colorStyle } = resolveColor(color);
+
   const handleClick = (e: React.MouseEvent<HTMLSpanElement>) => {
     onClick?.(e);
     if (!e.defaultPrevented && onSelectedChange && !disabled) {
@@ -38,7 +41,8 @@ export const Chip = forwardRef<HTMLSpanElement, ChipProps>(function Chip(
   return (
     <span
       ref={ref}
-      data-color={color}
+      data-color={dataColor}
+      style={colorStyle}
       role={onSelectedChange ? "option" : undefined}
       aria-selected={onSelectedChange ? selected : undefined}
       aria-disabled={disabled || undefined}

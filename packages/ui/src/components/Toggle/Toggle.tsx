@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import { useControllable } from "../../hooks";
-import { composeEventHandlers } from "../../utils";
+import { composeEventHandlers, resolveColor } from "../../utils";
 import type { ToggleProps } from "./Toggle.types";
 import "./Toggle.css";
 
@@ -32,6 +32,8 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
     },
     ref,
   ) {
+    const { dataColor, colorStyle } = resolveColor(color);
+
     const [isPressed, setIsPressed] = useControllable({
       value: pressed,
       defaultValue: defaultPressed,
@@ -48,7 +50,8 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
       <button
         ref={ref}
         type="button"
-        data-color={color}
+        data-color={dataColor}
+        style={colorStyle}
         aria-pressed={isPressed}
         disabled={disabled}
         onClick={handleClick}

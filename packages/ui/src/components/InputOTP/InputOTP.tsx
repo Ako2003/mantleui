@@ -1,5 +1,6 @@
 import { forwardRef, useCallback, useRef } from "react";
 import { useControllable } from "../../hooks";
+import { resolveColor } from "../../utils";
 import type { InputOTPProps } from "./InputOTP.types";
 import "./InputOTP.css";
 
@@ -26,6 +27,8 @@ export const InputOTP = forwardRef<HTMLDivElement, InputOTPProps>(
     },
     ref,
   ) {
+    const { dataColor, colorStyle } = resolveColor(color);
+
     const [value, setValue] = useControllable<string>({
       value: valueProp,
       defaultValue,
@@ -87,7 +90,8 @@ export const InputOTP = forwardRef<HTMLDivElement, InputOTPProps>(
     return (
       <div
         ref={ref}
-        data-color={color}
+        data-color={dataColor}
+        style={colorStyle}
         className={["mantle-inputotp", className].filter(Boolean).join(" ")}
         {...rest}
       >

@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import { resolveColor } from "../../utils";
 import type { CloseButtonProps } from "./CloseButton.types";
 import "./CloseButton.css";
 
@@ -16,12 +17,15 @@ export const CloseButton = forwardRef<HTMLButtonElement, CloseButtonProps>(
     { size = "md", color = "blue", className, ...rest },
     ref,
   ) {
+    const { dataColor, colorStyle } = resolveColor(color);
+
     return (
       <button
         ref={ref}
         type="button"
         aria-label="Close"
-        data-color={color}
+        data-color={dataColor}
+        style={colorStyle}
         className={[
           "mantle-closebutton",
           `mantle-closebutton-${size}`,

@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import { resolveColor } from "../../utils";
 import type { LinkProps } from "./Link.types";
 import "./Link.css";
 
@@ -22,10 +23,13 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(function Link(
   },
   ref,
 ) {
+  const { dataColor, colorStyle } = resolveColor(color);
+
   return (
     <a
       ref={ref}
-      data-color={color}
+      data-color={dataColor}
+      style={colorStyle}
       className={[
         "mantle-link",
         `mantle-link-underline-${underline}`,

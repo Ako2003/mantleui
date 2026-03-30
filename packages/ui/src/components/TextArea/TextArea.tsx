@@ -1,5 +1,6 @@
 import { forwardRef } from "react";
 import { useId } from "../../hooks";
+import { resolveColor } from "../../utils";
 import type { TextAreaProps } from "./TextArea.types";
 import "./TextArea.css";
 
@@ -34,6 +35,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     },
     ref,
   ) {
+    const { dataColor, colorStyle } = resolveColor(color);
     const generatedId = useId("textarea");
     const id = idProp ?? generatedId;
     const descriptionId = `${id}-description`;
@@ -46,7 +48,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
         : undefined;
 
     return (
-      <div className="mantle-textAreaWrapper" data-color={color}>
+      <div className="mantle-textAreaWrapper" data-color={dataColor} style={colorStyle}>
         {label && (
           <label
             htmlFor={id}

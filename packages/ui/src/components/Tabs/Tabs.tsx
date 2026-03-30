@@ -7,6 +7,7 @@ import {
   useState,
 } from "react";
 import { useControllable, useId } from "../../hooks";
+import { resolveColor } from "../../utils";
 import { TabsContext, useTabsContext } from "./Tabs.context";
 import type {
   TabsContentProps,
@@ -32,6 +33,8 @@ const TabsRoot = forwardRef<HTMLDivElement, TabsProps>(function TabsRoot(
   },
   ref,
 ) {
+  const { dataColor, colorStyle } = resolveColor(color);
+
   const [activeTab, setActiveTab] = useControllable({
     value,
     defaultValue,
@@ -49,7 +52,8 @@ const TabsRoot = forwardRef<HTMLDivElement, TabsProps>(function TabsRoot(
     <TabsContext.Provider value={contextValue}>
       <div
         ref={ref}
-        data-color={color}
+        data-color={dataColor}
+        style={colorStyle}
         className={[
           "mantle-tabs",
           orientation === "vertical" && "mantle-tabsVertical",

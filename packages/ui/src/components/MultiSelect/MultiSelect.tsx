@@ -1,5 +1,6 @@
 import { forwardRef, useCallback, useEffect, useRef, useState } from "react";
 import { useControllable, useId } from "../../hooks";
+import { resolveColor } from "../../utils";
 import type { MultiSelectProps } from "./MultiSelect.types";
 import "./MultiSelect.css";
 
@@ -37,6 +38,8 @@ export const MultiSelect = forwardRef<HTMLDivElement, MultiSelectProps>(
     },
     ref,
   ) {
+    const { dataColor, colorStyle } = resolveColor(color);
+
     const [selected, setSelected] = useControllable<string[]>({
       value: valueProp,
       defaultValue,
@@ -117,7 +120,8 @@ export const MultiSelect = forwardRef<HTMLDivElement, MultiSelectProps>(
             (ref as React.MutableRefObject<HTMLDivElement | null>).current =
               node;
         }}
-        data-color={color}
+        data-color={dataColor}
+        style={colorStyle}
         className={["mantle-multiselect", className].filter(Boolean).join(" ")}
         {...rest}
       >

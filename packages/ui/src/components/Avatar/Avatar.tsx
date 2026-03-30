@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import { resolveColor } from "../../utils";
 import type { AvatarProps } from "./Avatar.types";
 import "./Avatar.css";
 
@@ -25,10 +26,13 @@ export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(function Avatar(
   { src, alt, name, size = "md", color = "blue", className, ...rest },
   ref,
 ) {
+  const { dataColor, colorStyle } = resolveColor(color);
+
   return (
     <span
       ref={ref}
-      data-color={color}
+      data-color={dataColor}
+      style={colorStyle}
       role="img"
       aria-label={alt || name}
       className={["mantle-avatar", `mantle-avatar-${size}`, className]

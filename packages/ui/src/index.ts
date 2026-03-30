@@ -370,7 +370,7 @@ export { useControllable } from "./hooks";
 export { useId } from "./hooks";
 
 // Utilities
-export { composeEventHandlers, mergeProps } from "./utils";
+export { composeEventHandlers, mergeProps, resolveColor } from "./utils";
 export type {
   PolymorphicComponentProps,
   PolymorphicComponentPropsWithRef,

@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import { resolveColor } from "../../utils";
 import type { BadgeProps } from "./Badge.types";
 import "./Badge.css";
 
@@ -23,10 +24,13 @@ export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(function Badge(
   },
   ref,
 ) {
+  const { dataColor, colorStyle } = resolveColor(color);
+
   return (
     <span
       ref={ref}
-      data-color={color}
+      data-color={dataColor}
+      style={colorStyle}
       className={[
         "mantle-badge",
         `mantle-badge-${variant}`,

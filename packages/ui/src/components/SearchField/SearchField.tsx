@@ -1,5 +1,6 @@
 import { forwardRef, useCallback } from "react";
 import { useControllable } from "../../hooks";
+import { resolveColor } from "../../utils";
 import type { SearchFieldProps } from "./SearchField.types";
 import "./SearchField.css";
 
@@ -34,6 +35,8 @@ export const SearchField = forwardRef<HTMLInputElement, SearchFieldProps>(
     },
     ref,
   ) {
+    const { dataColor, colorStyle } = resolveColor(color);
+
     const [value, setValue] = useControllable({
       value: valueProp,
       defaultValue,
@@ -57,7 +60,8 @@ export const SearchField = forwardRef<HTMLInputElement, SearchFieldProps>(
         className={["mantle-searchFieldContainer", sizeMap[size], className]
           .filter(Boolean)
           .join(" ")}
-        data-color={color}
+        data-color={dataColor}
+        style={colorStyle}
       >
         <span className="mantle-searchFieldIcon" aria-hidden="true">
           {startIcon ?? (

@@ -1,6 +1,7 @@
 import { forwardRef } from "react";
 import { createPortal } from "react-dom";
 import { useComposedRefs } from "../../hooks";
+import { resolveColor } from "../../utils";
 import { PopoverContext, usePopoverContext } from "./Popover.context";
 import type {
   PopoverContentProps,
@@ -20,11 +21,12 @@ function PopoverRoot({
   placement,
   color = "blue",
 }: PopoverProps) {
+  const { dataColor, colorStyle } = resolveColor(color);
   const popover = usePopover({ open, defaultOpen, onOpenChange, placement, portal: true });
 
   return (
     <PopoverContext.Provider value={popover}>
-      <div className="mantle-anchor" data-color={color}>
+      <div className="mantle-anchor" data-color={dataColor} style={colorStyle}>
         {children}
       </div>
     </PopoverContext.Provider>

@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import { resolveColor } from "../../utils";
 import type { ProgressBarProps } from "./ProgressBar.types";
 import "./ProgressBar.css";
 
@@ -27,6 +28,8 @@ export const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
     },
     ref,
   ) {
+    const { dataColor, colorStyle } = resolveColor(color);
+
     const percentage = Math.round(
       Math.min(Math.max((value / max) * 100, 0), 100),
     );
@@ -34,7 +37,8 @@ export const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
     const bar = (
       <div
         ref={ref}
-        data-color={color}
+        data-color={dataColor}
+        style={colorStyle}
         role="progressbar"
         aria-valuenow={indeterminate ? undefined : value}
         aria-valuemin={0}

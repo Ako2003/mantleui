@@ -1,5 +1,6 @@
 import { forwardRef, useCallback, type KeyboardEvent } from "react";
 import { useControllable, useId } from "../../hooks";
+import { resolveColor } from "../../utils";
 import type { NumberFieldProps } from "./NumberField.types";
 import "./NumberField.css";
 
@@ -38,6 +39,8 @@ export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
     },
     ref,
   ) {
+    const { dataColor, colorStyle } = resolveColor(color);
+
     const [value, setValue] = useControllable({
       value: valueProp,
       defaultValue,
@@ -92,7 +95,7 @@ export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
     const isAtMax = max !== undefined && value >= max;
 
     return (
-      <div className="mantle-numberFieldWrapper" data-color={color}>
+      <div className="mantle-numberFieldWrapper" data-color={dataColor} style={colorStyle}>
         {label && (
           <label
             htmlFor={generatedId}

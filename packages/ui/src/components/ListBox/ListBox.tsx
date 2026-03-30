@@ -1,5 +1,6 @@
 import { forwardRef, useCallback, useState } from "react";
 import { useControllable } from "../../hooks";
+import { resolveColor } from "../../utils";
 import type { ListBoxProps } from "./ListBox.types";
 import "./ListBox.css";
 
@@ -39,6 +40,8 @@ export const ListBox = forwardRef<HTMLDivElement, ListBoxProps>(
     },
     ref,
   ) {
+    const { dataColor, colorStyle } = resolveColor(color);
+
     const normalizedControlled =
       valueProp !== undefined ? normalizeValue(valueProp, []) : undefined;
     const normalizedDefault = normalizeValue(defaultValue, []);
@@ -102,7 +105,8 @@ export const ListBox = forwardRef<HTMLDivElement, ListBoxProps>(
         ref={ref}
         role="listbox"
         aria-multiselectable={multiple || undefined}
-        data-color={color}
+        data-color={dataColor}
+        style={colorStyle}
         tabIndex={0}
         onKeyDown={handleKeyDown}
         className={["mantle-listbox", className].filter(Boolean).join(" ")}

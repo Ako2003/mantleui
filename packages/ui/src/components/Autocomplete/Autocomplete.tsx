@@ -7,6 +7,7 @@ import {
   useState,
 } from "react";
 import { useControllable, useId, useComposedRefs } from "../../hooks";
+import { resolveColor } from "../../utils";
 import type { AutocompleteProps } from "./Autocomplete.types";
 import "./Autocomplete.css";
 
@@ -43,6 +44,8 @@ export const Autocomplete = forwardRef<HTMLDivElement, AutocompleteProps>(
     },
     ref,
   ) {
+    const { dataColor, colorStyle } = resolveColor(color);
+
     const [value, setValue] = useControllable({
       value: valueProp,
       defaultValue,
@@ -170,7 +173,8 @@ export const Autocomplete = forwardRef<HTMLDivElement, AutocompleteProps>(
       <div
         ref={composedRef}
         className={["mantle-autocomplete", className].filter(Boolean).join(" ")}
-        data-color={color}
+        data-color={dataColor}
+        style={colorStyle}
         {...rest}
       >
         {label && (

@@ -1,4 +1,5 @@
 import { forwardRef, useCallback, useEffect, useRef, useState } from "react";
+import { resolveColor } from "../../utils";
 import { Calendar } from "../Calendar";
 import type { DateRangePickerProps } from "./DateRangePicker.types";
 import "./DateRangePicker.css";
@@ -54,6 +55,8 @@ export const DateRangePicker = forwardRef<HTMLDivElement, DateRangePickerProps>(
     },
     ref,
   ) {
+    const { dataColor, colorStyle } = resolveColor(color);
+
     const [open, setOpen] = useState(false);
     const [phase, setPhase] = useState<PickingPhase>("start");
     const [pendingStart, setPendingStart] = useState<Date | undefined>(
@@ -139,7 +142,8 @@ export const DateRangePicker = forwardRef<HTMLDivElement, DateRangePickerProps>(
               node;
           }
         }}
-        data-color={color}
+        data-color={dataColor}
+        style={colorStyle}
         className={["mantle-dateRangePicker", className]
           .filter(Boolean)
           .join(" ")}

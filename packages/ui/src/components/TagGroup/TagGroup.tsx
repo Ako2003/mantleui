@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import { resolveColor } from "../../utils";
 import type { TagGroupProps, TagGroupTagProps } from "./TagGroup.types";
 import "./TagGroup.css";
 
@@ -34,10 +35,13 @@ const Tag = forwardRef<HTMLSpanElement, TagGroupTagProps>(function Tag(
   { value, onRemove, color = "blue", children, className, ...rest },
   ref,
 ) {
+  const { dataColor, colorStyle } = resolveColor(color);
+
   return (
     <span
       ref={ref}
-      data-color={color}
+      data-color={dataColor}
+      style={colorStyle}
       data-value={value}
       className={["mantle-tag", className].filter(Boolean).join(" ")}
       {...rest}

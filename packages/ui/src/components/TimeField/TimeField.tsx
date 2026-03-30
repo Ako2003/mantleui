@@ -6,6 +6,7 @@ import {
   useState,
 } from "react";
 import { useControllable, useId } from "../../hooks";
+import { resolveColor } from "../../utils";
 import type { TimeFieldProps } from "./TimeField.types";
 import "./TimeField.css";
 
@@ -48,6 +49,8 @@ export const TimeField = forwardRef<HTMLDivElement, TimeFieldProps>(
     },
     ref,
   ) {
+    const { dataColor, colorStyle } = resolveColor(color);
+
     const [value, setValue] = useControllable<string>({
       value: valueProp,
       defaultValue,
@@ -163,7 +166,8 @@ export const TimeField = forwardRef<HTMLDivElement, TimeFieldProps>(
             (ref as React.MutableRefObject<HTMLDivElement | null>).current =
               node;
         }}
-        data-color={color}
+        data-color={dataColor}
+        style={colorStyle}
         className={["mantle-timeField", className].filter(Boolean).join(" ")}
       >
         {label && (

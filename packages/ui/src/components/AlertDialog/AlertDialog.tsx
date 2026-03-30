@@ -7,6 +7,7 @@ import {
   useRef,
 } from "react";
 import { createPortal } from "react-dom";
+import { resolveColor } from "../../utils";
 import type {
   AlertDialogActionProps,
   AlertDialogCancelProps,
@@ -144,6 +145,7 @@ const AlertDialogAction = forwardRef<HTMLButtonElement, AlertDialogActionProps>(
     ref,
   ) {
     const { onClose } = useAlertDialogContext();
+    const { dataColor, colorStyle } = resolveColor(color);
 
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
       onClick?.(e);
@@ -154,7 +156,8 @@ const AlertDialogAction = forwardRef<HTMLButtonElement, AlertDialogActionProps>(
       <button
         ref={ref}
         type="button"
-        data-color={color}
+        data-color={dataColor}
+        style={colorStyle}
         className={["mantle-alertdialog-action", className]
           .filter(Boolean)
           .join(" ")}

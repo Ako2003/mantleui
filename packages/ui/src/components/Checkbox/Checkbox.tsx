@@ -1,6 +1,7 @@
 import { forwardRef, useEffect, useRef } from "react";
 import { useComposedRefs, useId } from "../../hooks";
 import { useControllable } from "../../hooks";
+import { resolveColor } from "../../utils";
 import type { CheckboxProps } from "./Checkbox.types";
 import "./Checkbox.css";
 
@@ -30,6 +31,8 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     },
     ref,
   ) {
+    const { dataColor, colorStyle } = resolveColor(color);
+
     const [checked, setChecked] = useControllable({
       value: checkedProp,
       defaultValue: defaultChecked,
@@ -59,7 +62,8 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         className={["mantle-checkboxWrapper", className]
           .filter(Boolean)
           .join(" ")}
-        data-color={color}
+        data-color={dataColor}
+        style={colorStyle}
       >
         <input
           ref={composedRef}

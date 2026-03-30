@@ -1,5 +1,6 @@
 import { createContext, forwardRef, useCallback } from "react";
 import { useControllable } from "../../hooks";
+import { resolveColor } from "../../utils";
 import type {
   CheckboxGroupContextValue,
   CheckboxGroupProps,
@@ -38,6 +39,8 @@ export const CheckboxGroup = forwardRef<
   },
   ref,
 ) {
+  const { dataColor, colorStyle } = resolveColor(color);
+
   const [value, setValue] = useControllable<string[]>({
     value: valueProp,
     defaultValue,
@@ -59,7 +62,8 @@ export const CheckboxGroup = forwardRef<
     <CheckboxGroupContext.Provider value={{ value, toggle, color }}>
       <fieldset
         ref={ref}
-        data-color={color}
+        data-color={dataColor}
+        style={colorStyle}
         className={[
           "mantle-checkboxgroup",
           `mantle-checkboxgroup-${orientation}`,

@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import { resolveColor } from "../../utils";
 import type { ProgressCircleProps } from "./ProgressCircle.types";
 import "./ProgressCircle.css";
 
@@ -31,6 +32,7 @@ export const ProgressCircle = forwardRef<SVGSVGElement, ProgressCircleProps>(
     },
     ref,
   ) {
+    const { dataColor, colorStyle } = resolveColor(color);
     const px = SIZE_MAP[size];
     const radius = (px - strokeWidth) / 2;
     const circumference = 2 * Math.PI * radius;
@@ -42,7 +44,8 @@ export const ProgressCircle = forwardRef<SVGSVGElement, ProgressCircleProps>(
     const svg = (
       <svg
         ref={ref}
-        data-color={color}
+        data-color={dataColor}
+        style={colorStyle}
         role="progressbar"
         aria-valuenow={value}
         aria-valuemin={0}

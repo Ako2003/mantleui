@@ -4,4 +4,5 @@ export type MantleColor =
   | "green"
   | "yellow"
   | "purple"
-  | "neutral";
+  | "neutral"
+  | (string & {});

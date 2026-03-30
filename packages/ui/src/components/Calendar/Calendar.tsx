@@ -1,5 +1,6 @@
 import { forwardRef, useCallback, useMemo, useState } from "react";
 import { useControllable } from "../../hooks";
+import { resolveColor } from "../../utils";
 import type { CalendarProps } from "./Calendar.types";
 import "./Calendar.css";
 
@@ -61,6 +62,8 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
     },
     ref,
   ) {
+    const { dataColor, colorStyle } = resolveColor(color);
+
     const [selectedDate, setSelectedDate] = useControllable<Date | undefined>({
       value: valueProp,
       defaultValue,
@@ -119,7 +122,8 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
     return (
       <div
         ref={ref}
-        data-color={color}
+        data-color={dataColor}
+        style={colorStyle}
         className={["mantle-calendar", className].filter(Boolean).join(" ")}
         {...rest}
       >

@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import { useControllable } from "../../hooks";
-import { composeEventHandlers } from "../../utils";
+import { composeEventHandlers, resolveColor } from "../../utils";
 import type { SwitchProps } from "./Switch.types";
 import "./Switch.css";
 
@@ -31,6 +31,8 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
     },
     ref,
   ) {
+    const { dataColor, colorStyle } = resolveColor(color);
+
     const [checked, setChecked] = useControllable({
       value: checkedProp,
       defaultValue: defaultChecked,
@@ -52,7 +54,8 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
         role="switch"
         aria-checked={checked}
         disabled={disabled}
-        data-color={color}
+        data-color={dataColor}
+        style={colorStyle}
         onClick={handleClick}
         className={[
           "mantle-switch",

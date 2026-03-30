@@ -1,6 +1,6 @@
 import { forwardRef, useCallback, useEffect, useRef } from "react";
 import { useControllable, useId, useComposedRefs } from "../../hooks";
-import { composeEventHandlers } from "../../utils";
+import { composeEventHandlers, resolveColor } from "../../utils";
 import type { SelectProps } from "./Select.types";
 import "./Select.css";
 
@@ -45,6 +45,8 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(function Select(
   },
   ref,
 ) {
+  const { dataColor, colorStyle } = resolveColor(color);
+
   const [value, setValue] = useControllable({
     value: valueProp,
     defaultValue,
@@ -170,7 +172,8 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(function Select(
     <div
       ref={composedRef}
       className={["mantle-selectWrapper", className].filter(Boolean).join(" ")}
-      data-color={color}
+      data-color={dataColor}
+      style={colorStyle}
       {...rest}
     >
       {label && (

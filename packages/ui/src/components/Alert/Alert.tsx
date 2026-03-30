@@ -1,5 +1,6 @@
 import { forwardRef } from "react";
 import type { MantleColor } from "../../theme/colors";
+import { resolveColor } from "../../utils";
 import type { AlertProps, AlertVariant } from "./Alert.types";
 import "./Alert.css";
 
@@ -31,12 +32,14 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
   ref,
 ) {
   const color = variantColorMap[variant];
+  const { dataColor, colorStyle } = resolveColor(color);
 
   return (
     <div
       ref={ref}
       role="alert"
-      data-color={color}
+      data-color={dataColor}
+      style={colorStyle}
       className={["mantle-alert", className].filter(Boolean).join(" ")}
       {...rest}
     >

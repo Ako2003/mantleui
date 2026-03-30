@@ -1,5 +1,6 @@
 import { forwardRef } from "react";
 import { useId } from "../../hooks";
+import { resolveColor } from "../../utils";
 import type { TextFieldProps } from "./TextField.types";
 import "./TextField.css";
 
@@ -35,6 +36,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
     },
     ref,
   ) {
+    const { dataColor, colorStyle } = resolveColor(color);
     const generatedId = useId("textfield");
     const id = idProp ?? generatedId;
     const descriptionId = `${id}-description`;
@@ -47,7 +49,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
         : undefined;
 
     return (
-      <div className="mantle-textFieldWrapper" data-color={color}>
+      <div className="mantle-textFieldWrapper" data-color={dataColor} style={colorStyle}>
         {label && (
           <label
             htmlFor={id}

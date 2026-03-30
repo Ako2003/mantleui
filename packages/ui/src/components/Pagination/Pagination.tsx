@@ -1,4 +1,5 @@
 import { forwardRef, useMemo } from "react";
+import { resolveColor } from "../../utils";
 import type { PaginationProps } from "./Pagination.types";
 import "./Pagination.css";
 
@@ -66,6 +67,8 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
     },
     ref,
   ) {
+    const { dataColor, colorStyle } = resolveColor(color);
+
     const items = useMemo(
       () => buildPageRange(page, totalPages, siblingCount),
       [page, totalPages, siblingCount],
@@ -78,7 +81,8 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
       <nav
         ref={ref}
         aria-label="Pagination"
-        data-color={color}
+        data-color={dataColor}
+        style={colorStyle}
         className={["mantle-pagination", className].filter(Boolean).join(" ")}
         {...rest}
       >

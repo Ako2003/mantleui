@@ -1,5 +1,6 @@
 import { forwardRef } from "react";
 import { useId } from "../../hooks";
+import { resolveColor } from "../../utils";
 import type { InputProps } from "./Input.types";
 import "./Input.css";
 
@@ -33,13 +34,14 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   },
   ref,
 ) {
+  const { dataColor, colorStyle } = resolveColor(color);
   const generatedId = useId("input");
   const id = idProp ?? generatedId;
   const helperId = `${id}-helper`;
   const errorId = `${id}-error`;
 
   return (
-    <div className="mantle-inputWrapper" data-color={color}>
+    <div className="mantle-inputWrapper" data-color={dataColor} style={colorStyle}>
       {label && (
         <label
           htmlFor={id}

@@ -1,6 +1,7 @@
 import { forwardRef, useCallback, useMemo } from "react";
 import { useControllable } from "../../hooks";
 import { useId } from "../../hooks";
+import { resolveColor } from "../../utils";
 import {
   AccordionContext,
   AccordionItemContext,
@@ -31,6 +32,8 @@ const AccordionRoot = forwardRef<HTMLDivElement, AccordionProps>(
     },
     ref,
   ) {
+    const { dataColor, colorStyle } = resolveColor(color);
+
     const [openItems, setOpenItems] = useControllable({
       value,
       defaultValue,
@@ -59,7 +62,8 @@ const AccordionRoot = forwardRef<HTMLDivElement, AccordionProps>(
       <AccordionContext.Provider value={contextValue}>
         <div
           ref={ref}
-          data-color={color}
+          data-color={dataColor}
+          style={colorStyle}
           className={["mantle-accordion", className].filter(Boolean).join(" ")}
           {...rest}
         >

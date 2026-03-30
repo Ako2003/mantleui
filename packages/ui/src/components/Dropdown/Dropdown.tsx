@@ -8,6 +8,7 @@ import {
   useRef,
   useState,
 } from "react";
+import { resolveColor } from "../../utils";
 import type {
   DropdownItemProps,
   DropdownMenuProps,
@@ -53,6 +54,7 @@ function useDropdownContext() {
  * ```
  */
 function DropdownRoot({ children, color = "blue" }: DropdownProps) {
+  const { dataColor, colorStyle } = resolveColor(color);
   const [isOpen, setIsOpen] = useState(false);
   const [focusedIndex, setFocusedIndex] = useState(-1);
   const [itemCount, setItemCount] = useState(0);
@@ -87,7 +89,7 @@ function DropdownRoot({ children, color = "blue" }: DropdownProps) {
         setItemCount,
       }}
     >
-      <div ref={containerRef} className="mantle-dropdown" data-color={color}>
+      <div ref={containerRef} className="mantle-dropdown" data-color={dataColor} style={colorStyle}>
         {children}
       </div>
     </DropdownContext.Provider>

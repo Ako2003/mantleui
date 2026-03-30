@@ -1,5 +1,6 @@
 import { forwardRef, useCallback } from "react";
 import { useControllable } from "../../hooks";
+import { resolveColor } from "../../utils";
 import type { RadioCalendarProps } from "./RadioCalendar.types";
 import "./RadioCalendar.css";
 
@@ -55,6 +56,8 @@ export const RadioCalendar = forwardRef<HTMLDivElement, RadioCalendarProps>(
     },
     ref,
   ) {
+    const { dataColor, colorStyle } = resolveColor(color);
+
     const [selectedDate, setSelectedDate] = useControllable<Date | undefined>({
       value: valueProp,
       defaultValue,
@@ -74,7 +77,8 @@ export const RadioCalendar = forwardRef<HTMLDivElement, RadioCalendarProps>(
       <div
         ref={ref}
         role="radiogroup"
-        data-color={color}
+        data-color={dataColor}
+        style={colorStyle}
         className={["mantle-radioCalendar", className]
           .filter(Boolean)
           .join(" ")}

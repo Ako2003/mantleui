@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import { resolveColor } from "../../utils";
 import type { DataTableProps } from "./DataTable.types";
 import { useDataTable } from "./useDataTable";
 import "./DataTable.css";
@@ -54,12 +55,14 @@ function DataTableInner<T>(
   }: DataTableProps<T>,
   ref: React.Ref<HTMLDivElement>,
 ) {
+  const { dataColor, colorStyle } = resolveColor(color);
   const table = useDataTable({ data, columns, pageSize });
 
   return (
     <div
       ref={ref}
-      data-color={color}
+      data-color={dataColor}
+      style={colorStyle}
       className={["mantle-wrapper", className].filter(Boolean).join(" ")}
       {...rest}
     >

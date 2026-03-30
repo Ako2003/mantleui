@@ -1,5 +1,6 @@
 import { forwardRef, useCallback, useEffect, useRef, useState } from "react";
 import { useControllable } from "../../hooks";
+import { resolveColor } from "../../utils";
 import { Calendar } from "../Calendar";
 import type { DatePickerProps } from "./DatePicker.types";
 import "./DatePicker.css";
@@ -53,6 +54,8 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
     },
     ref,
   ) {
+    const { dataColor, colorStyle } = resolveColor(color);
+
     const [selectedDate, setSelectedDate] = useControllable<Date | undefined>({
       value: valueProp,
       defaultValue,
@@ -127,7 +130,8 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
               node;
           }
         }}
-        data-color={color}
+        data-color={dataColor}
+        style={colorStyle}
         className={["mantle-datePicker", className].filter(Boolean).join(" ")}
         {...rest}
       >

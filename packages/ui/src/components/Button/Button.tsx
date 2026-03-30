@@ -1,4 +1,5 @@
 import { type ElementType, type Ref, forwardRef } from "react";
+import { resolveColor } from "../../utils";
 import type { ButtonProps } from "./Button.types";
 import "./Button.css";
 
@@ -35,12 +36,14 @@ function ButtonInner(
   ref: Ref<HTMLElement>,
 ) {
   const Component = as ?? "button";
+  const { dataColor, colorStyle } = resolveColor(color);
   const isDisabled = disabled || loading;
 
   return (
     <Component
       ref={ref}
-      data-color={color}
+      data-color={dataColor}
+      style={colorStyle}
       disabled={Component === "button" ? isDisabled : undefined}
       aria-disabled={isDisabled || undefined}
       aria-busy={loading || undefined}

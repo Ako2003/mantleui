@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import { resolveColor } from "../../utils";
 import type { ButtonGroupProps } from "./ButtonGroup.types";
 import "./ButtonGroup.css";
 
@@ -29,6 +30,8 @@ export const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
     },
     ref,
   ) {
+    const { dataColor, colorStyle } = resolveColor(color);
+
     const orientationClass =
       orientation === "vertical"
         ? "mantle-buttongroupVertical"
@@ -38,7 +41,8 @@ export const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
       <div
         ref={ref}
         role="group"
-        data-color={color}
+        data-color={dataColor}
+        style={colorStyle}
         data-orientation={orientation}
         data-size={size}
         data-variant={variant}

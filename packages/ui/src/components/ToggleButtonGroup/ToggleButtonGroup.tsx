@@ -1,5 +1,6 @@
 import { createContext, forwardRef, useContext } from "react";
 import { useControllable } from "../../hooks";
+import { resolveColor } from "../../utils";
 import type {
   ToggleButtonGroupContextValue,
   ToggleButtonGroupItemProps,
@@ -50,6 +51,8 @@ const ToggleButtonGroupRoot = forwardRef<
   },
   ref,
 ) {
+  const { dataColor, colorStyle } = resolveColor(color);
+
   const normalizeValue = (v: string | string[] | undefined): string[] => {
     if (v === undefined) return [];
     return Array.isArray(v) ? v : [v];
@@ -89,7 +92,8 @@ const ToggleButtonGroupRoot = forwardRef<
         ref={ref}
         role="group"
         aria-label={rest["aria-label"]}
-        data-color={color}
+        data-color={dataColor}
+        style={colorStyle}
         data-orientation={orientation}
         className={["mantle-togglebuttongroup", orientationClass, className]
           .filter(Boolean)
