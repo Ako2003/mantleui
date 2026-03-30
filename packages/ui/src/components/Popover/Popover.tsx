@@ -20,7 +20,7 @@ function PopoverRoot({
   placement,
   color = "blue",
 }: PopoverProps) {
-  const popover = usePopover({ open, defaultOpen, onOpenChange, placement });
+  const popover = usePopover({ open, defaultOpen, onOpenChange, placement, portal: true });
 
   return (
     <PopoverContext.Provider value={popover}>

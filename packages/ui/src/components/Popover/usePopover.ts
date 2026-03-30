@@ -11,10 +11,10 @@ import type { UsePopoverOptions, UsePopoverReturn } from "./Popover.types";
  * const { isOpen, triggerProps, contentProps } = usePopover();
  *
  * return (
- *   <>
+ *   <div style={{ position: "relative" }}>
  *     <button {...triggerProps}>Open</button>
  *     {isOpen && <div {...contentProps}>Content</div>}
- *   </>
+ *   </div>
  * );
  * ```
  */
@@ -23,6 +23,7 @@ export function usePopover({
   defaultOpen = false,
   onOpenChange,
   placement = "bottom",
+  portal = false,
 }: UsePopoverOptions = {}): UsePopoverReturn {
   const [isOpen, setIsOpen] = useControllable({
     value: open,
@@ -32,7 +33,7 @@ export function usePopover({
 
   const triggerRef = useRef<HTMLElement | null>(null);
   const contentRef = useRef<HTMLElement | null>(null);
-  const [posStyle, setPosStyle] = useState<React.CSSProperties>({});
+  const [portalStyle, setPortalStyle] = useState<React.CSSProperties>({});
 
   const openPopover = useCallback(() => setIsOpen(true), [setIsOpen]);
   const closePopover = useCallback(() => setIsOpen(false), [setIsOpen]);
@@ -41,9 +42,9 @@ export function usePopover({
     [setIsOpen],
   );
 
-  // Calculate position when open
+  // Calculate fixed position when using portal mode
   useEffect(() => {
-    if (!isOpen || !triggerRef.current) return;
+    if (!portal || !isOpen || !triggerRef.current) return;
 
     const updatePosition = () => {
       const trigger = triggerRef.current;
@@ -51,9 +52,7 @@ export function usePopover({
 
       const rect = trigger.getBoundingClientRect();
       const gap = 8;
-      const style: React.CSSProperties = {
-        position: "fixed",
-      };
+      const style: React.CSSProperties = { position: "fixed" };
 
       if (placement.startsWith("bottom")) {
         style.top = rect.bottom + gap;
@@ -65,33 +64,25 @@ export function usePopover({
         style.left = rect.right + gap;
       }
 
-      // Horizontal alignment
       if (placement === "bottom" || placement === "top") {
         style.left = rect.left + rect.width / 2;
         style.transform = "translateX(-50%)";
-      } else if (
-        placement === "bottom-start" ||
-        placement === "top-start"
-      ) {
+      } else if (placement === "bottom-start" || placement === "top-start") {
         style.left = rect.left;
       } else if (placement === "bottom-end" || placement === "top-end") {
         style.right = window.innerWidth - rect.right;
       }
 
-      // Vertical alignment for left/right
       if (placement === "left" || placement === "right") {
         style.top = rect.top + rect.height / 2;
         style.transform = "translateY(-50%)";
-      } else if (
-        placement === "left-start" ||
-        placement === "right-start"
-      ) {
+      } else if (placement === "left-start" || placement === "right-start") {
         style.top = rect.top;
       } else if (placement === "left-end" || placement === "right-end") {
         style.bottom = window.innerHeight - rect.bottom;
       }
 
-      setPosStyle(style);
+      setPortalStyle(style);
     };
 
     updatePosition();
@@ -101,19 +92,17 @@ export function usePopover({
       window.removeEventListener("scroll", updatePosition, true);
       window.removeEventListener("resize", updatePosition);
     };
-  }, [isOpen, placement]);
+  }, [portal, isOpen, placement]);
 
   // Close on Escape
   useEffect(() => {
     if (!isOpen) return;
-
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         closePopover();
         triggerRef.current?.focus();
       }
     };
-
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, closePopover]);
@@ -121,7 +110,6 @@ export function usePopover({
   // Close on click outside
   useEffect(() => {
     if (!isOpen) return;
-
     const handleClick = (e: MouseEvent) => {
       const target = e.target as Node;
       if (
@@ -132,10 +120,29 @@ export function usePopover({
       }
       closePopover();
     };
-
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
   }, [isOpen, closePopover]);
+
+  // Relative placement styles (non-portal)
+  const relativePlacement: Record<string, React.CSSProperties> = {
+    top: { bottom: "100%", left: "50%", transform: "translateX(-50%)" },
+    "top-start": { bottom: "100%", left: "0" },
+    "top-end": { bottom: "100%", right: "0" },
+    bottom: { top: "100%", left: "50%", transform: "translateX(-50%)" },
+    "bottom-start": { top: "100%", left: "0" },
+    "bottom-end": { top: "100%", right: "0" },
+    left: { right: "100%", top: "50%", transform: "translateY(-50%)" },
+    "left-start": { right: "100%", top: "0" },
+    "left-end": { right: "100%", bottom: "0" },
+    right: { left: "100%", top: "50%", transform: "translateY(-50%)" },
+    "right-start": { left: "100%", top: "0" },
+    "right-end": { left: "100%", bottom: "0" },
+  };
+
+  const contentStyle: React.CSSProperties = portal
+    ? portalStyle
+    : { position: "absolute", ...relativePlacement[placement] };
 
   return {
     isOpen,
@@ -155,7 +162,7 @@ export function usePopover({
         contentRef.current = node;
       },
       role: "dialog" as const,
-      style: posStyle,
+      style: contentStyle,
     },
   };
 }

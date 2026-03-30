@@ -45,6 +45,8 @@ export interface UsePopoverOptions {
   onOpenChange?: (open: boolean) => void;
   /** Preferred placement. Defaults to `"bottom"`. */
   placement?: PopoverPlacement;
+  /** Render content via portal with fixed positioning. Defaults to `false`. */
+  portal?: boolean;
 }
 
 export interface UsePopoverReturn {
