@@ -121,6 +121,162 @@ const dangerExample = `function Demo() {
 
 render(<Demo />);`;
 
+const sectionsExample = `function Demo() {
+  return (
+    <Dropdown>
+      <Dropdown.Trigger>My Account</Dropdown.Trigger>
+      <Dropdown.Menu>
+        <div style={{ padding: "8px 12px", fontSize: "12px", fontWeight: 600, color: "var(--mantle-color-text-muted)", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+          Signed in as
+        </div>
+        <div style={{ padding: "4px 12px 8px", fontSize: "14px", fontWeight: 500, color: "var(--mantle-color-text)" }}>
+          john@example.com
+        </div>
+        <div style={{ height: "1px", background: "var(--mantle-color-border)", margin: "4px 0" }} />
+        <Dropdown.Item onSelect={() => {}}>
+          <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <Users size={15} /> Profile
+          </span>
+        </Dropdown.Item>
+        <Dropdown.Item onSelect={() => {}}>
+          <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <Settings size={15} /> Settings
+          </span>
+        </Dropdown.Item>
+        <Dropdown.Item onSelect={() => {}}>
+          <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <CreditCard size={15} /> Billing
+          </span>
+        </Dropdown.Item>
+        <div style={{ height: "1px", background: "var(--mantle-color-border)", margin: "4px 0" }} />
+        <Dropdown.Item onSelect={() => {}}>
+          <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <Shield size={15} /> Security
+          </span>
+        </Dropdown.Item>
+        <Dropdown.Item onSelect={() => {}}>
+          <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <Bell size={15} /> Notifications
+          </span>
+        </Dropdown.Item>
+        <div style={{ height: "1px", background: "var(--mantle-color-border)", margin: "4px 0" }} />
+        <Dropdown.Item onSelect={() => {}}>
+          <span style={{ display: "flex", alignItems: "center", gap: "8px", color: "var(--mantle-color-danger)" }}>
+            <Lock size={15} /> Sign Out
+          </span>
+        </Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+  );
+}
+
+render(<Demo />);`;
+
+const commandPaletteExample = `function Demo() {
+  return (
+    <Dropdown>
+      <Dropdown.Trigger>Actions</Dropdown.Trigger>
+      <Dropdown.Menu>
+        <div style={{ padding: "6px 12px", fontSize: "11px", fontWeight: 600, color: "var(--mantle-color-text-muted)", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+          Navigation
+        </div>
+        <Dropdown.Item onSelect={() => {}}>
+          <span style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%" }}>
+            <span style={{ display: "flex", alignItems: "center", gap: "8px" }}><Search size={14} /> Search</span>
+            <span style={{ fontSize: "11px", color: "var(--mantle-color-text-muted)" }}>⌘K</span>
+          </span>
+        </Dropdown.Item>
+        <Dropdown.Item onSelect={() => {}}>
+          <span style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%" }}>
+            <span style={{ display: "flex", alignItems: "center", gap: "8px" }}><Compass size={14} /> Go to Dashboard</span>
+            <span style={{ fontSize: "11px", color: "var(--mantle-color-text-muted)" }}>⌘D</span>
+          </span>
+        </Dropdown.Item>
+        <div style={{ height: "1px", background: "var(--mantle-color-border)", margin: "4px 0" }} />
+        <div style={{ padding: "6px 12px", fontSize: "11px", fontWeight: 600, color: "var(--mantle-color-text-muted)", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+          Edit
+        </div>
+        <Dropdown.Item onSelect={() => {}}>
+          <span style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%" }}>
+            <span style={{ display: "flex", alignItems: "center", gap: "8px" }}><ClipboardEdit size={14} /> Paste</span>
+            <span style={{ fontSize: "11px", color: "var(--mantle-color-text-muted)" }}>⌘V</span>
+          </span>
+        </Dropdown.Item>
+        <Dropdown.Item onSelect={() => {}}>
+          <span style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%" }}>
+            <span style={{ display: "flex", alignItems: "center", gap: "8px" }}><RefreshCw size={14} /> Undo</span>
+            <span style={{ fontSize: "11px", color: "var(--mantle-color-text-muted)" }}>⌘Z</span>
+          </span>
+        </Dropdown.Item>
+        <div style={{ height: "1px", background: "var(--mantle-color-border)", margin: "4px 0" }} />
+        <div style={{ padding: "6px 12px", fontSize: "11px", fontWeight: 600, color: "var(--mantle-color-text-muted)", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+          Danger Zone
+        </div>
+        <Dropdown.Item onSelect={() => {}}>
+          <span style={{ display: "flex", alignItems: "center", gap: "8px", color: "var(--mantle-color-danger)" }}>
+            <Trash2 size={14} /> Delete Project
+          </span>
+        </Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+  );
+}
+
+render(<Demo />);`;
+
+const userMenuExample = `function Demo() {
+  return (
+    <Dropdown>
+      <Dropdown.Trigger>
+        <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          <Avatar name="John Doe" size="sm" />
+          John Doe
+          <ChevronDown size={14} />
+        </span>
+      </Dropdown.Trigger>
+      <Dropdown.Menu>
+        <div style={{ padding: "8px 12px", display: "flex", alignItems: "center", gap: "10px" }}>
+          <Avatar name="John Doe" size="md" />
+          <div>
+            <div style={{ fontSize: "14px", fontWeight: 600, color: "var(--mantle-color-text)" }}>John Doe</div>
+            <div style={{ fontSize: "12px", color: "var(--mantle-color-text-muted)" }}>john@example.com</div>
+          </div>
+        </div>
+        <div style={{ height: "1px", background: "var(--mantle-color-border)", margin: "4px 0" }} />
+        <Dropdown.Item onSelect={() => {}}>
+          <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <Users size={15} /> Your Profile
+          </span>
+        </Dropdown.Item>
+        <Dropdown.Item onSelect={() => {}}>
+          <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <Star size={15} /> Your Stars
+          </span>
+        </Dropdown.Item>
+        <Dropdown.Item onSelect={() => {}}>
+          <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <Settings size={15} /> Settings
+          </span>
+        </Dropdown.Item>
+        <div style={{ height: "1px", background: "var(--mantle-color-border)", margin: "4px 0" }} />
+        <Dropdown.Item onSelect={() => {}}>
+          <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <Moon size={15} /> Dark Mode
+          </span>
+        </Dropdown.Item>
+        <div style={{ height: "1px", background: "var(--mantle-color-border)", margin: "4px 0" }} />
+        <Dropdown.Item onSelect={() => {}}>
+          <span style={{ display: "flex", alignItems: "center", gap: "8px", color: "var(--mantle-color-danger)" }}>
+            <Lock size={15} /> Sign Out
+          </span>
+        </Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+  );
+}
+
+render(<Demo />);`;
+
 const dropdownItemProps = [
   {
     name: "onSelect",
@@ -176,6 +332,30 @@ export default function DropdownPage() {
       </p>
       <div className="mt-4">
         <LivePlayground code={dangerExample} noEditor />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">With Sections</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Group items into sections with labels and separators.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={sectionsExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Command Palette</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Items with icons, section headers, and keyboard shortcut hints.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={commandPaletteExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">User Menu</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        A rich user menu with avatar header, grouped actions, and sign out.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={userMenuExample} />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Dropdown.Item Props</h2>
