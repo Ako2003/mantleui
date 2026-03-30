@@ -62,6 +62,12 @@ import {
   ThumbsUp,
   Video,
   Strikethrough,
+  Rocket,
+  Sparkles,
+  X,
+  PartyPopper,
+  ShieldCheck,
+  CreditCard as CreditCardIcon,
 } from "lucide-react";
 
 const scope = {
@@ -123,6 +129,12 @@ const scope = {
   ThumbsUp,
   Video,
   Strikethrough,
+  Rocket,
+  Sparkles,
+  X,
+  PartyPopper,
+  ShieldCheck,
+  CreditCardIcon,
 };
 
 const darkTheme: PrismTheme = {

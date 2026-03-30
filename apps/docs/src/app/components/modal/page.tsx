@@ -54,6 +54,170 @@ const longContentExample = `function Demo() {
 
 render(<Demo />);`;
 
+const welcomeExample = `function Demo() {
+  const [open, setOpen] = React.useState(false);
+  return (
+    <div>
+      <Button onClick={() => setOpen(true)}>Welcome Modal</Button>
+      <Modal open={open} onOpenChange={setOpen}>
+        <Modal.Content>
+          <div style={{ position: "relative", padding: "32px 24px 24px" }}>
+            <button
+              onClick={() => setOpen(false)}
+              style={{
+                position: "absolute", top: "16px", right: "16px",
+                background: "var(--mantle-color-bg-muted)", border: "none",
+                borderRadius: "9999px", width: "32px", height: "32px",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                cursor: "pointer", color: "var(--mantle-color-text-muted)",
+              }}
+            >
+              <X size={16} />
+            </button>
+            <div style={{
+              width: "48px", height: "48px", borderRadius: "12px",
+              background: "var(--mantle-color-bg-muted)",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              marginBottom: "20px",
+            }}>
+              <Rocket size={24} style={{ color: "var(--mantle-accent)" }} />
+            </div>
+            <h2 style={{ fontSize: "20px", fontWeight: 700, color: "var(--mantle-color-text)", margin: 0 }}>
+              Welcome to MantleUI
+            </h2>
+            <p style={{ fontSize: "14px", color: "var(--mantle-color-text-muted)", marginTop: "8px", lineHeight: 1.6 }}>
+              A beautiful, fast, and modern React UI library for building accessible and customizable web applications with ease.
+            </p>
+            <Button
+              onClick={() => setOpen(false)}
+              style={{ width: "100%", marginTop: "24px" }}
+              size="lg"
+            >
+              Continue
+            </Button>
+          </div>
+        </Modal.Content>
+      </Modal>
+    </div>
+  );
+}
+
+render(<Demo />);`;
+
+const successExample = `function Demo() {
+  const [open, setOpen] = React.useState(false);
+  return (
+    <div>
+      <Button color="green" onClick={() => setOpen(true)}>Payment Success</Button>
+      <Modal open={open} onOpenChange={setOpen}>
+        <Modal.Content>
+          <div style={{ padding: "32px 24px 24px", textAlign: "center" }}>
+            <div style={{
+              width: "56px", height: "56px", borderRadius: "9999px",
+              background: "var(--mantle-color-bg-muted)",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              margin: "0 auto 20px",
+            }}>
+              <ShieldCheck size={28} style={{ color: "#22c55e" }} />
+            </div>
+            <h2 style={{ fontSize: "20px", fontWeight: 700, color: "var(--mantle-color-text)", margin: 0 }}>
+              Payment Successful
+            </h2>
+            <p style={{ fontSize: "14px", color: "var(--mantle-color-text-muted)", marginTop: "8px", lineHeight: 1.6 }}>
+              Your payment of $49.99 has been processed successfully. A confirmation email has been sent to your inbox.
+            </p>
+            <div style={{ display: "flex", gap: "8px", marginTop: "24px" }}>
+              <Button
+                variant="outline"
+                onClick={() => setOpen(false)}
+                style={{ flex: 1 }}
+              >
+                View Receipt
+              </Button>
+              <Button
+                color="green"
+                onClick={() => setOpen(false)}
+                style={{ flex: 1 }}
+              >
+                Done
+              </Button>
+            </div>
+          </div>
+        </Modal.Content>
+      </Modal>
+    </div>
+  );
+}
+
+render(<Demo />);`;
+
+const upgradeExample = `function Demo() {
+  const [open, setOpen] = React.useState(false);
+  return (
+    <div>
+      <Button color="purple" onClick={() => setOpen(true)}>Upgrade Plan</Button>
+      <Modal open={open} onOpenChange={setOpen}>
+        <Modal.Content>
+          <div style={{ position: "relative", padding: "32px 24px 24px" }}>
+            <button
+              onClick={() => setOpen(false)}
+              style={{
+                position: "absolute", top: "16px", right: "16px",
+                background: "var(--mantle-color-bg-muted)", border: "none",
+                borderRadius: "9999px", width: "32px", height: "32px",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                cursor: "pointer", color: "var(--mantle-color-text-muted)",
+              }}
+            >
+              <X size={16} />
+            </button>
+            <div style={{
+              width: "48px", height: "48px", borderRadius: "12px",
+              background: "var(--mantle-color-bg-muted)",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              marginBottom: "20px",
+            }}>
+              <Sparkles size={24} style={{ color: "#8b5cf6" }} />
+            </div>
+            <h2 style={{ fontSize: "20px", fontWeight: 700, color: "var(--mantle-color-text)", margin: 0 }}>
+              Upgrade to Pro
+            </h2>
+            <p style={{ fontSize: "14px", color: "var(--mantle-color-text-muted)", marginTop: "8px", lineHeight: 1.6 }}>
+              Unlock advanced features and priority support.
+            </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginTop: "20px" }}>
+              {["Unlimited projects", "Priority support", "Custom domains", "Advanced analytics"].map((f) => (
+                <div key={f} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "14px", color: "var(--mantle-color-text)" }}>
+                  <Check size={16} style={{ color: "#8b5cf6" }} />
+                  {f}
+                </div>
+              ))}
+            </div>
+            <div style={{ display: "flex", gap: "8px", marginTop: "24px" }}>
+              <Button
+                variant="outline"
+                onClick={() => setOpen(false)}
+                style={{ flex: 1 }}
+              >
+                Maybe Later
+              </Button>
+              <Button
+                color="purple"
+                onClick={() => setOpen(false)}
+                style={{ flex: 1 }}
+              >
+                Upgrade — $19/mo
+              </Button>
+            </div>
+          </div>
+        </Modal.Content>
+      </Modal>
+    </div>
+  );
+}
+
+render(<Demo />);`;
+
 const modalProps = [
   {
     name: "open",
@@ -124,6 +288,30 @@ export default function ModalPage() {
       </p>
       <div className="mt-4">
         <LivePlayground code={longContentExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Welcome</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        An onboarding modal with icon, description, and a full-width CTA button.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={welcomeExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Success</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        A centered confirmation modal for successful actions.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={successExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Upgrade</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        A pricing/upgrade modal with feature checklist.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={upgradeExample} />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Modal Props</h2>
