@@ -64,7 +64,7 @@ const datePickerProps = [
   },
   {
     name: "color",
-    type: '"blue" | "red" | "green" | "yellow" | "purple" | "neutral"',
+    type: '"blue" | "red" | "green" | "yellow" | "purple" | "neutral" | string',
     default: '"blue"',
     description: "Accent color for focus ring and calendar selection.",
   },
