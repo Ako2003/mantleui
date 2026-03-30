@@ -16,10 +16,10 @@ const compoundExample = `<Popover>
 </Popover>`;
 
 const headlessExample = `function Demo() {
-  const { isOpen, triggerProps, contentProps } = usePopover();
+  const { isOpen, triggerProps, contentProps } = usePopover({ portal: true });
 
   return (
-    <div style={{ position: "relative", display: "inline-block" }}>
+    <div style={{ display: "inline-block" }}>
       <button
         {...triggerProps}
         style={{
@@ -33,7 +33,7 @@ const headlessExample = `function Demo() {
       >
         Headless Trigger
       </button>
-      {isOpen && (
+      {isOpen && ReactDOM.createPortal(
         <div
           {...contentProps}
           style={{
@@ -42,14 +42,16 @@ const headlessExample = `function Demo() {
             border: "1px solid var(--mantle-color-border)",
             borderRadius: "8px",
             background: "var(--mantle-color-bg-subtle)",
-            boxShadow: "var(--mantle-shadow-md)",
+            backdropFilter: "blur(12px)",
+            boxShadow: "0 10px 25px -5px rgba(0,0,0,0.2)",
             color: "var(--mantle-color-text)",
-            marginTop: "4px",
             minWidth: "200px",
+            zIndex: 9999,
           }}
         >
           Full rendering control with the headless hook!
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useCallback, useState } from "react";
+import ReactDOM from "react-dom";
 import { LiveProvider, LivePreview, LiveError } from "react-live";
 import { Highlight, type PrismTheme } from "prism-react-renderer";
 import * as MantleUI from "@mantleui/react";
@@ -65,6 +66,7 @@ import {
 
 const scope = {
   React,
+  ReactDOM,
   ...MantleUI,
   AlertCircle,
   AlertTriangle,
