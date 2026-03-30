@@ -1,6 +1,6 @@
 import type { HTMLAttributes, ReactNode } from "react";
 
-export type DrawerSide = "left" | "right" | "bottom";
+export type DrawerSide = "left" | "right" | "bottom" | "top";
 
 export interface DrawerProps extends HTMLAttributes<HTMLDivElement> {
   /** Whether the drawer is open. */

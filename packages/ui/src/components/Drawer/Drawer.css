@@ -53,6 +53,16 @@
   animation: mantle-drawer-slideInBottom var(--mantle-duration-normal) ease-out;
 }
 
+.mantle-drawer--top {
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  max-height: 50vh;
+  border-radius: 0 0 var(--mantle-radius-lg) var(--mantle-radius-lg);
+  animation: mantle-drawer-slideInTop var(--mantle-duration-normal) ease-out;
+}
+
 /* ─── Animations ─── */
 
 @keyframes mantle-drawer-fadeIn {
@@ -85,6 +95,15 @@
 @keyframes mantle-drawer-slideInBottom {
   from {
     transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes mantle-drawer-slideInTop {
+  from {
+    transform: translateY(-100%);
   }
   to {
     transform: translateY(0);

@@ -34,7 +34,7 @@ const sidesExample = `function Demo() {
   return (
     <div>
       <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-        {["left", "right", "bottom"].map((s) => (
+        {["left", "right", "top", "bottom"].map((s) => (
           <Button
             key={s}
             variant="outline"
@@ -76,7 +76,7 @@ const drawerProps = [
   },
   {
     name: "side",
-    type: '"left" | "right" | "bottom"',
+    type: '"left" | "right" | "top" | "bottom"',
     default: '"right"',
     description: "The side of the screen the drawer slides in from.",
   },
@@ -107,7 +107,7 @@ export default function DrawerPage() {
 
       <h2 className="mt-10 text-xl font-semibold">Sides</h2>
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
-        The drawer can slide in from the left, right, or bottom.
+        The drawer can slide in from the left, right, top, or bottom.
       </p>
       <div className="mt-4">
         <LivePlayground code={sidesExample} noEditor />
