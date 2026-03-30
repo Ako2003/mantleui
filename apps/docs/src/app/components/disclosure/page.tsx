@@ -3,25 +3,29 @@
 import { LivePlayground } from "@/components/LivePlayground";
 import { PropsTable } from "@/components/PropsTable";
 
-const basicExample = `<Disclosure>
-  <Disclosure.Trigger>Show more details</Disclosure.Trigger>
-  <Disclosure.Content>
-    Here are the additional details that were hidden. This content is revealed
-    when the trigger is clicked.
-  </Disclosure.Content>
-</Disclosure>`;
+const basicExample = `<div style={{ maxWidth: "480px" }}>
+  <Disclosure>
+    <Disclosure.Trigger>Show more details</Disclosure.Trigger>
+    <Disclosure.Content>
+      Here are the additional details that were hidden. This content is revealed
+      when the trigger is clicked.
+    </Disclosure.Content>
+  </Disclosure>
+</div>`;
 
-const defaultOpenExample = `<Disclosure defaultOpen>
-  <Disclosure.Trigger>Click to collapse</Disclosure.Trigger>
-  <Disclosure.Content>
-    This content is visible by default because defaultOpen is set to true.
-  </Disclosure.Content>
-</Disclosure>`;
+const defaultOpenExample = `<div style={{ maxWidth: "480px" }}>
+  <Disclosure defaultOpen>
+    <Disclosure.Trigger>Click to collapse</Disclosure.Trigger>
+    <Disclosure.Content>
+      This content is visible by default because defaultOpen is set to true.
+    </Disclosure.Content>
+  </Disclosure>
+</div>`;
 
 const controlledExample = `function Demo() {
   const [open, setOpen] = React.useState(false);
   return (
-    <div>
+    <div style={{ maxWidth: "480px" }}>
       <div style={{ marginBottom: "8px", fontSize: "14px", color: "var(--mantle-color-text)" }}>
         State: {open ? "Open" : "Closed"}
       </div>

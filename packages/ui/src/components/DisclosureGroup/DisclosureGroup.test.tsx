@@ -30,11 +30,11 @@ describe("DisclosureGroup", () => {
       renderGroup();
 
       await user.click(screen.getByRole("button", { name: /Section A/ }));
-      expect(screen.getByText("Content A")).toBeInTheDocument();
+      expect(screen.getByRole("button", { name: /Section A/ })).toHaveAttribute("aria-expanded", "true");
 
       await user.click(screen.getByRole("button", { name: /Section B/ }));
-      expect(screen.queryByText("Content A")).not.toBeInTheDocument();
-      expect(screen.getByText("Content B")).toBeInTheDocument();
+      expect(screen.getByRole("button", { name: /Section A/ })).toHaveAttribute("aria-expanded", "false");
+      expect(screen.getByRole("button", { name: /Section B/ })).toHaveAttribute("aria-expanded", "true");
     });
 
     it("can close an open disclosure", async () => {
@@ -42,10 +42,10 @@ describe("DisclosureGroup", () => {
       renderGroup();
 
       await user.click(screen.getByRole("button", { name: /Section A/ }));
-      expect(screen.getByText("Content A")).toBeInTheDocument();
+      expect(screen.getByRole("button", { name: /Section A/ })).toHaveAttribute("aria-expanded", "true");
 
       await user.click(screen.getByRole("button", { name: /Section A/ }));
-      expect(screen.queryByText("Content A")).not.toBeInTheDocument();
+      expect(screen.getByRole("button", { name: /Section A/ })).toHaveAttribute("aria-expanded", "false");
     });
   });
 
@@ -78,9 +78,9 @@ describe("DisclosureGroup", () => {
 
     it("all disclosures start closed", () => {
       renderGroup();
-      expect(screen.queryByText("Content A")).not.toBeInTheDocument();
-      expect(screen.queryByText("Content B")).not.toBeInTheDocument();
-      expect(screen.queryByText("Content C")).not.toBeInTheDocument();
+      expect(screen.getByRole("button", { name: /Section A/ })).toHaveAttribute("aria-expanded", "false");
+      expect(screen.getByRole("button", { name: /Section B/ })).toHaveAttribute("aria-expanded", "false");
+      expect(screen.getByRole("button", { name: /Section C/ })).toHaveAttribute("aria-expanded", "false");
     });
   });
 });

@@ -133,20 +133,27 @@ const DisclosureContent = forwardRef<HTMLDivElement, DisclosureContentProps>(
   function DisclosureContent({ className, children, ...rest }, ref) {
     const { isOpen, triggerId, contentId } = useDisclosureContext();
 
-    if (!isOpen) return null;
-
     return (
       <div
-        ref={ref}
-        id={contentId}
-        role="region"
-        aria-labelledby={triggerId}
-        className={["mantle-disclosure-content", className]
+        className={[
+          "mantle-disclosure-contentWrapper",
+          isOpen && "mantle-disclosure-contentWrapper--open",
+        ]
           .filter(Boolean)
           .join(" ")}
-        {...rest}
       >
-        {children}
+        <div
+          ref={ref}
+          id={contentId}
+          role="region"
+          aria-labelledby={triggerId}
+          className={["mantle-disclosure-content", className]
+            .filter(Boolean)
+            .join(" ")}
+          {...rest}
+        >
+          {children}
+        </div>
       </div>
     );
   },

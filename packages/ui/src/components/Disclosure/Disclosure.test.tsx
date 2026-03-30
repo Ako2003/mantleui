@@ -33,7 +33,9 @@ describe("Disclosure", () => {
 
     it("content is hidden by default", () => {
       renderDisclosure();
-      expect(screen.queryByText("Hidden content")).not.toBeInTheDocument();
+      // Content is in DOM but visually hidden via grid animation
+      const trigger = screen.getByRole("button", { name: /Toggle/ });
+      expect(trigger).toHaveAttribute("aria-expanded", "false");
     });
 
     it("content is visible when defaultOpen is true", () => {
@@ -51,7 +53,7 @@ describe("Disclosure", () => {
       expect(screen.getByText("Hidden content")).toBeInTheDocument();
 
       await user.click(screen.getByRole("button", { name: /Toggle/ }));
-      expect(screen.queryByText("Hidden content")).not.toBeInTheDocument();
+      expect(screen.getByRole("button", { name: /Toggle/ })).toHaveAttribute("aria-expanded", "false");
     });
   });
 
