@@ -1,22 +1,52 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useControllable } from "../../hooks";
-import type { UsePopoverOptions, UsePopoverReturn } from "./Popover.types";
+import type {
+  PopoverPlacement,
+  UsePopoverOptions,
+  UsePopoverReturn,
+} from "./Popover.types";
+
+function calcPosition(
+  trigger: HTMLElement,
+  placement: PopoverPlacement,
+): React.CSSProperties {
+  const rect = trigger.getBoundingClientRect();
+  const gap = 8;
+  const style: React.CSSProperties = { position: "fixed" };
+
+  if (placement.startsWith("bottom")) {
+    style.top = rect.bottom + gap;
+  } else if (placement.startsWith("top")) {
+    style.bottom = window.innerHeight - rect.top + gap;
+  } else if (placement.startsWith("left")) {
+    style.right = window.innerWidth - rect.left + gap;
+  } else if (placement.startsWith("right")) {
+    style.left = rect.right + gap;
+  }
+
+  if (placement === "bottom" || placement === "top") {
+    style.left = rect.left + rect.width / 2;
+    style.transform = "translateX(-50%)";
+  } else if (placement === "bottom-start" || placement === "top-start") {
+    style.left = rect.left;
+  } else if (placement === "bottom-end" || placement === "top-end") {
+    style.right = window.innerWidth - rect.right;
+  }
+
+  if (placement === "left" || placement === "right") {
+    style.top = rect.top + rect.height / 2;
+    style.transform = "translateY(-50%)";
+  } else if (placement === "left-start" || placement === "right-start") {
+    style.top = rect.top;
+  } else if (placement === "left-end" || placement === "right-end") {
+    style.bottom = window.innerHeight - rect.bottom;
+  }
+
+  return style;
+}
 
 /**
- * Headless hook for popover behavior. Use this when you need full control
- * over rendering, or use the `<Popover>` compound component for convenience.
- *
- * @example
- * ```tsx
- * const { isOpen, triggerProps, contentProps } = usePopover();
- *
- * return (
- *   <div style={{ position: "relative" }}>
- *     <button {...triggerProps}>Open</button>
- *     {isOpen && <div {...contentProps}>Content</div>}
- *   </div>
- * );
- * ```
+ * Headless hook for popover behavior.
  */
 export function usePopover({
   open,
@@ -42,55 +72,27 @@ export function usePopover({
     [setIsOpen],
   );
 
-  // Calculate fixed position when using portal mode (useLayoutEffect to avoid jump)
+  // Sync position before paint
   useLayoutEffect(() => {
     if (!portal || !isOpen || !triggerRef.current) return;
+    setPortalStyle(calcPosition(triggerRef.current, placement));
+  }, [portal, isOpen, placement]);
 
-    const updatePosition = () => {
-      const trigger = triggerRef.current;
-      if (!trigger) return;
+  // Keep position updated on scroll/resize
+  useEffect(() => {
+    if (!portal || !isOpen || !triggerRef.current) return;
 
-      const rect = trigger.getBoundingClientRect();
-      const gap = 8;
-      const style: React.CSSProperties = { position: "fixed" };
-
-      if (placement.startsWith("bottom")) {
-        style.top = rect.bottom + gap;
-      } else if (placement.startsWith("top")) {
-        style.bottom = window.innerHeight - rect.top + gap;
-      } else if (placement.startsWith("left")) {
-        style.right = window.innerWidth - rect.left + gap;
-      } else if (placement.startsWith("right")) {
-        style.left = rect.right + gap;
+    const update = () => {
+      if (triggerRef.current) {
+        setPortalStyle(calcPosition(triggerRef.current, placement));
       }
-
-      if (placement === "bottom" || placement === "top") {
-        style.left = rect.left + rect.width / 2;
-        style.transform = "translateX(-50%)";
-      } else if (placement === "bottom-start" || placement === "top-start") {
-        style.left = rect.left;
-      } else if (placement === "bottom-end" || placement === "top-end") {
-        style.right = window.innerWidth - rect.right;
-      }
-
-      if (placement === "left" || placement === "right") {
-        style.top = rect.top + rect.height / 2;
-        style.transform = "translateY(-50%)";
-      } else if (placement === "left-start" || placement === "right-start") {
-        style.top = rect.top;
-      } else if (placement === "left-end" || placement === "right-end") {
-        style.bottom = window.innerHeight - rect.bottom;
-      }
-
-      setPortalStyle(style);
     };
 
-    updatePosition();
-    window.addEventListener("scroll", updatePosition, true);
-    window.addEventListener("resize", updatePosition);
+    window.addEventListener("scroll", update, true);
+    window.addEventListener("resize", update);
     return () => {
-      window.removeEventListener("scroll", updatePosition, true);
-      window.removeEventListener("resize", updatePosition);
+      window.removeEventListener("scroll", update, true);
+      window.removeEventListener("resize", update);
     };
   }, [portal, isOpen, placement]);
 
@@ -140,9 +142,15 @@ export function usePopover({
     "right-end": { left: "100%", bottom: "0" },
   };
 
-  const contentStyle: React.CSSProperties = portal
-    ? portalStyle
-    : { position: "absolute", ...relativePlacement[placement] };
+  // Compute initial style synchronously for portal mode
+  const getPortalStyle = (): React.CSSProperties => {
+    if (!portal) return { position: "absolute", ...relativePlacement[placement] };
+    // If we already have computed style, use it
+    if (portalStyle.position) return portalStyle;
+    // Otherwise compute from trigger ref synchronously
+    if (triggerRef.current) return calcPosition(triggerRef.current, placement);
+    return { position: "fixed", opacity: 0 };
+  };
 
   return {
     isOpen,
@@ -162,7 +170,7 @@ export function usePopover({
         contentRef.current = node;
       },
       role: "dialog" as const,
-      style: contentStyle,
+      style: getPortalStyle(),
     },
   };
 }
