@@ -55,11 +55,14 @@
   overflow: hidden;
 }
 
+.mantle-disclosure-contentWrapper--open > .mantle-disclosure-content {
+  border-top: 1px solid var(--mantle-color-border);
+}
+
 .mantle-disclosure-content {
   padding: var(--mantle-space-3) var(--mantle-space-4);
   font-family: var(--mantle-font-sans);
   font-size: var(--mantle-text-sm);
   color: var(--mantle-color-text-muted);
   line-height: 1.5;
-  border-top: 1px solid var(--mantle-color-border);
 }
