@@ -100,35 +100,47 @@
 }
 
 /* Remove double border */
-.mantle-buttongroupHorizontal > .mantle-dropdown:not(:first-child) > .mantle-dropdown-trigger {
+.mantle-buttongroupHorizontal
+  > .mantle-dropdown:not(:first-child)
+  > .mantle-dropdown-trigger {
   border-left-width: 0 !important;
 }
 
 /* Divider restores it */
-.mantle-buttongroupDivider.mantle-buttongroupHorizontal > .mantle-dropdown:not(:first-child) > .mantle-dropdown-trigger {
+.mantle-buttongroupDivider.mantle-buttongroupHorizontal
+  > .mantle-dropdown:not(:first-child)
+  > .mantle-dropdown-trigger {
   border-left-width: 1px !important;
   border-left-color: var(--mantle-color-border) !important;
 }
 
 /* Radius: last child */
-.mantle-buttongroupHorizontal > .mantle-dropdown:last-child > .mantle-dropdown-trigger {
+.mantle-buttongroupHorizontal
+  > .mantle-dropdown:last-child
+  > .mantle-dropdown-trigger {
   border-top-right-radius: var(--mantle-radius-md) !important;
   border-bottom-right-radius: var(--mantle-radius-md) !important;
 }
 
-.mantle-buttongroupPill.mantle-buttongroupHorizontal > .mantle-dropdown:last-child > .mantle-dropdown-trigger {
+.mantle-buttongroupPill.mantle-buttongroupHorizontal
+  > .mantle-dropdown:last-child
+  > .mantle-dropdown-trigger {
   border-top-right-radius: var(--mantle-radius-full) !important;
   border-bottom-right-radius: var(--mantle-radius-full) !important;
   padding-right: 1.25em !important;
 }
 
 /* Radius: first child */
-.mantle-buttongroupHorizontal > .mantle-dropdown:first-child > .mantle-dropdown-trigger {
+.mantle-buttongroupHorizontal
+  > .mantle-dropdown:first-child
+  > .mantle-dropdown-trigger {
   border-top-left-radius: var(--mantle-radius-md) !important;
   border-bottom-left-radius: var(--mantle-radius-md) !important;
 }
 
-.mantle-buttongroupPill.mantle-buttongroupHorizontal > .mantle-dropdown:first-child > .mantle-dropdown-trigger {
+.mantle-buttongroupPill.mantle-buttongroupHorizontal
+  > .mantle-dropdown:first-child
+  > .mantle-dropdown-trigger {
   border-top-left-radius: var(--mantle-radius-full) !important;
   border-bottom-left-radius: var(--mantle-radius-full) !important;
   padding-left: 1.25em !important;

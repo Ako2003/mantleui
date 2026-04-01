@@ -22,7 +22,13 @@ function PopoverRoot({
   color = "blue",
 }: PopoverProps) {
   const { dataColor, colorStyle } = resolveColor(color);
-  const popover = usePopover({ open, defaultOpen, onOpenChange, placement, portal: true });
+  const popover = usePopover({
+    open,
+    defaultOpen,
+    onOpenChange,
+    placement,
+    portal: true,
+  });
 
   return (
     <PopoverContext.Provider value={popover}>

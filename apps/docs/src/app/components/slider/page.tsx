@@ -182,15 +182,13 @@ const sliderProps = [
   {
     name: "value",
     type: "number | [number, number]",
-    description:
-      "Controlled value. Pass a tuple for range mode.",
+    description: "Controlled value. Pass a tuple for range mode.",
   },
   {
     name: "defaultValue",
     type: "number | [number, number]",
     default: "0",
-    description:
-      "Default value (uncontrolled). Pass a tuple for range mode.",
+    description: "Default value (uncontrolled). Pass a tuple for range mode.",
   },
   {
     name: "onValueChange",
@@ -254,7 +252,8 @@ const sliderProps = [
     name: "showSteps",
     type: "boolean",
     default: "false",
-    description: "Displays visible tick marks at each step interval on the track.",
+    description:
+      "Displays visible tick marks at each step interval on the track.",
   },
 ];
 
@@ -292,8 +291,11 @@ export default function SliderPage() {
 
       <h2 className="mt-10 text-xl font-semibold">Range</h2>
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
-        Pass a <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">[min, max]</code> tuple
-        to enable two-thumb range selection.
+        Pass a{" "}
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
+          [min, max]
+        </code>{" "}
+        tuple to enable two-thumb range selection.
       </p>
       <div className="mt-4">
         <LivePlayground code={rangeExample} />
@@ -306,8 +308,11 @@ export default function SliderPage() {
 
       <h2 className="mt-10 text-xl font-semibold">Step Marks</h2>
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
-        Enable <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">showSteps</code> to
-        display visible tick marks at each step interval.
+        Enable{" "}
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
+          showSteps
+        </code>{" "}
+        to display visible tick marks at each step interval.
       </p>
       <div className="mt-4">
         <LivePlayground code={stepsExample} />

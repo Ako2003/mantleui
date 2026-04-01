@@ -72,7 +72,9 @@ describe("Slider", () => {
 
   it("responds to Home and End keys", () => {
     const onChange = vi.fn();
-    render(<Slider defaultValue={50} onValueChange={onChange} min={0} max={100} />);
+    render(
+      <Slider defaultValue={50} onValueChange={onChange} min={0} max={100} />,
+    );
     const slider = screen.getByRole("slider");
 
     fireEvent.keyDown(slider, { key: "Home" });

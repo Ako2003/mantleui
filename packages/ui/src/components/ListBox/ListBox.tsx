@@ -144,7 +144,9 @@ export const ListBox = forwardRef<HTMLDivElement, ListBoxProps>(
                 .filter(Boolean)
                 .join(" ")}
             >
-              {renderItem ? renderItem(item, isSelected) : (item.label ?? item.value)}
+              {renderItem
+                ? renderItem(item, isSelected)
+                : (item.label ?? item.value)}
             </div>
           );
         })}

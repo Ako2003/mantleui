@@ -68,67 +68,66 @@ function StepMarks({
  * <Slider orientation="vertical" defaultValue={60} />
  * ```
  */
-export const Slider = forwardRef<HTMLDivElement, SliderProps>(function Slider(
-  props,
-  ref,
-) {
-  const {
-    min = 0,
-    max = 100,
-    step = 1,
-    color = "blue",
-    disabled,
-    label,
-    showValue,
-    orientation = "horizontal",
-    size = "md",
-    className,
-    ...rest
-  } = props;
+export const Slider = forwardRef<HTMLDivElement, SliderProps>(
+  function Slider(props, ref) {
+    const {
+      min = 0,
+      max = 100,
+      step = 1,
+      color = "blue",
+      disabled,
+      label,
+      showValue,
+      orientation = "horizontal",
+      size = "md",
+      className,
+      ...rest
+    } = props;
 
-  const showSteps = props.showSteps ?? false;
-  const isRange = isRangeProps(props);
+    const showSteps = props.showSteps ?? false;
+    const isRange = isRangeProps(props);
 
-  return isRange ? (
-    <RangeSlider
-      ref={ref}
-      {...(rest as Omit<SliderRangeProps, keyof typeof props>)}
-      value={(props as SliderRangeProps).value}
-      defaultValue={(props as SliderRangeProps).defaultValue}
-      onValueChange={(props as SliderRangeProps).onValueChange}
-      min={min}
-      max={max}
-      step={step}
-      color={color}
-      disabled={disabled}
-      label={label}
-      showValue={showValue}
-      showSteps={showSteps}
-      orientation={orientation}
-      size={size}
-      className={className}
-    />
-  ) : (
-    <SingleSlider
-      ref={ref}
-      {...(rest as Omit<SliderSingleProps, keyof typeof props>)}
-      value={(props as SliderSingleProps).value}
-      defaultValue={(props as SliderSingleProps).defaultValue}
-      onValueChange={(props as SliderSingleProps).onValueChange}
-      min={min}
-      max={max}
-      step={step}
-      color={color}
-      disabled={disabled}
-      label={label}
-      showValue={showValue}
-      showSteps={showSteps}
-      orientation={orientation}
-      size={size}
-      className={className}
-    />
-  );
-});
+    return isRange ? (
+      <RangeSlider
+        ref={ref}
+        {...(rest as Omit<SliderRangeProps, keyof typeof props>)}
+        value={(props as SliderRangeProps).value}
+        defaultValue={(props as SliderRangeProps).defaultValue}
+        onValueChange={(props as SliderRangeProps).onValueChange}
+        min={min}
+        max={max}
+        step={step}
+        color={color}
+        disabled={disabled}
+        label={label}
+        showValue={showValue}
+        showSteps={showSteps}
+        orientation={orientation}
+        size={size}
+        className={className}
+      />
+    ) : (
+      <SingleSlider
+        ref={ref}
+        {...(rest as Omit<SliderSingleProps, keyof typeof props>)}
+        value={(props as SliderSingleProps).value}
+        defaultValue={(props as SliderSingleProps).defaultValue}
+        onValueChange={(props as SliderSingleProps).onValueChange}
+        min={min}
+        max={max}
+        step={step}
+        color={color}
+        disabled={disabled}
+        label={label}
+        showValue={showValue}
+        showSteps={showSteps}
+        orientation={orientation}
+        size={size}
+        className={className}
+      />
+    );
+  },
+);
 
 Slider.displayName = "Slider";
 
@@ -455,17 +454,13 @@ const RangeSlider = forwardRef<HTMLDivElement, SliderRangeProps>(
           <div
             className="mantle-slider-thumb"
             style={
-              isVertical
-                ? { bottom: `${pctLow}%` }
-                : { left: `${pctLow}%` }
+              isVertical ? { bottom: `${pctLow}%` } : { left: `${pctLow}%` }
             }
           />
           <div
             className="mantle-slider-thumb"
             style={
-              isVertical
-                ? { bottom: `${pctHigh}%` }
-                : { left: `${pctHigh}%` }
+              isVertical ? { bottom: `${pctHigh}%` } : { left: `${pctHigh}%` }
             }
           />
         </div>

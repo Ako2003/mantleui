@@ -95,7 +95,11 @@ export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
     const isAtMax = max !== undefined && value >= max;
 
     return (
-      <div className="mantle-numberFieldWrapper" data-color={dataColor} style={colorStyle}>
+      <div
+        className="mantle-numberFieldWrapper"
+        data-color={dataColor}
+        style={colorStyle}
+      >
         {label && (
           <label
             htmlFor={generatedId}

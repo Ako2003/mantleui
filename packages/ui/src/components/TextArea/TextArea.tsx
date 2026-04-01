@@ -48,7 +48,11 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
         : undefined;
 
     return (
-      <div className="mantle-textAreaWrapper" data-color={dataColor} style={colorStyle}>
+      <div
+        className="mantle-textAreaWrapper"
+        data-color={dataColor}
+        style={colorStyle}
+      >
         {label && (
           <label
             htmlFor={id}

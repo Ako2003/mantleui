@@ -30,11 +30,20 @@ describe("DisclosureGroup", () => {
       renderGroup();
 
       await user.click(screen.getByRole("button", { name: /Section A/ }));
-      expect(screen.getByRole("button", { name: /Section A/ })).toHaveAttribute("aria-expanded", "true");
+      expect(screen.getByRole("button", { name: /Section A/ })).toHaveAttribute(
+        "aria-expanded",
+        "true",
+      );
 
       await user.click(screen.getByRole("button", { name: /Section B/ }));
-      expect(screen.getByRole("button", { name: /Section A/ })).toHaveAttribute("aria-expanded", "false");
-      expect(screen.getByRole("button", { name: /Section B/ })).toHaveAttribute("aria-expanded", "true");
+      expect(screen.getByRole("button", { name: /Section A/ })).toHaveAttribute(
+        "aria-expanded",
+        "false",
+      );
+      expect(screen.getByRole("button", { name: /Section B/ })).toHaveAttribute(
+        "aria-expanded",
+        "true",
+      );
     });
 
     it("can close an open disclosure", async () => {
@@ -42,10 +51,16 @@ describe("DisclosureGroup", () => {
       renderGroup();
 
       await user.click(screen.getByRole("button", { name: /Section A/ }));
-      expect(screen.getByRole("button", { name: /Section A/ })).toHaveAttribute("aria-expanded", "true");
+      expect(screen.getByRole("button", { name: /Section A/ })).toHaveAttribute(
+        "aria-expanded",
+        "true",
+      );
 
       await user.click(screen.getByRole("button", { name: /Section A/ }));
-      expect(screen.getByRole("button", { name: /Section A/ })).toHaveAttribute("aria-expanded", "false");
+      expect(screen.getByRole("button", { name: /Section A/ })).toHaveAttribute(
+        "aria-expanded",
+        "false",
+      );
     });
   });
 
@@ -78,9 +93,18 @@ describe("DisclosureGroup", () => {
 
     it("all disclosures start closed", () => {
       renderGroup();
-      expect(screen.getByRole("button", { name: /Section A/ })).toHaveAttribute("aria-expanded", "false");
-      expect(screen.getByRole("button", { name: /Section B/ })).toHaveAttribute("aria-expanded", "false");
-      expect(screen.getByRole("button", { name: /Section C/ })).toHaveAttribute("aria-expanded", "false");
+      expect(screen.getByRole("button", { name: /Section A/ })).toHaveAttribute(
+        "aria-expanded",
+        "false",
+      );
+      expect(screen.getByRole("button", { name: /Section B/ })).toHaveAttribute(
+        "aria-expanded",
+        "false",
+      );
+      expect(screen.getByRole("button", { name: /Section C/ })).toHaveAttribute(
+        "aria-expanded",
+        "false",
+      );
     });
   });
 });

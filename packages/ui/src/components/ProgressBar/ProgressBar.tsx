@@ -63,7 +63,11 @@ export const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
 
     if (showValue || label) {
       return (
-        <div className="mantle-progress-bar-wrapper" data-color={dataColor} style={colorStyle}>
+        <div
+          className="mantle-progress-bar-wrapper"
+          data-color={dataColor}
+          style={colorStyle}
+        >
           {(showValue || label) && (
             <div className="mantle-progress-bar-header">
               {label && <span>{label}</span>}

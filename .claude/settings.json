@@ -13,7 +13,14 @@
       "Read(//Users/akifmursalov/Documents/project/packages/ui/src/components/$comp/**)",
       "Bash(grep -rn \"\\\\.mantle-trigger \" /Users/akifmursalov/Documents/project/packages/ui/src/components/*/ --include=\"*.css\")",
       "Bash(grep -rn \"startIcon\\\\|endIcon\\\\|startContent\\\\|endContent\" /Users/akifmursalov/Documents/project/packages/ui/src/components/*/**.types.ts)",
-      "Bash(pnpm --filter @mantleui/docs build)"
+      "Bash(pnpm --filter @mantleui/docs build)",
+      "Bash(pnpm --filter docs build)",
+      "Bash(npx turbo:*)",
+      "Bash(npx -w packages/ui vitest run src/components/Switch)",
+      "Bash(find apps/docs/src/app/components -name \"page.tsx\" -exec grep -l 'blue.*red.*green.*yellow.*purple.*neutral' {})",
+      "Bash(while read:*)",
+      "Bash(do sed:*)",
+      "Bash(npx prettier:*)"
     ]
   }
 }

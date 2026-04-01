@@ -49,7 +49,11 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
         : undefined;
 
     return (
-      <div className="mantle-textFieldWrapper" data-color={dataColor} style={colorStyle}>
+      <div
+        className="mantle-textFieldWrapper"
+        data-color={dataColor}
+        style={colorStyle}
+      >
         {label && (
           <label
             htmlFor={id}

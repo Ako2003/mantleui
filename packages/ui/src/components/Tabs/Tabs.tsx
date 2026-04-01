@@ -58,7 +58,9 @@ const TabsRoot = forwardRef<HTMLDivElement, TabsProps>(function TabsRoot(
           "mantle-tabs",
           orientation === "vertical" && "mantle-tabsVertical",
           className,
-        ].filter(Boolean).join(" ")}
+        ]
+          .filter(Boolean)
+          .join(" ")}
         {...rest}
       >
         {children}
@@ -180,12 +182,17 @@ const TabsList = forwardRef<HTMLDivElement, TabsListProps>(function TabsList(
         isPill && "mantle-tabsListPill",
         isVertical && "mantle-tabsListVertical",
         className,
-      ].filter(Boolean).join(" ")}
+      ]
+        .filter(Boolean)
+        .join(" ")}
       onKeyDown={handleKeyDown}
       {...rest}
     >
       {children}
-      <span className={isPill ? "mantle-tabsIndicatorPill" : "mantle-tabsIndicator"} style={indicatorStyle} />
+      <span
+        className={isPill ? "mantle-tabsIndicatorPill" : "mantle-tabsIndicator"}
+        style={indicatorStyle}
+      />
     </div>
   );
 });

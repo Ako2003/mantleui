@@ -143,7 +143,8 @@ const tabsProps = [
     name: "variant",
     type: '"underline" | "pill"',
     default: '"underline"',
-    description: "Visual variant. Pill uses a rounded container with sliding background.",
+    description:
+      "Visual variant. Pill uses a rounded container with sliding background.",
   },
   {
     name: "orientation",

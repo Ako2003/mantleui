@@ -75,7 +75,9 @@ describe("TimeField", () => {
     const clockBtn = screen.getByLabelText("Open time picker");
     fireEvent.click(clockBtn);
     expect(screen.getByRole("listbox", { name: "Hours" })).toBeInTheDocument();
-    expect(screen.getByRole("listbox", { name: "Minutes" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("listbox", { name: "Minutes" }),
+    ).toBeInTheDocument();
   });
 
   it("selects hour from dropdown", () => {

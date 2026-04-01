@@ -89,7 +89,12 @@ function DropdownRoot({ children, color = "blue" }: DropdownProps) {
         setItemCount,
       }}
     >
-      <div ref={containerRef} className="mantle-dropdown" data-color={dataColor} style={colorStyle}>
+      <div
+        ref={containerRef}
+        className="mantle-dropdown"
+        data-color={dataColor}
+        style={colorStyle}
+      >
         {children}
       </div>
     </DropdownContext.Provider>

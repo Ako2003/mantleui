@@ -53,7 +53,10 @@ describe("Disclosure", () => {
       expect(screen.getByText("Hidden content")).toBeInTheDocument();
 
       await user.click(screen.getByRole("button", { name: /Toggle/ }));
-      expect(screen.getByRole("button", { name: /Toggle/ })).toHaveAttribute("aria-expanded", "false");
+      expect(screen.getByRole("button", { name: /Toggle/ })).toHaveAttribute(
+        "aria-expanded",
+        "false",
+      );
     });
   });
 

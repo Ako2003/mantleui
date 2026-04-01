@@ -32,7 +32,12 @@ function useModalContext() {
 
 /* ─── Root ─── */
 
-function ModalRoot({ open, onOpenChange, backdrop = "opaque", children }: ModalProps) {
+function ModalRoot({
+  open,
+  onOpenChange,
+  backdrop = "opaque",
+  children,
+}: ModalProps) {
   const onClose = useCallback(() => onOpenChange(false), [onOpenChange]);
 
   // Close on Escape
@@ -84,11 +89,15 @@ const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(
 
     return (
       <>
-        <div className={[
-          "mantle-modal-overlay",
-          backdrop === "blur" && "mantle-modal-overlay-blur",
-          backdrop === "transparent" && "mantle-modal-overlay-transparent",
-        ].filter(Boolean).join(" ")} />
+        <div
+          className={[
+            "mantle-modal-overlay",
+            backdrop === "blur" && "mantle-modal-overlay-blur",
+            backdrop === "transparent" && "mantle-modal-overlay-transparent",
+          ]
+            .filter(Boolean)
+            .join(" ")}
+        />
         {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
         <div className="mantle-modal-positioner" onClick={handleOverlayClick}>
           <div

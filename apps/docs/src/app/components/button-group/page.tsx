@@ -189,9 +189,15 @@ export default function ButtonGroupPage() {
 
       <h2 className="mt-10 text-xl font-semibold">Pill Shape</h2>
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
-        Use <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">pill</code> for
-        fully rounded corners and <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">divider</code> to
-        show separator lines between buttons.
+        Use{" "}
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
+          pill
+        </code>{" "}
+        for fully rounded corners and{" "}
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
+          divider
+        </code>{" "}
+        to show separator lines between buttons.
       </p>
       <div className="mt-4">
         <LivePlayground code={pillExample} />

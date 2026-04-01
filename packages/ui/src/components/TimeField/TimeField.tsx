@@ -1,10 +1,4 @@
-import {
-  forwardRef,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { forwardRef, useCallback, useEffect, useRef, useState } from "react";
 import { useControllable, useId } from "../../hooks";
 import { resolveColor } from "../../utils";
 import type { TimeFieldProps } from "./TimeField.types";
@@ -119,10 +113,7 @@ export const TimeField = forwardRef<HTMLDivElement, TimeFieldProps>(
     );
 
     const handleSegmentKeyDown = useCallback(
-      (
-        e: React.KeyboardEvent<HTMLInputElement>,
-        type: "hour" | "minute",
-      ) => {
+      (e: React.KeyboardEvent<HTMLInputElement>, type: "hour" | "minute") => {
         const current = type === "hour" ? (hours ?? 0) : (minutes ?? 0);
         const increment = type === "minute" ? step : 1;
         const maxVal = type === "hour" ? 23 : 59;

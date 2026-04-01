@@ -1,8 +1,10 @@
 import type { HTMLAttributes } from "react";
 import type { MantleColor } from "../../theme/colors";
 
-interface SliderBaseProps
-  extends Omit<HTMLAttributes<HTMLDivElement>, "defaultValue" | "color" | "onChange"> {
+interface SliderBaseProps extends Omit<
+  HTMLAttributes<HTMLDivElement>,
+  "defaultValue" | "color" | "onChange"
+> {
   /** Minimum value. Defaults to `0`. */
   min?: number;
   /** Maximum value. Defaults to `100`. */

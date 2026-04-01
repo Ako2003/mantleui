@@ -191,7 +191,8 @@ const listBoxProps = [
   {
     name: "renderItem",
     type: "(item: ListBoxItem, selected: boolean) => ReactNode",
-    description: "Custom render function for each item. Receives the item data and selection state.",
+    description:
+      "Custom render function for each item. Receives the item data and selection state.",
   },
 ];
 
