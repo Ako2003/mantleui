@@ -59,6 +59,11 @@
   height: 1.5rem;
 }
 
+.mantle-switchLg {
+  width: 3.5rem;
+  height: 1.875rem;
+}
+
 /* Thumb */
 .mantle-switchThumb {
   display: flex;
@@ -96,6 +101,11 @@
   height: 12px;
 }
 
+.mantle-switchLg .mantle-switchThumbIcon svg {
+  width: 14px;
+  height: 14px;
+}
+
 .mantle-switchSm .mantle-switchThumb {
   width: 0.875rem;
   height: 0.875rem;
@@ -112,4 +122,13 @@
 
 .mantle-switchChecked.mantle-switchMd .mantle-switchThumb {
   transform: translateX(1.25rem);
+}
+
+.mantle-switchLg .mantle-switchThumb {
+  width: 1.625rem;
+  height: 1.625rem;
+}
+
+.mantle-switchChecked.mantle-switchLg .mantle-switchThumb {
+  transform: translateX(1.625rem);
 }

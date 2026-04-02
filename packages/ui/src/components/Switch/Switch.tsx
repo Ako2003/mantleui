@@ -45,7 +45,12 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
       }
     });
 
-    const sizeClass = size === "sm" ? "mantle-switchSm" : "mantle-switchMd";
+    const sizeClass =
+      size === "sm"
+        ? "mantle-switchSm"
+        : size === "lg"
+          ? "mantle-switchLg"
+          : "mantle-switchMd";
 
     const switchEl = (
       <button
