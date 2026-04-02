@@ -3,31 +3,35 @@
 import { LivePlayground } from "@/components/LivePlayground";
 import { PropsTable } from "@/components/PropsTable";
 
-const basicExample = `<ListBox
-  items={[
-    { value: "apple", label: "Apple" },
-    { value: "banana", label: "Banana" },
-    { value: "cherry", label: "Cherry" },
-    { value: "grape", label: "Grape" },
-  ]}
-  defaultValue="apple"
-/>`;
+const basicExample = `<div style={{ maxWidth: "320px" }}>
+  <ListBox
+    items={[
+      { value: "apple", label: "Apple" },
+      { value: "banana", label: "Banana" },
+      { value: "cherry", label: "Cherry" },
+      { value: "grape", label: "Grape" },
+    ]}
+    defaultValue="apple"
+  />
+</div>`;
 
-const multipleExample = `<ListBox
-  items={[
-    { value: "react", label: "React" },
-    { value: "vue", label: "Vue" },
-    { value: "angular", label: "Angular" },
-    { value: "svelte", label: "Svelte" },
-  ]}
-  multiple
-  defaultValue={["react", "svelte"]}
-/>`;
+const multipleExample = `<div style={{ maxWidth: "320px" }}>
+  <ListBox
+    items={[
+      { value: "react", label: "React" },
+      { value: "vue", label: "Vue" },
+      { value: "angular", label: "Angular" },
+      { value: "svelte", label: "Svelte" },
+    ]}
+    multiple
+    defaultValue={["react", "svelte"]}
+  />
+</div>`;
 
 const controlledExample = `function Demo() {
   const [value, setValue] = React.useState("banana");
   return (
-    <div>
+    <div style={{ maxWidth: "320px" }}>
       <ListBox
         items={[
           { value: "apple", label: "Apple" },

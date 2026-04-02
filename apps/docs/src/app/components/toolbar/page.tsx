@@ -70,14 +70,14 @@ const drawingToolsExample = `function Demo() {
   const colors = ["#ef4444", "#eab308", "#22c55e", "#3b82f6", "#8b5cf6", "#000000"];
 
   return (
-    <Toolbar orientation="vertical" style={{ padding: "8px", gap: "4px" }}>
+    <Toolbar style={{ padding: "8px", gap: "4px" }}>
       <Tooltip delayMs={200}>
         <Tooltip.Trigger>
           <ToggleButton pressed={tool === "cursor"} onPressedChange={() => setTool("cursor")} size="sm" color="neutral">
             <Compass size={16} />
           </ToggleButton>
         </Tooltip.Trigger>
-        <Tooltip.Content side="right">Select</Tooltip.Content>
+        <Tooltip.Content side="bottom">Select</Tooltip.Content>
       </Tooltip>
       <Tooltip delayMs={200}>
         <Tooltip.Trigger>
@@ -85,7 +85,7 @@ const drawingToolsExample = `function Demo() {
             <ClipboardEdit size={16} />
           </ToggleButton>
         </Tooltip.Trigger>
-        <Tooltip.Content side="right">Draw</Tooltip.Content>
+        <Tooltip.Content side="bottom">Draw</Tooltip.Content>
       </Tooltip>
       <Tooltip delayMs={200}>
         <Tooltip.Trigger>
@@ -93,7 +93,7 @@ const drawingToolsExample = `function Demo() {
             <FileText size={16} />
           </ToggleButton>
         </Tooltip.Trigger>
-        <Tooltip.Content side="right">Text</Tooltip.Content>
+        <Tooltip.Content side="bottom">Text</Tooltip.Content>
       </Tooltip>
       <Tooltip delayMs={200}>
         <Tooltip.Trigger>
@@ -101,17 +101,17 @@ const drawingToolsExample = `function Demo() {
             <Image size={16} />
           </ToggleButton>
         </Tooltip.Trigger>
-        <Tooltip.Content side="right">Image</Tooltip.Content>
+        <Tooltip.Content side="bottom">Image</Tooltip.Content>
       </Tooltip>
-      <Separator />
+      <Separator orientation="vertical" style={{ height: "20px" }} />
       <Tooltip delayMs={200}>
         <Tooltip.Trigger>
           <Button variant="ghost" size="sm" startIcon={<Trash2 size={16} />} color="red" />
         </Tooltip.Trigger>
-        <Tooltip.Content side="right">Delete</Tooltip.Content>
+        <Tooltip.Content side="bottom">Delete</Tooltip.Content>
       </Tooltip>
-      <Separator />
-      <div style={{ display: "flex", flexDirection: "column", gap: "4px", padding: "4px 0" }}>
+      <Separator orientation="vertical" style={{ height: "20px" }} />
+      <div style={{ display: "flex", gap: "4px", padding: "0 4px" }}>
         {colors.map((c) => (
           <button
             key={c}
