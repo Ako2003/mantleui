@@ -50,6 +50,18 @@
   border-color: var(--mantle-color-danger);
 }
 
+.mantle-dateRangePickerValue {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--mantle-space-2);
+}
+
+.mantle-dateRangePickerIcon {
+  flex-shrink: 0;
+  color: var(--mantle-color-text-muted);
+}
+
 .mantle-dateRangePickerPlaceholder {
   color: var(--mantle-color-text-muted);
 }
