@@ -43,14 +43,14 @@ render(<Demo />);`;
 
 const usersExample = `function Demo() {
   const users = [
-    { name: "Alice Johnson", email: "alice@example.com", role: "Admin", status: "Active", joined: "2024-01-15" },
-    { name: "Bob Smith", email: "bob@example.com", role: "Editor", status: "Active", joined: "2024-02-20" },
-    { name: "Charlie Brown", email: "charlie@example.com", role: "Viewer", status: "Inactive", joined: "2023-11-05" },
-    { name: "Diana Prince", email: "diana@example.com", role: "Admin", status: "Active", joined: "2024-03-10" },
-    { name: "Eve Wilson", email: "eve@example.com", role: "Editor", status: "Pending", joined: "2024-04-01" },
-    { name: "Frank Miller", email: "frank@example.com", role: "Viewer", status: "Active", joined: "2023-09-18" },
-    { name: "Grace Lee", email: "grace@example.com", role: "Editor", status: "Active", joined: "2024-01-22" },
-    { name: "Hank Davis", email: "hank@example.com", role: "Viewer", status: "Inactive", joined: "2023-07-30" },
+    { name: "Alice Johnson", email: "alice@example.com", avatar: "https://i.pravatar.cc/40?img=1", role: "Admin", status: "Active", joined: "2024-01-15" },
+    { name: "Bob Smith", email: "bob@example.com", avatar: "https://i.pravatar.cc/40?img=3", role: "Editor", status: "Active", joined: "2024-02-20" },
+    { name: "Charlie Brown", email: "charlie@example.com", avatar: "https://i.pravatar.cc/40?img=8", role: "Viewer", status: "Inactive", joined: "2023-11-05" },
+    { name: "Diana Prince", email: "diana@example.com", avatar: "https://i.pravatar.cc/40?img=5", role: "Admin", status: "Active", joined: "2024-03-10" },
+    { name: "Eve Wilson", email: "eve@example.com", avatar: "https://i.pravatar.cc/40?img=9", role: "Editor", status: "Pending", joined: "2024-04-01" },
+    { name: "Frank Miller", email: "frank@example.com", avatar: "https://i.pravatar.cc/40?img=11", role: "Viewer", status: "Active", joined: "2023-09-18" },
+    { name: "Grace Lee", email: "grace@example.com", avatar: "https://i.pravatar.cc/40?img=20", role: "Editor", status: "Active", joined: "2024-01-22" },
+    { name: "Hank Davis", email: "hank@example.com", avatar: "https://i.pravatar.cc/40?img=14", role: "Viewer", status: "Inactive", joined: "2023-07-30" },
   ];
 
   const statusColors = {
@@ -66,7 +66,7 @@ const usersExample = `function Demo() {
       sortable: true,
       render: (row) => (
         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <Avatar name={row.name} size="sm" />
+          <Avatar name={row.name} src={row.avatar} size="sm" />
           <div>
             <div style={{ fontWeight: 500, color: "var(--mantle-color-text)" }}>{row.name}</div>
             <div style={{ fontSize: "12px", color: "var(--mantle-color-text-muted)" }}>{row.email}</div>
@@ -270,14 +270,14 @@ render(<Demo />);`;
 
 const taskTrackerExample = `function Demo() {
   const [tasks, setTasks] = React.useState([
-    { id: 1, title: "Design landing page", assignee: "Alice", priority: "High", status: "In Progress", due: "Apr 5" },
-    { id: 2, title: "Fix login bug", assignee: "Bob", priority: "Critical", status: "Open", due: "Apr 3" },
-    { id: 3, title: "Write API docs", assignee: "Charlie", priority: "Medium", status: "Done", due: "Apr 1" },
-    { id: 4, title: "Deploy to staging", assignee: "Diana", priority: "High", status: "In Review", due: "Apr 4" },
-    { id: 5, title: "Update dependencies", assignee: "Eve", priority: "Low", status: "Open", due: "Apr 10" },
-    { id: 6, title: "Add dark mode", assignee: "Frank", priority: "Medium", status: "In Progress", due: "Apr 8" },
-    { id: 7, title: "Write unit tests", assignee: "Alice", priority: "High", status: "Open", due: "Apr 6" },
-    { id: 8, title: "Optimize images", assignee: "Bob", priority: "Low", status: "Done", due: "Mar 28" },
+    { id: 1, title: "Design landing page", assignee: "Alice", avatar: "https://i.pravatar.cc/40?img=1", priority: "High", status: "In Progress", due: "Apr 5" },
+    { id: 2, title: "Fix login bug", assignee: "Bob", avatar: "https://i.pravatar.cc/40?img=3", priority: "Critical", status: "Open", due: "Apr 3" },
+    { id: 3, title: "Write API docs", assignee: "Charlie", avatar: "https://i.pravatar.cc/40?img=8", priority: "Medium", status: "Done", due: "Apr 1" },
+    { id: 4, title: "Deploy to staging", assignee: "Diana", avatar: "https://i.pravatar.cc/40?img=5", priority: "High", status: "In Review", due: "Apr 4" },
+    { id: 5, title: "Update dependencies", assignee: "Eve", avatar: "https://i.pravatar.cc/40?img=9", priority: "Low", status: "Open", due: "Apr 10" },
+    { id: 6, title: "Add dark mode", assignee: "Frank", avatar: "https://i.pravatar.cc/40?img=11", priority: "Medium", status: "In Progress", due: "Apr 8" },
+    { id: 7, title: "Write unit tests", assignee: "Alice", avatar: "https://i.pravatar.cc/40?img=1", priority: "High", status: "Open", due: "Apr 6" },
+    { id: 8, title: "Optimize images", assignee: "Bob", avatar: "https://i.pravatar.cc/40?img=3", priority: "Low", status: "Done", due: "Mar 28" },
   ]);
 
   const priorityColors = { Critical: "red", High: "yellow", Medium: "blue", Low: "neutral" };
@@ -300,7 +300,7 @@ const taskTrackerExample = `function Demo() {
       header: "Assignee",
       render: (row) => (
         <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-          <Avatar name={row.assignee} size="xs" />
+          <Avatar name={row.assignee} src={row.avatar} size="sm" />
           <span style={{ fontSize: "13px" }}>{row.assignee}</span>
         </div>
       ),
@@ -381,11 +381,11 @@ render(<Demo />);`;
 
 const actionsExample = `function Demo() {
   const [users, setUsers] = React.useState([
-    { id: 1, name: "Sarah Chen", email: "sarah@acme.com", plan: "Pro", active: true },
-    { id: 2, name: "James Wilson", email: "james@acme.com", plan: "Free", active: true },
-    { id: 3, name: "Maria Garcia", email: "maria@acme.com", plan: "Enterprise", active: false },
-    { id: 4, name: "Alex Kim", email: "alex@acme.com", plan: "Pro", active: true },
-    { id: 5, name: "Priya Patel", email: "priya@acme.com", plan: "Free", active: true },
+    { id: 1, name: "Sarah Chen", email: "sarah@acme.com", avatar: "https://i.pravatar.cc/40?img=16", plan: "Pro", active: true },
+    { id: 2, name: "James Wilson", email: "james@acme.com", avatar: "https://i.pravatar.cc/40?img=12", plan: "Free", active: true },
+    { id: 3, name: "Maria Garcia", email: "maria@acme.com", avatar: "https://i.pravatar.cc/40?img=23", plan: "Enterprise", active: false },
+    { id: 4, name: "Alex Kim", email: "alex@acme.com", avatar: "https://i.pravatar.cc/40?img=33", plan: "Pro", active: true },
+    { id: 5, name: "Priya Patel", email: "priya@acme.com", avatar: "https://i.pravatar.cc/40?img=25", plan: "Free", active: true },
   ]);
 
   const planColors = { Free: "neutral", Pro: "blue", Enterprise: "purple" };
@@ -397,7 +397,7 @@ const actionsExample = `function Demo() {
       sortable: true,
       render: (row) => (
         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <Avatar name={row.name} size="sm" />
+          <Avatar name={row.name} src={row.avatar} size="sm" />
           <div>
             <div style={{ fontWeight: 500, color: "var(--mantle-color-text)" }}>{row.name}</div>
             <div style={{ fontSize: "12px", color: "var(--mantle-color-text-muted)" }}>{row.email}</div>
