@@ -136,26 +136,26 @@ const mediaPlayerExample = `function Demo() {
   const [muted, setMuted] = React.useState(false);
 
   return (
-    <Toolbar style={{ alignItems: "center", padding: "8px 16px", gap: "12px", background: "var(--mantle-color-bg-muted)", borderRadius: "12px" }}>
+    <Toolbar style={{ alignItems: "center", padding: "10px 16px", gap: "8px", background: "var(--mantle-color-bg-muted)", borderRadius: "12px" }}>
       <Button variant="ghost" size="sm" startIcon={<RefreshCw size={16} />} />
       <Button variant="ghost" size="sm" startIcon={
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 12L5 21V3l14 9z"/></svg>
       } onClick={() => setPlaying(!playing)} />
       <Button variant="ghost" size="sm" startIcon={<ArrowRight size={16} />} />
-      <Separator orientation="vertical" />
-      <div style={{ flex: 1, display: "flex", alignItems: "center", gap: "8px" }}>
+      <Separator orientation="vertical" style={{ height: "24px", margin: "0 4px" }} />
+      <div style={{ flex: 1, display: "flex", alignItems: "center", gap: "8px", minWidth: "120px" }}>
         <span style={{ fontSize: "12px", color: "var(--mantle-color-text-muted)", fontVariantNumeric: "tabular-nums" }}>1:23</span>
         <div style={{ flex: 1 }}>
-          <Slider defaultValue={35} size="sm" />
+          <Slider defaultValue={35} size="md" />
         </div>
         <span style={{ fontSize: "12px", color: "var(--mantle-color-text-muted)", fontVariantNumeric: "tabular-nums" }}>3:45</span>
       </div>
-      <Separator orientation="vertical" />
+      <Separator orientation="vertical" style={{ height: "24px", margin: "0 4px" }} />
       <ToggleButton pressed={muted} onPressedChange={setMuted} size="sm" color="neutral">
         <Mic size={16} />
       </ToggleButton>
-      <div style={{ width: "80px" }}>
-        <Slider value={muted ? 0 : volume} onValueChange={setVolume} size="sm" />
+      <div style={{ width: "100px" }}>
+        <Slider value={muted ? 0 : volume} onValueChange={setVolume} size="md" />
       </div>
     </Toolbar>
   );
