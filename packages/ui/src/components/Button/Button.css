@@ -25,10 +25,9 @@
 }
 
 .mantle-solid:hover:not(:disabled):not([aria-disabled="true"]) {
-  background: linear-gradient(
-    135deg,
-    var(--mantle-accent),
-    var(--mantle-accent-hover)
+  background: var(
+    --mantle-hover,
+    linear-gradient(135deg, var(--mantle-accent), var(--mantle-accent-hover))
   );
 }
 
@@ -49,7 +48,10 @@
 }
 
 .mantle-outline:hover:not(:disabled):not([aria-disabled="true"]) {
-  background: linear-gradient(135deg, var(--mantle-accent-subtle), transparent);
+  background: var(
+    --mantle-hover,
+    linear-gradient(135deg, var(--mantle-accent-subtle), transparent)
+  );
 }
 
 .mantle-ghost {
@@ -59,7 +61,10 @@
 }
 
 .mantle-ghost:hover:not(:disabled):not([aria-disabled="true"]) {
-  background: linear-gradient(135deg, var(--mantle-accent-subtle), transparent);
+  background: var(
+    --mantle-hover,
+    linear-gradient(135deg, var(--mantle-accent-subtle), transparent)
+  );
   color: var(--mantle-accent);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);

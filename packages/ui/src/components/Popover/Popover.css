@@ -21,7 +21,10 @@
 }
 
 .mantle-popoverTrigger:hover {
-  background: linear-gradient(135deg, var(--mantle-accent-subtle), transparent);
+  background: var(
+    --mantle-hover,
+    linear-gradient(135deg, var(--mantle-accent-subtle), transparent)
+  );
   border-color: var(--mantle-accent);
   color: var(--mantle-accent);
 }
