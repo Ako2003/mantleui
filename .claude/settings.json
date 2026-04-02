@@ -20,7 +20,10 @@
       "Bash(find apps/docs/src/app/components -name \"page.tsx\" -exec grep -l 'blue.*red.*green.*yellow.*purple.*neutral' {})",
       "Bash(while read:*)",
       "Bash(do sed:*)",
-      "Bash(npx prettier:*)"
+      "Bash(npx prettier:*)",
+      "Bash(npx eslint:*)",
+      "Bash(ls -d /Users/akifmursalov/Documents/project/packages/ui/src/components/*/)",
+      "Bash(ls /Users/akifmursalov/Documents/project/apps/docs/src/app/components/*/page.tsx)"
     ]
   }
 }
