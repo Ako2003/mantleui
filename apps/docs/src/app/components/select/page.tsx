@@ -3,15 +3,17 @@
 import { LivePlayground } from "@/components/LivePlayground";
 import { PropsTable } from "@/components/PropsTable";
 
-const basicExample = `<Select
-  placeholder="Choose a framework"
-  options={[
-    { value: "react", label: "React" },
-    { value: "vue", label: "Vue" },
-    { value: "angular", label: "Angular" },
-    { value: "svelte", label: "Svelte", disabled: true },
-  ]}
-/>`;
+const basicExample = ` <div style={{ maxWidth: "320px" }}>
+  <Select
+    placeholder="Choose a framework"
+    options={[
+      { value: "react", label: "React" },
+      { value: "vue", label: "Vue" },
+      { value: "angular", label: "Angular" },
+      { value: "svelte", label: "Svelte", disabled: true },
+    ]}
+  />
+</div>`;
 
 const withLabelExample = `<div style={{ maxWidth: "320px" }}>
   <Select
