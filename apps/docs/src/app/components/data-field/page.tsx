@@ -194,8 +194,8 @@ export default function DataFieldPage() {
 
       <h2 className="mt-10 text-xl font-semibold">Payment Info</h2>
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
-        DataFields with custom ReactNode values including icons and
-        multi-line content.
+        DataFields with custom ReactNode values including icons and multi-line
+        content.
       </p>
       <div className="mt-4">
         <LivePlayground code={paymentExample} noEditor />

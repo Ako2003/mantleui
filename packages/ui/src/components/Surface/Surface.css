@@ -24,7 +24,11 @@
 }
 
 .mantle-surface-elevation-lg {
-  box-shadow: var(--mantle-shadow-lg, 0 10px 25px -3px rgb(0 0 0 / 0.3), 0 4px 10px -4px rgb(0 0 0 / 0.2));
+  box-shadow: var(
+    --mantle-shadow-lg,
+    0 10px 25px -3px rgb(0 0 0 / 0.3),
+    0 4px 10px -4px rgb(0 0 0 / 0.2)
+  );
 }
 
 /* Rounded */

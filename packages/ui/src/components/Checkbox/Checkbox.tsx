@@ -37,7 +37,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     const isInGroup = group !== undefined && value !== undefined;
 
     const groupChecked = isInGroup ? group.value.includes(value) : undefined;
-    const resolvedColor = isInGroup ? group.color ?? color : color;
+    const resolvedColor = isInGroup ? (group.color ?? color) : color;
     const { dataColor, colorStyle } = resolveColor(resolvedColor);
 
     const [checked, setChecked] = useControllable({

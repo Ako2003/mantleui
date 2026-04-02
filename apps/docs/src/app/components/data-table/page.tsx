@@ -651,8 +651,8 @@ export default function DataTablePage() {
 
       <h2 className="mt-10 text-xl font-semibold">Analytics Dashboard</h2>
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
-        Page analytics with inline progress bars for bounce rates and
-        monospace page paths.
+        Page analytics with inline progress bars for bounce rates and monospace
+        page paths.
       </p>
       <div className="mt-4">
         <LivePlayground code={analyticsExample} noEditor />

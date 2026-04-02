@@ -33,7 +33,8 @@
 }
 
 .mantle-tabsTrigger:focus-visible {
-  outline: var(--mantle-ring-width) solid var(--mantle-ring, var(--mantle-accent));
+  outline: var(--mantle-ring-width) solid
+    var(--mantle-ring, var(--mantle-accent));
   outline-offset: calc(-1 * var(--mantle-ring-width));
   border-radius: var(--mantle-radius-sm);
 }

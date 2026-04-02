@@ -30,7 +30,8 @@
 }
 
 .mantle-popoverTrigger:focus-visible {
-  outline: var(--mantle-ring-width) solid var(--mantle-ring, var(--mantle-accent));
+  outline: var(--mantle-ring-width) solid
+    var(--mantle-ring, var(--mantle-accent));
   outline-offset: var(--mantle-ring-offset);
 }
 
@@ -52,7 +53,8 @@
 }
 
 .mantle-content:focus-visible {
-  outline: var(--mantle-ring-width) solid var(--mantle-ring, var(--mantle-accent));
+  outline: var(--mantle-ring-width) solid
+    var(--mantle-ring, var(--mantle-accent));
   outline-offset: var(--mantle-ring-offset);
 }
 

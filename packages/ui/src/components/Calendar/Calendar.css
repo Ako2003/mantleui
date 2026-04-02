@@ -45,7 +45,8 @@
 }
 
 .mantle-calendarSelect:focus-visible {
-  outline: var(--mantle-ring-width) solid var(--mantle-ring, var(--mantle-accent));
+  outline: var(--mantle-ring-width) solid
+    var(--mantle-ring, var(--mantle-accent));
   outline-offset: var(--mantle-ring-offset);
 }
 
@@ -71,7 +72,8 @@
 }
 
 .mantle-calendarNav:focus-visible {
-  outline: var(--mantle-ring-width) solid var(--mantle-ring, var(--mantle-accent));
+  outline: var(--mantle-ring-width) solid
+    var(--mantle-ring, var(--mantle-accent));
   outline-offset: var(--mantle-ring-offset);
 }
 
@@ -112,7 +114,8 @@
 }
 
 .mantle-calendarDay:focus-visible {
-  outline: var(--mantle-ring-width) solid var(--mantle-ring, var(--mantle-accent));
+  outline: var(--mantle-ring-width) solid
+    var(--mantle-ring, var(--mantle-accent));
   outline-offset: var(--mantle-ring-offset);
 }
 

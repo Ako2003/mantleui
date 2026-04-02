@@ -111,7 +111,10 @@
   > .mantle-dropdown:not(:first-child)
   > .mantle-dropdown-trigger {
   border-left-width: 1px !important;
-  border-left-color: var(--mantle-border, var(--mantle-color-border)) !important;
+  border-left-color: var(
+    --mantle-border,
+    var(--mantle-color-border)
+  ) !important;
 }
 
 /* Radius: last child */
@@ -150,7 +153,10 @@
 
 .mantle-buttongroupDivider.mantle-buttongroupHorizontal > *:not(:first-child) {
   border-left-width: 1px !important;
-  border-left-color: var(--mantle-border, var(--mantle-color-border)) !important;
+  border-left-color: var(
+    --mantle-border,
+    var(--mantle-color-border)
+  ) !important;
 }
 
 .mantle-buttongroupDivider.mantle-buttongroupVertical > *:not(:first-child) {

@@ -134,7 +134,10 @@ function DataTableInner<T>(
             </tr>
           ) : (
             table.rows.map((row, rowIndex) => (
-              <tr key={rowIndex} className={`mantle-row ${rowIndex % 2 === 1 ? "mantle-row-odd" : ""}`}>
+              <tr
+                key={rowIndex}
+                className={`mantle-row ${rowIndex % 2 === 1 ? "mantle-row-odd" : ""}`}
+              >
                 {table.columns.map((col) => (
                   <td key={col.key} className="mantle-cell">
                     {table.getCellValue(row, col)}

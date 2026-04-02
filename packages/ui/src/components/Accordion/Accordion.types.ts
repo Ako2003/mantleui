@@ -24,8 +24,7 @@ export interface AccordionItemProps extends HTMLAttributes<HTMLDivElement> {
   disabled?: boolean;
 }
 
-export interface AccordionTriggerProps
-  extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface AccordionTriggerProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Custom icon replacing the default chevron. Receives `isOpen` state. */
   icon?: ((props: { isOpen: boolean }) => ReactNode) | ReactNode;
 }

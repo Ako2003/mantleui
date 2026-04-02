@@ -38,7 +38,8 @@
 }
 
 .mantle-checkboxInput:focus-visible + .mantle-checkboxControl {
-  outline: var(--mantle-ring-width) solid var(--mantle-ring, var(--mantle-accent));
+  outline: var(--mantle-ring-width) solid
+    var(--mantle-ring, var(--mantle-accent));
   outline-offset: var(--mantle-ring-offset);
 }
 
