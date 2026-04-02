@@ -42,6 +42,7 @@ export function ComponentShowcase() {
         </span>
         {accentColors.map((c) => (
           <button
+            type="button"
             key={c.value}
             onClick={() => setColor(c.value)}
             className={`rounded-full px-3 py-1 text-xs font-medium transition-all ${
@@ -209,14 +210,12 @@ export function ComponentShowcase() {
 
       {/* Alert */}
       <div className="mt-6">
-        <Alert color={color} variant="info">
-          <Alert.Title>Interactive Demo</Alert.Title>
-          <Alert.Description>
-            Change the accent color above to see all components update in
-            real-time. Every component supports 6 built-in colors plus custom
-            hex values.
-          </Alert.Description>
-        </Alert>
+        <Alert
+          color={color}
+          variant="info"
+          title="Interactive Demo"
+          description="Change the accent color above to see all components update in real-time. Every component supports 6 built-in colors plus custom hex values."
+        />
       </div>
     </div>
   );
