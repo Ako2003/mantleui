@@ -5,6 +5,11 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 /* Thin scrollbar */
@@ -59,6 +64,22 @@ html {
 .mantle-revealed {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Responsive: prevent overflow on mobile */
+@media (max-width: 640px) {
+  pre,
+  code {
+    word-break: break-all;
+  }
+
+  table {
+    font-size: 12px;
+  }
+
+  h1 {
+    font-size: 1.5rem !important;
+  }
 }
 
 /* Mobile nav slide-in */
