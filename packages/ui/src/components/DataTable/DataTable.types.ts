@@ -30,6 +30,10 @@ export interface DataTableProps<T> extends HTMLAttributes<HTMLDivElement> {
   emptyState?: () => ReactNode;
   /** Accent color. Defaults to `"blue"`. */
   color?: MantleColor;
+  /** Visual variant. Defaults to `"default"`. */
+  variant?: "default" | "striped" | "minimal" | "bordered";
+  /** Row density. Defaults to `"md"`. */
+  size?: "sm" | "md" | "lg";
 }
 
 export interface UseDataTableOptions<T> {

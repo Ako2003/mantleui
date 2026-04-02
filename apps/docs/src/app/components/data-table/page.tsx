@@ -434,6 +434,83 @@ const actionsExample = `function Demo() {
 
 render(<Demo />);`;
 
+const variantsData = `{ name: "Alice", role: "Engineer", dept: "Frontend" },
+    { name: "Bob", role: "Designer", dept: "Product" },
+    { name: "Charlie", role: "Manager", dept: "Engineering" },
+    { name: "Diana", role: "Engineer", dept: "Backend" },
+    { name: "Eve", role: "Designer", dept: "Marketing" }`;
+
+const variantsColumns = `{ key: "name", header: "Name", sortable: true },
+    { key: "role", header: "Role" },
+    { key: "dept", header: "Department" }`;
+
+const stripedExample = `function Demo() {
+  const data = [
+    ${variantsData}
+  ];
+  const columns = [
+    ${variantsColumns}
+  ];
+  return <DataTable data={data} columns={columns} variant="striped" />;
+}
+
+render(<Demo />);`;
+
+const minimalExample = `function Demo() {
+  const data = [
+    ${variantsData}
+  ];
+  const columns = [
+    ${variantsColumns}
+  ];
+  return <DataTable data={data} columns={columns} variant="minimal" />;
+}
+
+render(<Demo />);`;
+
+const borderedExample = `function Demo() {
+  const data = [
+    ${variantsData}
+  ];
+  const columns = [
+    ${variantsColumns}
+  ];
+  return <DataTable data={data} columns={columns} variant="bordered" />;
+}
+
+render(<Demo />);`;
+
+const sizesExample = `function Demo() {
+  const data = [
+    { name: "Alice", role: "Engineer", dept: "Frontend" },
+    { name: "Bob", role: "Designer", dept: "Product" },
+    { name: "Charlie", role: "Manager", dept: "Engineering" },
+  ];
+  const columns = [
+    { key: "name", header: "Name" },
+    { key: "role", header: "Role" },
+    { key: "dept", header: "Department" },
+  ];
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+      <div>
+        <p style={{ margin: "0 0 8px", fontSize: "13px", fontWeight: 600, color: "var(--mantle-color-text)" }}>Small</p>
+        <DataTable data={data} columns={columns} size="sm" />
+      </div>
+      <div>
+        <p style={{ margin: "0 0 8px", fontSize: "13px", fontWeight: 600, color: "var(--mantle-color-text)" }}>Medium (default)</p>
+        <DataTable data={data} columns={columns} size="md" />
+      </div>
+      <div>
+        <p style={{ margin: "0 0 8px", fontSize: "13px", fontWeight: 600, color: "var(--mantle-color-text)" }}>Large</p>
+        <DataTable data={data} columns={columns} size="lg" />
+      </div>
+    </div>
+  );
+}
+
+render(<Demo />);`;
+
 const dataTableProps = [
   { name: "data", type: "T[]", description: "Array of data rows." },
   {
@@ -457,6 +534,18 @@ const dataTableProps = [
     type: '"blue" | "red" | "green" | "yellow" | "purple" | "neutral" | string',
     default: '"blue"',
     description: "Accent color for sort indicators and focus rings.",
+  },
+  {
+    name: "variant",
+    type: '"default" | "striped" | "minimal" | "bordered"',
+    default: '"default"',
+    description: "Visual style variant for the table.",
+  },
+  {
+    name: "size",
+    type: '"sm" | "md" | "lg"',
+    default: '"md"',
+    description: "Row density — compact, default, or spacious.",
   },
   {
     name: "--mantle-bg",
@@ -568,6 +657,38 @@ export default function DataTablePage() {
       </p>
       <div className="mt-4">
         <LivePlayground code={actionsExample} noEditor />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Striped</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Alternating row backgrounds for better readability.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={stripedExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Minimal</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        No outer border, transparent header — clean and lightweight.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={minimalExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Bordered</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Every cell has visible borders for a structured spreadsheet look.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={borderedExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Sizes</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Three density levels — compact, default, and spacious.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={sizesExample} noEditor />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Empty State</h2>

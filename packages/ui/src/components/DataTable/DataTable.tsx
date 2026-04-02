@@ -50,6 +50,8 @@ function DataTableInner<T>(
     pageSize = 0,
     emptyState,
     color = "blue",
+    variant = "default",
+    size = "md",
     className,
     ...rest
   }: DataTableProps<T>,
@@ -63,7 +65,14 @@ function DataTableInner<T>(
       ref={ref}
       data-color={dataColor}
       style={colorStyle}
-      className={["mantle-wrapper", className].filter(Boolean).join(" ")}
+      className={[
+        "mantle-wrapper",
+        `mantle-table-${variant}`,
+        `mantle-table-${size}`,
+        className,
+      ]
+        .filter(Boolean)
+        .join(" ")}
       {...rest}
     >
       <table className="mantle-table" role="grid">
@@ -125,7 +134,7 @@ function DataTableInner<T>(
             </tr>
           ) : (
             table.rows.map((row, rowIndex) => (
-              <tr key={rowIndex} className="mantle-row">
+              <tr key={rowIndex} className={`mantle-row ${rowIndex % 2 === 1 ? "mantle-row-odd" : ""}`}>
                 {table.columns.map((col) => (
                   <td key={col.key} className="mantle-cell">
                     {table.getCellValue(row, col)}
