@@ -26,7 +26,8 @@
       "Bash(ls /Users/akifmursalov/Documents/project/apps/docs/src/app/components/*/page.tsx)",
       "Bash(cd /Users/akifmursalov/Documents/project/packages/ui/src/components grep -r 'var\\(--mantle-border, var\\(--mantle-border' . --include='*.css')",
       "Bash(head -3 grep -r 'var\\(--mantle-text, var\\(--mantle-text,' . --include='*.css')",
-      "Bash(grep -n '\"\"--mantle-bg\"\"' popover/page.tsx)"
+      "Bash(grep -n '\"\"--mantle-bg\"\"' popover/page.tsx)",
+      "Bash(pnpm prettier:*)"
     ]
   }
 }
