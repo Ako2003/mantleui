@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import { resolveColor } from "../../utils";
+import { getAccentColor, resolveColor } from "../../utils";
 import type { MeterProps } from "./Meter.types";
 import "./Meter.css";
 
@@ -66,7 +66,11 @@ export const Meter = forwardRef<HTMLDivElement, MeterProps>(function Meter(
   const { dataColor, colorStyle } = resolveColor(color);
   const clampedValue = Math.min(Math.max(value, min), max);
   const percentage = ((clampedValue - min) / (max - min)) * 100;
-  const segment = getMeterSegment(clampedValue, min, max, low, high, optimum);
+  const hasThresholds =
+    low !== undefined || high !== undefined || optimum !== undefined;
+  const segment = hasThresholds
+    ? getMeterSegment(clampedValue, min, max, low, high, optimum)
+    : null;
 
   return (
     <div
@@ -91,10 +95,18 @@ export const Meter = forwardRef<HTMLDivElement, MeterProps>(function Meter(
       )}
       <div className="mantle-meter-track">
         <div
-          className={["mantle-meter-fill", `mantle-meter-fill-${segment}`].join(
-            " ",
-          )}
-          style={{ width: `${percentage}%` }}
+          className={[
+            "mantle-meter-fill",
+            segment && `mantle-meter-fill-${segment}`,
+          ]
+            .filter(Boolean)
+            .join(" ")}
+          style={{
+            width: `${percentage}%`,
+            ...(!segment
+              ? { backgroundColor: getAccentColor(color) }
+              : undefined),
+          }}
         />
       </div>
     </div>
