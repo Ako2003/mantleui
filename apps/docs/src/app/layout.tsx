@@ -22,7 +22,7 @@ export default function RootLayout({
       <body className="bg-white text-slate-900 dark:bg-zinc-950 dark:text-zinc-50 antialiased">
         <Providers>
           <MobileNav />
-          <div className="flex min-h-screen overflow-x-hidden">
+          <div className="flex min-h-screen">
             <Sidebar />
             <main className="flex min-w-0 flex-1 flex-col px-4 py-6 sm:px-8 sm:py-10 lg:px-16">
               <div className="mx-auto max-w-3xl flex-1">
