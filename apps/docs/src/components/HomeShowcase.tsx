@@ -206,7 +206,7 @@ function ToastTriggers({
 }: {
   color: "blue" | "red" | "green" | "yellow" | "purple";
 }) {
-  const toast = useToast();
+  const { toast } = useToast();
   return (
     <div className="flex flex-wrap gap-2">
       <Button
