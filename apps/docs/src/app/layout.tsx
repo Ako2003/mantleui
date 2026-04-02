@@ -24,7 +24,7 @@ export default function RootLayout({
           <MobileNav />
           <div className="flex min-h-screen">
             <Sidebar />
-            <main className="flex min-w-0 flex-1 flex-col px-4 py-6 sm:px-8 sm:py-10 lg:px-16">
+            <main className="flex min-w-0 flex-1 flex-col overflow-x-hidden px-4 py-6 sm:px-8 sm:py-10 lg:px-16">
               <div className="mx-auto max-w-3xl flex-1">
                 <PageTransition>{children}</PageTransition>
               </div>
