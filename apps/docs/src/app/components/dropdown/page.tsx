@@ -291,6 +291,13 @@ const dropdownProps = [
     description:
       'Override the item hover background via style. e.g. style={{ "--mantle-option-hover": "#3b82f6" }}',
   },
+  {
+    name: "--mantle-hover",
+    type: "CSS variable",
+    default: "gradient",
+    description:
+      'Override the hover background via style. Set to "none" to disable. e.g. style={{ "--mantle-hover": "none" }}',
+  },
 ];
 
 const dropdownItemProps = [

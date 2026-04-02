@@ -194,6 +194,13 @@ const toggleButtonProps = [
     default: "false",
     description: "Disables the toggle button.",
   },
+  {
+    name: "--mantle-hover",
+    type: "CSS variable",
+    default: "gradient",
+    description:
+      'Override the hover background via style. Set to "none" to disable. e.g. style={{ "--mantle-hover": "none" }}',
+  },
 ];
 
 export default function ToggleButtonPage() {
