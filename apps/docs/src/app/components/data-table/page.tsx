@@ -434,22 +434,18 @@ const actionsExample = `function Demo() {
 
 render(<Demo />);`;
 
-const variantsData = `{ name: "Alice", role: "Engineer", dept: "Frontend" },
+const stripedExample = `function Demo() {
+  const data = [
+    { name: "Alice", role: "Engineer", dept: "Frontend" },
     { name: "Bob", role: "Designer", dept: "Product" },
     { name: "Charlie", role: "Manager", dept: "Engineering" },
     { name: "Diana", role: "Engineer", dept: "Backend" },
-    { name: "Eve", role: "Designer", dept: "Marketing" }`;
-
-const variantsColumns = `{ key: "name", header: "Name", sortable: true },
-    { key: "role", header: "Role" },
-    { key: "dept", header: "Department" }`;
-
-const stripedExample = `function Demo() {
-  const data = [
-    ${variantsData}
+    { name: "Eve", role: "Designer", dept: "Marketing" },
   ];
   const columns = [
-    ${variantsColumns}
+    { key: "name", header: "Name", sortable: true },
+    { key: "role", header: "Role" },
+    { key: "dept", header: "Department" },
   ];
   return <DataTable data={data} columns={columns} variant="striped" />;
 }
@@ -458,10 +454,16 @@ render(<Demo />);`;
 
 const minimalExample = `function Demo() {
   const data = [
-    ${variantsData}
+    { name: "Alice", role: "Engineer", dept: "Frontend" },
+    { name: "Bob", role: "Designer", dept: "Product" },
+    { name: "Charlie", role: "Manager", dept: "Engineering" },
+    { name: "Diana", role: "Engineer", dept: "Backend" },
+    { name: "Eve", role: "Designer", dept: "Marketing" },
   ];
   const columns = [
-    ${variantsColumns}
+    { key: "name", header: "Name", sortable: true },
+    { key: "role", header: "Role" },
+    { key: "dept", header: "Department" },
   ];
   return <DataTable data={data} columns={columns} variant="minimal" />;
 }
@@ -470,10 +472,16 @@ render(<Demo />);`;
 
 const borderedExample = `function Demo() {
   const data = [
-    ${variantsData}
+    { name: "Alice", role: "Engineer", dept: "Frontend" },
+    { name: "Bob", role: "Designer", dept: "Product" },
+    { name: "Charlie", role: "Manager", dept: "Engineering" },
+    { name: "Diana", role: "Engineer", dept: "Backend" },
+    { name: "Eve", role: "Designer", dept: "Marketing" },
   ];
   const columns = [
-    ${variantsColumns}
+    { key: "name", header: "Name", sortable: true },
+    { key: "role", header: "Role" },
+    { key: "dept", header: "Department" },
   ];
   return <DataTable data={data} columns={columns} variant="bordered" />;
 }
