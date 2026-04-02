@@ -94,6 +94,41 @@ const socialLoginExample = `<div style={{ display: "flex", flexDirection: "colum
   </Button>
 </div>`;
 
+const customStylingExample = `<div style={{ display: "flex", flexDirection: "column", gap: "12px", maxWidth: "320px" }}>
+  <Button
+    style={{
+      "--mantle-bg": "#1a1a2e",
+      "--mantle-border": "#e94560",
+      "--mantle-text": "#e94560",
+      "--mantle-hover": "#e94560",
+      "--mantle-ring": "#e94560",
+    }}
+  >
+    Cyberpunk
+  </Button>
+  <Button
+    style={{
+      "--mantle-bg": "#0f3460",
+      "--mantle-border": "#16213e",
+      "--mantle-text": "#e0e0e0",
+      "--mantle-hover": "linear-gradient(135deg, #0f3460, #533483)",
+      "--mantle-ring": "#533483",
+    }}
+  >
+    Deep Space
+  </Button>
+  <Button
+    style={{
+      "--mantle-bg": "transparent",
+      "--mantle-border": "transparent",
+      "--mantle-text": "var(--mantle-accent)",
+      "--mantle-hover": "none",
+    }}
+  >
+    No border, no hover
+  </Button>
+</div>`;
+
 const buttonProps = [
   {
     name: "variant",
@@ -140,6 +175,34 @@ const buttonProps = [
     name: "endIcon",
     type: "ReactNode",
     description: "Element placed after the label.",
+  },
+  {
+    name: "--mantle-bg",
+    type: "CSS variable",
+    default: "theme default",
+    description:
+      'Override the background color via style. e.g. style={{ "--mantle-bg": "#1a1a2e" }}',
+  },
+  {
+    name: "--mantle-border",
+    type: "CSS variable",
+    default: "theme default",
+    description:
+      'Override the border color via style. Set to "transparent" to remove. e.g. style={{ "--mantle-border": "#e94560" }}',
+  },
+  {
+    name: "--mantle-text",
+    type: "CSS variable",
+    default: "theme default",
+    description:
+      'Override the text color via style. e.g. style={{ "--mantle-text": "#ffffff" }}',
+  },
+  {
+    name: "--mantle-ring",
+    type: "CSS variable",
+    default: "accent",
+    description:
+      'Override the focus ring color via style. e.g. style={{ "--mantle-ring": "#e94560" }}',
   },
   {
     name: "--mantle-hover",
@@ -212,6 +275,34 @@ export default function ButtonPage() {
       </p>
       <div className="mt-4">
         <LivePlayground code={socialLoginExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Custom Styling</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Override any color with CSS variables. All components support{" "}
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
+          --mantle-bg
+        </code>
+        ,{" "}
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
+          --mantle-border
+        </code>
+        ,{" "}
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
+          --mantle-text
+        </code>
+        ,{" "}
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
+          --mantle-ring
+        </code>
+        , and{" "}
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
+          --mantle-hover
+        </code>
+        .
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={customStylingExample} />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>

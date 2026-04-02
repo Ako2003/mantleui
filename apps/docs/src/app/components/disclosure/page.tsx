@@ -125,6 +125,34 @@ const faqExample = `function Demo() {
     { q: "What is MantleUI?", a: "A modern React component library with 56+ components, built with accessibility, dark mode, and clean architecture in mind." },
     { q: "Is it free to use?", a: "Yes! MantleUI is open source and free for both personal and commercial projects." },
     { q: "Does it support dark mode?", a: "Absolutely. Every component has built-in dark mode support via CSS custom properties and a ThemeProvider." },
+  {
+    name: "--mantle-bg",
+    type: "CSS variable",
+    default: "theme default",
+    description:
+      'Override the background color via style. e.g. style={{ "--mantle-bg": "#1a1a2e" }}',
+  },
+  {
+    name: "--mantle-border",
+    type: "CSS variable",
+    default: "theme default",
+    description:
+      'Override the border color via style. Set to "transparent" to remove. e.g. style={{ "--mantle-border": "#e94560" }}',
+  },
+  {
+    name: "--mantle-text",
+    type: "CSS variable",
+    default: "theme default",
+    description:
+      'Override the text color via style. e.g. style={{ "--mantle-text": "#ffffff" }}',
+  },
+  {
+    name: "--mantle-ring",
+    type: "CSS variable",
+    default: "accent",
+    description:
+      'Override the focus ring color via style. e.g. style={{ "--mantle-ring": "#e94560" }}',
+  },
   ];
 
   return (

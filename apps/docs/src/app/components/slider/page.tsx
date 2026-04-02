@@ -144,6 +144,34 @@ const disabledExample = `<div style={{ maxWidth: "320px" }}>
 
 const equalizerExample = `function Demo() {
   const [bands, setBands] = React.useState([60, 75, 45, 80, 55, 70, 65]);
+  {
+    name: "--mantle-bg",
+    type: "CSS variable",
+    default: "theme default",
+    description:
+      'Override the background color via style. e.g. style={{ "--mantle-bg": "#1a1a2e" }}',
+  },
+  {
+    name: "--mantle-border",
+    type: "CSS variable",
+    default: "theme default",
+    description:
+      'Override the border color via style. Set to "transparent" to remove. e.g. style={{ "--mantle-border": "#e94560" }}',
+  },
+  {
+    name: "--mantle-text",
+    type: "CSS variable",
+    default: "theme default",
+    description:
+      'Override the text color via style. e.g. style={{ "--mantle-text": "#ffffff" }}',
+  },
+  {
+    name: "--mantle-ring",
+    type: "CSS variable",
+    default: "accent",
+    description:
+      'Override the focus ring color via style. e.g. style={{ "--mantle-ring": "#e94560" }}',
+  },
   const labels = ["60Hz", "250Hz", "1kHz", "4kHz", "8kHz", "12kHz", "16kHz"];
   return (
     <div>

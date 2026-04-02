@@ -93,6 +93,34 @@ const radioGroupProps = [
     default: "false",
     description: "Disables all radio items in the group.",
   },
+  {
+    name: "--mantle-bg",
+    type: "CSS variable",
+    default: "theme default",
+    description:
+      'Override the background color via style. e.g. style={{ "--mantle-bg": "#1a1a2e" }}',
+  },
+  {
+    name: "--mantle-border",
+    type: "CSS variable",
+    default: "theme default",
+    description:
+      'Override the border color via style. Set to "transparent" to remove. e.g. style={{ "--mantle-border": "#e94560" }}',
+  },
+  {
+    name: "--mantle-text",
+    type: "CSS variable",
+    default: "theme default",
+    description:
+      'Override the text color via style. e.g. style={{ "--mantle-text": "#ffffff" }}',
+  },
+  {
+    name: "--mantle-ring",
+    type: "CSS variable",
+    default: "accent",
+    description:
+      'Override the focus ring color via style. e.g. style={{ "--mantle-ring": "#e94560" }}',
+  },
 ];
 
 const radioGroupItemProps = [
