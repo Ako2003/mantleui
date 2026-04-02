@@ -10,7 +10,7 @@ function pad(n: number) {
 
 function parseTime(str: string): { h: number; m: number } | null {
   const match = str.match(/^(\d{1,2}):(\d{2})$/);
-  if (!match) return null;
+  if (!match?.[1] || !match[2]) return null;
   const h = parseInt(match[1], 10);
   const m = parseInt(match[2], 10);
   if (h < 0 || h > 23 || m < 0 || m > 59) return null;
