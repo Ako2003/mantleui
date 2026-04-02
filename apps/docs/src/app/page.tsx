@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { ComponentShowcase } from "@/components/HomeShowcase";
 
 const stats = [
   { value: "73", label: "Components" },
@@ -468,6 +469,24 @@ export default function HomePage() {
           </div>
         </ScrollReveal>
       </section>
+
+      {/* Interactive Showcase */}
+      <ScrollReveal delay={100}>
+        <section className="px-4 py-16 sm:px-8 lg:px-16">
+          <div className="mx-auto max-w-4xl">
+            <h2 className="text-center text-2xl font-bold tracking-tight sm:text-3xl">
+              Try It Live
+            </h2>
+            <p className="mx-auto mt-3 max-w-xl text-center text-sm text-slate-600 dark:text-zinc-400">
+              Pick an accent color and interact with real components. Everything
+              you see below is built with MantleUI.
+            </p>
+            <div className="mt-10">
+              <ComponentShowcase />
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
 
       {/* Color showcase */}
       <ScrollReveal delay={150}>
