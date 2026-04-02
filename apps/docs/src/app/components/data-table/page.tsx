@@ -268,6 +268,172 @@ const transactionsExample = `function Demo() {
 
 render(<Demo />);`;
 
+const taskTrackerExample = `function Demo() {
+  const [tasks, setTasks] = React.useState([
+    { id: 1, title: "Design landing page", assignee: "Alice", priority: "High", status: "In Progress", due: "Apr 5" },
+    { id: 2, title: "Fix login bug", assignee: "Bob", priority: "Critical", status: "Open", due: "Apr 3" },
+    { id: 3, title: "Write API docs", assignee: "Charlie", priority: "Medium", status: "Done", due: "Apr 1" },
+    { id: 4, title: "Deploy to staging", assignee: "Diana", priority: "High", status: "In Review", due: "Apr 4" },
+    { id: 5, title: "Update dependencies", assignee: "Eve", priority: "Low", status: "Open", due: "Apr 10" },
+    { id: 6, title: "Add dark mode", assignee: "Frank", priority: "Medium", status: "In Progress", due: "Apr 8" },
+    { id: 7, title: "Write unit tests", assignee: "Alice", priority: "High", status: "Open", due: "Apr 6" },
+    { id: 8, title: "Optimize images", assignee: "Bob", priority: "Low", status: "Done", due: "Mar 28" },
+  ]);
+
+  const priorityColors = { Critical: "red", High: "yellow", Medium: "blue", Low: "neutral" };
+  const statusIcons = { Open: "circle", "In Progress": "loader", "In Review": "eye", Done: "check" };
+
+  const columns = [
+    {
+      key: "title",
+      header: "Task",
+      sortable: true,
+      render: (row) => (
+        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          <Checkbox defaultChecked={row.status === "Done"} />
+          <span style={{ fontWeight: 500, color: "var(--mantle-color-text)", textDecoration: row.status === "Done" ? "line-through" : "none", opacity: row.status === "Done" ? 0.6 : 1 }}>{row.title}</span>
+        </div>
+      ),
+    },
+    {
+      key: "assignee",
+      header: "Assignee",
+      render: (row) => (
+        <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+          <Avatar name={row.assignee} size="xs" />
+          <span style={{ fontSize: "13px" }}>{row.assignee}</span>
+        </div>
+      ),
+    },
+    {
+      key: "priority",
+      header: "Priority",
+      sortable: true,
+      render: (row) => <Badge color={priorityColors[row.priority]} variant="solid" size="sm">{row.priority}</Badge>,
+    },
+    {
+      key: "status",
+      header: "Status",
+      sortable: true,
+      render: (row) => <Chip variant="outline" size="sm">{row.status}</Chip>,
+    },
+    { key: "due", header: "Due", sortable: true },
+  ];
+
+  return <DataTable data={tasks} columns={columns} pageSize={5} color="blue" />;
+}
+
+render(<Demo />);`;
+
+const analyticsExample = `function Demo() {
+  const pages = [
+    { page: "/", views: 12847, visitors: 8421, bounce: 24.3, duration: "3m 12s" },
+    { page: "/pricing", views: 8392, visitors: 6103, bounce: 31.2, duration: "2m 45s" },
+    { page: "/docs", views: 6721, visitors: 4892, bounce: 18.7, duration: "5m 33s" },
+    { page: "/blog", views: 5103, visitors: 3891, bounce: 42.1, duration: "1m 58s" },
+    { page: "/about", views: 3247, visitors: 2841, bounce: 38.5, duration: "1m 22s" },
+    { page: "/contact", views: 1892, visitors: 1567, bounce: 52.3, duration: "0m 48s" },
+  ];
+
+  const columns = [
+    {
+      key: "page",
+      header: "Page",
+      sortable: true,
+      render: (row) => (
+        <span style={{ fontFamily: "monospace", fontSize: "13px", color: "var(--mantle-accent)" }}>{row.page}</span>
+      ),
+    },
+    {
+      key: "views",
+      header: "Views",
+      sortable: true,
+      render: (row) => (
+        <span style={{ fontWeight: 600, fontVariantNumeric: "tabular-nums" }}>
+          {row.views.toLocaleString()}
+        </span>
+      ),
+    },
+    {
+      key: "visitors",
+      header: "Visitors",
+      sortable: true,
+      render: (row) => row.visitors.toLocaleString(),
+    },
+    {
+      key: "bounce",
+      header: "Bounce Rate",
+      sortable: true,
+      render: (row) => (
+        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          <ProgressBar value={row.bounce} style={{ width: "60px", height: "6px" }} color={row.bounce < 30 ? "green" : row.bounce < 40 ? "yellow" : "red"} />
+          <span style={{ fontSize: "12px", fontVariantNumeric: "tabular-nums", color: row.bounce < 30 ? "#22c55e" : row.bounce < 40 ? "#eab308" : "#ef4444" }}>{row.bounce}%</span>
+        </div>
+      ),
+    },
+    { key: "duration", header: "Avg Duration", sortable: true },
+  ];
+
+  return <DataTable data={pages} columns={columns} color="purple" />;
+}
+
+render(<Demo />);`;
+
+const actionsExample = `function Demo() {
+  const [users, setUsers] = React.useState([
+    { id: 1, name: "Sarah Chen", email: "sarah@acme.com", plan: "Pro", active: true },
+    { id: 2, name: "James Wilson", email: "james@acme.com", plan: "Free", active: true },
+    { id: 3, name: "Maria Garcia", email: "maria@acme.com", plan: "Enterprise", active: false },
+    { id: 4, name: "Alex Kim", email: "alex@acme.com", plan: "Pro", active: true },
+    { id: 5, name: "Priya Patel", email: "priya@acme.com", plan: "Free", active: true },
+  ]);
+
+  const planColors = { Free: "neutral", Pro: "blue", Enterprise: "purple" };
+
+  const columns = [
+    {
+      key: "name",
+      header: "Member",
+      sortable: true,
+      render: (row) => (
+        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+          <Avatar name={row.name} size="sm" />
+          <div>
+            <div style={{ fontWeight: 500, color: "var(--mantle-color-text)" }}>{row.name}</div>
+            <div style={{ fontSize: "12px", color: "var(--mantle-color-text-muted)" }}>{row.email}</div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      key: "plan",
+      header: "Plan",
+      render: (row) => <Badge color={planColors[row.plan]} variant="solid" size="sm">{row.plan}</Badge>,
+    },
+    {
+      key: "active",
+      header: "Status",
+      render: (row) => (
+        <Switch defaultChecked={row.active} size="sm" color={row.active ? "green" : "neutral"} />
+      ),
+    },
+    {
+      key: "actions",
+      header: "",
+      render: (row) => (
+        <div style={{ display: "flex", gap: "4px", justifyContent: "flex-end" }}>
+          <Button variant="ghost" size="sm" color="neutral" startIcon={<Settings size={14} />} />
+          <Button variant="ghost" size="sm" color="red" startIcon={<Trash2 size={14} />} />
+        </div>
+      ),
+    },
+  ];
+
+  return <DataTable data={users} columns={columns} />;
+}
+
+render(<Demo />);`;
+
 const dataTableProps = [
   { name: "data", type: "T[]", description: "Array of data rows." },
   {
@@ -375,6 +541,33 @@ export default function DataTablePage() {
       </p>
       <div className="mt-4">
         <LivePlayground code={transactionsExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Task Tracker</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        A project management table with checkboxes, priority badges, status
+        chips, and avatar assignees.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={taskTrackerExample} noEditor />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Analytics Dashboard</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Page analytics with inline progress bars for bounce rates and
+        monospace page paths.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={analyticsExample} noEditor />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">With Actions</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Team members table with inline switches for status and action buttons
+        for settings and delete.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={actionsExample} noEditor />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Empty State</h2>
