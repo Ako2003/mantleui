@@ -42,6 +42,14 @@ const controlledExample = `function Demo() {
 render(<Demo />);`;
 
 const styledExample = `function Demo() {
+  const features = [
+    { icon: <Star size={18} />, label: "Themes", desc: "6 accent colors", color: "#eab308" },
+    { icon: <Package size={18} />, label: "Components", desc: "72 total", color: "#3b82f6" },
+    { icon: <Shield size={18} />, label: "Tests", desc: "676+ passing", color: "#22c55e" },
+    { icon: <Compass size={18} />, label: "A11y", desc: "ARIA ready", color: "#8b5cf6" },
+    { icon: <Moon size={18} />, label: "Dark Mode", desc: "Built-in", color: "#6366f1" },
+    { icon: <Globe size={18} />, label: "Responsive", desc: "Mobile first", color: "#ef4444" },
+  ];
   return (
     <div style={{ maxWidth: "400px" }}>
       <Disclosure style={{ border: "none", borderRadius: 0, overflow: "visible" }}>
@@ -62,25 +70,20 @@ const styledExample = `function Demo() {
         </Disclosure.Trigger>
         <Disclosure.Content style={{ borderTop: "none", padding: 0 }}>
           <Card style={{ marginTop: "8px" }}>
-            <Card.Body>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "12px" }}>
-                {[
-                  { label: "Themes", desc: "6 colors", icon: "palette" },
-                  { label: "Components", desc: "72 total", icon: "puzzle" },
-                  { label: "Tests", desc: "676+", icon: "check" },
-                  { label: "A11y", desc: "ARIA ready", icon: "shield" },
-                  { label: "Dark Mode", desc: "Built-in", icon: "moon" },
-                  { label: "Responsive", desc: "Mobile first", icon: "phone" },
-                ].map((item) => (
-                  <Surface key={item.label} elevation="sm" rounded="md" bordered style={{ textAlign: "center", padding: "12px 8px" }}>
-                    <Badge variant="outline" color="neutral" style={{ fontSize: "10px" }}>{item.desc}</Badge>
-                    <div style={{ fontSize: "13px", fontWeight: 600, color: "var(--mantle-color-text)", marginTop: "6px" }}>
-                      {item.label}
-                    </div>
-                  </Surface>
-                ))}
-              </div>
-              <Button style={{ width: "100%", marginTop: "16px" }} endIcon={<ArrowRight size={16} />}>
+            <Card.Body style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+              {features.map((f) => (
+                <div key={f.label} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                  <div style={{ width: "36px", height: "36px", borderRadius: "8px", background: f.color + "18", display: "flex", alignItems: "center", justifyContent: "center", color: f.color, flexShrink: 0 }}>
+                    {f.icon}
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontSize: "13px", fontWeight: 600, color: "var(--mantle-color-text)" }}>{f.label}</div>
+                    <div style={{ fontSize: "11px", color: "var(--mantle-color-text-muted)" }}>{f.desc}</div>
+                  </div>
+                </div>
+              ))}
+              <Separator />
+              <Button style={{ width: "100%" }} endIcon={<ArrowRight size={16} />}>
                 Get Started with MantleUI
               </Button>
             </Card.Body>
