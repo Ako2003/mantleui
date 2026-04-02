@@ -1,4 +1,5 @@
 {
   "buildCommand": "cd ../.. && pnpm turbo run build --filter=@mantleui/docs",
-  "installCommand": "cd ../.. && pnpm install"
+  "installCommand": "cd ../.. && pnpm install",
+  "ignoreCommand": "exit 0"
 }
