@@ -46,13 +46,6 @@ const usageExample = `<div style={{ display: "flex", flexDirection: "column", ga
     Check out our latest updates including dark mode support and improved accessibility features.
   </Alert>
 
-  <Alert variant="info" title="Update available">
-    <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "12px" }}>
-      <span>A new version of the application is available. Please refresh to get the latest features and bug fixes.</span>
-      <Button size="sm" variant="outline" style={{ "--mantle-bg": "rgba(255,255,255,0.1)", "--mantle-border": "rgba(255,255,255,0.25)", "--mantle-text": "#ffffff", "--mantle-hover": "rgba(255,255,255,0.2)" }}>Refresh</Button>
-    </div>
-  </Alert>
-
   <Alert variant="error" title="Unable to connect to server">
     <div>
       <p style={{ margin: "0 0 8px" }}>We're experiencing connection issues. Please try the following:</p>
@@ -61,9 +54,6 @@ const usageExample = `<div style={{ display: "flex", flexDirection: "column", ga
         <li>Refresh the page</li>
         <li>Clear your browser cache</li>
       </ul>
-      <div style={{ marginTop: "12px" }}>
-        <Button size="sm" variant="outline" style={{ "--mantle-bg": "rgba(255,255,255,0.08)", "--mantle-border": "rgba(255,255,255,0.2)", "--mantle-text": "#fca5a5", "--mantle-hover": "rgba(255,255,255,0.15)" }}>Retry</Button>
-      </div>
     </div>
   </Alert>
 
@@ -92,11 +82,13 @@ const withActionsExample = `function Demo() {
           title={alert.title}
           onDismiss={() => setDismissed([...dismissed, alert.id])}
         >
-          <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "12px" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
             <span>{alert.desc}</span>
-            <Button size="sm" color={alert.variant === "error" ? "red" : alert.variant === "warning" ? "yellow" : "blue"} variant="outline">
-              {alert.action}
-            </Button>
+            <div>
+              <Button size="sm" color={alert.variant === "error" ? "red" : alert.variant === "warning" ? "yellow" : "blue"} variant="outline">
+                {alert.action}
+              </Button>
+            </div>
           </div>
         </Alert>
       ))}
