@@ -35,7 +35,7 @@
 .mantle-slider-track {
   position: relative;
   border-radius: var(--mantle-radius-full);
-  background: var(--mantle-slider-track, var(--mantle-color-border));
+  background: var(--mantle-slider-track, var(--mantle-color-bg-muted));
   cursor: pointer;
   touch-action: none;
   -webkit-user-select: none;

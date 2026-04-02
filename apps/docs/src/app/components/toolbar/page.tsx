@@ -146,7 +146,7 @@ const mediaPlayerExample = `function Demo() {
       <div style={{ flex: 1, display: "flex", alignItems: "center", gap: "8px", minWidth: "120px" }}>
         <span style={{ fontSize: "12px", color: "var(--mantle-color-text-muted)", fontVariantNumeric: "tabular-nums" }}>1:23</span>
         <div style={{ flex: 1 }}>
-          <Slider defaultValue={35} size="md" />
+          <Slider defaultValue={35} size="sm" style={{ "--mantle-slider-track": "rgba(255,255,255,0.15)" }} />
         </div>
         <span style={{ fontSize: "12px", color: "var(--mantle-color-text-muted)", fontVariantNumeric: "tabular-nums" }}>3:45</span>
       </div>
@@ -155,7 +155,7 @@ const mediaPlayerExample = `function Demo() {
         <Mic size={16} />
       </ToggleButton>
       <div style={{ width: "100px" }}>
-        <Slider value={muted ? 0 : volume} onValueChange={setVolume} size="md" />
+        <Slider value={muted ? 0 : volume} onValueChange={setVolume} size="sm" style={{ "--mantle-slider-track": "rgba(255,255,255,0.15)" }} />
       </div>
     </Toolbar>
   );
