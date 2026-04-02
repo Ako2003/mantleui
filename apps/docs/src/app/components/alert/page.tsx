@@ -49,7 +49,7 @@ const usageExample = `<div style={{ display: "flex", flexDirection: "column", ga
   <Alert variant="info" title="Update available">
     <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "12px" }}>
       <span>A new version of the application is available. Please refresh to get the latest features and bug fixes.</span>
-      <Button size="sm" color="blue">Refresh</Button>
+      <Button size="sm" variant="outline" style={{ "--mantle-bg": "rgba(255,255,255,0.1)", "--mantle-border": "rgba(255,255,255,0.25)", "--mantle-text": "#ffffff", "--mantle-hover": "rgba(255,255,255,0.2)" }}>Refresh</Button>
     </div>
   </Alert>
 
@@ -62,7 +62,7 @@ const usageExample = `<div style={{ display: "flex", flexDirection: "column", ga
         <li>Clear your browser cache</li>
       </ul>
       <div style={{ marginTop: "12px" }}>
-        <Button size="sm" color="red" variant="outline">Retry</Button>
+        <Button size="sm" variant="outline" style={{ "--mantle-bg": "rgba(255,255,255,0.08)", "--mantle-border": "rgba(255,255,255,0.2)", "--mantle-text": "#fca5a5", "--mantle-hover": "rgba(255,255,255,0.15)" }}>Retry</Button>
       </div>
     </div>
   </Alert>
