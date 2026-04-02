@@ -150,6 +150,71 @@ const disabledButtonExample = `<div style={{ display: "flex", gap: "12px" }}>
   </Tooltip>
 </div>`;
 
+const customStyleExample = `<div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+  <Tooltip>
+    <Tooltip.Trigger>
+      <Button variant="outline" size="sm">Default</Button>
+    </Tooltip.Trigger>
+    <Tooltip.Content>Default tooltip style</Tooltip.Content>
+  </Tooltip>
+  <Tooltip>
+    <Tooltip.Trigger>
+      <Button variant="outline" size="sm" color="blue">Blue</Button>
+    </Tooltip.Trigger>
+    <Tooltip.Content
+      style={{
+        "--mantle-tooltip-bg": "#3b82f6",
+        "--mantle-tooltip-text": "#ffffff",
+        "--mantle-tooltip-border": "#3b82f6",
+      }}
+    >
+      Blue tooltip
+    </Tooltip.Content>
+  </Tooltip>
+  <Tooltip>
+    <Tooltip.Trigger>
+      <Button variant="outline" size="sm" color="red">Red</Button>
+    </Tooltip.Trigger>
+    <Tooltip.Content
+      style={{
+        "--mantle-tooltip-bg": "#ef4444",
+        "--mantle-tooltip-text": "#ffffff",
+        "--mantle-tooltip-border": "#ef4444",
+      }}
+    >
+      Danger tooltip
+    </Tooltip.Content>
+  </Tooltip>
+  <Tooltip>
+    <Tooltip.Trigger>
+      <Button variant="outline" size="sm" color="green">Success</Button>
+    </Tooltip.Trigger>
+    <Tooltip.Content
+      style={{
+        "--mantle-tooltip-bg": "linear-gradient(135deg, #22c55e, #16a34a)",
+        "--mantle-tooltip-text": "#ffffff",
+        "--mantle-tooltip-border": "transparent",
+      }}
+    >
+      Success tooltip
+    </Tooltip.Content>
+  </Tooltip>
+  <Tooltip>
+    <Tooltip.Trigger>
+      <Button variant="outline" size="sm" color="purple">Dark</Button>
+    </Tooltip.Trigger>
+    <Tooltip.Content
+      style={{
+        "--mantle-tooltip-bg": "#09090b",
+        "--mantle-tooltip-text": "#fafafa",
+        "--mantle-tooltip-border": "#27272a",
+      }}
+    >
+      Dark tooltip
+    </Tooltip.Content>
+  </Tooltip>
+</div>`;
+
 const tooltipProps = [
   {
     name: "delayMs",
@@ -193,6 +258,27 @@ const tooltipContentProps = [
     type: '"top" | "bottom" | "left" | "right"',
     default: '"top"',
     description: "The preferred side of the trigger to render the tooltip.",
+  },
+  {
+    name: "--mantle-tooltip-bg",
+    type: "CSS variable",
+    default: "theme muted bg",
+    description:
+      'Override the tooltip background. e.g. style={{ "--mantle-tooltip-bg": "#3b82f6" }}',
+  },
+  {
+    name: "--mantle-tooltip-text",
+    type: "CSS variable",
+    default: "theme text",
+    description:
+      'Override the tooltip text color. e.g. style={{ "--mantle-tooltip-text": "#ffffff" }}',
+  },
+  {
+    name: "--mantle-tooltip-border",
+    type: "CSS variable",
+    default: "theme border",
+    description:
+      'Override the tooltip border color. Set to "transparent" to remove. e.g. style={{ "--mantle-tooltip-border": "transparent" }}',
   },
 ];
 
@@ -262,6 +348,30 @@ export default function TooltipPage() {
       </p>
       <div className="mt-4">
         <LivePlayground code={disabledButtonExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Custom Tooltip Style</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Override the tooltip appearance with{" "}
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
+          --mantle-tooltip-bg
+        </code>
+        ,{" "}
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
+          --mantle-tooltip-text
+        </code>
+        , and{" "}
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
+          --mantle-tooltip-border
+        </code>{" "}
+        on{" "}
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
+          Tooltip.Content
+        </code>
+        .
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={customStyleExample} />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Tooltip Props</h2>
