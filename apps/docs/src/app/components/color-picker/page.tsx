@@ -1,6 +1,6 @@
 "use client";
 
-import { LivePlayground } from "@/components/LivePlayground";
+import { LivePlayground } from "@/components/LazyPlayground";
 import { PropsTable } from "@/components/PropsTable";
 
 const basicExample = `<ColorPicker defaultValue="#3b82f6" />`;

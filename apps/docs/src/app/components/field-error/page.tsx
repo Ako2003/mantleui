@@ -1,6 +1,6 @@
 "use client";
 
-import { LivePlayground } from "@/components/LivePlayground";
+import { LivePlayground } from "@/components/LazyPlayground";
 import { PropsTable } from "@/components/PropsTable";
 
 const basicExample = `<FieldError error="This field is required." />`;

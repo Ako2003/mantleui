@@ -1,6 +1,6 @@
 "use client";
 
-import { LivePlayground } from "@/components/LivePlayground";
+import { LivePlayground } from "@/components/LazyPlayground";
 import { PropsTable } from "@/components/PropsTable";
 
 const horizontalExample = `<div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>

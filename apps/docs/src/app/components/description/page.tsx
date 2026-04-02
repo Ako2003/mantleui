@@ -1,6 +1,6 @@
 "use client";
 
-import { LivePlayground } from "@/components/LivePlayground";
+import { LivePlayground } from "@/components/LazyPlayground";
 import { PropsTable } from "@/components/PropsTable";
 
 const basicExample = `<Description>This is a helpful description for the field above.</Description>`;
