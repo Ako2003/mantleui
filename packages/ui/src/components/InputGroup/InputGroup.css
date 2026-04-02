@@ -4,7 +4,7 @@
   align-items: stretch;
   height: 2.5rem;
   font-family: var(--mantle-font-sans);
-  border: 1px solid var(--mantle-color-border);
+  border: 1px solid var(--mantle-border, var(--mantle-color-border));
   border-radius: var(--mantle-radius-md);
   overflow: hidden;
 }
@@ -23,7 +23,7 @@
 
 /* Restore vertical separators between direct children */
 .mantle-inputGroup > *:not(:last-child) {
-  border-right: 1px solid var(--mantle-color-border) !important;
+  border-right: 1px solid var(--mantle-border, var(--mantle-color-border)) !important;
 }
 
 /* Make all nested elements fill the group height */

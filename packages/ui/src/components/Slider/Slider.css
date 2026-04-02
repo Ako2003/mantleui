@@ -26,7 +26,7 @@
   display: flex;
   justify-content: space-between;
   font-size: var(--mantle-text-sm);
-  color: var(--mantle-color-text);
+  color: var(--mantle-text, var(--mantle-color-text));
   font-weight: 500;
 }
 
@@ -120,7 +120,7 @@
   position: absolute;
   border-radius: var(--mantle-radius-full);
   background: white;
-  border: 2px solid var(--mantle-accent);
+  border: 2px solid var(--mantle-ring, var(--mantle-accent));
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
   transform: translate(-50%, -50%);
   transition: box-shadow 150ms ease;

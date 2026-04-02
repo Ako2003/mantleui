@@ -1,6 +1,6 @@
 .mantle-wrapper {
   overflow-x: auto;
-  border: 1px solid var(--mantle-color-border);
+  border: 1px solid var(--mantle-border, var(--mantle-color-border));
   border-radius: var(--mantle-radius-lg);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
@@ -27,7 +27,7 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   white-space: nowrap;
-  border-bottom: 1px solid var(--mantle-color-border);
+  border-bottom: 1px solid var(--mantle-border, var(--mantle-color-border));
 }
 
 .mantle-sortable {
@@ -41,7 +41,7 @@
 }
 
 .mantle-sortable:focus-visible {
-  outline: var(--mantle-ring-width) solid var(--mantle-accent);
+  outline: var(--mantle-ring-width) solid var(--mantle-ring, var(--mantle-accent));
   outline-offset: calc(-1 * var(--mantle-ring-width));
 }
 
@@ -59,8 +59,8 @@
 
 .mantle-cell {
   padding: var(--mantle-space-3) var(--mantle-space-4);
-  border-bottom: 1px solid var(--mantle-color-border);
-  color: var(--mantle-color-text);
+  border-bottom: 1px solid var(--mantle-border, var(--mantle-color-border));
+  color: var(--mantle-text, var(--mantle-color-text));
 }
 
 .mantle-row {
@@ -89,17 +89,17 @@
   align-items: center;
   justify-content: space-between;
   padding: var(--mantle-space-3) var(--mantle-space-4);
-  border-top: 1px solid var(--mantle-color-border);
+  border-top: 1px solid var(--mantle-border, var(--mantle-color-border));
   font-size: var(--mantle-text-xs);
   color: var(--mantle-color-text-muted);
 }
 
 .mantle-pageButton {
   padding: var(--mantle-space-1) var(--mantle-space-3);
-  border: 1px solid var(--mantle-color-border);
+  border: 1px solid var(--mantle-border, var(--mantle-color-border));
   border-radius: var(--mantle-radius-md);
-  background: transparent;
-  color: var(--mantle-color-text);
+  background: var(--mantle-bg, transparent);
+  color: var(--mantle-text, var(--mantle-color-text));
   font-family: var(--mantle-font-sans);
   font-size: var(--mantle-text-xs);
   cursor: pointer;
@@ -122,7 +122,7 @@
 }
 
 .mantle-pageButton:focus-visible {
-  outline: var(--mantle-ring-width) solid var(--mantle-accent);
+  outline: var(--mantle-ring-width) solid var(--mantle-ring, var(--mantle-accent));
   outline-offset: var(--mantle-ring-offset);
 }
 

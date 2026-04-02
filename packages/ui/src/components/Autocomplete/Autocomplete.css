@@ -9,7 +9,7 @@
 .mantle-autocompleteLabel {
   font-size: var(--mantle-text-sm);
   font-weight: 500;
-  color: var(--mantle-color-text);
+  color: var(--mantle-text, var(--mantle-color-text));
 }
 
 .mantle-autocompleteLabelError {
@@ -34,10 +34,10 @@
   width: 100%;
   height: 2.5rem;
   padding: 0 2rem 0 var(--mantle-space-3);
-  border: 1px solid var(--mantle-color-border);
+  border: 1px solid var(--mantle-border, var(--mantle-color-border));
   border-radius: var(--mantle-radius-md);
-  background-color: transparent;
-  color: var(--mantle-color-text);
+  background-color: var(--mantle-bg, transparent);
+  color: var(--mantle-text, var(--mantle-color-text));
   font-family: inherit;
   font-size: var(--mantle-text-sm);
   transition:
@@ -90,7 +90,7 @@
   z-index: 50;
   margin-top: var(--mantle-space-1);
   padding: var(--mantle-space-1) 0;
-  border: 1px solid var(--mantle-color-border);
+  border: 1px solid var(--mantle-border, var(--mantle-color-border));
   border-radius: 0.5rem;
   background-color: var(--mantle-color-bg-subtle);
   -webkit-backdrop-filter: blur(12px);
@@ -106,7 +106,7 @@
   align-items: center;
   padding: var(--mantle-space-2) var(--mantle-space-3);
   font-size: var(--mantle-text-sm);
-  color: var(--mantle-color-text);
+  color: var(--mantle-text, var(--mantle-color-text));
   cursor: pointer;
   transition: background-color var(--mantle-duration-fast);
 }

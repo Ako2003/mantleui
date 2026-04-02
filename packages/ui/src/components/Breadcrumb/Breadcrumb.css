@@ -30,14 +30,14 @@
 }
 
 .mantle-breadcrumbLink:hover {
-  color: var(--mantle-color-text);
+  color: var(--mantle-text, var(--mantle-color-text));
   text-decoration: underline;
 }
 
 .mantle-breadcrumbActive {
   font-size: var(--mantle-text-sm);
   font-weight: 500;
-  color: var(--mantle-color-text);
+  color: var(--mantle-text, var(--mantle-color-text));
 }
 
 .mantle-breadcrumbSeparator {

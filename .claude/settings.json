@@ -23,7 +23,9 @@
       "Bash(npx prettier:*)",
       "Bash(npx eslint:*)",
       "Bash(ls -d /Users/akifmursalov/Documents/project/packages/ui/src/components/*/)",
-      "Bash(ls /Users/akifmursalov/Documents/project/apps/docs/src/app/components/*/page.tsx)"
+      "Bash(ls /Users/akifmursalov/Documents/project/apps/docs/src/app/components/*/page.tsx)",
+      "Bash(cd /Users/akifmursalov/Documents/project/packages/ui/src/components grep -r 'var\\(--mantle-border, var\\(--mantle-border' . --include='*.css')",
+      "Bash(head -3 grep -r 'var\\(--mantle-text, var\\(--mantle-text,' . --include='*.css')"
     ]
   }
 }

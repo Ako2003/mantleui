@@ -56,9 +56,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--mantle-color-border);
+  border: 1px solid var(--mantle-border, var(--mantle-color-border));
   background: var(--mantle-color-bg);
-  color: var(--mantle-color-text);
+  color: var(--mantle-text, var(--mantle-color-text));
   cursor: pointer;
   font-family: inherit;
   transition:

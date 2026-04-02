@@ -21,7 +21,7 @@
 .mantle-alertdialog {
   width: 100%;
   max-width: 28rem;
-  border: 1px solid var(--mantle-color-border);
+  border: 1px solid var(--mantle-border, var(--mantle-color-border));
   border-radius: var(--mantle-radius-lg);
   background-color: var(--mantle-color-bg-subtle);
   -webkit-backdrop-filter: blur(16px);
@@ -39,7 +39,7 @@
   font-family: var(--mantle-font-sans);
   font-size: var(--mantle-text-lg);
   font-weight: 600;
-  color: var(--mantle-color-text);
+  color: var(--mantle-text, var(--mantle-color-text));
   margin: 0;
 }
 
@@ -84,7 +84,7 @@
 }
 
 .mantle-alertdialog-action:focus-visible {
-  outline: var(--mantle-ring-width) solid var(--mantle-accent);
+  outline: var(--mantle-ring-width) solid var(--mantle-ring, var(--mantle-accent));
   outline-offset: var(--mantle-ring-offset);
 }
 
@@ -94,10 +94,10 @@
   justify-content: center;
   height: 2.25rem;
   padding: 0 var(--mantle-space-4);
-  border: 1px solid var(--mantle-color-border);
+  border: 1px solid var(--mantle-border, var(--mantle-color-border));
   border-radius: var(--mantle-radius-md);
-  background-color: transparent;
-  color: var(--mantle-color-text);
+  background-color: var(--mantle-bg, transparent);
+  color: var(--mantle-text, var(--mantle-color-text));
   font-family: var(--mantle-font-sans);
   font-size: var(--mantle-text-sm);
   font-weight: 500;

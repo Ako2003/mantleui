@@ -4,7 +4,7 @@
   gap: var(--mantle-space-2);
   font-family: var(--mantle-font-sans);
   font-size: var(--mantle-text-sm);
-  color: var(--mantle-color-text);
+  color: var(--mantle-text, var(--mantle-color-text));
   cursor: pointer;
 }
 
@@ -35,7 +35,7 @@
 }
 
 .mantle-switch:focus-visible {
-  outline: var(--mantle-ring-width) solid var(--mantle-accent);
+  outline: var(--mantle-ring-width) solid var(--mantle-ring, var(--mantle-accent));
   outline-offset: var(--mantle-ring-offset);
 }
 

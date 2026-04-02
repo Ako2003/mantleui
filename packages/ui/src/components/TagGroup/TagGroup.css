@@ -8,7 +8,7 @@
   font-family: var(--mantle-font-sans);
   font-size: var(--mantle-text-sm);
   font-weight: 500;
-  color: var(--mantle-color-text);
+  color: var(--mantle-text, var(--mantle-color-text));
 }
 
 .mantle-taggroup-tags {

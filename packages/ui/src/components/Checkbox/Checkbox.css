@@ -5,7 +5,7 @@
   cursor: pointer;
   font-family: var(--mantle-font-sans);
   font-size: var(--mantle-text-sm);
-  color: var(--mantle-color-text);
+  color: var(--mantle-text, var(--mantle-color-text));
 }
 
 .mantle-checkboxWrapper:has(.mantle-checkboxInput:disabled) {
@@ -30,7 +30,7 @@
   height: 1.125rem;
   border: 2px solid var(--mantle-color-border-hover);
   border-radius: var(--mantle-radius-sm);
-  background-color: transparent;
+  background-color: var(--mantle-bg, transparent);
   transition:
     background-color var(--mantle-duration-fast),
     border-color var(--mantle-duration-fast);
@@ -38,7 +38,7 @@
 }
 
 .mantle-checkboxInput:focus-visible + .mantle-checkboxControl {
-  outline: var(--mantle-ring-width) solid var(--mantle-accent);
+  outline: var(--mantle-ring-width) solid var(--mantle-ring, var(--mantle-accent));
   outline-offset: var(--mantle-ring-offset);
 }
 

@@ -9,8 +9,8 @@
   padding: var(--mantle-space-1) var(--mantle-space-2);
   border-radius: var(--mantle-radius-md);
   background-color: var(--mantle-color-bg-muted);
-  color: var(--mantle-color-text);
-  border: 1px solid var(--mantle-color-border);
+  color: var(--mantle-text, var(--mantle-color-text));
+  border: 1px solid var(--mantle-border, var(--mantle-color-border));
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   font-family: var(--mantle-font-sans);

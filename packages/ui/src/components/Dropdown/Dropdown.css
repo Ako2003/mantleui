@@ -9,10 +9,10 @@
   justify-content: center;
   gap: var(--mantle-space-2);
   padding: var(--mantle-space-2) var(--mantle-space-3);
-  border: 1px solid var(--mantle-color-border);
+  border: 1px solid var(--mantle-border, var(--mantle-color-border));
   border-radius: var(--mantle-radius-md);
-  background-color: transparent;
-  color: var(--mantle-color-text);
+  background-color: var(--mantle-bg, transparent);
+  color: var(--mantle-text, var(--mantle-color-text));
   font-family: var(--mantle-font-sans);
   font-size: var(--mantle-text-sm);
   font-weight: 500;
@@ -32,7 +32,7 @@
 }
 
 .mantle-dropdown-trigger:focus-visible {
-  outline: var(--mantle-ring-width) solid var(--mantle-accent);
+  outline: var(--mantle-ring-width) solid var(--mantle-ring, var(--mantle-accent));
   outline-offset: var(--mantle-ring-offset);
 }
 
@@ -44,7 +44,7 @@
   min-width: 10rem;
   margin-top: var(--mantle-space-1);
   padding: var(--mantle-space-1) 0;
-  border: 1px solid var(--mantle-color-border);
+  border: 1px solid var(--mantle-border, var(--mantle-color-border));
   border-radius: var(--mantle-radius-md);
   background-color: var(--mantle-color-bg-subtle);
   -webkit-backdrop-filter: blur(12px);
@@ -60,7 +60,7 @@
   align-items: center;
   padding: var(--mantle-space-2) var(--mantle-space-3);
   cursor: pointer;
-  color: var(--mantle-color-text);
+  color: var(--mantle-text, var(--mantle-color-text));
   transition:
     background-color var(--mantle-duration-fast),
     color var(--mantle-duration-fast);

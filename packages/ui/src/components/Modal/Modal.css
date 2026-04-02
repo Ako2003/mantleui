@@ -18,7 +18,7 @@
 
 /* Backdrop — transparent */
 .mantle-modal-overlay-transparent {
-  background-color: transparent;
+  background-color: var(--mantle-bg, transparent);
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
 }
@@ -36,7 +36,7 @@
 .mantle-modal {
   width: 100%;
   max-width: 32rem;
-  border: 1px solid var(--mantle-color-border);
+  border: 1px solid var(--mantle-border, var(--mantle-color-border));
   border-radius: var(--mantle-radius-lg);
   background-color: var(--mantle-color-bg-subtle);
   -webkit-backdrop-filter: blur(16px);
@@ -56,7 +56,7 @@
   font-family: var(--mantle-font-sans);
   font-size: var(--mantle-text-lg);
   font-weight: 600;
-  color: var(--mantle-color-text);
+  color: var(--mantle-text, var(--mantle-color-text));
 }
 
 .mantle-modal-body {

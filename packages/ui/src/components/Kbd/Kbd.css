@@ -10,9 +10,9 @@
   min-width: 1.5rem;
   height: 1.5rem;
   padding: 0 var(--mantle-space-2);
-  color: var(--mantle-color-text);
+  color: var(--mantle-text, var(--mantle-color-text));
   background: var(--mantle-bg-subtle);
-  border: 1px solid var(--mantle-color-border);
+  border: 1px solid var(--mantle-border, var(--mantle-color-border));
   border-bottom-width: 2px;
   border-radius: var(--mantle-radius-sm);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);

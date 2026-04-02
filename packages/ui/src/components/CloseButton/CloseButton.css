@@ -3,8 +3,8 @@
   align-items: center;
   justify-content: center;
   border: none;
-  background: transparent;
-  color: var(--mantle-color-text);
+  background: var(--mantle-bg, transparent);
+  color: var(--mantle-text, var(--mantle-color-text));
   cursor: pointer;
   border-radius: var(--mantle-radius-md);
   padding: 0;
@@ -19,7 +19,7 @@
 }
 
 .mantle-closebutton:focus-visible {
-  outline: 2px solid var(--mantle-accent);
+  outline: 2px solid var(--mantle-ring, var(--mantle-accent));
   outline-offset: 2px;
 }
 

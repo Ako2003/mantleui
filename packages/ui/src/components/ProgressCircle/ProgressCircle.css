@@ -3,7 +3,7 @@
 }
 
 .mantle-progress-circle-track {
-  stroke: var(--mantle-color-border);
+  stroke: var(--mantle-border, var(--mantle-color-border));
   opacity: 0.25;
   fill: none;
 }
@@ -28,7 +28,7 @@
   font-family: var(--mantle-font-sans);
   font-weight: 500;
   font-variant-numeric: tabular-nums;
-  color: var(--mantle-color-text);
+  color: var(--mantle-text, var(--mantle-color-text));
 }
 
 .mantle-progress-circle-value-sm {

@@ -87,16 +87,16 @@
 .mantle-buttongroup > .mantle-dropdown > .mantle-dropdown-trigger {
   border-radius: 0 !important;
   height: 100%;
-  border: 1px solid var(--mantle-color-border) !important;
+  border: 1px solid var(--mantle-border, var(--mantle-color-border)) !important;
   background: transparent !important;
-  color: var(--mantle-color-text) !important;
+  color: var(--mantle-text, var(--mantle-color-text)) !important;
   padding: 0 var(--mantle-space-3);
 }
 
 .mantle-buttongroup > .mantle-dropdown > .mantle-dropdown-trigger:hover {
   background: var(--mantle-color-bg-muted) !important;
-  border-color: var(--mantle-color-border) !important;
-  color: var(--mantle-color-text) !important;
+  border-color: var(--mantle-border, var(--mantle-color-border)) !important;
+  color: var(--mantle-text, var(--mantle-color-text)) !important;
 }
 
 /* Remove double border */
@@ -111,7 +111,7 @@
   > .mantle-dropdown:not(:first-child)
   > .mantle-dropdown-trigger {
   border-left-width: 1px !important;
-  border-left-color: var(--mantle-color-border) !important;
+  border-left-color: var(--mantle-border, var(--mantle-color-border)) !important;
 }
 
 /* Radius: last child */
@@ -150,10 +150,10 @@
 
 .mantle-buttongroupDivider.mantle-buttongroupHorizontal > *:not(:first-child) {
   border-left-width: 1px !important;
-  border-left-color: var(--mantle-color-border) !important;
+  border-left-color: var(--mantle-border, var(--mantle-color-border)) !important;
 }
 
 .mantle-buttongroupDivider.mantle-buttongroupVertical > *:not(:first-child) {
   border-top-width: 1px !important;
-  border-top-color: var(--mantle-color-border) !important;
+  border-top-color: var(--mantle-border, var(--mantle-color-border)) !important;
 }

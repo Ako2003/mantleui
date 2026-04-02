@@ -16,7 +16,7 @@
   font-family: var(--mantle-font-sans);
   font-size: var(--mantle-text-sm);
   font-weight: 500;
-  color: var(--mantle-color-text);
+  color: var(--mantle-text, var(--mantle-color-text));
   margin-bottom: var(--mantle-space-2);
 }
 
@@ -27,7 +27,7 @@
   cursor: pointer;
   font-family: var(--mantle-font-sans);
   font-size: var(--mantle-text-sm);
-  color: var(--mantle-color-text);
+  color: var(--mantle-text, var(--mantle-color-text));
 }
 
 .mantle-radiogroup-item-disabled {
@@ -55,7 +55,7 @@
   height: 18px;
   border-radius: 50%;
   border: 2px solid var(--mantle-color-border-hover);
-  background: transparent;
+  background: var(--mantle-bg, transparent);
   transition: border-color var(--mantle-duration-fast);
   flex-shrink: 0;
 }

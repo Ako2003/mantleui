@@ -1,6 +1,6 @@
 .mantle-separator {
   border: none;
-  background-color: var(--mantle-color-border);
+  background-color: var(--mantle-border, var(--mantle-color-border));
   flex-shrink: 0;
 }
 

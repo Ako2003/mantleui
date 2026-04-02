@@ -36,8 +36,8 @@
 }
 
 .mantle-badge.mantle-badge-outline {
-  background-color: transparent;
-  border: 1px solid var(--mantle-accent);
+  background-color: var(--mantle-bg, transparent);
+  border: 1px solid var(--mantle-ring, var(--mantle-accent));
   color: var(--mantle-accent);
 }
 

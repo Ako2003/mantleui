@@ -8,7 +8,7 @@
 .mantle-numberFieldLabel {
   font-size: var(--mantle-text-sm);
   font-weight: 500;
-  color: var(--mantle-color-text);
+  color: var(--mantle-text, var(--mantle-color-text));
 }
 
 .mantle-numberFieldLabelError {
@@ -18,7 +18,7 @@
 .mantle-numberFieldContainer {
   display: flex;
   align-items: center;
-  border: 1px solid var(--mantle-color-border);
+  border: 1px solid var(--mantle-border, var(--mantle-color-border));
   border-radius: var(--mantle-radius-md);
   overflow: hidden;
   transition:
@@ -46,7 +46,7 @@
   justify-content: center;
   border: none;
   background: var(--mantle-color-bg-subtle);
-  color: var(--mantle-color-text);
+  color: var(--mantle-text, var(--mantle-color-text));
   cursor: pointer;
   flex-shrink: 0;
   font-family: inherit;
@@ -85,8 +85,8 @@
 
 .mantle-numberFieldInput {
   border: none;
-  background: transparent;
-  color: var(--mantle-color-text);
+  background: var(--mantle-bg, transparent);
+  color: var(--mantle-text, var(--mantle-color-text));
   font-family: inherit;
   outline: none;
   text-align: center;

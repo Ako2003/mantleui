@@ -6,7 +6,7 @@
 .mantle-tabsList {
   position: relative;
   display: flex;
-  border-bottom: 1px solid var(--mantle-color-border);
+  border-bottom: 1px solid var(--mantle-border, var(--mantle-color-border));
   gap: var(--mantle-space-1);
 }
 
@@ -16,7 +16,7 @@
   padding: var(--mantle-space-2) var(--mantle-space-4);
   border: none;
   text-align: center;
-  background: transparent;
+  background: var(--mantle-bg, transparent);
   color: var(--mantle-color-text-muted);
   font-family: var(--mantle-font-sans);
   font-size: var(--mantle-text-sm);
@@ -28,12 +28,12 @@
 }
 
 .mantle-tabsTrigger:hover:not(:disabled) {
-  color: var(--mantle-color-text);
+  color: var(--mantle-text, var(--mantle-color-text));
   background-color: var(--mantle-color-bg-subtle);
 }
 
 .mantle-tabsTrigger:focus-visible {
-  outline: var(--mantle-ring-width) solid var(--mantle-accent);
+  outline: var(--mantle-ring-width) solid var(--mantle-ring, var(--mantle-accent));
   outline-offset: calc(-1 * var(--mantle-ring-width));
   border-radius: var(--mantle-radius-sm);
 }
@@ -76,7 +76,7 @@
 }
 
 .mantle-tabsListPill .mantle-tabsTriggerActive {
-  color: var(--mantle-color-text);
+  color: var(--mantle-text, var(--mantle-color-text));
 }
 
 .mantle-tabsIndicatorPill {
@@ -101,7 +101,7 @@
 .mantle-tabsListVertical {
   flex-direction: column;
   border-bottom: none;
-  border-right: 1px solid var(--mantle-color-border);
+  border-right: 1px solid var(--mantle-border, var(--mantle-color-border));
   gap: 0;
   min-width: 160px;
 }

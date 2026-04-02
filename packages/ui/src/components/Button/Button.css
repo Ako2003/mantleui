@@ -14,7 +14,7 @@
 }
 
 .mantle-button:focus-visible {
-  outline: var(--mantle-ring-width) solid var(--mantle-accent);
+  outline: var(--mantle-ring-width) solid var(--mantle-ring, var(--mantle-accent));
   outline-offset: var(--mantle-ring-offset);
 }
 
@@ -40,7 +40,7 @@
 }
 
 .mantle-outline {
-  background: transparent;
+  background: var(--mantle-bg, transparent);
   border-color: var(--mantle-accent);
   color: var(--mantle-accent);
   -webkit-backdrop-filter: blur(8px);
@@ -56,8 +56,8 @@
 
 .mantle-ghost {
   background-color: var(--mantle-color-bg-muted);
-  border-color: var(--mantle-color-border);
-  color: var(--mantle-color-text);
+  border-color: var(--mantle-border, var(--mantle-color-border));
+  color: var(--mantle-text, var(--mantle-color-text));
 }
 
 .mantle-ghost:hover:not(:disabled):not([aria-disabled="true"]) {

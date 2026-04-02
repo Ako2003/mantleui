@@ -1,9 +1,9 @@
 .mantle-searchFieldContainer {
   display: flex;
   align-items: center;
-  border: 1px solid var(--mantle-color-border);
+  border: 1px solid var(--mantle-border, var(--mantle-color-border));
   border-radius: var(--mantle-radius-md);
-  background: transparent;
+  background: var(--mantle-bg, transparent);
   font-family: var(--mantle-font-sans);
   transition:
     border-color var(--mantle-duration-fast),
@@ -31,8 +31,8 @@
 .mantle-searchFieldInput {
   flex: 1;
   border: none;
-  background: transparent;
-  color: var(--mantle-color-text);
+  background: var(--mantle-bg, transparent);
+  color: var(--mantle-text, var(--mantle-color-text));
   font-family: inherit;
   outline: none;
   width: 100%;
@@ -52,7 +52,7 @@
   align-items: center;
   justify-content: center;
   border: none;
-  background: transparent;
+  background: var(--mantle-bg, transparent);
   color: var(--mantle-color-text-muted);
   cursor: pointer;
   flex-shrink: 0;
@@ -63,7 +63,7 @@
 }
 
 .mantle-searchFieldClear:hover {
-  color: var(--mantle-color-text);
+  color: var(--mantle-text, var(--mantle-color-text));
 }
 
 .mantle-searchFieldClear svg {

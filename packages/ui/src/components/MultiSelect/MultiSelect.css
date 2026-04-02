@@ -9,7 +9,7 @@
 .mantle-multiselectLabel {
   font-size: var(--mantle-text-sm);
   font-weight: 500;
-  color: var(--mantle-color-text);
+  color: var(--mantle-text, var(--mantle-color-text));
 }
 
 .mantle-multiselectLabelError {
@@ -23,9 +23,9 @@
   gap: var(--mantle-space-1);
   min-height: 2.5rem;
   padding: var(--mantle-space-1) var(--mantle-space-2);
-  border: 1px solid var(--mantle-color-border);
+  border: 1px solid var(--mantle-border, var(--mantle-color-border));
   border-radius: var(--mantle-radius-md);
-  background: transparent;
+  background: var(--mantle-bg, transparent);
   cursor: pointer;
   transition:
     border-color var(--mantle-duration-fast),
@@ -73,7 +73,7 @@
   width: 14px;
   height: 14px;
   border: none;
-  background: transparent;
+  background: var(--mantle-bg, transparent);
   color: inherit;
   opacity: 0.6;
   cursor: pointer;
@@ -100,7 +100,7 @@
   align-items: center;
   justify-content: center;
   border: none;
-  background: transparent;
+  background: var(--mantle-bg, transparent);
   color: var(--mantle-color-text-muted);
   cursor: pointer;
   padding: 2px;
@@ -109,7 +109,7 @@
 }
 
 .mantle-multiselectClear:hover {
-  color: var(--mantle-color-text);
+  color: var(--mantle-text, var(--mantle-color-text));
 }
 
 .mantle-multiselectChevron {
@@ -130,7 +130,7 @@
   z-index: 9999;
   margin-top: var(--mantle-space-1);
   padding: var(--mantle-space-1) 0;
-  border: 1px solid var(--mantle-color-border);
+  border: 1px solid var(--mantle-border, var(--mantle-color-border));
   border-radius: var(--mantle-radius-md);
   background-color: var(--mantle-color-bg-subtle);
   -webkit-backdrop-filter: blur(12px);
@@ -147,7 +147,7 @@
   justify-content: space-between;
   padding: var(--mantle-space-2) var(--mantle-space-3);
   font-size: var(--mantle-text-sm);
-  color: var(--mantle-color-text);
+  color: var(--mantle-text, var(--mantle-color-text));
   cursor: pointer;
   transition: background-color var(--mantle-duration-fast);
 }

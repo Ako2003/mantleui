@@ -4,7 +4,7 @@
   gap: var(--mantle-space-2);
   padding: var(--mantle-space-3);
   font-family: var(--mantle-font-sans);
-  border: 1px solid var(--mantle-color-border);
+  border: 1px solid var(--mantle-border, var(--mantle-color-border));
   border-radius: var(--mantle-radius-md);
   background-color: var(--mantle-color-bg-subtle);
 }
@@ -27,10 +27,10 @@
 .mantle-calendarSelect {
   appearance: none;
   -webkit-appearance: none;
-  background: transparent;
-  border: 1px solid var(--mantle-color-border);
+  background: var(--mantle-bg, transparent);
+  border: 1px solid var(--mantle-border, var(--mantle-color-border));
   border-radius: var(--mantle-radius-md);
-  color: var(--mantle-color-text);
+  color: var(--mantle-text, var(--mantle-color-text));
   font-family: inherit;
   font-size: var(--mantle-text-xs);
   font-weight: 600;
@@ -45,7 +45,7 @@
 }
 
 .mantle-calendarSelect:focus-visible {
-  outline: var(--mantle-ring-width) solid var(--mantle-accent);
+  outline: var(--mantle-ring-width) solid var(--mantle-ring, var(--mantle-accent));
   outline-offset: var(--mantle-ring-offset);
 }
 
@@ -56,10 +56,10 @@
   width: 2rem;
   height: 2rem;
   padding: 0;
-  border: 1px solid var(--mantle-color-border);
+  border: 1px solid var(--mantle-border, var(--mantle-color-border));
   border-radius: var(--mantle-radius-md);
-  background-color: transparent;
-  color: var(--mantle-color-text);
+  background-color: var(--mantle-bg, transparent);
+  color: var(--mantle-text, var(--mantle-color-text));
   cursor: pointer;
   transition:
     background-color var(--mantle-duration-fast),
@@ -71,7 +71,7 @@
 }
 
 .mantle-calendarNav:focus-visible {
-  outline: var(--mantle-ring-width) solid var(--mantle-accent);
+  outline: var(--mantle-ring-width) solid var(--mantle-ring, var(--mantle-accent));
   outline-offset: var(--mantle-ring-offset);
 }
 
@@ -99,8 +99,8 @@
   padding: 0;
   border: none;
   border-radius: var(--mantle-radius-md);
-  background-color: transparent;
-  color: var(--mantle-color-text);
+  background-color: var(--mantle-bg, transparent);
+  color: var(--mantle-text, var(--mantle-color-text));
   font-size: var(--mantle-text-sm);
   font-family: inherit;
   cursor: pointer;
@@ -112,7 +112,7 @@
 }
 
 .mantle-calendarDay:focus-visible {
-  outline: var(--mantle-ring-width) solid var(--mantle-accent);
+  outline: var(--mantle-ring-width) solid var(--mantle-ring, var(--mantle-accent));
   outline-offset: var(--mantle-ring-offset);
 }
 
@@ -131,7 +131,7 @@
 
 .mantle-calendarDayToday {
   font-weight: 700;
-  border: 1px solid var(--mantle-accent);
+  border: 1px solid var(--mantle-ring, var(--mantle-accent));
 }
 
 .mantle-calendarDayOutside {
