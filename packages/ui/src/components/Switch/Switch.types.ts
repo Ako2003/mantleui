@@ -14,7 +14,7 @@ export interface SwitchProps extends Omit<
   /** Accent color. Defaults to `"blue"`. */
   color?: MantleColor;
   /** Size preset. */
-  size?: "sm" | "md";
+  size?: "sm" | "md" | "lg";
   /** Label content displayed next to the switch. */
   label?: ReactNode;
   /** Description text displayed below the label. */

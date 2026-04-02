@@ -34,9 +34,12 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     ref,
   ) {
     const group = useContext(CheckboxGroupContext);
-    const isInGroup = group !== undefined && value !== undefined;
+    const stringValue = typeof value === "string" ? value : undefined;
+    const isInGroup = group !== undefined && stringValue !== undefined;
 
-    const groupChecked = isInGroup ? group.value.includes(value) : undefined;
+    const groupChecked = isInGroup
+      ? group.value.includes(stringValue)
+      : undefined;
     const resolvedColor = isInGroup ? (group.color ?? color) : color;
     const { dataColor, colorStyle } = resolveColor(resolvedColor);
 
@@ -61,7 +64,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       onChange?.(e);
       if (!e.defaultPrevented) {
         if (isInGroup) {
-          group.toggle(value);
+          group.toggle(stringValue);
         } else {
           setChecked(e.target.checked);
         }
