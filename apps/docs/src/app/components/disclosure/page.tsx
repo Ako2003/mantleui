@@ -46,72 +46,45 @@ const styledExample = `function Demo() {
     <div style={{ maxWidth: "400px" }}>
       <Disclosure style={{ border: "none", borderRadius: 0, overflow: "visible" }}>
         <Disclosure.Trigger style={{
-          padding: 0,
           background: "linear-gradient(135deg, var(--mantle-accent-subtle), transparent)",
           border: "1px solid var(--mantle-color-border)",
           borderRadius: "12px",
           gap: "10px",
           padding: "12px 16px",
         }}>
-          <span style={{ fontSize: "20px" }}>✨</span>
+          <Sparkles size={20} style={{ color: "var(--mantle-accent)" }} />
           <div style={{ flex: 1, textAlign: "left" }}>
             <div style={{ fontWeight: 600, fontSize: "14px", color: "var(--mantle-color-text)" }}>
               Preview MantleUI Components
             </div>
-            <div style={{ fontSize: "12px", color: "var(--mantle-color-text-muted)", marginTop: "2px" }}>
-              Click to explore the component showcase
-            </div>
+            <Description>Click to explore the component showcase</Description>
           </div>
         </Disclosure.Trigger>
         <Disclosure.Content style={{ borderTop: "none", padding: 0 }}>
-          <div style={{
-            marginTop: "8px",
-            padding: "20px",
-            borderRadius: "12px",
-            border: "1px solid var(--mantle-color-border)",
-            backdropFilter: "blur(12px)",
-            background: "var(--mantle-color-bg-subtle)",
-          }}>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "12px" }}>
-              {[
-                { icon: "🎨", label: "Themes", desc: "6 colors" },
-                { icon: "🧩", label: "Components", desc: "56 total" },
-                { icon: "✅", label: "Tests", desc: "651 passing" },
-                { icon: "♿", label: "A11y", desc: "ARIA ready" },
-                { icon: "🌙", label: "Dark Mode", desc: "Built-in" },
-                { icon: "📱", label: "Responsive", desc: "Mobile first" },
-              ].map((item) => (
-                <div key={item.label} style={{
-                  textAlign: "center",
-                  padding: "12px 8px",
-                  borderRadius: "8px",
-                  border: "1px solid var(--mantle-color-border)",
-                  background: "var(--mantle-color-bg-muted)",
-                }}>
-                  <div style={{ fontSize: "24px" }}>{item.icon}</div>
-                  <div style={{ fontSize: "13px", fontWeight: 600, color: "var(--mantle-color-text)", marginTop: "6px" }}>
-                    {item.label}
-                  </div>
-                  <div style={{ fontSize: "11px", color: "var(--mantle-color-text-muted)", marginTop: "2px" }}>
-                    {item.desc}
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div style={{
-              marginTop: "16px",
-              padding: "12px",
-              borderRadius: "8px",
-              background: "linear-gradient(135deg, var(--mantle-accent), var(--mantle-accent-hover))",
-              color: "white",
-              textAlign: "center",
-              fontSize: "13px",
-              fontWeight: 600,
-              cursor: "pointer",
-            }}>
-              Get Started with MantleUI →
-            </div>
-          </div>
+          <Card style={{ marginTop: "8px" }}>
+            <Card.Body>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "12px" }}>
+                {[
+                  { label: "Themes", desc: "6 colors", icon: "palette" },
+                  { label: "Components", desc: "72 total", icon: "puzzle" },
+                  { label: "Tests", desc: "676+", icon: "check" },
+                  { label: "A11y", desc: "ARIA ready", icon: "shield" },
+                  { label: "Dark Mode", desc: "Built-in", icon: "moon" },
+                  { label: "Responsive", desc: "Mobile first", icon: "phone" },
+                ].map((item) => (
+                  <Surface key={item.label} elevation="sm" rounded="md" bordered style={{ textAlign: "center", padding: "12px 8px" }}>
+                    <Badge variant="outline" color="neutral" style={{ fontSize: "10px" }}>{item.desc}</Badge>
+                    <div style={{ fontSize: "13px", fontWeight: 600, color: "var(--mantle-color-text)", marginTop: "6px" }}>
+                      {item.label}
+                    </div>
+                  </Surface>
+                ))}
+              </div>
+              <Button style={{ width: "100%", marginTop: "16px" }} endIcon={<ArrowRight size={16} />}>
+                Get Started with MantleUI
+              </Button>
+            </Card.Body>
+          </Card>
         </Disclosure.Content>
       </Disclosure>
     </div>
