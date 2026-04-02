@@ -1,4 +1,12 @@
-import { forwardRef, useCallback, useEffect, useRef, useState } from "react";
+import {
+  forwardRef,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
+import { createPortal } from "react-dom";
 import { useControllable } from "../../hooks";
 import { resolveColor } from "../../utils";
 import { Calendar } from "../Calendar";
@@ -66,6 +74,8 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
 
     const [open, setOpen] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
+    const triggerRef = useRef<HTMLButtonElement>(null);
+    const [popupPos, setPopupPos] = useState({ top: 0, left: 0 });
 
     const handleTriggerClick = useCallback(() => {
       if (!disabled) {
@@ -91,13 +101,27 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
       [setSelectedDate],
     );
 
+    const popupRef = useRef<HTMLDivElement>(null);
+
+    useLayoutEffect(() => {
+      if (!open || !triggerRef.current) return;
+      const rect = triggerRef.current.getBoundingClientRect();
+      setPopupPos({
+        top: rect.bottom + window.scrollY + 4,
+        left: rect.left + window.scrollX,
+      });
+    }, [open]);
+
     useEffect(() => {
       if (!open) return;
 
       function handleClickOutside(event: MouseEvent) {
+        const target = event.target as Node;
         if (
           containerRef.current &&
-          !containerRef.current.contains(event.target as Node)
+          !containerRef.current.contains(target) &&
+          popupRef.current &&
+          !popupRef.current.contains(target)
         ) {
           setOpen(false);
         }
@@ -148,6 +172,7 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
           </span>
         )}
         <button
+          ref={triggerRef}
           type="button"
           disabled={disabled}
           onClick={handleTriggerClick}
@@ -179,15 +204,28 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
           </span>
           <CalendarIcon />
         </button>
-        {open && (
-          <div className="mantle-datePickerPopup" role="dialog">
-            <Calendar
-              value={selectedDate}
-              onValueChange={handleSelect}
-              color={color}
-            />
-          </div>
-        )}
+        {open &&
+          createPortal(
+            <div
+              ref={popupRef}
+              className="mantle-datePickerPopup"
+              role="dialog"
+              data-color={dataColor}
+              style={{
+                ...colorStyle,
+                position: "fixed",
+                top: popupPos.top - window.scrollY,
+                left: popupPos.left,
+              }}
+            >
+              <Calendar
+                value={selectedDate}
+                onValueChange={handleSelect}
+                color={color}
+              />
+            </div>,
+            document.body,
+          )}
         {error && <span className="mantle-datePickerError">{error}</span>}
       </div>
     );
