@@ -1,7 +1,8 @@
-import { forwardRef, useEffect, useRef } from "react";
+import { forwardRef, useContext, useEffect, useRef } from "react";
 import { useComposedRefs, useId } from "../../hooks";
 import { useControllable } from "../../hooks";
 import { resolveColor } from "../../utils";
+import { CheckboxGroupContext } from "../CheckboxGroup/CheckboxGroup";
 import type { CheckboxProps } from "./Checkbox.types";
 import "./Checkbox.css";
 
@@ -27,14 +28,20 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       id: idProp,
       disabled,
       onChange,
+      value,
       ...rest
     },
     ref,
   ) {
-    const { dataColor, colorStyle } = resolveColor(color);
+    const group = useContext(CheckboxGroupContext);
+    const isInGroup = group !== undefined && value !== undefined;
+
+    const groupChecked = isInGroup ? group.value.includes(value) : undefined;
+    const resolvedColor = isInGroup ? group.color ?? color : color;
+    const { dataColor, colorStyle } = resolveColor(resolvedColor);
 
     const [checked, setChecked] = useControllable({
-      value: checkedProp,
+      value: isInGroup ? groupChecked : checkedProp,
       defaultValue: defaultChecked,
       onChange: onCheckedChange,
     });
@@ -53,7 +60,11 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       onChange?.(e);
       if (!e.defaultPrevented) {
-        setChecked(e.target.checked);
+        if (isInGroup) {
+          group.toggle(value);
+        } else {
+          setChecked(e.target.checked);
+        }
       }
     };
 
@@ -72,6 +83,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           className="mantle-checkboxInput"
           checked={checked}
           disabled={disabled}
+          value={value}
           data-indeterminate={indeterminate || undefined}
           onChange={handleChange}
           {...rest}
