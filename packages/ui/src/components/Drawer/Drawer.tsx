@@ -19,24 +19,13 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(function Drawer(
 ) {
   const onClose = useCallback(() => onOpenChange(false), [onOpenChange]);
   const panelRef = useRef<HTMLDivElement>(null);
-  const [mounted, setMounted] = useState(false);
-  const [closing, setClosing] = useState(false);
+  // visible keeps the DOM mounted during the exit animation
+  const [visible, setVisible] = useState(open);
 
-  // Handle open/close transitions
-  useEffect(() => {
-    if (open) {
-      setMounted(true);
-      setClosing(false);
-    } else if (mounted) {
-      // Start closing animation
-      setClosing(true);
-      const timer = setTimeout(() => {
-        setMounted(false);
-        setClosing(false);
-      }, 250); // match animation duration
-      return () => clearTimeout(timer);
-    }
-  }, [open]); // eslint-disable-line react-hooks/exhaustive-deps
+  // Sync: when open becomes true, mount immediately (during render)
+  if (open && !visible) {
+    setVisible(true);
+  }
 
   // Close on Escape
   useEffect(() => {
@@ -57,19 +46,23 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(function Drawer(
 
   // Lock body scroll
   useEffect(() => {
-    if (!mounted) return;
+    if (!visible) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = prev;
     };
-  }, [mounted]);
+  }, [visible]);
 
-  if (!mounted) return null;
+  const handleAnimationEnd = useCallback(() => {
+    if (!open) {
+      setVisible(false);
+    }
+  }, [open]);
 
-  const handleOverlayClick = () => {
-    onClose();
-  };
+  if (!visible) return null;
+
+  const closing = !open;
 
   return createPortal(
     <>
@@ -81,7 +74,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(function Drawer(
         ]
           .filter(Boolean)
           .join(" ")}
-        onClick={handleOverlayClick}
+        onClick={onClose}
       />
       <div
         ref={(node) => {
@@ -95,6 +88,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(function Drawer(
         role="dialog"
         aria-modal="true"
         tabIndex={-1}
+        onAnimationEnd={handleAnimationEnd}
         className={[
           `mantle-drawer mantle-drawer--${side}`,
           closing && `mantle-drawer--${side}-closing`,

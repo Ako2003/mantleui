@@ -184,7 +184,6 @@ export const TimeField = forwardRef<HTMLDivElement, TimeFieldProps>(
           ]
             .filter(Boolean)
             .join(" ")}
-          onClick={() => !disabled && setIsOpen(!isOpen)}
           role="group"
           aria-labelledby={label ? `${generatedId}-label` : undefined}
         >
