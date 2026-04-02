@@ -266,11 +266,11 @@ export function LivePlayground({ code }: LivePlaygroundProps) {
   return (
     <LiveProvider code={code} scope={scope} noInline={hasRender} theme={theme}>
       <div className="overflow-visible rounded-lg border border-slate-200 dark:border-zinc-800">
-        <div className="overflow-visible rounded-t-lg bg-white p-6 dark:bg-zinc-950">
+        <div className="relative z-10 overflow-visible rounded-t-lg bg-white p-6 dark:bg-zinc-950">
           <LivePreview />
         </div>
         <LiveError className="border-t border-red-200 bg-red-50 px-4 py-2 text-sm text-red-700 dark:border-red-900 dark:bg-red-950 dark:text-red-400" />
-        <div className="relative border-t border-slate-200 dark:border-zinc-800">
+        <div className="relative z-0 border-t border-slate-200 dark:border-zinc-800">
           <CopyButton code={code} />
           <Highlight code={code.trim()} language="tsx" theme={theme}>
             {({
