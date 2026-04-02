@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import { resolveColor } from "../../utils";
+import { getAccentColor, resolveColor } from "../../utils";
 import type { ProgressBarProps } from "./ProgressBar.types";
 import "./ProgressBar.css";
 
@@ -29,6 +29,7 @@ export const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
     ref,
   ) {
     const { dataColor, colorStyle } = resolveColor(color);
+    const accentHex = getAccentColor(color);
 
     const percentage = Math.round(
       Math.min(Math.max((value / max) * 100, 0), 100),
@@ -56,7 +57,11 @@ export const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
       >
         <div
           className="mantle-progress-bar-fill"
-          style={indeterminate ? undefined : { width: `${percentage}%` }}
+          style={
+            indeterminate
+              ? { backgroundColor: accentHex }
+              : { width: `${percentage}%`, backgroundColor: accentHex }
+          }
         />
       </div>
     );
