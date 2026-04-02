@@ -109,7 +109,10 @@ const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
 /* ─── Trigger ─── */
 
 const AccordionTrigger = forwardRef<HTMLButtonElement, AccordionTriggerProps>(
-  function AccordionTrigger({ className, children, onClick, ...rest }, ref) {
+  function AccordionTrigger(
+    { className, children, onClick, icon, ...rest },
+    ref,
+  ) {
     const { toggle } = useAccordionContext();
     const { value, isOpen, disabled, triggerId, contentId } =
       useAccordionItemContext();
@@ -119,6 +122,12 @@ const AccordionTrigger = forwardRef<HTMLButtonElement, AccordionTriggerProps>(
       if (!e.defaultPrevented) {
         toggle(value);
       }
+    };
+
+    const renderIcon = () => {
+      if (icon === undefined) return <ChevronIcon isOpen={isOpen} />;
+      if (typeof icon === "function") return icon({ isOpen });
+      return icon;
     };
 
     return (
@@ -134,7 +143,7 @@ const AccordionTrigger = forwardRef<HTMLButtonElement, AccordionTriggerProps>(
         {...rest}
       >
         {children}
-        <ChevronIcon isOpen={isOpen} />
+        {renderIcon()}
       </button>
     );
   },

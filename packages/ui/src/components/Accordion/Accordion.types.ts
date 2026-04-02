@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes, HTMLAttributes } from "react";
+import type { ButtonHTMLAttributes, HTMLAttributes, ReactNode } from "react";
 import type { MantleColor } from "../../theme/colors";
 
 export interface AccordionProps extends Omit<
@@ -24,6 +24,10 @@ export interface AccordionItemProps extends HTMLAttributes<HTMLDivElement> {
   disabled?: boolean;
 }
 
-export type AccordionTriggerProps = ButtonHTMLAttributes<HTMLButtonElement>;
+export interface AccordionTriggerProps
+  extends ButtonHTMLAttributes<HTMLButtonElement> {
+  /** Custom icon replacing the default chevron. Receives `isOpen` state. */
+  icon?: ((props: { isOpen: boolean }) => ReactNode) | ReactNode;
+}
 
 export type AccordionContentProps = HTMLAttributes<HTMLDivElement>;

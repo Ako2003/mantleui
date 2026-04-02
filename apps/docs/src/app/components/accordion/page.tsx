@@ -237,6 +237,49 @@ const borderlessExample = `<Accordion style={{ border: "none", borderRadius: 0 }
   </Accordion.Item>
 </Accordion>`;
 
+const customIconExample = `<Accordion defaultValue={["plus"]}>
+  <Accordion.Item value="plus">
+    <Accordion.Trigger icon={({ isOpen }) => (
+      <span style={{ fontSize: "18px", fontWeight: 300, color: "var(--mantle-color-text-muted)", transition: "transform 200ms ease", display: "inline-block", transform: isOpen ? "rotate(45deg)" : "none" }}>+</span>
+    )}>
+      Plus / Minus Icon
+    </Accordion.Trigger>
+    <Accordion.Content>
+      The trigger icon rotates the + into an x when open.
+    </Accordion.Content>
+  </Accordion.Item>
+  <Accordion.Item value="arrow">
+    <Accordion.Trigger icon={({ isOpen }) => (
+      <ArrowRight size={16} style={{ transition: "transform 200ms ease", transform: isOpen ? "rotate(90deg)" : "none", color: "var(--mantle-accent)" }} />
+    )}>
+      Arrow Icon
+    </Accordion.Trigger>
+    <Accordion.Content>
+      An arrow that rotates 90 degrees when expanded.
+    </Accordion.Content>
+  </Accordion.Item>
+  <Accordion.Item value="badge">
+    <Accordion.Trigger icon={({ isOpen }) => (
+      <Badge color={isOpen ? "blue" : "neutral"} variant="solid" style={{ fontSize: "10px" }}>
+        {isOpen ? "Open" : "Closed"}
+      </Badge>
+    )}>
+      Badge Indicator
+    </Accordion.Trigger>
+    <Accordion.Content>
+      A badge that changes color and text based on open state.
+    </Accordion.Content>
+  </Accordion.Item>
+  <Accordion.Item value="none">
+    <Accordion.Trigger icon={null}>
+      No Icon
+    </Accordion.Trigger>
+    <Accordion.Content>
+      Pass icon={"{null}"} to remove the indicator entirely.
+    </Accordion.Content>
+  </Accordion.Item>
+</Accordion>`;
+
 const accordionProps = [
   {
     name: "value",
@@ -265,6 +308,12 @@ const accordionProps = [
     type: '"blue" | "red" | "green" | "yellow" | "purple" | "neutral" | string',
     default: '"blue"',
     description: "Accent color for focus rings.",
+  },
+  {
+    name: "icon (Trigger)",
+    type: "ReactNode | ((props: { isOpen: boolean }) => ReactNode) | null",
+    description:
+      "Custom icon on Accordion.Trigger replacing the default chevron. Pass a function to receive isOpen state, or null to remove.",
   },
   {
     name: "--mantle-bg",
@@ -356,6 +405,26 @@ export default function AccordionPage() {
       </p>
       <div className="mt-4">
         <LivePlayground code={borderlessExample} />
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Custom Icons</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Replace the default chevron with any element using the{" "}
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
+          icon
+        </code>{" "}
+        prop. Pass a function to receive the{" "}
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
+          isOpen
+        </code>{" "}
+        state, or pass{" "}
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
+          null
+        </code>{" "}
+        to remove it entirely.
+      </p>
+      <div className="mt-4">
+        <LivePlayground code={customIconExample} />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>
