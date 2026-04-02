@@ -78,7 +78,7 @@ export function resolveColor(color: string | undefined): {
  * Useful for components that need the actual color value (e.g. for inline styles).
  */
 export function getAccentColor(color: string | undefined): string {
-  if (!color) return PRESET_COLORS.blue.accent;
+  if (!color) return "#3b82f6";
   const preset = PRESET_COLORS[color];
   if (preset) return preset.accent;
   return color;
