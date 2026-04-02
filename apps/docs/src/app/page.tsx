@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const stats = [
   { value: "73", label: "Components" },
@@ -360,7 +361,33 @@ function IconFor({ name }: { name: string }) {
 
 export default function HomePage() {
   return (
-    <div className="-mx-4 sm:-mx-8 lg:-mx-16">
+    <div>
+      {/* Header */}
+      <header className="sticky top-0 z-50 border-b border-slate-200/60 bg-white/80 backdrop-blur-md dark:border-zinc-800/60 dark:bg-zinc-950/80">
+        <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3 sm:px-8">
+          <Link href="/" className="text-lg font-bold">
+            MantleUI
+          </Link>
+          <div className="flex items-center gap-4">
+            <Link
+              href="/components/button"
+              className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900 dark:text-zinc-400 dark:hover:text-white"
+            >
+              Components
+            </Link>
+            <a
+              href="https://github.com/Ako2003/mantleui"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900 dark:text-zinc-400 dark:hover:text-white"
+            >
+              GitHub
+            </a>
+            <ThemeToggle />
+          </div>
+        </div>
+      </header>
+
       {/* Hero */}
       <section className="relative overflow-hidden px-4 pb-20 pt-16 sm:px-8 lg:px-16">
         {/* Background glow */}
@@ -608,6 +635,11 @@ export default function HomePage() {
           </div>
         </section>
       </ScrollReveal>
+
+      {/* Footer */}
+      <footer className="border-t border-slate-200 px-4 py-8 text-center text-xs text-slate-500 dark:border-zinc-800 dark:text-zinc-500">
+        &copy; {new Date().getFullYear()} MantleUI. All rights reserved.
+      </footer>
     </div>
   );
 }
