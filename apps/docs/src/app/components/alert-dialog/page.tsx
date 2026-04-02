@@ -133,34 +133,6 @@ const allVariantsExample = `function Demo() {
     { id: "info", color: "blue", icon: Info, title: "New feature available", desc: "We've added a new dark mode feature. Would you like to enable it now?", action: "Enable", cancel: "Maybe Later", trigger: "Info Dialog" },
     { id: "warning", color: "yellow", icon: AlertTriangle, title: "Session expiring", desc: "Your session will expire in 5 minutes due to inactivity. Would you like to extend it?", action: "Extend Session", cancel: "Log Out", trigger: "Warning Dialog" },
     { id: "error", color: "red", icon: AlertCircle, title: "Upload failed", desc: "The file 'report.pdf' could not be uploaded. The file exceeds the maximum size of 10MB.", action: "Try Again", cancel: "Cancel", trigger: "Error Dialog" },
-  {
-    name: "--mantle-bg",
-    type: "CSS variable",
-    default: "theme default",
-    description:
-      'Override the background color via style. e.g. style={{ "--mantle-bg": "#1a1a2e" }}',
-  },
-  {
-    name: "--mantle-border",
-    type: "CSS variable",
-    default: "theme default",
-    description:
-      'Override the border color via style. Set to "transparent" to remove. e.g. style={{ "--mantle-border": "#e94560" }}',
-  },
-  {
-    name: "--mantle-text",
-    type: "CSS variable",
-    default: "theme default",
-    description:
-      'Override the text color via style. e.g. style={{ "--mantle-text": "#ffffff" }}',
-  },
-  {
-    name: "--mantle-ring",
-    type: "CSS variable",
-    default: "accent",
-    description:
-      'Override the focus ring color via style. e.g. style={{ "--mantle-ring": "#e94560" }}',
-  },
   ];
 
   return (
@@ -195,6 +167,34 @@ const alertDialogProps = [
     name: "onOpenChange",
     type: "(open: boolean) => void",
     description: "Called when the open state changes.",
+  },
+  {
+    name: "--mantle-bg",
+    type: "CSS variable",
+    default: "theme default",
+    description:
+      'Override the background color via style. e.g. style={{ "--mantle-bg": "#1a1a2e" }}',
+  },
+  {
+    name: "--mantle-border",
+    type: "CSS variable",
+    default: "theme default",
+    description:
+      'Override the border color via style. Set to "transparent" to remove. e.g. style={{ "--mantle-border": "#e94560" }}',
+  },
+  {
+    name: "--mantle-text",
+    type: "CSS variable",
+    default: "theme default",
+    description:
+      'Override the text color via style. e.g. style={{ "--mantle-text": "#ffffff" }}',
+  },
+  {
+    name: "--mantle-ring",
+    type: "CSS variable",
+    default: "accent",
+    description:
+      'Override the focus ring color via style. e.g. style={{ "--mantle-ring": "#e94560" }}',
   },
 ];
 

@@ -18,34 +18,6 @@ const controlledExample = `function Demo() {
     new Date(2025, 2, 15),
     new Date(2025, 2, 20),
     new Date(2025, 2, 25),
-  {
-    name: "--mantle-bg",
-    type: "CSS variable",
-    default: "theme default",
-    description:
-      'Override the background color via style. e.g. style={{ "--mantle-bg": "#1a1a2e" }}',
-  },
-  {
-    name: "--mantle-border",
-    type: "CSS variable",
-    default: "theme default",
-    description:
-      'Override the border color via style. Set to "transparent" to remove. e.g. style={{ "--mantle-border": "#e94560" }}',
-  },
-  {
-    name: "--mantle-text",
-    type: "CSS variable",
-    default: "theme default",
-    description:
-      'Override the text color via style. e.g. style={{ "--mantle-text": "#ffffff" }}',
-  },
-  {
-    name: "--mantle-ring",
-    type: "CSS variable",
-    default: "accent",
-    description:
-      'Override the focus ring color via style. e.g. style={{ "--mantle-ring": "#e94560" }}',
-  },
   ];
   const [value, setValue] = React.useState(null);
   return (
@@ -99,6 +71,34 @@ const radioCalendarProps = [
     type: '"blue" | "red" | "green" | "yellow" | "purple" | "neutral" | string',
     default: '"blue"',
     description: "Accent color for the selected date indicator.",
+  },
+  {
+    name: "--mantle-bg",
+    type: "CSS variable",
+    default: "theme default",
+    description:
+      'Override the background color via style. e.g. style={{ "--mantle-bg": "#1a1a2e" }}',
+  },
+  {
+    name: "--mantle-border",
+    type: "CSS variable",
+    default: "theme default",
+    description:
+      'Override the border color via style. Set to "transparent" to remove. e.g. style={{ "--mantle-border": "#e94560" }}',
+  },
+  {
+    name: "--mantle-text",
+    type: "CSS variable",
+    default: "theme default",
+    description:
+      'Override the text color via style. e.g. style={{ "--mantle-text": "#ffffff" }}',
+  },
+  {
+    name: "--mantle-ring",
+    type: "CSS variable",
+    default: "accent",
+    description:
+      'Override the focus ring color via style. e.g. style={{ "--mantle-ring": "#e94560" }}',
   },
 ];
 
