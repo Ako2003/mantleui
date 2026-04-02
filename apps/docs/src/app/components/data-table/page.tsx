@@ -292,6 +292,13 @@ const dataTableProps = [
     default: '"blue"',
     description: "Accent color for sort indicators and focus rings.",
   },
+  {
+    name: "--mantle-option-hover",
+    type: "CSS variable",
+    default: "gradient",
+    description:
+      'Override the row hover background via style. e.g. style={{ "--mantle-option-hover": "#3b82f6" }}',
+  },
 ];
 
 export default function DataTablePage() {

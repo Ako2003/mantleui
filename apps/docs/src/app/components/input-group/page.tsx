@@ -28,128 +28,50 @@ const bothExample = `<div style={{ maxWidth: "320px" }}>
 const chatInputExample = `function Demo() {
   const [text, setText] = React.useState("");
   return (
-    <div style={{
-      maxWidth: "540px",
-      borderRadius: "16px",
-      border: "1px solid var(--mantle-color-border)",
-      background: "var(--mantle-color-bg-subtle)",
-      padding: "12px",
-      display: "flex",
-      flexDirection: "column",
-      gap: "8px",
-    }}>
-      {/* Context chip row */}
+    <Surface
+      elevation="sm"
+      rounded="lg"
+      bordered
+      style={{
+        maxWidth: "540px",
+        padding: "12px",
+        display: "flex",
+        flexDirection: "column",
+        gap: "8px",
+        borderRadius: "var(--mantle-radius-lg)",
+      }}
+    >
+      {/* Context chip */}
       <div style={{ display: "flex", gap: "8px" }}>
-        <button
-          type="button"
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "6px",
-            padding: "4px 12px",
-            borderRadius: "9999px",
-            border: "1px solid var(--mantle-color-border)",
-            background: "var(--mantle-color-bg)",
-            color: "var(--mantle-color-text)",
-            fontSize: "13px",
-            fontWeight: 500,
-            cursor: "pointer",
-          }}
-        >
-          <AtSign size={14} />
-          Add Context
-        </button>
+        <Chip variant="outline" startIcon={<AtSign size={14} />}>Add Context</Chip>
       </div>
 
       {/* Textarea */}
-      <textarea
+      <TextArea
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="Assign tasks or ask anything..."
         rows={3}
-        style={{
-          width: "100%",
-          resize: "none",
-          border: "none",
-          outline: "none",
-          background: "transparent",
-          color: "var(--mantle-color-text)",
-          fontSize: "14px",
-          lineHeight: "1.5",
-          fontFamily: "inherit",
-          padding: "0",
-        }}
+        style={{ border: "none", background: "transparent", resize: "none", padding: 0, outline: "none", boxShadow: "none" }}
       />
 
-      {/* Bottom toolbar */}
-      <div style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-      }}>
+      {/* Toolbar */}
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <div style={{ display: "flex", gap: "4px" }}>
-          <button type="button" style={{
-            width: "36px",
-            height: "36px",
-            borderRadius: "9999px",
-            border: "none",
-            background: "var(--mantle-color-bg-muted)",
-            color: "var(--mantle-color-text-muted)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            cursor: "pointer",
-          }}>
-            <Plus size={18} />
-          </button>
-          <button type="button" style={{
-            width: "36px",
-            height: "36px",
-            borderRadius: "9999px",
-            border: "none",
-            background: "var(--mantle-color-bg-muted)",
-            color: "var(--mantle-color-text-muted)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            cursor: "pointer",
-          }}>
-            <Settings size={16} />
-          </button>
+          <Button variant="ghost" color="neutral" size="sm" style={{ borderRadius: "9999px", width: "36px", height: "36px", padding: 0 }} startIcon={<Plus size={18} />} />
+          <Button variant="ghost" color="neutral" size="sm" style={{ borderRadius: "9999px", width: "36px", height: "36px", padding: 0 }} startIcon={<Settings size={16} />} />
         </div>
         <div style={{ display: "flex", gap: "4px", alignItems: "center" }}>
-          <button type="button" style={{
-            width: "36px",
-            height: "36px",
-            borderRadius: "9999px",
-            border: "none",
-            background: "transparent",
-            color: "var(--mantle-color-text-muted)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            cursor: "pointer",
-          }}>
-            <Mic size={18} />
-          </button>
-          <button type="button" style={{
-            width: "36px",
-            height: "36px",
-            borderRadius: "9999px",
-            border: "none",
-            background: text.trim() ? "var(--mantle-accent, #2563eb)" : "var(--mantle-color-bg-muted)",
-            color: text.trim() ? "#fff" : "var(--mantle-color-text-muted)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            cursor: text.trim() ? "pointer" : "default",
-            transition: "background 150ms ease, color 150ms ease",
-          }}>
-            <ArrowUp size={18} />
-          </button>
+          <Button variant="ghost" color="neutral" size="sm" style={{ borderRadius: "9999px", width: "36px", height: "36px", padding: 0 }} startIcon={<Mic size={18} />} />
+          <Button
+            size="sm"
+            disabled={!text.trim()}
+            style={{ borderRadius: "9999px", width: "36px", height: "36px", padding: 0 }}
+            startIcon={<ArrowUp size={18} />}
+          />
         </div>
       </div>
-    </div>
+    </Surface>
   );
 }
 
@@ -197,8 +119,23 @@ export default function InputGroupPage() {
 
       <h2 className="mt-10 text-xl font-semibold">Chat Input</h2>
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
-        A rich prompt-style input with context chips, a textarea, and a toolbar
-        — built by composing basic elements.
+        A rich prompt-style input composed from{" "}
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
+          Surface
+        </code>
+        ,{" "}
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
+          TextArea
+        </code>
+        ,{" "}
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
+          Chip
+        </code>
+        , and{" "}
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
+          Button
+        </code>{" "}
+        components.
       </p>
       <div className="mt-4">
         <LivePlayground code={chatInputExample} />

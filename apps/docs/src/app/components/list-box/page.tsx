@@ -194,6 +194,13 @@ const listBoxProps = [
     description:
       "Custom render function for each item. Receives the item data and selection state.",
   },
+  {
+    name: "--mantle-option-hover",
+    type: "CSS variable",
+    default: "gradient",
+    description:
+      'Override the option hover background via style. e.g. style={{ "--mantle-option-hover": "#3b82f6" }}',
+  },
 ];
 
 export default function ListBoxPage() {

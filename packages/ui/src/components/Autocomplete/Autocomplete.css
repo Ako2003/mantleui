@@ -16,12 +16,24 @@
   color: var(--mantle-color-danger);
 }
 
+.mantle-autocompleteDescription {
+  margin: 0;
+  font-size: var(--mantle-text-xs);
+  color: var(--mantle-color-text-muted);
+}
+
+.mantle-autocompleteInputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
 .mantle-autocompleteInput {
   display: flex;
   align-items: center;
   width: 100%;
   height: 2.5rem;
-  padding: 0 var(--mantle-space-3);
+  padding: 0 2rem 0 var(--mantle-space-3);
   border: 1px solid var(--mantle-color-border);
   border-radius: var(--mantle-radius-md);
   background-color: transparent;
@@ -31,6 +43,18 @@
   transition:
     border-color var(--mantle-duration-fast),
     box-shadow var(--mantle-duration-fast);
+}
+
+.mantle-autocompleteChevron {
+  position: absolute;
+  right: var(--mantle-space-2);
+  color: var(--mantle-color-text-muted);
+  pointer-events: none;
+  transition: transform var(--mantle-duration-fast);
+}
+
+.mantle-autocompleteChevronOpen {
+  transform: rotate(180deg);
 }
 
 .mantle-autocompleteInput:focus {
@@ -67,7 +91,7 @@
   margin-top: var(--mantle-space-1);
   padding: var(--mantle-space-1) 0;
   border: 1px solid var(--mantle-color-border);
-  border-radius: var(--mantle-radius-md);
+  border-radius: 0.5rem;
   background-color: var(--mantle-color-bg-subtle);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
@@ -89,7 +113,10 @@
 
 .mantle-autocompleteOption:hover,
 .mantle-autocompleteOptionHighlighted {
-  background: linear-gradient(135deg, var(--mantle-accent-subtle), transparent);
+  background: var(
+    --mantle-option-hover,
+    linear-gradient(135deg, var(--mantle-accent-subtle), transparent)
+  );
 }
 
 .mantle-autocompleteOptionActive {

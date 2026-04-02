@@ -21,16 +21,25 @@
 }
 
 .mantle-listbox-option:hover:not(.mantle-listbox-option-disabled) {
-  background: linear-gradient(135deg, var(--mantle-accent-subtle), transparent);
+  background: var(
+    --mantle-option-hover,
+    linear-gradient(135deg, var(--mantle-accent-subtle), transparent)
+  );
 }
 
 .mantle-listbox-option-focused {
-  background: linear-gradient(135deg, var(--mantle-accent-subtle), transparent);
+  background: var(
+    --mantle-option-hover,
+    linear-gradient(135deg, var(--mantle-accent-subtle), transparent)
+  );
   outline: none;
 }
 
 .mantle-listbox-option-selected {
-  background: linear-gradient(135deg, var(--mantle-accent-subtle), transparent);
+  background: var(
+    --mantle-option-hover,
+    linear-gradient(135deg, var(--mantle-accent-subtle), transparent)
+  );
   color: var(--mantle-accent);
   font-weight: 500;
 }

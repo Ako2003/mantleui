@@ -305,6 +305,13 @@ const multiSelectProps = [
     description:
       "Maximum number of items that can be selected. Remaining options become disabled when the limit is reached.",
   },
+  {
+    name: "--mantle-option-hover",
+    type: "CSS variable",
+    default: "gradient",
+    description:
+      'Override the option hover background via style. e.g. style={{ "--mantle-option-hover": "#3b82f6" }}',
+  },
 ];
 
 export default function MultiSelectPage() {

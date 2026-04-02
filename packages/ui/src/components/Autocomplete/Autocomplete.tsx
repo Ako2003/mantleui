@@ -37,6 +37,7 @@ export const Autocomplete = forwardRef<HTMLDivElement, AutocompleteProps>(
       disabled = false,
       color = "blue",
       label,
+      description,
       error,
       emptyMessage = "No results found",
       className,
@@ -190,34 +191,55 @@ export const Autocomplete = forwardRef<HTMLDivElement, AutocompleteProps>(
             {label}
           </label>
         )}
-        <input
-          ref={inputRef}
-          role="combobox"
-          type="text"
-          value={
-            !isOpen && controlledLabel !== undefined ? controlledLabel : query
-          }
-          onChange={handleInputChange}
-          onFocus={handleFocus}
-          onKeyDown={handleKeyDown}
-          placeholder={placeholder}
-          disabled={disabled}
-          aria-expanded={isOpen}
-          aria-haspopup="listbox"
-          aria-controls={isOpen ? listboxId : undefined}
-          aria-labelledby={label ? `${generatedId}-label` : undefined}
-          aria-activedescendant={
-            isOpen && highlightedIndex >= 0
-              ? `${generatedId}-option-${highlightedIndex}`
-              : undefined
-          }
-          className={[
-            "mantle-autocompleteInput",
-            error && "mantle-autocompleteInputError",
-          ]
-            .filter(Boolean)
-            .join(" ")}
-        />
+        <div className="mantle-autocompleteInputWrapper">
+          <input
+            ref={inputRef}
+            role="combobox"
+            type="text"
+            value={
+              !isOpen && controlledLabel !== undefined ? controlledLabel : query
+            }
+            onChange={handleInputChange}
+            onFocus={handleFocus}
+            onKeyDown={handleKeyDown}
+            placeholder={placeholder}
+            disabled={disabled}
+            aria-expanded={isOpen}
+            aria-haspopup="listbox"
+            aria-controls={isOpen ? listboxId : undefined}
+            aria-labelledby={label ? `${generatedId}-label` : undefined}
+            aria-activedescendant={
+              isOpen && highlightedIndex >= 0
+                ? `${generatedId}-option-${highlightedIndex}`
+                : undefined
+            }
+            className={[
+              "mantle-autocompleteInput",
+              error && "mantle-autocompleteInputError",
+            ]
+              .filter(Boolean)
+              .join(" ")}
+          />
+          <svg
+            className={[
+              "mantle-autocompleteChevron",
+              isOpen && "mantle-autocompleteChevronOpen",
+            ]
+              .filter(Boolean)
+              .join(" ")}
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="m6 9 6 6 6-6" />
+          </svg>
+        </div>
 
         {isOpen && (
           <div
@@ -257,6 +279,9 @@ export const Autocomplete = forwardRef<HTMLDivElement, AutocompleteProps>(
           </div>
         )}
 
+        {description && !error && (
+          <p className="mantle-autocompleteDescription">{description}</p>
+        )}
         {error && (
           <span className="mantle-autocompleteError" role="alert">
             {error}

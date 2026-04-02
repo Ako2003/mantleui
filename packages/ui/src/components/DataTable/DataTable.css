@@ -68,7 +68,10 @@
 }
 
 .mantle-row:hover {
-  background: linear-gradient(135deg, var(--mantle-accent-subtle), transparent);
+  background: var(
+    --mantle-option-hover,
+    linear-gradient(135deg, var(--mantle-accent-subtle), transparent)
+  );
 }
 
 .mantle-row:last-child .mantle-cell {

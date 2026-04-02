@@ -28,6 +28,8 @@ export interface AutocompleteProps extends Omit<
   color?: MantleColor;
   /** Label text displayed above the input. */
   label?: string;
+  /** Helper text displayed below the label. */
+  description?: string;
   /** Error message. */
   error?: string;
   /** Message shown when no options match the search. */

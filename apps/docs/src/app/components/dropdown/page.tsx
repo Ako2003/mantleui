@@ -284,6 +284,13 @@ const dropdownProps = [
     default: '"blue"',
     description: "Accent color for item hover and focus effects.",
   },
+  {
+    name: "--mantle-option-hover",
+    type: "CSS variable",
+    default: "gradient",
+    description:
+      'Override the item hover background via style. e.g. style={{ "--mantle-option-hover": "#3b82f6" }}',
+  },
 ];
 
 const dropdownItemProps = [

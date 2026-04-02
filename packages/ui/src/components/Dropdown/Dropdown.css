@@ -64,7 +64,7 @@
 }
 
 .mantle-dropdown-item:hover:not(.mantle-dropdown-item-disabled) {
-  background-color: var(--mantle-accent-subtle);
+  background: var(--mantle-option-hover, var(--mantle-accent-subtle));
   color: var(--mantle-accent);
 }
 

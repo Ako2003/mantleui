@@ -123,7 +123,10 @@
 }
 
 .mantle-selectOption:hover:not(.mantle-selectOptionDisabled) {
-  background: linear-gradient(135deg, var(--mantle-accent-subtle), transparent);
+  background: var(
+    --mantle-option-hover,
+    linear-gradient(135deg, var(--mantle-accent-subtle), transparent)
+  );
 }
 
 .mantle-selectOptionActive {
