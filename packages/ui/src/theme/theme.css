@@ -58,6 +58,8 @@
   --mantle-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --mantle-shadow-md:
     0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --mantle-shadow-lg:
+    0 10px 25px -3px rgb(0 0 0 / 0.1), 0 4px 10px -4px rgb(0 0 0 / 0.1);
 
   /* Transitions */
   --mantle-duration-fast: 150ms;
@@ -92,9 +94,12 @@
   --mantle-accent-subtle: #1e3a5f;
   --mantle-accent-text: #ffffff;
 
-  --mantle-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
-  --mantle-shadow-md:
-    0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+  --mantle-shadow-sm: 0 1px 3px 0 rgb(255 255 255 / 0.04),
+    0 1px 2px -1px rgb(255 255 255 / 0.06);
+  --mantle-shadow-md: 0 4px 6px -1px rgb(255 255 255 / 0.05),
+    0 2px 4px -2px rgb(255 255 255 / 0.06);
+  --mantle-shadow-lg: 0 10px 25px -3px rgb(255 255 255 / 0.06),
+    0 4px 10px -4px rgb(255 255 255 / 0.08);
 
   --mantle-ring-color: #3b82f6;
 }

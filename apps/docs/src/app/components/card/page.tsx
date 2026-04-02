@@ -32,7 +32,7 @@ const fullExample = `<Card>
 
 const profileExample = `<Card style={{ maxWidth: "320px" }}>
   <Card.Body style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", padding: "24px" }}>
-    <div style={{ width: "64px", height: "64px", borderRadius: "50%", background: "linear-gradient(135deg, var(--mantle-accent), var(--mantle-accent-hover))", display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontWeight: 700, fontSize: "22px" }}>JD</div>
+    <Avatar name="Jane Doe" size="lg" />
     <h3 style={{ margin: "12px 0 0", fontWeight: 600, fontSize: "16px", color: "var(--mantle-color-text)" }}>Jane Doe</h3>
     <p style={{ margin: "4px 0 0", fontSize: "13px", color: "var(--mantle-color-text-muted)" }}>Senior Frontend Engineer</p>
     <p style={{ margin: "12px 0 0", fontSize: "13px", lineHeight: 1.6, color: "var(--mantle-color-text-muted)" }}>Passionate about building accessible, performant UIs with modern design patterns.</p>

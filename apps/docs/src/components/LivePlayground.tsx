@@ -68,6 +68,7 @@ import {
   PartyPopper,
   ShieldCheck,
   CreditCard as CreditCardIcon,
+  Link2,
 } from "lucide-react";
 
 const scope = {
@@ -135,6 +136,7 @@ const scope = {
   PartyPopper,
   ShieldCheck,
   CreditCardIcon,
+  Link2,
 };
 
 const darkTheme: PrismTheme = {
