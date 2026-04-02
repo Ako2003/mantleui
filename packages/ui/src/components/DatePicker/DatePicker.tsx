@@ -133,11 +133,17 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
         }
       }
 
+      function handleScroll() {
+        setOpen(false);
+      }
+
       document.addEventListener("mousedown", handleClickOutside);
       document.addEventListener("keydown", handleEscape);
+      window.addEventListener("scroll", handleScroll, true);
       return () => {
         document.removeEventListener("mousedown", handleClickOutside);
         document.removeEventListener("keydown", handleEscape);
+        window.removeEventListener("scroll", handleScroll, true);
       };
     }, [open]);
 
