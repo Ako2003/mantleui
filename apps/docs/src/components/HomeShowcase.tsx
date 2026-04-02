@@ -12,9 +12,8 @@ import {
   Chip,
   Avatar,
   Accordion,
-  Alert,
-  Tooltip,
-  Card,
+  Toaster,
+  useToast,
   Separator,
 } from "@mantleui/react";
 
@@ -160,8 +159,8 @@ export function ComponentShowcase() {
           </Tabs>
         </ShowcaseCard>
 
-        {/* Avatars & Cards */}
-        <ShowcaseCard title="Avatars & Cards">
+        {/* Avatars & Toasts */}
+        <ShowcaseCard title="Avatars & Toasts">
           <div className="flex items-center gap-3">
             <Avatar name="Alice" color={color} size="sm" />
             <Avatar name="Bob" color={color} size="md" />
@@ -173,18 +172,7 @@ export function ComponentShowcase() {
             />
           </div>
           <Separator className="my-4" />
-          <div className="flex flex-wrap gap-2">
-            <Tooltip content="Copy to clipboard">
-              <Button color={color} variant="outline" size="sm">
-                Hover me
-              </Button>
-            </Tooltip>
-            <Tooltip content="Save changes" placement="bottom">
-              <Button color={color} variant="ghost" size="sm">
-                Bottom tip
-              </Button>
-            </Tooltip>
-          </div>
+          <ToastTriggers color={color} />
         </ShowcaseCard>
 
         {/* Accordion */}
@@ -208,15 +196,61 @@ export function ComponentShowcase() {
         </ShowcaseCard>
       </div>
 
-      {/* Alert */}
-      <div className="mt-6">
-        <Alert
-          color={color}
-          variant="info"
-          title="Interactive Demo"
-          description="Change the accent color above to see all components update in real-time. Every component supports 6 built-in colors plus custom hex values."
-        />
-      </div>
+      <Toaster position="bottom-right" />
+    </div>
+  );
+}
+
+function ToastTriggers({
+  color,
+}: {
+  color: "blue" | "red" | "green" | "yellow" | "purple";
+}) {
+  const toast = useToast();
+  return (
+    <div className="flex flex-wrap gap-2">
+      <Button
+        color={color}
+        size="sm"
+        onClick={() =>
+          toast.success({
+            title: "Saved!",
+            description: "Changes saved successfully.",
+          })
+        }
+      >
+        Success
+      </Button>
+      <Button
+        color="red"
+        variant="outline"
+        size="sm"
+        onClick={() =>
+          toast.error({ title: "Error", description: "Something went wrong." })
+        }
+      >
+        Error
+      </Button>
+      <Button
+        color="yellow"
+        variant="outline"
+        size="sm"
+        onClick={() =>
+          toast.warning({ title: "Warning", description: "Check your input." })
+        }
+      >
+        Warning
+      </Button>
+      <Button
+        color={color}
+        variant="ghost"
+        size="sm"
+        onClick={() =>
+          toast.info({ title: "Info", description: "New version available." })
+        }
+      >
+        Info
+      </Button>
     </div>
   );
 }
