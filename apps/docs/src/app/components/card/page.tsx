@@ -30,20 +30,17 @@ const fullExample = `<Card>
   </Card.Footer>
 </Card>`;
 
-const profileExample = `<Card>
-  <Card.Body>
-    <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-      <div style={{ width: "48px", height: "48px", borderRadius: "50%", background: "linear-gradient(135deg, var(--mantle-accent), var(--mantle-accent-hover))", display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontWeight: 700, fontSize: "18px" }}>JD</div>
-      <div>
-        <h3 style={{ margin: 0, fontWeight: 600, fontSize: "15px", color: "var(--mantle-color-text)" }}>Jane Doe</h3>
-        <p style={{ margin: "2px 0 0", fontSize: "13px", color: "var(--mantle-color-text-muted)" }}>Senior Frontend Engineer</p>
-      </div>
-    </div>
-    <p style={{ marginTop: "12px", fontSize: "13px", lineHeight: 1.6, color: "var(--mantle-color-text-muted)" }}>Passionate about building accessible, performant UIs with modern design patterns.</p>
-    <div style={{ display: "flex", gap: "16px", marginTop: "12px" }}>
-      <div style={{ textAlign: "center" }}><div style={{ fontWeight: 700, fontSize: "16px", color: "var(--mantle-color-text)" }}>56</div><div style={{ fontSize: "11px", color: "var(--mantle-color-text-muted)" }}>Components</div></div>
-      <div style={{ textAlign: "center" }}><div style={{ fontWeight: 700, fontSize: "16px", color: "var(--mantle-color-text)" }}>651</div><div style={{ fontSize: "11px", color: "var(--mantle-color-text-muted)" }}>Tests</div></div>
-      <div style={{ textAlign: "center" }}><div style={{ fontWeight: 700, fontSize: "16px", color: "var(--mantle-color-text)" }}>6</div><div style={{ fontSize: "11px", color: "var(--mantle-color-text-muted)" }}>Colors</div></div>
+const profileExample = `<Card style={{ maxWidth: "320px" }}>
+  <Card.Body style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", padding: "24px" }}>
+    <div style={{ width: "64px", height: "64px", borderRadius: "50%", background: "linear-gradient(135deg, var(--mantle-accent), var(--mantle-accent-hover))", display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontWeight: 700, fontSize: "22px" }}>JD</div>
+    <h3 style={{ margin: "12px 0 0", fontWeight: 600, fontSize: "16px", color: "var(--mantle-color-text)" }}>Jane Doe</h3>
+    <p style={{ margin: "4px 0 0", fontSize: "13px", color: "var(--mantle-color-text-muted)" }}>Senior Frontend Engineer</p>
+    <p style={{ margin: "12px 0 0", fontSize: "13px", lineHeight: 1.6, color: "var(--mantle-color-text-muted)" }}>Passionate about building accessible, performant UIs with modern design patterns.</p>
+    <Separator style={{ margin: "16px 0" }} />
+    <div style={{ display: "flex", gap: "32px" }}>
+      <div style={{ textAlign: "center" }}><div style={{ fontWeight: 700, fontSize: "18px", color: "var(--mantle-color-text)" }}>56</div><div style={{ fontSize: "11px", color: "var(--mantle-color-text-muted)" }}>Components</div></div>
+      <div style={{ textAlign: "center" }}><div style={{ fontWeight: 700, fontSize: "18px", color: "var(--mantle-color-text)" }}>651</div><div style={{ fontSize: "11px", color: "var(--mantle-color-text-muted)" }}>Tests</div></div>
+      <div style={{ textAlign: "center" }}><div style={{ fontWeight: 700, fontSize: "18px", color: "var(--mantle-color-text)" }}>6</div><div style={{ fontSize: "11px", color: "var(--mantle-color-text-muted)" }}>Colors</div></div>
     </div>
   </Card.Body>
 </Card>`;
@@ -72,12 +69,12 @@ const notificationExample = `<Card>
   <Card.Body>
     <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
       {[
-        { icon: "\\u2728", title: "New feature released", desc: "ColorPicker component is now available", time: "2m ago" },
-        { icon: "\\ud83d\\udc1b", title: "Bug fix deployed", desc: "Fixed Spinner white ring issue", time: "1h ago" },
-        { icon: "\\ud83d\\udce6", title: "Version 1.0 published", desc: "MantleUI is now on npm", time: "3h ago" },
+        { icon: "+", title: "New feature released", desc: "ColorPicker component is now available", time: "2m ago", color: "#22c55e" },
+        { icon: "!", title: "Bug fix deployed", desc: "Fixed Spinner white ring issue", time: "1h ago", color: "#3b82f6" },
+        { icon: "v", title: "Version 1.0 published", desc: "MantleUI is now on npm", time: "3h ago", color: "#8b5cf6" },
       ].map((item) => (
         <div key={item.title} style={{ display: "flex", gap: "10px", alignItems: "flex-start" }}>
-          <span style={{ fontSize: "18px" }}>{item.icon}</span>
+          <span style={{ width: "28px", height: "28px", borderRadius: "50%", background: item.color, display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontSize: "13px", fontWeight: 700, flexShrink: 0 }}>{item.icon}</span>
           <div style={{ flex: 1 }}>
             <p style={{ margin: 0, fontSize: "13px", fontWeight: 500, color: "var(--mantle-color-text)" }}>{item.title}</p>
             <p style={{ margin: "2px 0 0", fontSize: "12px", color: "var(--mantle-color-text-muted)" }}>{item.desc}</p>

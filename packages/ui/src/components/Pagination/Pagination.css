@@ -9,9 +9,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 2rem;
-  height: 2rem;
-  padding: 0 var(--mantle-space-2);
+  min-width: 1.75rem;
+  height: 1.75rem;
+  padding: 0 var(--mantle-space-1);
   border: 1px solid var(--mantle-color-border);
   border-radius: var(--mantle-radius-md);
   background: transparent;
@@ -56,8 +56,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 2rem;
-  height: 2rem;
+  min-width: 1.75rem;
+  height: 1.75rem;
   font-size: var(--mantle-text-sm);
   color: var(--mantle-color-text-muted);
   user-select: none;
