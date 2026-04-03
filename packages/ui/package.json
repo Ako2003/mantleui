@@ -1,6 +1,6 @@
 {
   "name": "@mantleui/react",
-  "version": "0.0.0",
+  "version": "0.1.1",
   "description": "A React component library showcasing modern design patterns and accessibility",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",

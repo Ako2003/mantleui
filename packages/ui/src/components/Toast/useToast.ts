@@ -27,8 +27,10 @@ function getSnapshot() {
   return toasts;
 }
 
+const EMPTY: ToastData[] = [];
+
 function getServerSnapshot() {
-  return [];
+  return EMPTY;
 }
 
 function addToast(
