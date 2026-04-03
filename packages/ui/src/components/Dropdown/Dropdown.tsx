@@ -157,11 +157,23 @@ const DropdownMenu = forwardRef<HTMLDivElement, DropdownMenuProps>(
       useDropdownContext();
 
     const menuRef = useRef<HTMLDivElement>(null);
+    const menuItemsRef = useRef<NodeListOf<HTMLElement> | null>(null);
     const count = Children.count(children);
 
     useEffect(() => {
       setItemCount(count);
     }, [count, setItemCount]);
+
+    // Cache menu items when menu opens or children change
+    useEffect(() => {
+      if (isOpen && menuRef.current) {
+        menuItemsRef.current = menuRef.current.querySelectorAll<HTMLElement>(
+          '[role="menuitem"]:not([aria-disabled="true"])',
+        );
+      } else {
+        menuItemsRef.current = null;
+      }
+    }, [isOpen, count]);
 
     // Auto-focus menu when opened
     useEffect(() => {
@@ -203,10 +215,10 @@ const DropdownMenu = forwardRef<HTMLDivElement, DropdownMenuProps>(
         }
         case "Enter": {
           e.preventDefault();
-          const items = (e.currentTarget as HTMLElement).querySelectorAll(
-            '[role="menuitem"]:not([aria-disabled="true"])',
-          );
-          const focused = items.item(focusedIndex) as HTMLElement | null;
+          const focused = menuItemsRef.current?.item(focusedIndex) as
+            | HTMLElement
+            | null
+            | undefined;
           focused?.click();
           break;
         }

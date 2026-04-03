@@ -18,6 +18,12 @@
   transition: border-color var(--mantle-duration-fast);
 }
 
+.mantle-inputotp-box:focus-visible {
+  outline: var(--mantle-ring-width) solid
+    var(--mantle-ring, var(--mantle-accent));
+  outline-offset: var(--mantle-ring-offset);
+}
+
 .mantle-inputotp-box:focus {
   border-color: var(--mantle-accent);
   box-shadow: 0 0 0 1px var(--mantle-accent);

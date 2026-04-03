@@ -1,4 +1,5 @@
 import { forwardRef, useCallback, useEffect, useRef, useState } from "react";
+import { useControllable } from "../../hooks";
 import { resolveColor } from "../../utils";
 import { Calendar } from "../Calendar";
 import type { DateRangePickerProps } from "./DateRangePicker.types";
@@ -42,8 +43,10 @@ type PickingPhase = "start" | "end";
 export const DateRangePicker = forwardRef<HTMLDivElement, DateRangePickerProps>(
   function DateRangePicker(
     {
-      startDate,
-      endDate,
+      startDate: startDateProp,
+      endDate: endDateProp,
+      defaultStartDate,
+      defaultEndDate,
       onRangeChange,
       placeholder = "Select range",
       label,
@@ -57,12 +60,27 @@ export const DateRangePicker = forwardRef<HTMLDivElement, DateRangePickerProps>(
   ) {
     const { dataColor, colorStyle } = resolveColor(color);
 
+    const [startDate, setStartDate] = useControllable<Date | undefined>({
+      value: startDateProp,
+      defaultValue: defaultStartDate,
+    });
+
+    const [endDate, setEndDate] = useControllable<Date | undefined>({
+      value: endDateProp,
+      defaultValue: defaultEndDate,
+    });
+
     const [open, setOpen] = useState(false);
     const [phase, setPhase] = useState<PickingPhase>("start");
     const [pendingStart, setPendingStart] = useState<Date | undefined>(
       startDate,
     );
     const containerRef = useRef<HTMLDivElement>(null);
+
+    // Sync pendingStart when the controlled startDate changes externally
+    useEffect(() => {
+      setPendingStart(startDate);
+    }, [startDate]);
 
     const handleTriggerClick = useCallback(() => {
       if (!disabled) {
@@ -92,13 +110,15 @@ export const DateRangePicker = forwardRef<HTMLDivElement, DateRangePickerProps>(
           const end = date;
           const range =
             start <= end ? { start, end } : { start: end, end: start };
+          setStartDate(range.start);
+          setEndDate(range.end);
           onRangeChange?.(range);
           setOpen(false);
           setPhase("start");
           setPendingStart(undefined);
         }
       },
-      [phase, pendingStart, onRangeChange],
+      [phase, pendingStart, onRangeChange, setStartDate, setEndDate],
     );
 
     useEffect(() => {
@@ -220,7 +240,30 @@ export const DateRangePicker = forwardRef<HTMLDivElement, DateRangePickerProps>(
           </svg>
         </button>
         {open && (
-          <div className="mantle-dateRangePickerPopup" role="dialog">
+          // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions -- dialog is interactive; focus trap requires onKeyDown
+          <div
+            className="mantle-dateRangePickerPopup"
+            role="dialog"
+            onKeyDown={(e) => {
+              if (e.key !== "Tab") return;
+              const popup = e.currentTarget;
+              const focusable = popup.querySelectorAll<HTMLElement>(
+                'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+              );
+              if (focusable.length === 0) return;
+              const first = focusable[0] as HTMLElement | undefined;
+              const last = focusable[focusable.length - 1] as
+                | HTMLElement
+                | undefined;
+              if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault();
+                last?.focus();
+              } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault();
+                first?.focus();
+              }
+            }}
+          >
             <Calendar onValueChange={handleSelect} color={color} />
           </div>
         )}

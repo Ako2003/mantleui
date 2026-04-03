@@ -81,6 +81,12 @@
   border-radius: var(--mantle-radius-sm);
 }
 
+.mantle-timeFieldSegment:focus-visible {
+  outline: var(--mantle-ring-width) solid
+    var(--mantle-ring, var(--mantle-accent));
+  outline-offset: var(--mantle-ring-offset);
+}
+
 .mantle-timeFieldSegment:focus {
   background: var(--mantle-accent-subtle);
   color: var(--mantle-accent);

@@ -94,6 +94,12 @@
   -moz-appearance: textfield;
 }
 
+.mantle-numberFieldInput:focus-visible {
+  outline: var(--mantle-ring-width) solid
+    var(--mantle-ring, var(--mantle-accent));
+  outline-offset: var(--mantle-ring-offset);
+}
+
 .mantle-numberFieldInput::-webkit-outer-spin-button,
 .mantle-numberFieldInput::-webkit-inner-spin-button {
   -webkit-appearance: none;

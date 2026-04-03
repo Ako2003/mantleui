@@ -10,10 +10,14 @@ export interface DateRangePickerProps extends Omit<
   HTMLAttributes<HTMLDivElement>,
   "color"
 > {
-  /** The selected start date. */
+  /** The selected start date (controlled). */
   startDate?: Date;
-  /** The selected end date. */
+  /** The selected end date (controlled). */
   endDate?: Date;
+  /** Default start date for uncontrolled mode. */
+  defaultStartDate?: Date;
+  /** Default end date for uncontrolled mode. */
+  defaultEndDate?: Date;
   /** Called when a complete range is selected. */
   onRangeChange?: (range: DateRange) => void;
   /** Placeholder text when no range is selected. */

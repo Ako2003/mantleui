@@ -39,6 +39,12 @@
     box-shadow var(--mantle-duration-fast);
 }
 
+.mantle-textFieldInput:focus-visible {
+  outline: var(--mantle-ring-width) solid
+    var(--mantle-ring, var(--mantle-accent));
+  outline-offset: var(--mantle-ring-offset);
+}
+
 .mantle-textFieldInput:focus {
   border-color: var(--mantle-accent);
   box-shadow: 0 0 0 1px var(--mantle-accent);
