@@ -38,12 +38,8 @@
 }
 
 .mantle-dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
   z-index: var(--mantle-z-dropdown);
   min-width: 10rem;
-  margin-top: var(--mantle-space-1);
   padding: var(--mantle-space-1) 0;
   border: 1px solid var(--mantle-border, var(--mantle-color-border));
   border-radius: var(--mantle-radius-md);

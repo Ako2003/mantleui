@@ -7,9 +7,11 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useLayoutEffect,
   useRef,
   useState,
 } from "react";
+import { createPortal } from "react-dom";
 import { resolveColor } from "../../utils";
 import type {
   DropdownItemProps,
@@ -23,6 +25,8 @@ interface DropdownContextValue {
   isOpen: boolean;
   setIsOpen: (open: boolean) => void;
   setTriggerNode: (node: HTMLButtonElement | null) => void;
+  triggerNodeRef: React.RefObject<HTMLButtonElement | null>;
+  containerRef: React.RefObject<HTMLDivElement | null>;
   focusedIndex: number;
   setFocusedIndex: (index: number) => void;
   itemCount: number;
@@ -66,17 +70,15 @@ function DropdownRoot({ children, color = "blue" }: DropdownProps) {
   }, []);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Close on click outside
+  // Close on scroll
   useEffect(() => {
     if (!isOpen) return;
-    const handler = (e: MouseEvent) => {
-      const target = e.target as Node;
-      if (containerRef.current?.contains(target)) return;
+    const handler = () => {
       setIsOpen(false);
       setFocusedIndex(-1);
     };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
+    window.addEventListener("scroll", handler, true);
+    return () => window.removeEventListener("scroll", handler, true);
   }, [isOpen]);
 
   return (
@@ -85,6 +87,8 @@ function DropdownRoot({ children, color = "blue" }: DropdownProps) {
         isOpen,
         setIsOpen,
         setTriggerNode,
+        triggerNodeRef,
+        containerRef,
         focusedIndex,
         setFocusedIndex,
         itemCount,
@@ -153,12 +157,68 @@ const DropdownTrigger = forwardRef<HTMLButtonElement, DropdownTriggerProps>(
 
 const DropdownMenu = forwardRef<HTMLDivElement, DropdownMenuProps>(
   function DropdownMenu({ children, ...rest }, ref) {
-    const { isOpen, setIsOpen, focusedIndex, setFocusedIndex, setItemCount } =
-      useDropdownContext();
+    const {
+      isOpen,
+      setIsOpen,
+      focusedIndex,
+      setFocusedIndex,
+      setItemCount,
+      triggerNodeRef,
+      containerRef,
+    } = useDropdownContext();
 
     const menuRef = useRef<HTMLDivElement>(null);
     const menuItemsRef = useRef<NodeListOf<HTMLElement> | null>(null);
+    const [portalStyle, setPortalStyle] = useState<React.CSSProperties>({});
     const count = Children.count(children);
+
+    // Position the menu below the trigger
+    useLayoutEffect(() => {
+      if (!isOpen || !triggerNodeRef.current) return;
+      const rect = triggerNodeRef.current.getBoundingClientRect();
+      setPortalStyle({
+        position: "fixed",
+        top: rect.bottom + 4,
+        left: rect.left,
+        minWidth: rect.width,
+      });
+    }, [isOpen, triggerNodeRef]);
+
+    // Update position on scroll/resize
+    useEffect(() => {
+      if (!isOpen || !triggerNodeRef.current) return;
+      const update = () => {
+        const rect = triggerNodeRef.current?.getBoundingClientRect();
+        if (rect) {
+          setPortalStyle({
+            position: "fixed",
+            top: rect.bottom + 4,
+            left: rect.left,
+            minWidth: rect.width,
+          });
+        }
+      };
+      window.addEventListener("scroll", update, true);
+      window.addEventListener("resize", update);
+      return () => {
+        window.removeEventListener("scroll", update, true);
+        window.removeEventListener("resize", update);
+      };
+    }, [isOpen, triggerNodeRef]);
+
+    // Close on click outside (must check both container and portaled menu)
+    useEffect(() => {
+      if (!isOpen) return;
+      const handler = (e: MouseEvent) => {
+        const target = e.target as Node;
+        if (containerRef.current?.contains(target)) return;
+        if (menuRef.current?.contains(target)) return;
+        setIsOpen(false);
+        setFocusedIndex(-1);
+      };
+      document.addEventListener("mousedown", handler);
+      return () => document.removeEventListener("mousedown", handler);
+    }, [isOpen, setIsOpen, setFocusedIndex, containerRef]);
 
     useEffect(() => {
       setItemCount(count);
@@ -231,7 +291,9 @@ const DropdownMenu = forwardRef<HTMLDivElement, DropdownMenuProps>(
       }
     };
 
-    return (
+    if (typeof document === "undefined") return null;
+
+    return createPortal(
       <div
         ref={(node) => {
           (menuRef as React.MutableRefObject<HTMLDivElement | null>).current =
@@ -245,6 +307,7 @@ const DropdownMenu = forwardRef<HTMLDivElement, DropdownMenuProps>(
         tabIndex={-1}
         onKeyDown={handleKeyDown}
         className="mantle-dropdown-menu"
+        style={portalStyle}
         {...rest}
       >
         {Children.map(children, (child, index) => {
@@ -256,7 +319,8 @@ const DropdownMenu = forwardRef<HTMLDivElement, DropdownMenuProps>(
             </DropdownItemContext.Provider>
           );
         })}
-      </div>
+      </div>,
+      document.body,
     );
   },
 );
@@ -283,7 +347,7 @@ const DropdownItem = forwardRef<HTMLDivElement, DropdownItemProps>(
       <div
         ref={ref}
         role="menuitem"
-        aria-disabled={disabled || undefined}
+        aria-disabled={disabled ? "true" : undefined}
         tabIndex={-1}
         onClick={handleSelect}
         onKeyDown={(e) => {
