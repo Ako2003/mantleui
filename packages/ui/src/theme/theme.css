@@ -71,12 +71,12 @@
   --mantle-ring-width: 2px;
 
   /* Z-index scale */
-  --mantle-z-dropdown: 100;
-  --mantle-z-popover: 200;
-  --mantle-z-drawer: 300;
-  --mantle-z-modal: 400;
-  --mantle-z-toast: 500;
-  --mantle-z-tooltip: 600;
+  --mantle-z-dropdown: 1000;
+  --mantle-z-popover: 2000;
+  --mantle-z-drawer: 3000;
+  --mantle-z-modal: 4000;
+  --mantle-z-toast: 5000;
+  --mantle-z-tooltip: 6000;
 }
 
 [data-theme="dark"] {
