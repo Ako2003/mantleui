@@ -55,7 +55,7 @@ function AlertDialogRoot({ open, onOpenChange, children }: AlertDialogProps) {
     };
   }, [open]);
 
-  if (!open) return null;
+  if (!open || typeof document === "undefined") return null;
 
   return createPortal(
     <AlertDialogContext.Provider value={{ onClose }}>

@@ -119,7 +119,7 @@
 .mantle-slider-thumb {
   position: absolute;
   border-radius: var(--mantle-radius-full);
-  background: white;
+  background: var(--mantle-color-bg, white);
   border: 2px solid var(--mantle-ring, var(--mantle-accent));
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
   transform: translate(-50%, -50%);

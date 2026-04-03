@@ -220,7 +220,9 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
               style={{
                 ...colorStyle,
                 position: "fixed",
-                top: popupPos.top - window.scrollY,
+                top:
+                  popupPos.top -
+                  (typeof window !== "undefined" ? window.scrollY : 0),
                 left: popupPos.left,
               }}
             >

@@ -4,11 +4,16 @@ import type { ToastData, ToastVariant } from "./Toast.types";
 let toasts: ToastData[] = [];
 let idCounter = 0;
 const listeners = new Set<() => void>();
+const timerMap = new Map<string, ReturnType<typeof setTimeout>>();
 
 /** Reset all toasts. Useful for testing. */
 export function resetToasts() {
   toasts = [];
   idCounter = 0;
+  for (const timerId of timerMap.values()) {
+    clearTimeout(timerId);
+  }
+  timerMap.clear();
   emitChange();
 }
 
@@ -49,13 +54,24 @@ function addToast(
   emitChange();
 
   if (toast.duration && toast.duration > 0) {
-    setTimeout(() => dismissToast(id), toast.duration);
+    const timerId = setTimeout(() => {
+      timerMap.delete(id);
+      dismissToast(id);
+    }, toast.duration);
+    timerMap.set(id, timerId);
   }
 
   return id;
 }
 
 function dismissToast(id: string) {
+  // Clear any pending auto-dismiss timer
+  const existingTimer = timerMap.get(id);
+  if (existingTimer !== undefined) {
+    clearTimeout(existingTimer);
+    timerMap.delete(id);
+  }
+
   // Mark as dismissing for exit animation
   const toast = toasts.find((t) => t.id === id);
   if (!toast || toast.dismissing) return;

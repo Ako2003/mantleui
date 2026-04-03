@@ -32,7 +32,8 @@
       "Bash(pnpm run:*)",
       "Bash(npx tsup:*)",
       "Bash(npm publish:*)",
-      "Read(//Users/akifmursalov/**)"
+      "Read(//Users/akifmursalov/**)",
+      "Bash(ls tsconfig.json packages/ui/tsconfig.json packages/ui/tsconfig.*.json)"
     ]
   }
 }

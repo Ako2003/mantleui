@@ -80,6 +80,8 @@ const TooltipTrigger = forwardRef<HTMLDivElement, TooltipTriggerProps>(
     return (
       <div
         ref={ref}
+        tabIndex={0}
+        role="button"
         aria-describedby={isOpen ? contentId : undefined}
         {...rest}
       >

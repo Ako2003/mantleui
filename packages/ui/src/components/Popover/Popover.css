@@ -36,7 +36,7 @@
 }
 
 .mantle-content {
-  z-index: 9999;
+  z-index: var(--mantle-z-popover);
   min-width: 12rem;
   padding: var(--mantle-space-3);
   border: 1px solid var(--mantle-border, var(--mantle-color-border));

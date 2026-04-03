@@ -60,7 +60,7 @@ function ModalRoot({
     };
   }, [open]);
 
-  if (!open) return null;
+  if (!open || typeof document === "undefined") return null;
 
   return createPortal(
     <ModalContext.Provider value={{ onClose, backdrop }}>

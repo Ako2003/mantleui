@@ -17,15 +17,15 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(function Drawer(
   { open, onOpenChange, side = "right", className, children, ...rest },
   ref,
 ) {
-  const onClose = useCallback(() => onOpenChange(false), [onOpenChange]);
   const panelRef = useRef<HTMLDivElement>(null);
-  // visible keeps the DOM mounted during the exit animation
-  const [visible, setVisible] = useState(open);
+  // animatingOut keeps the DOM mounted during the exit animation
+  const [animatingOut, setAnimatingOut] = useState(false);
+  const visible = open || animatingOut;
 
-  // Sync: when open becomes true, mount immediately (during render)
-  if (open && !visible) {
-    setVisible(true);
-  }
+  const onClose = useCallback(() => {
+    setAnimatingOut(true);
+    onOpenChange(false);
+  }, [onOpenChange]);
 
   // Close on Escape
   useEffect(() => {
@@ -56,11 +56,11 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(function Drawer(
 
   const handleAnimationEnd = useCallback(() => {
     if (!open) {
-      setVisible(false);
+      setAnimatingOut(false);
     }
   }, [open]);
 
-  if (!visible) return null;
+  if (!visible || typeof document === "undefined") return null;
 
   const closing = !open;
 

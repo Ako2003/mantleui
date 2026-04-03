@@ -69,6 +69,14 @@
   --mantle-ring-color: #2563eb;
   --mantle-ring-offset: 2px;
   --mantle-ring-width: 2px;
+
+  /* Z-index scale */
+  --mantle-z-dropdown: 100;
+  --mantle-z-popover: 200;
+  --mantle-z-drawer: 300;
+  --mantle-z-modal: 400;
+  --mantle-z-toast: 500;
+  --mantle-z-tooltip: 600;
 }
 
 [data-theme="dark"] {
@@ -203,4 +211,15 @@
   --mantle-accent-active: #e5e5e5;
   --mantle-accent-subtle: #262626;
   --mantle-accent-text: #09090b;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

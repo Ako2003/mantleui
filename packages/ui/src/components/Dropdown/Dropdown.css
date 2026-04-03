@@ -41,7 +41,7 @@
   position: absolute;
   top: 100%;
   left: 0;
-  z-index: 9999;
+  z-index: var(--mantle-z-dropdown);
   min-width: 10rem;
   margin-top: var(--mantle-space-1);
   padding: var(--mantle-space-1) 0;

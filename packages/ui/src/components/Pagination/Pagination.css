@@ -42,7 +42,7 @@
 
 .mantle-paginationButton-active {
   background-color: var(--mantle-accent);
-  color: #ffffff;
+  color: var(--mantle-accent-text, #ffffff);
   border-color: var(--mantle-accent);
 }
 
@@ -51,7 +51,7 @@
     --mantle-hover,
     linear-gradient(135deg, var(--mantle-accent), var(--mantle-accent-hover))
   );
-  color: #ffffff;
+  color: var(--mantle-accent-text, #ffffff);
 }
 
 .mantle-paginationEllipsis {
