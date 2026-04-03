@@ -171,11 +171,11 @@ const roleExample = `function Demo() {
         onValueChange={setRole}
         color="purple"
         options={[
-          { value: "owner", label: "👑 Owner" },
-          { value: "admin", label: "🛡️ Admin" },
-          { value: "editor", label: "✏️ Editor" },
-          { value: "viewer", label: "👁️ Viewer" },
-          { value: "guest", label: "🚪 Guest", disabled: true },
+          { value: "owner", label: "Owner" },
+          { value: "admin", label: "Admin" },
+          { value: "editor", label: "Editor" },
+          { value: "viewer", label: "Viewer" },
+          { value: "guest", label: "Guest", disabled: true },
         ]}
       />
     </div>
