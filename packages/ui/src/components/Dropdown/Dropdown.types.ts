@@ -11,6 +11,8 @@ export interface DropdownProps {
 export interface DropdownTriggerProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Trigger content. */
   children: ReactNode;
+  /** When true, merges props onto the single child element instead of wrapping in a button. */
+  asChild?: boolean;
 }
 
 export interface DropdownMenuProps extends HTMLAttributes<HTMLDivElement> {

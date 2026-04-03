@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { cloneElement, forwardRef, isValidElement } from "react";
 import { createPortal } from "react-dom";
 import { useComposedRefs } from "../../hooks";
 import { resolveColor } from "../../utils";
@@ -41,28 +41,39 @@ function PopoverRoot({
 
 /* ─── Trigger ─── */
 
-const PopoverTrigger = forwardRef<HTMLButtonElement, PopoverTriggerProps>(
-  function PopoverTrigger({ children, onClick, ...rest }, ref) {
+const PopoverTrigger = forwardRef<HTMLElement, PopoverTriggerProps>(
+  function PopoverTrigger({ children, onClick, asChild, ...rest }, ref) {
     const { triggerProps } = usePopoverContext();
 
     const composedRef = useComposedRefs(ref, triggerProps.ref);
 
-    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const handleClick = (e: React.MouseEvent<HTMLElement>) => {
       onClick?.(e);
       if (!e.defaultPrevented) {
         triggerProps.onClick();
       }
     };
 
+    const sharedProps = {
+      ref: composedRef,
+      "aria-expanded": triggerProps["aria-expanded"],
+      "aria-haspopup": triggerProps["aria-haspopup"],
+      onClick: handleClick,
+      ...rest,
+    };
+
+    if (asChild && isValidElement(children)) {
+      return cloneElement(
+        children as React.ReactElement<Record<string, unknown>>,
+        sharedProps,
+      );
+    }
+
     return (
       <button
-        ref={composedRef}
         type="button"
         className="mantle-popoverTrigger"
-        aria-expanded={triggerProps["aria-expanded"]}
-        aria-haspopup={triggerProps["aria-haspopup"]}
-        onClick={handleClick}
-        {...rest}
+        {...(sharedProps as React.ButtonHTMLAttributes<HTMLButtonElement>)}
       >
         {children}
       </button>

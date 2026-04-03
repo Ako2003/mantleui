@@ -29,7 +29,10 @@ export interface PopoverProps {
   color?: MantleColor;
 }
 
-export type PopoverTriggerProps = HTMLAttributes<HTMLButtonElement>;
+export interface PopoverTriggerProps extends HTMLAttributes<HTMLElement> {
+  /** When true, merges props onto the single child element instead of wrapping in a button. */
+  asChild?: boolean;
+}
 
 export interface PopoverContentProps extends HTMLAttributes<HTMLDivElement> {
   /** Alignment along the placement axis. Defaults to `"center"`. */

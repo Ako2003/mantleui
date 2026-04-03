@@ -1,7 +1,9 @@
 import {
   Children,
+  cloneElement,
   createContext,
   forwardRef,
+  isValidElement,
   useCallback,
   useContext,
   useEffect,
@@ -102,7 +104,7 @@ function DropdownRoot({ children, color = "blue" }: DropdownProps) {
 }
 
 const DropdownTrigger = forwardRef<HTMLButtonElement, DropdownTriggerProps>(
-  function DropdownTrigger({ children, onClick, ...rest }, ref) {
+  function DropdownTrigger({ children, onClick, asChild, ...rest }, ref) {
     const { isOpen, setIsOpen, setTriggerNode, setFocusedIndex } =
       useDropdownContext();
 
@@ -114,17 +116,32 @@ const DropdownTrigger = forwardRef<HTMLButtonElement, DropdownTriggerProps>(
           node;
     };
 
+    const handleClick = (e: React.MouseEvent<HTMLElement>) => {
+      onClick?.(e as React.MouseEvent<HTMLButtonElement>);
+      setIsOpen(!isOpen);
+      setFocusedIndex(-1);
+    };
+
+    if (asChild && isValidElement(children)) {
+      return cloneElement(
+        children as React.ReactElement<Record<string, unknown>>,
+        {
+          ref: handleRef,
+          "aria-haspopup": "menu" as const,
+          "aria-expanded": isOpen ? true : undefined,
+          onClick: handleClick,
+          ...rest,
+        },
+      );
+    }
+
     return (
       <button
         ref={handleRef}
         type="button"
         aria-haspopup="menu"
         aria-expanded={isOpen}
-        onClick={(e) => {
-          onClick?.(e);
-          setIsOpen(!isOpen);
-          setFocusedIndex(-1);
-        }}
+        onClick={handleClick}
         className="mantle-dropdown-trigger"
         {...rest}
       >
