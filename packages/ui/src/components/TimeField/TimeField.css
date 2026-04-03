@@ -123,10 +123,6 @@
 /* ─── Dropdown ─── */
 
 .mantle-timeFieldDropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  margin-top: var(--mantle-space-1);
   display: flex;
   border: 1px solid var(--mantle-border, var(--mantle-color-border));
   border-radius: var(--mantle-radius-lg);

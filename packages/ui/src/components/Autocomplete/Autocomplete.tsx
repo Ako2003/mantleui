@@ -2,10 +2,12 @@ import {
   forwardRef,
   useCallback,
   useEffect,
+  useLayoutEffect,
   useMemo,
   useRef,
   useState,
 } from "react";
+import { createPortal } from "react-dom";
 import { useControllable, useId, useComposedRefs } from "../../hooks";
 import { resolveColor } from "../../utils";
 import type { AutocompleteProps } from "./Autocomplete.types";
@@ -66,6 +68,7 @@ export const Autocomplete = forwardRef<HTMLDivElement, AutocompleteProps>(
     const composedRef = useComposedRefs(ref);
     const generatedId = useId("autocomplete");
     const listboxId = `${generatedId}-listbox`;
+    const [portalStyle, setPortalStyle] = useState<React.CSSProperties>({});
 
     const filteredOptions = useMemo(() => {
       if (!query) return options;
@@ -94,6 +97,51 @@ export const Autocomplete = forwardRef<HTMLDivElement, AutocompleteProps>(
       valueProp !== undefined
         ? (options.find((o) => o.value === valueProp)?.label ?? valueProp)
         : undefined;
+
+    // Position dropdown below input
+    useLayoutEffect(() => {
+      if (!isOpen || !inputRef.current) return;
+      const rect = inputRef.current.getBoundingClientRect();
+      setPortalStyle({
+        position: "fixed",
+        top: rect.bottom + 4,
+        left: rect.left,
+        minWidth: rect.width,
+      });
+    }, [isOpen]);
+
+    // Update position on scroll/resize
+    useEffect(() => {
+      if (!isOpen || !inputRef.current) return;
+      const update = () => {
+        const rect = inputRef.current?.getBoundingClientRect();
+        if (rect) {
+          setPortalStyle({
+            position: "fixed",
+            top: rect.bottom + 4,
+            left: rect.left,
+            minWidth: rect.width,
+          });
+        }
+      };
+      window.addEventListener("scroll", update, true);
+      window.addEventListener("resize", update);
+      return () => {
+        window.removeEventListener("scroll", update, true);
+        window.removeEventListener("resize", update);
+      };
+    }, [isOpen]);
+
+    // Close on scroll
+    useEffect(() => {
+      if (!isOpen) return;
+      const handler = () => {
+        setIsOpen(false);
+        setHighlightedIndex(-1);
+      };
+      window.addEventListener("scroll", handler, true);
+      return () => window.removeEventListener("scroll", handler, true);
+    }, [isOpen]);
 
     // Close on click outside
     useEffect(() => {
@@ -241,43 +289,48 @@ export const Autocomplete = forwardRef<HTMLDivElement, AutocompleteProps>(
           </svg>
         </div>
 
-        {isOpen && (
-          <div
-            ref={dropdownRef}
-            id={listboxId}
-            role="listbox"
-            aria-labelledby={label ? `${generatedId}-label` : undefined}
-            className="mantle-autocompleteDropdown"
-          >
-            {filteredOptions.length === 0 ? (
-              <div className="mantle-autocompleteEmpty">{emptyMessage}</div>
-            ) : (
-              filteredOptions.map((option, index) => (
-                <div
-                  key={option.value}
-                  id={`${generatedId}-option-${index}`}
-                  role="option"
-                  aria-selected={option.value === value}
-                  tabIndex={-1}
-                  onClick={() => selectOption(option.value)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") selectOption(option.value);
-                  }}
-                  className={[
-                    "mantle-autocompleteOption",
-                    option.value === value && "mantle-autocompleteOptionActive",
-                    index === highlightedIndex &&
-                      "mantle-autocompleteOptionHighlighted",
-                  ]
-                    .filter(Boolean)
-                    .join(" ")}
-                >
-                  {option.label ?? option.value}
-                </div>
-              ))
-            )}
-          </div>
-        )}
+        {isOpen &&
+          typeof document !== "undefined" &&
+          createPortal(
+            <div
+              ref={dropdownRef}
+              id={listboxId}
+              role="listbox"
+              aria-labelledby={label ? `${generatedId}-label` : undefined}
+              className="mantle-autocompleteDropdown"
+              style={portalStyle}
+            >
+              {filteredOptions.length === 0 ? (
+                <div className="mantle-autocompleteEmpty">{emptyMessage}</div>
+              ) : (
+                filteredOptions.map((option, index) => (
+                  <div
+                    key={option.value}
+                    id={`${generatedId}-option-${index}`}
+                    role="option"
+                    aria-selected={option.value === value}
+                    tabIndex={-1}
+                    onClick={() => selectOption(option.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") selectOption(option.value);
+                    }}
+                    className={[
+                      "mantle-autocompleteOption",
+                      option.value === value &&
+                        "mantle-autocompleteOptionActive",
+                      index === highlightedIndex &&
+                        "mantle-autocompleteOptionHighlighted",
+                    ]
+                      .filter(Boolean)
+                      .join(" ")}
+                  >
+                    {option.label ?? option.value}
+                  </div>
+                ))
+              )}
+            </div>,
+            document.body,
+          )}
 
         {description && !error && (
           <p className="mantle-autocompleteDescription">{description}</p>

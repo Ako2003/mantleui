@@ -1,4 +1,12 @@
-import { forwardRef, useCallback, useEffect, useRef, useState } from "react";
+import {
+  forwardRef,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
+import { createPortal } from "react-dom";
 import { useControllable, useId } from "../../hooks";
 import { resolveColor } from "../../utils";
 import type { MultiSelectProps } from "./MultiSelect.types";
@@ -48,7 +56,9 @@ export const MultiSelect = forwardRef<HTMLDivElement, MultiSelectProps>(
 
     const [isOpen, setIsOpen] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
+    const dropdownRef = useRef<HTMLDivElement>(null);
     const generatedId = useId("multiselect");
+    const [portalStyle, setPortalStyle] = useState<React.CSSProperties>({});
 
     const toggleOption = useCallback(
       (optionValue: string) => {
@@ -79,16 +89,60 @@ export const MultiSelect = forwardRef<HTMLDivElement, MultiSelectProps>(
       [setSelected],
     );
 
+    // Position dropdown below trigger
+    useLayoutEffect(() => {
+      if (!isOpen || !containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      setPortalStyle({
+        position: "fixed",
+        top: rect.bottom + 4,
+        left: rect.left,
+        minWidth: rect.width,
+      });
+    }, [isOpen]);
+
+    // Update position on scroll/resize
+    useEffect(() => {
+      if (!isOpen || !containerRef.current) return;
+      const update = () => {
+        const rect = containerRef.current?.getBoundingClientRect();
+        if (rect) {
+          setPortalStyle({
+            position: "fixed",
+            top: rect.bottom + 4,
+            left: rect.left,
+            minWidth: rect.width,
+          });
+        }
+      };
+      window.addEventListener("scroll", update, true);
+      window.addEventListener("resize", update);
+      return () => {
+        window.removeEventListener("scroll", update, true);
+        window.removeEventListener("resize", update);
+      };
+    }, [isOpen]);
+
+    // Close on scroll
+    useEffect(() => {
+      if (!isOpen) return;
+      const handler = () => setIsOpen(false);
+      window.addEventListener("scroll", handler, true);
+      return () => window.removeEventListener("scroll", handler, true);
+    }, [isOpen]);
+
     // Close on click outside
     useEffect(() => {
       if (!isOpen) return;
       const handler = (e: MouseEvent) => {
+        const target = e.target as Node;
         if (
-          containerRef.current &&
-          !containerRef.current.contains(e.target as Node)
+          containerRef.current?.contains(target) ||
+          dropdownRef.current?.contains(target)
         ) {
-          setIsOpen(false);
+          return;
         }
+        setIsOpen(false);
       };
       document.addEventListener("mousedown", handler);
       return () => document.removeEventListener("mousedown", handler);
@@ -240,70 +294,75 @@ export const MultiSelect = forwardRef<HTMLDivElement, MultiSelectProps>(
         </div>
 
         {/* Dropdown */}
-        {isOpen && (
-          <div
-            className="mantle-multiselectDropdown"
-            id={`${generatedId}-listbox`}
-            role="listbox"
-            aria-multiselectable="true"
-            aria-labelledby={label ? `${generatedId}-label` : undefined}
-          >
-            {options.map((option) => {
-              const isSelected = selected.includes(option.value);
-              const isDisabledOption =
-                option.disabled ||
-                (!isSelected &&
-                  maxItems !== undefined &&
-                  selected.length >= maxItems);
+        {isOpen &&
+          typeof document !== "undefined" &&
+          createPortal(
+            <div
+              ref={dropdownRef}
+              className="mantle-multiselectDropdown"
+              id={`${generatedId}-listbox`}
+              role="listbox"
+              aria-multiselectable="true"
+              aria-labelledby={label ? `${generatedId}-label` : undefined}
+              style={portalStyle}
+            >
+              {options.map((option) => {
+                const isSelected = selected.includes(option.value);
+                const isDisabledOption =
+                  option.disabled ||
+                  (!isSelected &&
+                    maxItems !== undefined &&
+                    selected.length >= maxItems);
 
-              return (
-                <div
-                  key={option.value}
-                  role="option"
-                  aria-selected={isSelected}
-                  aria-disabled={isDisabledOption || undefined}
-                  tabIndex={isDisabledOption ? -1 : 0}
-                  onClick={() =>
-                    !isDisabledOption && toggleOption(option.value)
-                  }
-                  onKeyDown={(e) => {
-                    if (
-                      (e.key === "Enter" || e.key === " ") &&
-                      !isDisabledOption
-                    ) {
-                      e.preventDefault();
-                      toggleOption(option.value);
+                return (
+                  <div
+                    key={option.value}
+                    role="option"
+                    aria-selected={isSelected}
+                    aria-disabled={isDisabledOption || undefined}
+                    tabIndex={isDisabledOption ? -1 : 0}
+                    onClick={() =>
+                      !isDisabledOption && toggleOption(option.value)
                     }
-                  }}
-                  className={[
-                    "mantle-multiselectOption",
-                    isSelected && "mantle-multiselectOptionSelected",
-                    isDisabledOption && "mantle-multiselectOptionDisabled",
-                  ]
-                    .filter(Boolean)
-                    .join(" ")}
-                >
-                  <span>{option.label ?? option.value}</span>
-                  {isSelected && (
-                    <svg
-                      className="mantle-multiselectOptionCheck"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M20 6L9 17l-5-5" />
-                    </svg>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        )}
+                    onKeyDown={(e) => {
+                      if (
+                        (e.key === "Enter" || e.key === " ") &&
+                        !isDisabledOption
+                      ) {
+                        e.preventDefault();
+                        toggleOption(option.value);
+                      }
+                    }}
+                    className={[
+                      "mantle-multiselectOption",
+                      isSelected && "mantle-multiselectOptionSelected",
+                      isDisabledOption && "mantle-multiselectOptionDisabled",
+                    ]
+                      .filter(Boolean)
+                      .join(" ")}
+                  >
+                    <span>{option.label ?? option.value}</span>
+                    {isSelected && (
+                      <svg
+                        className="mantle-multiselectOptionCheck"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M20 6L9 17l-5-5" />
+                      </svg>
+                    )}
+                  </div>
+                );
+              })}
+            </div>,
+            document.body,
+          )}
 
         {error && (
           <span className="mantle-multiselectError" role="alert">

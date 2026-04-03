@@ -89,12 +89,7 @@
 }
 
 .mantle-autocompleteDropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
   z-index: 9999;
-  margin-top: var(--mantle-space-1);
   padding: var(--mantle-space-1) 0;
   border: 1px solid var(--mantle-border, var(--mantle-color-border));
   border-radius: 0.5rem;

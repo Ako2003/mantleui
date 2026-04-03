@@ -1,4 +1,12 @@
-import { forwardRef, useCallback, useEffect, useRef, useState } from "react";
+import {
+  forwardRef,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
+import { createPortal } from "react-dom";
 import { useControllable, useId } from "../../hooks";
 import { resolveColor } from "../../utils";
 import type { TimeFieldProps } from "./TimeField.types";
@@ -53,7 +61,9 @@ export const TimeField = forwardRef<HTMLDivElement, TimeFieldProps>(
 
     const [isOpen, setIsOpen] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
+    const dropdownRef = useRef<HTMLDivElement>(null);
     const generatedId = useId("timefield");
+    const [portalStyle, setPortalStyle] = useState<React.CSSProperties>({});
 
     const parsed = parseTime(value);
     const hours = parsed?.h ?? null;
@@ -66,16 +76,60 @@ export const TimeField = forwardRef<HTMLDivElement, TimeFieldProps>(
       [setValue],
     );
 
+    // Position dropdown below trigger
+    useLayoutEffect(() => {
+      if (!isOpen || !containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      setPortalStyle({
+        position: "fixed",
+        top: rect.bottom + 4,
+        left: rect.left,
+        minWidth: rect.width,
+      });
+    }, [isOpen]);
+
+    // Update position on scroll/resize
+    useEffect(() => {
+      if (!isOpen || !containerRef.current) return;
+      const update = () => {
+        const rect = containerRef.current?.getBoundingClientRect();
+        if (rect) {
+          setPortalStyle({
+            position: "fixed",
+            top: rect.bottom + 4,
+            left: rect.left,
+            minWidth: rect.width,
+          });
+        }
+      };
+      window.addEventListener("scroll", update, true);
+      window.addEventListener("resize", update);
+      return () => {
+        window.removeEventListener("scroll", update, true);
+        window.removeEventListener("resize", update);
+      };
+    }, [isOpen]);
+
+    // Close on scroll
+    useEffect(() => {
+      if (!isOpen) return;
+      const handler = () => setIsOpen(false);
+      window.addEventListener("scroll", handler, true);
+      return () => window.removeEventListener("scroll", handler, true);
+    }, [isOpen]);
+
     // Close on click outside
     useEffect(() => {
       if (!isOpen) return;
       const handler = (e: MouseEvent) => {
+        const target = e.target as Node;
         if (
-          containerRef.current &&
-          !containerRef.current.contains(e.target as Node)
+          containerRef.current?.contains(target) ||
+          dropdownRef.current?.contains(target)
         ) {
-          setIsOpen(false);
+          return;
         }
+        setIsOpen(false);
       };
       document.addEventListener("mousedown", handler);
       return () => document.removeEventListener("mousedown", handler);
@@ -242,23 +296,30 @@ export const TimeField = forwardRef<HTMLDivElement, TimeFieldProps>(
         </div>
 
         {/* Dropdown */}
-        {isOpen && (
-          <div className="mantle-timeFieldDropdown">
-            <ScrollColumn
-              options={hourOptions}
-              selected={hours}
-              onSelect={(h) => setTime(h, minutes ?? 0)}
-              label="Hours"
-            />
-            <div className="mantle-timeFieldDropdownDivider" />
-            <ScrollColumn
-              options={minuteOptions}
-              selected={minutes}
-              onSelect={(m) => setTime(hours ?? 0, m)}
-              label="Minutes"
-            />
-          </div>
-        )}
+        {isOpen &&
+          typeof document !== "undefined" &&
+          createPortal(
+            <div
+              ref={dropdownRef}
+              className="mantle-timeFieldDropdown"
+              style={portalStyle}
+            >
+              <ScrollColumn
+                options={hourOptions}
+                selected={hours}
+                onSelect={(h) => setTime(h, minutes ?? 0)}
+                label="Hours"
+              />
+              <div className="mantle-timeFieldDropdownDivider" />
+              <ScrollColumn
+                options={minuteOptions}
+                selected={minutes}
+                onSelect={(m) => setTime(hours ?? 0, m)}
+                label="Minutes"
+              />
+            </div>,
+            document.body,
+          )}
 
         {error && (
           <span className="mantle-timeFieldError" role="alert">

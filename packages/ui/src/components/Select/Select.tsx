@@ -1,4 +1,12 @@
-import { forwardRef, useCallback, useEffect, useRef } from "react";
+import {
+  forwardRef,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
+import { createPortal } from "react-dom";
 import { useControllable, useId, useComposedRefs } from "../../hooks";
 import { composeEventHandlers, resolveColor } from "../../utils";
 import type { SelectProps } from "./Select.types";
@@ -63,6 +71,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(function Select(
   const composedRef = useComposedRefs(ref);
   const generatedId = useId("select");
   const listboxId = `${generatedId}-listbox`;
+  const [portalStyle, setPortalStyle] = useState<React.CSSProperties>({});
 
   const selectedOption = options.find((o) => o.value === value);
   const selectedLabel = selectedOption?.label ?? selectedOption?.value;
@@ -79,6 +88,48 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(function Select(
     },
     [setValue, close],
   );
+
+  // Position dropdown below trigger
+  useLayoutEffect(() => {
+    if (!isOpen || !triggerRef.current) return;
+    const rect = triggerRef.current.getBoundingClientRect();
+    setPortalStyle({
+      position: "fixed",
+      top: rect.bottom + 4,
+      left: rect.left,
+      minWidth: rect.width,
+    });
+  }, [isOpen]);
+
+  // Update position on scroll/resize
+  useEffect(() => {
+    if (!isOpen || !triggerRef.current) return;
+    const update = () => {
+      const rect = triggerRef.current?.getBoundingClientRect();
+      if (rect) {
+        setPortalStyle({
+          position: "fixed",
+          top: rect.bottom + 4,
+          left: rect.left,
+          minWidth: rect.width,
+        });
+      }
+    };
+    window.addEventListener("scroll", update, true);
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update, true);
+      window.removeEventListener("resize", update);
+    };
+  }, [isOpen]);
+
+  // Close on scroll
+  useEffect(() => {
+    if (!isOpen) return;
+    const handler = () => setIsOpen(false);
+    window.addEventListener("scroll", handler, true);
+    return () => window.removeEventListener("scroll", handler, true);
+  }, [isOpen, setIsOpen]);
 
   // Close on click outside
   useEffect(() => {
@@ -245,39 +296,43 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(function Select(
         </svg>
       </button>
 
-      {isOpen && (
-        <div
-          ref={dropdownRef}
-          id={listboxId}
-          role="listbox"
-          aria-labelledby={label ? `${generatedId}-label` : undefined}
-          className="mantle-selectDropdown"
-        >
-          {options.map((option) => (
-            <div
-              key={option.value}
-              role="option"
-              data-value={option.value}
-              aria-selected={option.value === value}
-              aria-disabled={option.disabled || undefined}
-              tabIndex={option.disabled ? -1 : 0}
-              onClick={() => !option.disabled && selectOption(option.value)}
-              onKeyDown={(e) =>
-                !option.disabled && handleOptionKeyDown(e, option.value)
-              }
-              className={[
-                "mantle-selectOption",
-                option.value === value && "mantle-selectOptionActive",
-                option.disabled && "mantle-selectOptionDisabled",
-              ]
-                .filter(Boolean)
-                .join(" ")}
-            >
-              {option.label ?? option.value}
-            </div>
-          ))}
-        </div>
-      )}
+      {isOpen &&
+        typeof document !== "undefined" &&
+        createPortal(
+          <div
+            ref={dropdownRef}
+            id={listboxId}
+            role="listbox"
+            aria-labelledby={label ? `${generatedId}-label` : undefined}
+            className="mantle-selectDropdown"
+            style={portalStyle}
+          >
+            {options.map((option) => (
+              <div
+                key={option.value}
+                role="option"
+                data-value={option.value}
+                aria-selected={option.value === value}
+                aria-disabled={option.disabled || undefined}
+                tabIndex={option.disabled ? -1 : 0}
+                onClick={() => !option.disabled && selectOption(option.value)}
+                onKeyDown={(e) =>
+                  !option.disabled && handleOptionKeyDown(e, option.value)
+                }
+                className={[
+                  "mantle-selectOption",
+                  option.value === value && "mantle-selectOptionActive",
+                  option.disabled && "mantle-selectOptionDisabled",
+                ]
+                  .filter(Boolean)
+                  .join(" ")}
+              >
+                {option.label ?? option.value}
+              </div>
+            ))}
+          </div>,
+          document.body,
+        )}
 
       {error && (
         <span className="mantle-selectError" role="alert">
