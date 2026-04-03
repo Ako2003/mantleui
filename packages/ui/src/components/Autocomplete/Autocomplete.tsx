@@ -68,7 +68,7 @@ export const Autocomplete = forwardRef<HTMLDivElement, AutocompleteProps>(
     const composedRef = useComposedRefs(ref);
     const generatedId = useId("autocomplete");
     const listboxId = `${generatedId}-listbox`;
-    const [portalStyle, setPortalStyle] = useState<React.CSSProperties>({});
+    const [portalStyle, setPortalStyle] = useState<React.CSSProperties>({ position: "fixed", top: -9999, left: -9999, opacity: 0 });
 
     const filteredOptions = useMemo(() => {
       if (!query) return options;
@@ -107,6 +107,7 @@ export const Autocomplete = forwardRef<HTMLDivElement, AutocompleteProps>(
         top: rect.bottom + 4,
         left: rect.left,
         minWidth: rect.width,
+        opacity: 1,
       });
     }, [isOpen]);
 
@@ -121,6 +122,7 @@ export const Autocomplete = forwardRef<HTMLDivElement, AutocompleteProps>(
             top: rect.bottom + 4,
             left: rect.left,
             minWidth: rect.width,
+            opacity: 1,
           });
         }
       };

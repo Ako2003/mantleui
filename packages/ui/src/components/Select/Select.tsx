@@ -71,7 +71,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(function Select(
   const composedRef = useComposedRefs(ref);
   const generatedId = useId("select");
   const listboxId = `${generatedId}-listbox`;
-  const [portalStyle, setPortalStyle] = useState<React.CSSProperties>({});
+  const [portalStyle, setPortalStyle] = useState<React.CSSProperties>({ position: "fixed", top: -9999, left: -9999, opacity: 0 });
 
   const selectedOption = options.find((o) => o.value === value);
   const selectedLabel = selectedOption?.label ?? selectedOption?.value;
@@ -98,6 +98,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(function Select(
       top: rect.bottom + 4,
       left: rect.left,
       minWidth: rect.width,
+      opacity: 1,
     });
   }, [isOpen]);
 
@@ -112,6 +113,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(function Select(
           top: rect.bottom + 4,
           left: rect.left,
           minWidth: rect.width,
+          opacity: 1,
         });
       }
     };

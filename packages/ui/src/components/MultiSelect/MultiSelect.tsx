@@ -58,7 +58,7 @@ export const MultiSelect = forwardRef<HTMLDivElement, MultiSelectProps>(
     const containerRef = useRef<HTMLDivElement>(null);
     const dropdownRef = useRef<HTMLDivElement>(null);
     const generatedId = useId("multiselect");
-    const [portalStyle, setPortalStyle] = useState<React.CSSProperties>({});
+    const [portalStyle, setPortalStyle] = useState<React.CSSProperties>({ position: "fixed", top: -9999, left: -9999, opacity: 0 });
 
     const toggleOption = useCallback(
       (optionValue: string) => {
@@ -98,6 +98,7 @@ export const MultiSelect = forwardRef<HTMLDivElement, MultiSelectProps>(
         top: rect.bottom + 4,
         left: rect.left,
         minWidth: rect.width,
+        opacity: 1,
       });
     }, [isOpen]);
 
@@ -112,6 +113,7 @@ export const MultiSelect = forwardRef<HTMLDivElement, MultiSelectProps>(
             top: rect.bottom + 4,
             left: rect.left,
             minWidth: rect.width,
+            opacity: 1,
           });
         }
       };

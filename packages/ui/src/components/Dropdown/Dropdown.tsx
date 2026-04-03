@@ -166,7 +166,7 @@ const DropdownMenu = forwardRef<HTMLDivElement, DropdownMenuProps>(
 
     const menuRef = useRef<HTMLDivElement>(null);
     const menuItemsRef = useRef<NodeListOf<HTMLElement> | null>(null);
-    const [portalStyle, setPortalStyle] = useState<React.CSSProperties>({});
+    const [portalStyle, setPortalStyle] = useState<React.CSSProperties>({ position: "fixed", top: -9999, left: -9999, opacity: 0 });
     const count = Children.count(children);
 
     // Position the menu below the trigger
@@ -178,6 +178,7 @@ const DropdownMenu = forwardRef<HTMLDivElement, DropdownMenuProps>(
         top: rect.bottom + 4,
         left: rect.left,
         minWidth: rect.width,
+        opacity: 1,
       });
     }, [isOpen, triggerNodeRef]);
 
@@ -192,6 +193,7 @@ const DropdownMenu = forwardRef<HTMLDivElement, DropdownMenuProps>(
             top: rect.bottom + 4,
             left: rect.left,
             minWidth: rect.width,
+            opacity: 1,
           });
         }
       };
