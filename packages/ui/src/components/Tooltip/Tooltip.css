@@ -3,6 +3,10 @@
   position: relative;
 }
 
+.mantle-tooltip-trigger-wrapper {
+  display: inline-flex;
+}
+
 .mantle-tooltip {
   position: absolute;
   z-index: var(--mantle-z-tooltip);

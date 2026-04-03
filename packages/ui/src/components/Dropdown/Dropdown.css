@@ -3,6 +3,10 @@
   display: inline-block;
 }
 
+.mantle-dropdown-trigger-wrapper {
+  display: inline-flex;
+}
+
 .mantle-dropdown-trigger {
   display: inline-flex;
   align-items: center;

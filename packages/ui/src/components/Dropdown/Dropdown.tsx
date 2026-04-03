@@ -1,9 +1,7 @@
 import {
   Children,
-  cloneElement,
   createContext,
   forwardRef,
-  isValidElement,
   useCallback,
   useContext,
   useEffect,
@@ -101,12 +99,12 @@ const DropdownTrigger = forwardRef<HTMLButtonElement, DropdownTriggerProps>(
     const { isOpen, setIsOpen, setTriggerNode, setFocusedIndex } =
       useDropdownContext();
 
-    const handleRef = (node: HTMLButtonElement | null) => {
-      setTriggerNode(node);
-      if (typeof ref === "function") ref(node);
+    const handleRef = (node: HTMLElement | null) => {
+      setTriggerNode(node as HTMLButtonElement | null);
+      if (typeof ref === "function") ref(node as HTMLButtonElement | null);
       else if (ref)
         (ref as React.MutableRefObject<HTMLButtonElement | null>).current =
-          node;
+          node as HTMLButtonElement | null;
     };
 
     const handleClick = (e: React.MouseEvent<HTMLElement>) => {
@@ -115,16 +113,26 @@ const DropdownTrigger = forwardRef<HTMLButtonElement, DropdownTriggerProps>(
       setFocusedIndex(-1);
     };
 
-    if (asChild && isValidElement(children)) {
-      return cloneElement(
-        children as React.ReactElement<Record<string, unknown>>,
-        {
-          ref: handleRef,
-          "aria-haspopup": "menu" as const,
-          "aria-expanded": isOpen ? true : undefined,
-          onClick: handleClick,
-          ...rest,
-        },
+    if (asChild) {
+      return (
+        <div
+          ref={handleRef}
+          role="button"
+          tabIndex={0}
+          aria-haspopup="menu"
+          aria-expanded={isOpen ? "true" : "false"}
+          onClick={handleClick}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              handleClick(e as unknown as React.MouseEvent<HTMLElement>);
+            }
+          }}
+          className="mantle-dropdown-trigger-wrapper"
+          {...(rest as React.HTMLAttributes<HTMLDivElement>)}
+        >
+          {children}
+        </div>
       );
     }
 
@@ -133,7 +141,7 @@ const DropdownTrigger = forwardRef<HTMLButtonElement, DropdownTriggerProps>(
         ref={handleRef}
         type="button"
         aria-haspopup="menu"
-        aria-expanded={isOpen}
+        aria-expanded={isOpen ? "true" : "false"}
         onClick={handleClick}
         className="mantle-dropdown-trigger"
         {...rest}
@@ -283,6 +291,7 @@ const DropdownMenu = forwardRef<HTMLDivElement, DropdownMenuProps>(
     if (typeof document === "undefined") return null;
 
     return createPortal(
+      // eslint-disable-next-line jsx-a11y/role-has-required-aria-children
       <div
         ref={(node) => {
           (menuRef as React.MutableRefObject<HTMLDivElement | null>).current =
@@ -333,6 +342,7 @@ const DropdownItem = forwardRef<HTMLDivElement, DropdownItemProps>(
     }, [disabled, onSelect, setIsOpen, setFocusedIndex]);
 
     return (
+      // eslint-disable-next-line jsx-a11y/role-has-required-aria-children
       <div
         ref={ref}
         role="menuitem"

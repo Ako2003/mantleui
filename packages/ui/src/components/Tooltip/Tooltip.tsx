@@ -1,8 +1,6 @@
 import {
-  cloneElement,
   createContext,
   forwardRef,
-  isValidElement,
   useCallback,
   useContext,
   useMemo,
@@ -101,8 +99,12 @@ const TooltipTrigger = forwardRef<HTMLDivElement, TooltipTriggerProps>(
       ...rest,
     };
 
-    if (asChild && isValidElement<Record<string, unknown>>(children)) {
-      return cloneElement(children, { ...triggerProps, ref });
+    if (asChild) {
+      return (
+        <div ref={ref} {...triggerProps} className="mantle-tooltip-trigger-wrapper">
+          {children}
+        </div>
+      );
     }
 
     return (
