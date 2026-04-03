@@ -34,10 +34,16 @@ function subscribeToSystemTheme(callback: () => void): () => void {
  */
 function createStorageStore(key: string | false, fallback: ThemeMode) {
   const subscribers = new Set<() => void>();
+  const isBrowser = typeof window !== "undefined";
 
   function subscribe(callback: () => void) {
     subscribers.add(callback);
     // Listen for storage events from other tabs
+    if (!isBrowser) {
+      return () => {
+        subscribers.delete(callback);
+      };
+    }
     const handler = (e: StorageEvent) => {
       if (e.key === key) callback();
     };
@@ -49,7 +55,7 @@ function createStorageStore(key: string | false, fallback: ThemeMode) {
   }
 
   function getSnapshot(): ThemeMode {
-    if (key === false) return fallback;
+    if (key === false || !isBrowser) return fallback;
     const stored = localStorage.getItem(key);
     if (stored === "light" || stored === "dark" || stored === "system") {
       return stored;
@@ -62,7 +68,7 @@ function createStorageStore(key: string | false, fallback: ThemeMode) {
   }
 
   function set(value: ThemeMode) {
-    if (key !== false) {
+    if (key !== false && isBrowser) {
       localStorage.setItem(key, value);
     }
     for (const cb of subscribers) cb();

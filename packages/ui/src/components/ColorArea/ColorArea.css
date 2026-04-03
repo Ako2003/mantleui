@@ -25,7 +25,7 @@
   position: absolute;
   width: 16px;
   height: 16px;
-  border: 2px solid #fff;
+  border: 2px solid var(--mantle-color-bg, #fff);
   border-radius: 50%;
   box-shadow:
     0 0 0 1px rgba(0, 0, 0, 0.3),

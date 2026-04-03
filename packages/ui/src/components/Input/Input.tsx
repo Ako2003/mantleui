@@ -28,6 +28,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
     error,
     startIcon,
     endIcon,
+    wrapperClassName,
     className,
     id: idProp,
     ...rest
@@ -42,7 +43,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
 
   return (
     <div
-      className="mantle-inputWrapper"
+      className={["mantle-inputWrapper", wrapperClassName]
+        .filter(Boolean)
+        .join(" ")}
       data-color={dataColor}
       style={colorStyle}
     >

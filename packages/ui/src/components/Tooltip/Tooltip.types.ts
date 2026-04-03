@@ -9,6 +9,8 @@ export interface TooltipProps {
 }
 
 export interface TooltipTriggerProps extends HTMLAttributes<HTMLDivElement> {
+  /** When true, merges trigger props onto the child element instead of wrapping in a div. */
+  asChild?: boolean;
   children: ReactNode;
 }
 

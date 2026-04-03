@@ -21,4 +21,6 @@ export interface InputProps extends Omit<
   startIcon?: ReactNode;
   /** Element placed at the end of the input. */
   endIcon?: ReactNode;
+  /** Additional class name for the outer wrapper div. */
+  wrapperClassName?: string;
 }

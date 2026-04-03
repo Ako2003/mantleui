@@ -1,6 +1,8 @@
 import {
+  cloneElement,
   createContext,
   forwardRef,
+  isValidElement,
   useCallback,
   useContext,
   useMemo,
@@ -74,17 +76,37 @@ function TooltipRoot({ delayMs = 300, children }: TooltipProps) {
 /* ─── Trigger ─── */
 
 const TooltipTrigger = forwardRef<HTMLDivElement, TooltipTriggerProps>(
-  function TooltipTrigger({ children, ...rest }, ref) {
-    const { contentId, isOpen } = useTooltipContext();
+  function TooltipTrigger({ asChild, children, ...rest }, ref) {
+    const { contentId, isOpen, open, close } = useTooltipContext();
+
+    const handleKeyDown = useCallback(
+      (event: React.KeyboardEvent) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          if (isOpen) {
+            close();
+          } else {
+            open();
+          }
+        }
+      },
+      [isOpen, open, close],
+    );
+
+    const triggerProps = {
+      tabIndex: 0,
+      role: "button" as const,
+      "aria-describedby": isOpen ? contentId : undefined,
+      onKeyDown: handleKeyDown,
+      ...rest,
+    };
+
+    if (asChild && isValidElement<Record<string, unknown>>(children)) {
+      return cloneElement(children, { ...triggerProps, ref });
+    }
 
     return (
-      <div
-        ref={ref}
-        tabIndex={0}
-        role="button"
-        aria-describedby={isOpen ? contentId : undefined}
-        {...rest}
-      >
+      <div ref={ref} {...triggerProps}>
         {children}
       </div>
     );
