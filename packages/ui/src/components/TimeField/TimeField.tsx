@@ -110,14 +110,6 @@ export const TimeField = forwardRef<HTMLDivElement, TimeFieldProps>(
       };
     }, [isOpen]);
 
-    // Close on scroll
-    useEffect(() => {
-      if (!isOpen) return;
-      const handler = () => setIsOpen(false);
-      window.addEventListener("scroll", handler, true);
-      return () => window.removeEventListener("scroll", handler, true);
-    }, [isOpen]);
-
     // Close on click outside
     useEffect(() => {
       if (!isOpen) return;

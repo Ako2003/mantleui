@@ -70,17 +70,6 @@ function DropdownRoot({ children, color = "blue" }: DropdownProps) {
   }, []);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Close on scroll
-  useEffect(() => {
-    if (!isOpen) return;
-    const handler = () => {
-      setIsOpen(false);
-      setFocusedIndex(-1);
-    };
-    window.addEventListener("scroll", handler, true);
-    return () => window.removeEventListener("scroll", handler, true);
-  }, [isOpen]);
-
   return (
     <DropdownContext.Provider
       value={{
