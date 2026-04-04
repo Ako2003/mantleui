@@ -298,7 +298,6 @@ const DropdownMenu = forwardRef<HTMLDivElement, DropdownMenuProps>(
     if (typeof document === "undefined") return null;
 
     return createPortal(
-      // eslint-disable-next-line jsx-a11y/role-has-required-aria-children
       <div
         ref={(node) => {
           (menuRef as React.MutableRefObject<HTMLDivElement | null>).current =
@@ -349,7 +348,6 @@ const DropdownItem = forwardRef<HTMLDivElement, DropdownItemProps>(
     }, [disabled, onSelect, setIsOpen, setFocusedIndex]);
 
     return (
-      // eslint-disable-next-line jsx-a11y/role-has-required-aria-children
       <div
         ref={ref}
         role="menuitem"
