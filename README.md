@@ -1,12 +1,13 @@
 # MantleUI
 
-A production-grade React component library built to showcase frontend architecture, design patterns, and technical craftsmanship. Features 72 components, 676+ tests, dark mode, 6 accent colors + custom hex support, and a comprehensive documentation site with live playgrounds.
+I built MantleUI to deepen my understanding of frontend architecture and design patterns after receiving feedback that my portfolio needed more structural depth. Every component is built from scratch — no copy-paste, no wrappers around existing libraries — with a focus on clean abstraction, composability, and production-grade robustness. This is the proof that I can design, build, test, and ship a real component system.
 
-![CI](https://github.com/Ako2003/mantleui/actions/workflows/ci.yml/badge.svg)
+[![CI](https://github.com/Ako2003/mantleui/actions/workflows/ci.yml/badge.svg)](https://github.com/Ako2003/mantleui/actions)
+[![npm](https://img.shields.io/npm/v/@mantleui/react)](https://www.npmjs.com/package/@mantleui/react)
 
 ## Live Demo
 
-> [mantleui.vercel.app](https://mantleui.vercel.app)
+> **[mantleui.vercel.app](https://mantleui.vercel.app)**
 
 ## Highlights
 
