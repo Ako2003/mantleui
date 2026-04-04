@@ -166,7 +166,12 @@ const DropdownMenu = forwardRef<HTMLDivElement, DropdownMenuProps>(
 
     const menuRef = useRef<HTMLDivElement>(null);
     const menuItemsRef = useRef<NodeListOf<HTMLElement> | null>(null);
-    const [portalStyle, setPortalStyle] = useState<React.CSSProperties>({ position: "fixed", top: -9999, left: -9999, opacity: 0 });
+    const [portalStyle, setPortalStyle] = useState<React.CSSProperties>({
+      position: "fixed",
+      top: -9999,
+      left: -9999,
+      opacity: 0,
+    });
     const count = Children.count(children);
 
     // Position the menu below the trigger

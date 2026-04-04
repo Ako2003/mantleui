@@ -101,7 +101,11 @@ const TooltipTrigger = forwardRef<HTMLDivElement, TooltipTriggerProps>(
 
     if (asChild) {
       return (
-        <div ref={ref} {...triggerProps} className="mantle-tooltip-trigger-wrapper">
+        <div
+          ref={ref}
+          {...triggerProps}
+          className="mantle-tooltip-trigger-wrapper"
+        >
           {children}
         </div>
       );
