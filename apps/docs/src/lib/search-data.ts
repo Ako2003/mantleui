@@ -248,4 +248,31 @@ export const searchData: SearchItem[] = [
     category: "3D / Advanced",
   },
   { title: "Card3D", href: "/components/card-3d", category: "3D / Advanced" },
+  {
+    title: "WaveField",
+    href: "/components/wave-field",
+    category: "3D / Advanced",
+  },
+  { title: "Vortex", href: "/components/vortex", category: "3D / Advanced" },
+  {
+    title: "DNAHelix",
+    href: "/components/dna-helix",
+    category: "3D / Advanced",
+  },
+  {
+    title: "MorphingSphere",
+    href: "/components/morphing-sphere",
+    category: "3D / Advanced",
+  },
+  {
+    title: "StarField",
+    href: "/components/star-field",
+    category: "3D / Advanced",
+  },
+  { title: "Aurora", href: "/components/aurora", category: "3D / Advanced" },
+  {
+    title: "GridPlane",
+    href: "/components/grid-plane",
+    category: "3D / Advanced",
+  },
 ];
