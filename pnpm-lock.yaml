@@ -44,6 +44,12 @@ importers:
       '@mantleui/react':
         specifier: workspace:*
         version: link:../../packages/ui
+      '@react-three/drei':
+        specifier: ^10.7.7
+        version: 10.7.7(@react-three/fiber@9.5.0(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(three@0.183.2))(@types/react@19.2.14)(@types/three@0.183.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(three@0.183.2)
+      '@react-three/fiber':
+        specifier: ^9.5.0
+        version: 9.5.0(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(three@0.183.2)
       lucide-react:
         specifier: ^1.7.0
         version: 1.7.0(react@19.2.4)
@@ -62,6 +68,9 @@ importers:
       react-live:
         specifier: ^4.1.7
         version: 4.1.8(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      three:
+        specifier: ^0.183.2
+        version: 0.183.2
     devDependencies:
       '@mantleui/tsconfig':
         specifier: workspace:*
@@ -87,13 +96,13 @@ importers:
   packages/ui:
     dependencies:
       '@react-three/drei':
-        specifier: ^10.7.7
+        specifier: '>=9.0.0'
         version: 10.7.7(@react-three/fiber@9.5.0(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(three@0.183.2))(@types/react@19.2.14)(@types/three@0.183.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(three@0.183.2)
       '@react-three/fiber':
-        specifier: ^9.5.0
+        specifier: '>=8.0.0'
         version: 9.5.0(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(three@0.183.2)
       three:
-        specifier: ^0.183.2
+        specifier: '>=0.150.0'
         version: 0.183.2
     devDependencies:
       '@mantleui/tsconfig':

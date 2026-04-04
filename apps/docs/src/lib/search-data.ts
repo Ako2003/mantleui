@@ -239,4 +239,13 @@ export const searchData: SearchItem[] = [
     href: "/components/close-button",
     category: "Utility",
   },
+
+  // 3D / Advanced
+  { title: "Globe", href: "/components/globe", category: "3D / Advanced" },
+  {
+    title: "ParticleField",
+    href: "/components/particle-field",
+    category: "3D / Advanced",
+  },
+  { title: "Card3D", href: "/components/card-3d", category: "3D / Advanced" },
 ];

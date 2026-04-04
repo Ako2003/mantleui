@@ -91,6 +91,10 @@ const navItems = [
   { label: "Kbd", href: "/components/kbd" },
   { heading: "Utility" },
   { label: "CloseButton", href: "/components/close-button" },
+  { heading: "3D / Advanced" },
+  { label: "Globe", href: "/components/globe" },
+  { label: "ParticleField", href: "/components/particle-field" },
+  { label: "Card3D", href: "/components/card-3d" },
 ] as const;
 
 export function MobileNav() {
