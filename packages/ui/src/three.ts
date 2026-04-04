@@ -29,3 +29,7 @@ export type { GridPlaneProps } from "./components/GridPlane";
 // Card3D uses only CSS/JS (no Three.js dependency) but fits thematically
 export { Card3D } from "./components/Card3D";
 export type { Card3DProps } from "./components/Card3D";
+
+// WorldMap — SVG-based interactive choropleth (no Three.js dependency)
+export { WorldMap } from "./components/WorldMap";
+export type { WorldMapProps, WorldMapData } from "./components/WorldMap";

@@ -275,4 +275,9 @@ export const searchData: SearchItem[] = [
     href: "/components/grid-plane",
     category: "3D / Advanced",
   },
+  {
+    title: "WorldMap",
+    href: "/components/world-map",
+    category: "3D / Advanced",
+  },
 ];

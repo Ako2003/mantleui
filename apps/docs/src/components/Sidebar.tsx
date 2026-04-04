@@ -99,6 +99,7 @@ const navItems = [
   { label: "StarField", href: "/components/star-field" },
   { label: "Aurora", href: "/components/aurora" },
   { label: "GridPlane", href: "/components/grid-plane" },
+  { label: "WorldMap", href: "/components/world-map" },
 ] as const;
 
 export function Sidebar() {

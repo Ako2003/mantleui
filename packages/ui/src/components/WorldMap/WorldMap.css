@@ -1,0 +1,113 @@
+.mantle-worldmap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  font-family: var(--mantle-font-sans, system-ui, sans-serif);
+}
+
+.mantle-worldmap-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 16px 20px 8px;
+}
+
+.mantle-worldmap-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--mantle-color-text, #0f172a);
+}
+
+.mantle-worldmap-subtitle {
+  font-size: 13px;
+  color: var(--mantle-color-text-muted, #64748b);
+  margin-top: 2px;
+}
+
+.mantle-worldmap-total {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border: 1px solid;
+  border-radius: 9999px;
+}
+
+.mantle-worldmap-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.mantle-worldmap-country {
+  cursor: pointer;
+  transition: fill 150ms ease;
+}
+
+.mantle-worldmap-country:hover {
+  opacity: 0.85;
+}
+
+/* Tooltip */
+.mantle-worldmap-tooltip {
+  position: absolute;
+  z-index: 10;
+  pointer-events: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: var(--mantle-color-bg-subtle, #f8fafc);
+  border: 1px solid var(--mantle-color-border, #e2e8f0);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.mantle-worldmap-tooltip-name {
+  font-weight: 600;
+  color: var(--mantle-color-text, #0f172a);
+}
+
+.mantle-worldmap-tooltip-value {
+  color: var(--mantle-color-text-muted, #64748b);
+  margin-top: 2px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Legend */
+.mantle-worldmap-legend {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+}
+
+.mantle-worldmap-legend-bottom-left {
+  bottom: 12px;
+  left: 12px;
+}
+
+.mantle-worldmap-legend-bottom-right {
+  bottom: 12px;
+  right: 12px;
+}
+
+.mantle-worldmap-legend-top-left {
+  top: 12px;
+  left: 12px;
+}
+
+.mantle-worldmap-legend-top-right {
+  top: 12px;
+  right: 12px;
+}
+
+.mantle-worldmap-legend-bar {
+  width: 80px;
+  height: 8px;
+  border-radius: 4px;
+}
+
+.mantle-worldmap-legend-label {
+  font-size: 11px;
+  color: var(--mantle-color-text-muted, #64748b);
+}
