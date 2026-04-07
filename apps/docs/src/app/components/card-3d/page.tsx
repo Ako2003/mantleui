@@ -247,28 +247,51 @@ export default function Card3DPage() {
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">No Glare</h2>
-      <div className="mt-4">
-        <Card3D glare={false} maxTilt={10}>
-          <div style={{ width: 300, padding: 8, textAlign: "center" }}>
-            <h3
-              style={{
-                margin: 0,
-                fontSize: 16,
-                fontWeight: 600,
-                color: "var(--mantle-color-text)",
-              }}
-            >
-              Subtle Tilt Only
-            </h3>
-            <p
-              style={{
-                margin: "8px 0 0",
-                fontSize: 13,
-                color: "var(--mantle-color-text-muted)",
-              }}
-            >
-              Glare disabled, reduced tilt for a more subtle effect.
-            </p>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Subtle tilt without the glare overlay — great for minimal designs.
+      </p>
+      <div className="mt-4 flex flex-wrap gap-6">
+        <Card3D glare={false} maxTilt={8} borderColor="#3b82f640" background="rgba(59, 130, 246, 0.04)">
+          <div style={{ width: 260, padding: 8 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 14 }}>
+              <div style={{ width: 40, height: 40, borderRadius: 10, background: "#3b82f6", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              </div>
+              <div>
+                <h3 style={{ margin: 0, fontSize: 15, fontWeight: 700, color: "var(--mantle-color-text)" }}>Pro Plan</h3>
+                <p style={{ margin: 0, fontSize: 12, color: "var(--mantle-color-text-muted)" }}>$19/month</p>
+              </div>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+              {["Unlimited projects", "Priority support", "Custom domains"].map((f) => (
+                <div key={f} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 13, color: "var(--mantle-color-text-muted)" }}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="2"><polyline points="20 6 9 17 4 12"/></svg>
+                  {f}
+                </div>
+              ))}
+            </div>
+          </div>
+        </Card3D>
+
+        <Card3D glare={false} maxTilt={8} borderColor="#8b5cf640" background="rgba(139, 92, 246, 0.04)">
+          <div style={{ width: 260, padding: 8 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 14 }}>
+              <div style={{ width: 40, height: 40, borderRadius: 10, background: "#8b5cf6", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div>
+                <h3 style={{ margin: 0, fontSize: 15, fontWeight: 700, color: "var(--mantle-color-text)" }}>Enterprise</h3>
+                <p style={{ margin: 0, fontSize: 12, color: "var(--mantle-color-text-muted)" }}>$49/month</p>
+              </div>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+              {["Everything in Pro", "SSO & SAML", "Dedicated support"].map((f) => (
+                <div key={f} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 13, color: "var(--mantle-color-text-muted)" }}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" strokeWidth="2"><polyline points="20 6 9 17 4 12"/></svg>
+                  {f}
+                </div>
+              ))}
+            </div>
           </div>
         </Card3D>
       </div>
