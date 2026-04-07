@@ -8,6 +8,11 @@ const Card3D = dynamic(
   { ssr: false },
 );
 
+const FlipCard = dynamic(
+  () => import("@mantleui/react/three").then((mod) => mod.FlipCard),
+  { ssr: false },
+);
+
 const card3DProps = [
   { name: "children", type: "ReactNode", description: "Card content." },
   {
@@ -82,7 +87,7 @@ export default function Card3DPage() {
       </p>
       <div className="mt-4 flex flex-wrap gap-6">
         <Card3D>
-          <div style={{ width: 280, padding: 8 }}>
+          <div style={{ width: 280, padding: 16 }}>
             <div
               style={{
                 width: 48,
@@ -139,7 +144,7 @@ export default function Card3DPage() {
           borderColor="#8b5cf640"
           background="rgba(139, 92, 246, 0.05)"
         >
-          <div style={{ width: 280, padding: 8 }}>
+          <div style={{ width: 280, padding: 16 }}>
             <div
               style={{
                 width: 48,
@@ -195,7 +200,7 @@ export default function Card3DPage() {
           borderColor="#22c55e40"
           background="rgba(34, 197, 94, 0.05)"
         >
-          <div style={{ width: 280, padding: 8 }}>
+          <div style={{ width: 280, padding: 16 }}>
             <div
               style={{
                 width: 48,
@@ -252,7 +257,7 @@ export default function Card3DPage() {
       </p>
       <div className="mt-4 flex flex-wrap gap-6">
         <Card3D glare={false} maxTilt={8} borderColor="#3b82f640" background="rgba(59, 130, 246, 0.04)">
-          <div style={{ width: 260, padding: 8 }}>
+          <div style={{ width: 260, padding: 16 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 14 }}>
               <div style={{ width: 40, height: 40, borderRadius: 10, background: "#3b82f6", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
@@ -274,7 +279,7 @@ export default function Card3DPage() {
         </Card3D>
 
         <Card3D glare={false} maxTilt={8} borderColor="#8b5cf640" background="rgba(139, 92, 246, 0.04)">
-          <div style={{ width: 260, padding: 8 }}>
+          <div style={{ width: 260, padding: 16 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 14 }}>
               <div style={{ width: 40, height: 40, borderRadius: 10, background: "#8b5cf6", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -294,6 +299,82 @@ export default function Card3DPage() {
             </div>
           </div>
         </Card3D>
+      </div>
+
+      <h2 className="mt-14 text-2xl font-bold">FlipCard</h2>
+      <p className="mt-2 text-slate-600 dark:text-zinc-400">
+        A card that flips on click to reveal a back side. Supports horizontal
+        and vertical flip directions.
+      </p>
+
+      <h2 className="mt-10 text-xl font-semibold">Click to Flip</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Click on any card to see the flip animation.
+      </p>
+      <div className="mt-4 flex flex-wrap gap-6">
+        <FlipCard
+          width={280}
+          height={180}
+          front={
+            <div style={{ padding: 24, textAlign: "center" }}>
+              <div style={{ width: 48, height: 48, borderRadius: "50%", background: "linear-gradient(135deg, #3b82f6, #8b5cf6)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 12px" }}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4m0-4h.01"/></svg>
+              </div>
+              <h3 style={{ margin: 0, fontSize: 16, fontWeight: 700, color: "var(--mantle-color-text)" }}>What is MantleUI?</h3>
+              <p style={{ margin: "6px 0 0", fontSize: 12, color: "var(--mantle-color-text-muted)" }}>Click to find out</p>
+            </div>
+          }
+          back={
+            <div style={{ padding: 24, textAlign: "center" }}>
+              <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: "var(--mantle-color-text)" }}>
+                A production-grade React component library with 73+ components, dark mode, and full TypeScript support.
+              </p>
+              <p style={{ margin: "10px 0 0", fontSize: 12, color: "var(--mantle-color-text-muted)" }}>Click to flip back</p>
+            </div>
+          }
+        />
+
+        <FlipCard
+          width={280}
+          height={180}
+          frontBackground="linear-gradient(135deg, #3b82f6, #2563eb)"
+          backBackground="linear-gradient(135deg, #8b5cf6, #6d28d9)"
+          borderColor="transparent"
+          front={
+            <div style={{ padding: 24, textAlign: "center", color: "white" }}>
+              <h3 style={{ margin: 0, fontSize: 28, fontWeight: 800 }}>73+</h3>
+              <p style={{ margin: "4px 0 0", fontSize: 14, opacity: 0.8 }}>Components</p>
+              <p style={{ margin: "8px 0 0", fontSize: 11, opacity: 0.6 }}>Tap to see more</p>
+            </div>
+          }
+          back={
+            <div style={{ padding: 24, textAlign: "center", color: "white" }}>
+              <h3 style={{ margin: 0, fontSize: 28, fontWeight: 800 }}>676+</h3>
+              <p style={{ margin: "4px 0 0", fontSize: 14, opacity: 0.8 }}>Tests Passing</p>
+              <p style={{ margin: "8px 0 0", fontSize: 11, opacity: 0.6 }}>Tap to flip back</p>
+            </div>
+          }
+        />
+
+        <FlipCard
+          width={280}
+          height={180}
+          direction="vertical"
+          front={
+            <div style={{ padding: 24, textAlign: "center" }}>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z"/><polyline points="9 12 11 14 15 10"/></svg>
+              <h3 style={{ margin: "8px 0 0", fontSize: 16, fontWeight: 700, color: "var(--mantle-color-text)" }}>Vertical Flip</h3>
+              <p style={{ margin: "4px 0 0", fontSize: 12, color: "var(--mantle-color-text-muted)" }}>Flips top to bottom</p>
+            </div>
+          }
+          back={
+            <div style={{ padding: 24, textAlign: "center" }}>
+              <p style={{ margin: 0, fontSize: 14, color: "var(--mantle-color-text)", lineHeight: 1.6 }}>
+                Set <code style={{ background: "var(--mantle-color-bg-muted)", padding: "2px 6px", borderRadius: 4, fontSize: 12 }}>direction=&quot;vertical&quot;</code> for a top-to-bottom flip.
+              </p>
+            </div>
+          }
+        />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Usage</h2>

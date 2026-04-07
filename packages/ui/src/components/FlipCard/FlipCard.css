@@ -1,0 +1,36 @@
+.mantle-flipcard {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.mantle-flipcard:focus-visible {
+  outline: 2px solid var(--mantle-accent, #3b82f6);
+  outline-offset: 2px;
+  border-radius: var(--mantle-radius-lg, 12px);
+}
+
+.mantle-flipcard-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.mantle-flipcard-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+}
+
+.mantle-flipcard-back-horizontal {
+  transform: rotateY(180deg);
+}
+
+.mantle-flipcard-back-vertical {
+  transform: rotateX(180deg);
+}

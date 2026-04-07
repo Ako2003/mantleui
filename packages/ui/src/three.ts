@@ -30,6 +30,10 @@ export type { GridPlaneProps } from "./components/GridPlane";
 export { Card3D } from "./components/Card3D";
 export type { Card3DProps } from "./components/Card3D";
 
+// FlipCard — click-to-flip card with front/back sides (no Three.js)
+export { FlipCard } from "./components/FlipCard";
+export type { FlipCardProps } from "./components/FlipCard";
+
 // WorldMap — SVG-based interactive choropleth (no Three.js dependency)
 export { WorldMap } from "./components/WorldMap";
 export type { WorldMapProps, WorldMapData } from "./components/WorldMap";
