@@ -162,6 +162,22 @@ export default function GlobePage() {
         </div>
       </div>
 
+      <h2 className="mt-10 text-xl font-semibold">Clean World Map</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        A minimal globe showing only country outlines — no markers or arcs.
+      </p>
+      <div className="mt-4 flex flex-wrap items-start gap-6">
+        <div className="rounded-xl border border-slate-200 bg-black p-4 dark:border-zinc-800">
+          <Globe
+            size={550}
+            color="#3b82f6"
+            showCountries
+            countryColor="rgba(100,180,255,0.5)"
+            autoRotateSpeed={0.4}
+          />
+        </div>
+      </div>
+
       <h2 className="mt-10 text-xl font-semibold">Usage</h2>
       <pre className="mt-4 overflow-x-auto rounded-lg bg-slate-50 p-4 text-sm dark:bg-zinc-900">
         <code>{`import { Globe } from "@mantleui/react/three";
