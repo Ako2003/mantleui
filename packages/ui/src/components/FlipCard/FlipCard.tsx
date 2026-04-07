@@ -67,7 +67,6 @@ export const FlipCard = forwardRef<HTMLDivElement, FlipCardProps>(
         style={{
           width: w,
           height: h,
-          perspective: "1000px",
           ...style,
         }}
         onClick={handleClick}
