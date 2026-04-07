@@ -265,12 +265,9 @@ export function LivePlayground({ code }: LivePlaygroundProps) {
 
   return (
     <LiveProvider code={code} scope={scope} noInline={hasRender} theme={theme}>
-      <div
-        className="rounded-lg border border-slate-200 dark:border-zinc-800"
-        style={{ overflow: "visible" }}
-      >
+      <div className="w-full min-w-0 rounded-lg border border-slate-200 dark:border-zinc-800">
         <div
-          className="relative rounded-t-lg bg-white px-6 py-10 dark:bg-zinc-950"
+          className="relative rounded-t-lg bg-white px-4 py-10 dark:bg-zinc-950 sm:px-6"
           style={{ overflow: "visible", minHeight: "80px" }}
         >
           <LivePreview />
