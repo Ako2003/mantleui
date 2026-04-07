@@ -154,7 +154,7 @@ export default function GlobePage() {
             size={550}
             color="#22c55e"
             showCountries
-            countryColor="rgba(255,255,255,0.35)"
+            countryColor="rgba(255,255,255,0.7)"
             markers={markers}
             arcs={arcs}
             autoRotateSpeed={0.2}

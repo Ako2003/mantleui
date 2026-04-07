@@ -136,7 +136,10 @@ function CountryOutlines({
     const mat = new THREE.LineBasicMaterial({
       color,
       transparent: true,
-      opacity: 0.4,
+      opacity: 0.8,
+      depthTest: false,
+      depthWrite: false,
+      linewidth: 2,
     });
 
     (countryBoundaries as number[][][]).forEach((ring) => {
@@ -251,7 +254,7 @@ export const Globe = forwardRef<HTMLDivElement, GlobeProps>(function Globe(
 
           {/* Country outlines */}
           {showCountries && (
-            <CountryOutlines radius={radius * 1.003} color={countryColor} />
+            <CountryOutlines radius={radius * 1.005} color={countryColor} />
           )}
 
           {/* Glow ring */}
