@@ -315,6 +315,9 @@ export default function Card3DPage() {
         <FlipCard
           width={280}
           height={180}
+          frontBackground="#18181b"
+          backBackground="#18181b"
+          borderColor="#27272a"
           front={
             <div style={{ padding: 24, textAlign: "center" }}>
               <div style={{ width: 48, height: 48, borderRadius: "50%", background: "linear-gradient(135deg, #3b82f6, #8b5cf6)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 12px" }}>
@@ -360,6 +363,9 @@ export default function Card3DPage() {
           width={280}
           height={180}
           direction="vertical"
+          frontBackground="#18181b"
+          backBackground="#18181b"
+          borderColor="#27272a"
           front={
             <div style={{ padding: 24, textAlign: "center" }}>
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z"/><polyline points="9 12 11 14 15 10"/></svg>
