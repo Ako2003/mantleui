@@ -276,7 +276,7 @@ export function LivePlayground({ code }: LivePlaygroundProps) {
           <LivePreview />
         </div>
         <LiveError className="border-t border-red-200 bg-red-50 px-4 py-2 text-sm text-red-700 dark:border-red-900 dark:bg-red-950 dark:text-red-400" />
-        <div className="relative z-0 border-t border-slate-200 dark:border-zinc-800">
+        <div className="relative z-0 overflow-hidden border-t border-slate-200 dark:border-zinc-800">
           <CopyButton code={code} />
           <Highlight code={code.trim()} language="tsx" theme={theme}>
             {({
@@ -290,7 +290,7 @@ export function LivePlayground({ code }: LivePlaygroundProps) {
               delete safeStyle.backgroundColor;
               return (
                 <pre
-                  className="m-0 overflow-x-auto bg-slate-50 p-4 font-mono text-sm dark:bg-zinc-900"
+                  className="m-0 overflow-x-auto bg-slate-50 p-4 font-mono text-xs leading-relaxed dark:bg-zinc-900 sm:text-sm"
                   style={safeStyle}
                 >
                   <code>
