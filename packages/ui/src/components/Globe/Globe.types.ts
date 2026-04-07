@@ -46,4 +46,12 @@ export interface GlobeProps extends Omit<
   markers?: GlobeMarker[];
   /** Arcs connecting two points on the globe. */
   arcs?: GlobeArc[];
+  /** Show country outlines on the globe. Defaults to false. */
+  showCountries?: boolean;
+  /** Country outline color. Defaults to "rgba(255,255,255,0.2)". */
+  countryColor?: string;
+  /** Country fill opacity (0-1). Defaults to 0. Set > 0 for filled landmasses. */
+  countryFillOpacity?: number;
+  /** Country fill color. Defaults to the accent color. */
+  countryFillColor?: string;
 }

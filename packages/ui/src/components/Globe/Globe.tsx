@@ -3,6 +3,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 import type { GlobeArc, GlobeMarker, GlobeProps } from "./Globe.types";
+import countryBoundaries from "./countryBoundaries.json";
 
 /* ─── Helpers ─── */
 
@@ -121,6 +122,40 @@ function Arc({
   return <primitive object={lineObj} />;
 }
 
+/* ─── Country Outlines ─── */
+
+function CountryOutlines({
+  radius,
+  color,
+}: {
+  radius: number;
+  color: string;
+}) {
+  const group = useMemo(() => {
+    const g = new THREE.Group();
+    const mat = new THREE.LineBasicMaterial({
+      color,
+      transparent: true,
+      opacity: 0.4,
+    });
+
+    (countryBoundaries as number[][][]).forEach((ring) => {
+      const points: THREE.Vector3[] = [];
+      ring.forEach(([lng, lat]) => {
+        points.push(latLngToVector3(lat ?? 0, lng ?? 0, radius));
+      });
+      if (points.length > 1) {
+        const geo = new THREE.BufferGeometry().setFromPoints(points);
+        g.add(new THREE.Line(geo, mat));
+      }
+    });
+
+    return g;
+  }, [radius, color]);
+
+  return <primitive object={group} />;
+}
+
 /* ─── Rotating Group ─── */
 
 function RotatingGroup({
@@ -172,6 +207,8 @@ export const Globe = forwardRef<HTMLDivElement, GlobeProps>(function Globe(
     interactive = true,
     markers = [],
     arcs = [],
+    showCountries = false,
+    countryColor = "rgba(255,255,255,0.2)",
     className,
     style,
     ...rest
@@ -208,7 +245,14 @@ export const Globe = forwardRef<HTMLDivElement, GlobeProps>(function Globe(
           </mesh>
 
           {/* Dot grid */}
-          <DotSphere color={dotColor} radius={radius * 1.002} />
+          {!showCountries && (
+            <DotSphere color={dotColor} radius={radius * 1.002} />
+          )}
+
+          {/* Country outlines */}
+          {showCountries && (
+            <CountryOutlines radius={radius * 1.003} color={countryColor} />
+          )}
 
           {/* Glow ring */}
           <mesh>
