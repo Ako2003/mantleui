@@ -56,10 +56,11 @@ function DotSphere({ color, radius }: { color: string; radius: number }) {
     <points geometry={geometry}>
       <pointsMaterial
         color={color}
-        size={0.008}
+        size={0.01}
         sizeAttenuation
         transparent
         opacity={0.6}
+        depthTest={false}
       />
     </points>
   );
@@ -199,7 +200,7 @@ export const Globe = forwardRef<HTMLDivElement, GlobeProps>(function Globe(
             <meshPhongMaterial
               color="#111"
               transparent
-              opacity={0.9}
+              opacity={0.85}
               shininess={5}
             />
           </mesh>
