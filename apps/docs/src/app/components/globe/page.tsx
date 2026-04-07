@@ -112,7 +112,7 @@ export default function GlobePage() {
       <div className="mt-4 flex flex-wrap items-start gap-6">
         <div className="rounded-xl border border-slate-200 bg-black p-4 dark:border-zinc-800">
           <Globe
-            size={380}
+            size={550}
             color={color}
             markers={markers}
             arcs={arcs}
