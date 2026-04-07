@@ -94,6 +94,8 @@ export const FlipCard = forwardRef<HTMLDivElement, FlipCardProps>(
               background: frontBackground,
               borderRadius: radius,
               border: `1px solid ${borderColor}`,
+              visibility: flipped ? "hidden" : "visible",
+              transition: `visibility 0s ${flipped ? "0s" : `${duration / 2}ms`}`,
             }}
           >
             {front}
@@ -104,6 +106,8 @@ export const FlipCard = forwardRef<HTMLDivElement, FlipCardProps>(
               background: backBackground,
               borderRadius: radius,
               border: `1px solid ${borderColor}`,
+              visibility: flipped ? "visible" : "hidden",
+              transition: `visibility 0s ${flipped ? `${duration / 2}ms` : "0s"}`,
             }}
           >
             {back}
