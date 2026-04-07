@@ -53,7 +53,7 @@ function DotSphere({ color, radius }: { color: string; radius: number }) {
   }, [points]);
 
   return (
-    <points geometry={geometry}>
+    <points geometry={geometry} renderOrder={1}>
       <pointsMaterial
         color={color}
         size={0.01}
@@ -61,6 +61,7 @@ function DotSphere({ color, radius }: { color: string; radius: number }) {
         transparent
         opacity={0.6}
         depthTest={false}
+        depthWrite={false}
       />
     </points>
   );
@@ -195,13 +196,14 @@ export const Globe = forwardRef<HTMLDivElement, GlobeProps>(function Globe(
         <ambientLight intensity={0.5} />
         <RotatingGroup speed={autoRotateSpeed}>
           {/* Globe shell */}
-          <mesh>
+          <mesh renderOrder={0}>
             <sphereGeometry args={[radius, 64, 64]} />
             <meshPhongMaterial
               color="#111"
               transparent
               opacity={0.85}
               shininess={5}
+              depthWrite={false}
             />
           </mesh>
 
