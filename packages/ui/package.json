@@ -16,7 +16,8 @@
       "import": "./dist/three.mjs",
       "require": "./dist/three.js"
     },
-    "./styles.css": "./dist/index.css"
+    "./styles.css": "./dist/index.css",
+    "./three-styles.css": "./dist/three.css"
   },
   "files": [
     "dist"
