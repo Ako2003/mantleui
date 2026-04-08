@@ -1,43 +1,44 @@
-.mantle-flipcard {
-  cursor: pointer;
-  display: inline-block;
+.mantle-flipcard-container {
   perspective: 1000px;
   -webkit-user-select: none;
   user-select: none;
+  cursor: pointer;
 }
 
-.mantle-flipcard:focus-visible {
+.mantle-flipcard-container:focus-visible {
   outline: 2px solid var(--mantle-accent, #3b82f6);
   outline-offset: 2px;
-  border-radius: var(--mantle-radius-lg, 12px);
+  border-radius: 12px;
 }
 
-.mantle-flipcard-inner {
+.mantle-flipcard-rotator {
   position: relative;
   width: 100%;
   height: 100%;
   transition: transform 0.7s;
-  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
 }
 
-.mantle-flipcard-flipped .mantle-flipcard-inner {
+.mantle-flipcard-container.is-flipped .mantle-flipcard-rotator {
   transform: rotateY(-180deg);
 }
 
-.mantle-flipcard-flipped-vertical .mantle-flipcard-inner {
+.mantle-flipcard-container.is-flipped-vertical .mantle-flipcard-rotator {
   transform: rotateX(-180deg);
 }
 
-.mantle-flipcard-face {
+.mantle-flipcard-front,
+.mantle-flipcard-back {
   position: absolute;
   inset: 0;
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 12px;
   overflow: hidden;
 }
 
-.mantle-flipcard-back-horizontal {
+.mantle-flipcard-back {
   transform: rotateY(180deg);
 }
 
