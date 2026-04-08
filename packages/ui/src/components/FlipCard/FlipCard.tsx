@@ -22,13 +22,13 @@ export const FlipCard = forwardRef<HTMLDivElement, FlipCardProps>(
       width = 300,
       height = 200,
       direction = "horizontal",
-      duration = 600,
+      duration,
       flipped: flippedProp,
       onFlippedChange,
       borderRadius = 12,
-      frontBackground = "var(--mantle-color-bg-muted, #f1f5f9)",
-      backBackground = "var(--mantle-color-bg-muted, #f1f5f9)",
-      borderColor = "var(--mantle-color-border, #e2e8f0)",
+      frontBackground = "var(--mantle-color-bg-muted, #18181b)",
+      backBackground = "var(--mantle-color-bg-muted, #18181b)",
+      borderColor = "var(--mantle-color-border, #27272a)",
       className,
       style,
       ...rest
@@ -55,15 +55,19 @@ export const FlipCard = forwardRef<HTMLDivElement, FlipCardProps>(
     const w = typeof width === "number" ? `${width}px` : width;
     const h = typeof height === "number" ? `${height}px` : height;
 
-    const rotateAxis = direction === "vertical" ? "X" : "Y";
-    const transform = flipped
-      ? `rotate${rotateAxis}(180deg)`
-      : `rotate${rotateAxis}(0deg)`;
+    const flipClass =
+      flipped
+        ? direction === "vertical"
+          ? "mantle-flipcard-flipped-vertical"
+          : "mantle-flipcard-flipped"
+        : "";
 
     return (
       <div
         ref={ref}
-        className={["mantle-flipcard", className].filter(Boolean).join(" ")}
+        className={["mantle-flipcard", flipClass, className]
+          .filter(Boolean)
+          .join(" ")}
         style={{
           width: w,
           height: h,
@@ -78,34 +82,33 @@ export const FlipCard = forwardRef<HTMLDivElement, FlipCardProps>(
         }}
         role="button"
         tabIndex={0}
-        aria-label={flipped ? "Click to flip to front" : "Click to flip to back"}
+        aria-label={
+          flipped ? "Click to flip to front" : "Click to flip to back"
+        }
         {...rest}
       >
-        <div
-          className="mantle-flipcard-inner"
-          style={{
-            transform,
-            transition: `transform ${duration}ms cubic-bezier(0.4, 0, 0.2, 1)`,
-          }}
-        >
+        <div className="mantle-flipcard-inner">
+          {/* Front */}
           <div
-            className="mantle-flipcard-face mantle-flipcard-front"
+            className="mantle-flipcard-face"
             style={{
+              background: frontBackground,
               borderRadius: radius,
               border: `1px solid ${borderColor}`,
             }}
           >
-            <div style={{ position: "absolute", inset: 0, background: frontBackground, borderRadius: radius, zIndex: -1 }} />
             {front}
           </div>
+
+          {/* Back */}
           <div
-            className={`mantle-flipcard-face mantle-flipcard-back mantle-flipcard-back-${direction}`}
+            className={`mantle-flipcard-face mantle-flipcard-back-${direction}`}
             style={{
+              background: backBackground,
               borderRadius: radius,
               border: `1px solid ${borderColor}`,
             }}
           >
-            <div style={{ position: "absolute", inset: 0, background: backBackground, borderRadius: radius, zIndex: -1 }} />
             {back}
           </div>
         </div>
