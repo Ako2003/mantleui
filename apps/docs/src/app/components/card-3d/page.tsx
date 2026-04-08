@@ -311,6 +311,77 @@ export default function Card3DPage() {
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
         Click on any card to see the flip animation.
       </p>
+      <div className="mt-4 flex flex-wrap gap-6">
+        <FlipCard
+          width={280}
+          height={180}
+          frontBackground="#18181b"
+          backBackground="#18181b"
+          borderColor="#27272a"
+          front={
+            <div style={{ padding: 24, textAlign: "center", width: "100%" }}>
+              <div style={{ width: 48, height: 48, borderRadius: "50%", background: "linear-gradient(135deg, #3b82f6, #8b5cf6)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 12px" }}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4m0-4h.01"/></svg>
+              </div>
+              <h3 style={{ margin: 0, fontSize: 16, fontWeight: 700, color: "#fff" }}>What is MantleUI?</h3>
+              <p style={{ margin: "6px 0 0", fontSize: 12, color: "#a1a1aa" }}>Click to find out</p>
+            </div>
+          }
+          back={
+            <div style={{ padding: 24, textAlign: "center", width: "100%" }}>
+              <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: "#fff" }}>
+                A production-grade React component library with 73+ components, dark mode, and full TypeScript support.
+              </p>
+              <p style={{ margin: "10px 0 0", fontSize: 12, color: "#a1a1aa" }}>Click to flip back</p>
+            </div>
+          }
+        />
+
+        <FlipCard
+          width={280}
+          height={180}
+          frontBackground="linear-gradient(135deg, #3b82f6, #2563eb)"
+          backBackground="linear-gradient(135deg, #8b5cf6, #6d28d9)"
+          borderColor="transparent"
+          front={
+            <div style={{ padding: 24, textAlign: "center", width: "100%", color: "white" }}>
+              <h3 style={{ margin: 0, fontSize: 28, fontWeight: 800 }}>73+</h3>
+              <p style={{ margin: "4px 0 0", fontSize: 14, opacity: 0.8 }}>Components</p>
+              <p style={{ margin: "8px 0 0", fontSize: 11, opacity: 0.6 }}>Tap to see more</p>
+            </div>
+          }
+          back={
+            <div style={{ padding: 24, textAlign: "center", width: "100%", color: "white" }}>
+              <h3 style={{ margin: 0, fontSize: 28, fontWeight: 800 }}>676+</h3>
+              <p style={{ margin: "4px 0 0", fontSize: 14, opacity: 0.8 }}>Tests Passing</p>
+              <p style={{ margin: "8px 0 0", fontSize: 11, opacity: 0.6 }}>Tap to flip back</p>
+            </div>
+          }
+        />
+
+        <FlipCard
+          width={280}
+          height={180}
+          direction="vertical"
+          frontBackground="#18181b"
+          backBackground="#18181b"
+          borderColor="#27272a"
+          front={
+            <div style={{ padding: 24, textAlign: "center", width: "100%" }}>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z"/><polyline points="9 12 11 14 15 10"/></svg>
+              <h3 style={{ margin: "8px 0 0", fontSize: 16, fontWeight: 700, color: "#fff" }}>Vertical Flip</h3>
+              <p style={{ margin: "4px 0 0", fontSize: 12, color: "#a1a1aa" }}>Flips top to bottom</p>
+            </div>
+          }
+          back={
+            <div style={{ padding: 24, textAlign: "center", width: "100%", color: "#fff" }}>
+              <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6 }}>
+                Set direction=&quot;vertical&quot; for a top-to-bottom flip.
+              </p>
+            </div>
+          }
+        />
+      </div>
 
       <h2 className="mt-10 text-xl font-semibold">Usage</h2>
       <pre className="mt-4 overflow-x-auto rounded-lg bg-slate-50 p-4 text-sm dark:bg-zinc-900">
