@@ -14,6 +14,7 @@
   position: relative;
   width: 100%;
   height: 100%;
+  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
 
@@ -23,22 +24,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  overflow: hidden;
 }
 
 .mantle-flipcard-front {
   z-index: 2;
-  transform: rotateY(0deg);
 }
 
 .mantle-flipcard-back-horizontal {
   z-index: 1;
+  -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
 
 .mantle-flipcard-back-vertical {
   z-index: 1;
+  -webkit-transform: rotateX(180deg);
   transform: rotateX(180deg);
 }

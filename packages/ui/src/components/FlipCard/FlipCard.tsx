@@ -91,25 +91,21 @@ export const FlipCard = forwardRef<HTMLDivElement, FlipCardProps>(
           <div
             className="mantle-flipcard-face mantle-flipcard-front"
             style={{
-              background: frontBackground,
               borderRadius: radius,
               border: `1px solid ${borderColor}`,
-              visibility: flipped ? "hidden" : "visible",
-              transition: `visibility 0s ${flipped ? "0s" : `${duration / 2}ms`}`,
             }}
           >
+            <div style={{ position: "absolute", inset: 0, background: frontBackground, borderRadius: radius, zIndex: -1 }} />
             {front}
           </div>
           <div
             className={`mantle-flipcard-face mantle-flipcard-back mantle-flipcard-back-${direction}`}
             style={{
-              background: backBackground,
               borderRadius: radius,
               border: `1px solid ${borderColor}`,
-              visibility: flipped ? "visible" : "hidden",
-              transition: `visibility 0s ${flipped ? `${duration / 2}ms` : "0s"}`,
             }}
           >
+            <div style={{ position: "absolute", inset: 0, background: backBackground, borderRadius: radius, zIndex: -1 }} />
             {back}
           </div>
         </div>
