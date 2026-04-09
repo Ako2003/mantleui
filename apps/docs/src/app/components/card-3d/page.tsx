@@ -312,72 +312,104 @@ export default function Card3DPage() {
         Click on any card to see the flip animation.
       </p>
       <div className="mt-4 flex flex-wrap gap-6">
+        {/* Card 1: Profile card */}
         <FlipCard
-          width={280}
-          height={180}
-          frontBackground="#18181b"
-          backBackground="#18181b"
-          borderColor="#27272a"
+          width={300}
+          height={220}
+          frontBackground="linear-gradient(145deg, #1e1b4b, #312e81)"
+          backBackground="linear-gradient(145deg, #312e81, #1e1b4b)"
+          borderColor="#4338ca40"
           front={
-            <div style={{ padding: 24, textAlign: "center", width: "100%" }}>
-              <div style={{ width: 48, height: 48, borderRadius: "50%", background: "linear-gradient(135deg, #3b82f6, #8b5cf6)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 12px" }}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4m0-4h.01"/></svg>
+            <div style={{ padding: 28, width: "100%", display: "flex", flexDirection: "column", alignItems: "center" }}>
+              <div style={{ width: 56, height: 56, borderRadius: "50%", background: "linear-gradient(135deg, #818cf8, #6366f1)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 14, boxShadow: "0 0 20px rgba(99,102,241,0.4)" }}>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
               </div>
-              <h3 style={{ margin: 0, fontSize: 16, fontWeight: 700, color: "#fff" }}>What is MantleUI?</h3>
-              <p style={{ margin: "6px 0 0", fontSize: 12, color: "#a1a1aa" }}>Click to find out</p>
+              <h3 style={{ margin: 0, fontSize: 18, fontWeight: 700, color: "#e0e7ff", letterSpacing: "-0.01em" }}>Alex Rivera</h3>
+              <p style={{ margin: "4px 0 0", fontSize: 13, color: "#818cf8" }}>Senior Engineer</p>
+              <p style={{ margin: "8px 0 0", fontSize: 11, color: "#6366f180" }}>Click to see details</p>
             </div>
           }
           back={
-            <div style={{ padding: 24, textAlign: "center", width: "100%" }}>
-              <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: "#fff" }}>
-                A production-grade React component library with 73+ components, dark mode, and full TypeScript support.
-              </p>
-              <p style={{ margin: "10px 0 0", fontSize: 12, color: "#a1a1aa" }}>Click to flip back</p>
+            <div style={{ padding: 24, width: "100%" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                {[
+                  { label: "Location", value: "San Francisco, CA" },
+                  { label: "Experience", value: "8 years" },
+                  { label: "Stack", value: "React, TypeScript, Go" },
+                  { label: "Status", value: "Available" },
+                ].map((item) => (
+                  <div key={item.label} style={{ display: "flex", justifyContent: "space-between", fontSize: 13 }}>
+                    <span style={{ color: "#818cf8" }}>{item.label}</span>
+                    <span style={{ color: "#e0e7ff", fontWeight: 500 }}>{item.value}</span>
+                  </div>
+                ))}
+              </div>
+              <p style={{ margin: "14px 0 0", fontSize: 11, color: "#6366f180", textAlign: "center" }}>Click to flip back</p>
             </div>
           }
         />
 
+        {/* Card 2: Gradient stats */}
         <FlipCard
-          width={280}
-          height={180}
-          frontBackground="linear-gradient(135deg, #3b82f6, #2563eb)"
-          backBackground="linear-gradient(135deg, #8b5cf6, #6d28d9)"
+          width={300}
+          height={220}
+          frontBackground="linear-gradient(135deg, #0ea5e9, #2563eb, #7c3aed)"
+          backBackground="linear-gradient(135deg, #7c3aed, #db2777, #f43f5e)"
           borderColor="transparent"
           front={
-            <div style={{ padding: 24, textAlign: "center", width: "100%", color: "white" }}>
-              <h3 style={{ margin: 0, fontSize: 28, fontWeight: 800 }}>73+</h3>
-              <p style={{ margin: "4px 0 0", fontSize: 14, opacity: 0.8 }}>Components</p>
-              <p style={{ margin: "8px 0 0", fontSize: 11, opacity: 0.6 }}>Tap to see more</p>
+            <div style={{ padding: 28, textAlign: "center", width: "100%", color: "white" }}>
+              <h3 style={{ margin: 0, fontSize: 42, fontWeight: 900, letterSpacing: "-0.02em", lineHeight: 1 }}>73+</h3>
+              <p style={{ margin: "8px 0 0", fontSize: 16, fontWeight: 600, opacity: 0.9 }}>Components</p>
+              <div style={{ margin: "16px auto 0", width: 40, height: 2, borderRadius: 1, background: "rgba(255,255,255,0.3)" }} />
+              <p style={{ margin: "12px 0 0", fontSize: 12, opacity: 0.5 }}>Click to reveal more</p>
             </div>
           }
           back={
-            <div style={{ padding: 24, textAlign: "center", width: "100%", color: "white" }}>
-              <h3 style={{ margin: 0, fontSize: 28, fontWeight: 800 }}>676+</h3>
-              <p style={{ margin: "4px 0 0", fontSize: 14, opacity: 0.8 }}>Tests Passing</p>
-              <p style={{ margin: "8px 0 0", fontSize: 11, opacity: 0.6 }}>Tap to flip back</p>
+            <div style={{ padding: 28, textAlign: "center", width: "100%", color: "white" }}>
+              <h3 style={{ margin: 0, fontSize: 42, fontWeight: 900, letterSpacing: "-0.02em", lineHeight: 1 }}>676+</h3>
+              <p style={{ margin: "8px 0 0", fontSize: 16, fontWeight: 600, opacity: 0.9 }}>Tests Passing</p>
+              <div style={{ margin: "16px auto 0", width: 40, height: 2, borderRadius: 1, background: "rgba(255,255,255,0.3)" }} />
+              <p style={{ margin: "12px 0 0", fontSize: 12, opacity: 0.5 }}>Click to flip back</p>
             </div>
           }
         />
 
+        {/* Card 3: Dark feature card with vertical flip */}
         <FlipCard
-          width={280}
-          height={180}
+          width={300}
+          height={220}
           direction="vertical"
-          frontBackground="#18181b"
-          backBackground="#18181b"
-          borderColor="#27272a"
+          frontBackground="#09090b"
+          backBackground="#09090b"
+          borderColor="#22c55e30"
           front={
-            <div style={{ padding: 24, textAlign: "center", width: "100%" }}>
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z"/><polyline points="9 12 11 14 15 10"/></svg>
-              <h3 style={{ margin: "8px 0 0", fontSize: 16, fontWeight: 700, color: "#fff" }}>Vertical Flip</h3>
-              <p style={{ margin: "4px 0 0", fontSize: 12, color: "#a1a1aa" }}>Flips top to bottom</p>
+            <div style={{ padding: 28, width: "100%", display: "flex", flexDirection: "column", alignItems: "center" }}>
+              <div style={{ width: 52, height: 52, borderRadius: 14, background: "rgba(34,197,94,0.1)", border: "1px solid rgba(34,197,94,0.2)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 14 }}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z"/><polyline points="9 12 11 14 15 10"/></svg>
+              </div>
+              <h3 style={{ margin: 0, fontSize: 17, fontWeight: 700, color: "#fff" }}>Fully Tested</h3>
+              <p style={{ margin: "6px 0 0", fontSize: 13, color: "#a1a1aa", lineHeight: 1.5, textAlign: "center" }}>Every component has unit and integration tests</p>
+              <p style={{ margin: "10px 0 0", fontSize: 11, color: "#22c55e50" }}>Click for vertical flip</p>
             </div>
           }
           back={
-            <div style={{ padding: 24, textAlign: "center", width: "100%", color: "#fff" }}>
-              <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6 }}>
-                Set direction=&quot;vertical&quot; for a top-to-bottom flip.
-              </p>
+            <div style={{ padding: 28, width: "100%", display: "flex", flexDirection: "column", alignItems: "center" }}>
+              <div style={{ display: "flex", gap: 16, marginBottom: 14 }}>
+                {[
+                  { n: "74", label: "Test Files" },
+                  { n: "676", label: "Tests" },
+                  { n: "100%", label: "Pass Rate" },
+                ].map((s) => (
+                  <div key={s.label} style={{ textAlign: "center" }}>
+                    <div style={{ fontSize: 22, fontWeight: 800, color: "#22c55e" }}>{s.n}</div>
+                    <div style={{ fontSize: 10, color: "#a1a1aa", marginTop: 2 }}>{s.label}</div>
+                  </div>
+                ))}
+              </div>
+              <div style={{ fontSize: 12, color: "#a1a1aa", textAlign: "center", lineHeight: 1.5 }}>
+                Vitest + React Testing Library + jsdom
+              </div>
+              <p style={{ margin: "8px 0 0", fontSize: 11, color: "#22c55e50" }}>Click to flip back</p>
             </div>
           }
         />
