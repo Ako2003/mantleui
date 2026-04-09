@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { PropsTable } from "@/components/PropsTable";
+import { CodeBlock } from "@/components/CodeBlock";
 
 const Card3D = dynamic(
   () => import("@mantleui/react/three").then((mod) => mod.Card3D),
@@ -251,8 +252,7 @@ export default function Card3DPage() {
         </Card3D>
       </div>
 
-      <pre className="mt-4 max-h-64 overflow-auto rounded-lg bg-slate-50 p-4 text-xs dark:bg-zinc-900 sm:text-sm">
-        <code>{`import { Card3D } from "@mantleui/react/three";
+      <CodeBlock code={`import { Card3D } from "@mantleui/react/three";
 
 <Card3D maxTilt={15} glare>
   <div style={{ width: 280, padding: 16 }}>
@@ -272,8 +272,7 @@ export default function Card3DPage() {
 // Stronger tilt
 <Card3D maxTilt={25}>
   <div>More dramatic tilt effect</div>
-</Card3D>`}</code>
-      </pre>
+</Card3D>`} />
 
       <h2 className="mt-10 text-xl font-semibold">No Glare</h2>
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
@@ -325,8 +324,7 @@ export default function Card3DPage() {
         </Card3D>
       </div>
 
-      <pre className="mt-4 max-h-64 overflow-auto rounded-lg bg-slate-50 p-4 text-xs dark:bg-zinc-900 sm:text-sm">
-        <code>{`// No glare, subtle tilt
+      <CodeBlock code={`// No glare, subtle tilt
 <Card3D
   glare={false}
   maxTilt={8}
@@ -341,8 +339,7 @@ export default function Card3DPage() {
       <li>Priority support</li>
     </ul>
   </div>
-</Card3D>`}</code>
-      </pre>
+</Card3D>`} />
 
       <h2 className="mt-14 text-2xl font-bold">FlipCard</h2>
       <p className="mt-2 text-slate-600 dark:text-zinc-400">
@@ -458,8 +455,7 @@ export default function Card3DPage() {
         />
       </div>
 
-      <pre className="mt-4 max-h-80 overflow-auto rounded-lg bg-slate-50 p-4 text-xs dark:bg-zinc-900 sm:text-sm">
-        <code>{`import { FlipCard } from "@mantleui/react/three";
+      <CodeBlock code={`import { FlipCard } from "@mantleui/react/three";
 
 // Basic horizontal flip
 <FlipCard
@@ -483,8 +479,6 @@ export default function Card3DPage() {
 
 // Gradient backgrounds
 <FlipCard
-  width={300}
-  height={220}
   frontBackground="linear-gradient(135deg, #0ea5e9, #7c3aed)"
   backBackground="linear-gradient(135deg, #7c3aed, #f43f5e)"
   borderColor="transparent"
@@ -506,8 +500,7 @@ const [flipped, setFlipped] = useState(false);
   onFlippedChange={setFlipped}
   front={<div>Controlled front</div>}
   back={<div>Controlled back</div>}
-/>`}</code>
-      </pre>
+/>`} />
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>
       <PropsTable props={card3DProps} />
