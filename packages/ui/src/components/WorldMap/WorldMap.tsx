@@ -149,7 +149,7 @@ export const WorldMap = forwardRef<HTMLDivElement, WorldMapProps>(
 
         {/* SVG Map */}
         <svg
-          viewBox="0 0 960 500"
+          viewBox="-20 0 1000 500"
           className="mantle-worldmap-svg"
           preserveAspectRatio="xMidYMid meet"
         >
