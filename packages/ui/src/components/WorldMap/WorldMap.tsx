@@ -153,9 +153,9 @@ export const WorldMap = forwardRef<HTMLDivElement, WorldMapProps>(
           className="mantle-worldmap-svg"
           preserveAspectRatio="xMidYMid meet"
         >
-          {(countriesGeo as Array<{ id: string; d: string }>).map((country) => (
+          {(countriesGeo as Array<{ id: string; d: string }>).map((country, i) => (
             <path
-              key={country.id}
+              key={`${country.id}-${i}`}
               d={country.d}
               fill={
                 hovered === country.id ? color : getCountryColor(country.id)
