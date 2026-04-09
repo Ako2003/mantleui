@@ -128,15 +128,16 @@ export default function WorldMapPage() {
         Hover for tooltips, click for events. Data shows visitor counts by
         country.
       </p>
-      <div className="mt-4 rounded-xl border border-slate-200 bg-white dark:border-zinc-800 dark:bg-zinc-950">
+      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950">
         <WorldMap
           data={sampleData}
           color={color}
           title="Visitors by Country"
           subtitle={`${sampleData.length} countries`}
           height={420}
-          emptyColor="#f1f5f9"
-          strokeColor="#ffffff"
+          emptyColor="#27272a"
+          strokeColor="#18181b"
+          backgroundColor="#09090b"
           onCountryClick={(code, name, data) =>
             setClicked(`${name} (${code}): ${data?.value ?? "no data"}`)
           }
