@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import { PropsTable } from "@/components/PropsTable";
+import { CodeBlock } from "@/components/CodeBlock";
 
 const WorldMap = dynamic(
   () => import("@mantleui/react/three").then((mod) => mod.WorldMap),
@@ -189,8 +190,7 @@ export default function WorldMapPage() {
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Usage</h2>
-      <pre className="mt-4 overflow-x-auto rounded-lg bg-slate-50 p-4 text-sm dark:bg-zinc-900">
-        <code>{`import { WorldMap } from "@mantleui/react/three";
+      <CodeBlock code={`import { WorldMap } from "@mantleui/react/three";
 
 <WorldMap
   data={[
@@ -201,8 +201,7 @@ export default function WorldMapPage() {
   color="#3b82f6"
   title="Visitors by Country"
   onCountryClick={(code, name) => console.log(code, name)}
-/>`}</code>
-      </pre>
+/>`} />
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>
       <PropsTable props={worldMapProps} />

@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { PropsTable } from "@/components/PropsTable";
+import { CodeBlock } from "@/components/CodeBlock";
 
 const Aurora = dynamic(
   () => import("@mantleui/react/three").then((mod) => mod.Aurora),
@@ -82,8 +83,7 @@ export default function AuroraPage() {
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Usage</h2>
-      <pre className="mt-4 overflow-x-auto rounded-lg bg-slate-50 p-4 text-sm dark:bg-zinc-900">
-        <code>{`import { Aurora } from "@mantleui/react/three";
+      <CodeBlock code={`import { Aurora } from "@mantleui/react/three";
 
 <Aurora
   colors={["#3b82f6", "#8b5cf6", "#22c55e"]}
@@ -91,8 +91,7 @@ export default function AuroraPage() {
   layers={3}
   opacity={0.5}
   height={400}
-/>`}</code>
-      </pre>
+/>`} />
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>
       <PropsTable props={auroraProps} />

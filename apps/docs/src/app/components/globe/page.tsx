@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import { PropsTable } from "@/components/PropsTable";
+import { CodeBlock } from "@/components/CodeBlock";
 
 const Globe = dynamic(
   () => import("@mantleui/react/three").then((mod) => mod.Globe),
@@ -179,8 +180,7 @@ export default function GlobePage() {
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Usage</h2>
-      <pre className="mt-4 overflow-x-auto rounded-lg bg-slate-50 p-4 text-sm dark:bg-zinc-900">
-        <code>{`import { Globe } from "@mantleui/react/three";
+      <CodeBlock code={`import { Globe } from "@mantleui/react/three";
 
 <Globe
   size={400}
@@ -192,8 +192,7 @@ export default function GlobePage() {
   arcs={[
     { startLat: 40.7, startLng: -74, endLat: 51.5, endLng: -0.1 },
   ]}
-/>`}</code>
-      </pre>
+/>`} />
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>
       <PropsTable props={globeProps} />

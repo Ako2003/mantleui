@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import { PropsTable } from "@/components/PropsTable";
+import { CodeBlock } from "@/components/CodeBlock";
 
 const GridPlane = dynamic(
   () => import("@mantleui/react/three").then((mod) => mod.GridPlane),
@@ -131,15 +132,13 @@ export default function GridPlanePage() {
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Usage</h2>
-      <pre className="mt-4 overflow-x-auto rounded-lg bg-slate-50 p-4 text-sm dark:bg-zinc-900">
-        <code>{`import { GridPlane } from "@mantleui/react/three";
+      <CodeBlock code={`import { GridPlane } from "@mantleui/react/three";
 
 <GridPlane
   color="#3b82f6"
   speed={1}
   height={400}
-/>`}</code>
-      </pre>
+/>`} />
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>
       <PropsTable props={gridPlaneProps} />

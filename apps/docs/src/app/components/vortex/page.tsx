@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import { PropsTable } from "@/components/PropsTable";
+import { CodeBlock } from "@/components/CodeBlock";
 
 const Vortex = dynamic(
   () => import("@mantleui/react/three").then((mod) => mod.Vortex),
@@ -152,16 +153,14 @@ export default function VortexPage() {
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Usage</h2>
-      <pre className="mt-4 overflow-x-auto rounded-lg bg-slate-50 p-4 text-sm dark:bg-zinc-900">
-        <code>{`import { Vortex } from "@mantleui/react/three";
+      <CodeBlock code={`import { Vortex } from "@mantleui/react/three";
 
 <Vortex
   color="#8b5cf6"
   count={500}
   speed={1}
   height={400}
-/>`}</code>
-      </pre>
+/>`} />
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>
       <PropsTable props={vortexProps} />

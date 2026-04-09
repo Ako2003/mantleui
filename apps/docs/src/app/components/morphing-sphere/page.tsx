@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import { PropsTable } from "@/components/PropsTable";
+import { CodeBlock } from "@/components/CodeBlock";
 
 const MorphingSphere = dynamic(
   () => import("@mantleui/react/three").then((mod) => mod.MorphingSphere),
@@ -148,16 +149,14 @@ export default function MorphingSpherePage() {
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Usage</h2>
-      <pre className="mt-4 overflow-x-auto rounded-lg bg-slate-50 p-4 text-sm dark:bg-zinc-900">
-        <code>{`import { MorphingSphere } from "@mantleui/react/three";
+      <CodeBlock code={`import { MorphingSphere } from "@mantleui/react/three";
 
 <MorphingSphere
   color="#3b82f6"
   distortion={0.3}
   wireframe={false}
   height={400}
-/>`}</code>
-      </pre>
+/>`} />
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>
       <PropsTable props={morphingSphereProps} />

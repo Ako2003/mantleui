@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import { PropsTable } from "@/components/PropsTable";
+import { CodeBlock } from "@/components/CodeBlock";
 
 const WaveField = dynamic(
   () => import("@mantleui/react/three").then((mod) => mod.WaveField),
@@ -170,8 +171,7 @@ export default function WaveFieldPage() {
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Usage</h2>
-      <pre className="mt-4 overflow-x-auto rounded-lg bg-slate-50 p-4 text-sm dark:bg-zinc-900">
-        <code>{`import { WaveField } from "@mantleui/react/three";
+      <CodeBlock code={`import { WaveField } from "@mantleui/react/three";
 
 <WaveField
   color="#3b82f6"
@@ -179,8 +179,7 @@ export default function WaveFieldPage() {
   speed={1}
   amplitude={0.3}
   height={400}
-/>`}</code>
-      </pre>
+/>`} />
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>
       <PropsTable props={waveFieldProps} />
