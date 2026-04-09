@@ -251,6 +251,30 @@ export default function Card3DPage() {
         </Card3D>
       </div>
 
+      <pre className="mt-4 max-h-64 overflow-auto rounded-lg bg-slate-50 p-4 text-xs dark:bg-zinc-900 sm:text-sm">
+        <code>{`import { Card3D } from "@mantleui/react/three";
+
+<Card3D maxTilt={15} glare>
+  <div style={{ width: 280, padding: 16 }}>
+    <h3>Component Library</h3>
+    <p>73 production-grade components.</p>
+  </div>
+</Card3D>
+
+// Custom colors
+<Card3D
+  borderColor="#8b5cf640"
+  background="rgba(139, 92, 246, 0.05)"
+>
+  <div>Purple tinted card</div>
+</Card3D>
+
+// Stronger tilt
+<Card3D maxTilt={25}>
+  <div>More dramatic tilt effect</div>
+</Card3D>`}</code>
+      </pre>
+
       <h2 className="mt-10 text-xl font-semibold">No Glare</h2>
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
         Subtle tilt without the glare overlay — great for minimal designs.
@@ -300,6 +324,25 @@ export default function Card3DPage() {
           </div>
         </Card3D>
       </div>
+
+      <pre className="mt-4 max-h-64 overflow-auto rounded-lg bg-slate-50 p-4 text-xs dark:bg-zinc-900 sm:text-sm">
+        <code>{`// No glare, subtle tilt
+<Card3D
+  glare={false}
+  maxTilt={8}
+  borderColor="#3b82f640"
+  background="rgba(59, 130, 246, 0.04)"
+>
+  <div>
+    <h3>Pro Plan</h3>
+    <p>$19/month</p>
+    <ul>
+      <li>Unlimited projects</li>
+      <li>Priority support</li>
+    </ul>
+  </div>
+</Card3D>`}</code>
+      </pre>
 
       <h2 className="mt-14 text-2xl font-bold">FlipCard</h2>
       <p className="mt-2 text-slate-600 dark:text-zinc-400">
@@ -415,14 +458,55 @@ export default function Card3DPage() {
         />
       </div>
 
-      <h2 className="mt-10 text-xl font-semibold">Usage</h2>
-      <pre className="mt-4 overflow-x-auto rounded-lg bg-slate-50 p-4 text-sm dark:bg-zinc-900">
-        <code>{`import { Card3D } from "@mantleui/react/three";
+      <pre className="mt-4 max-h-80 overflow-auto rounded-lg bg-slate-50 p-4 text-xs dark:bg-zinc-900 sm:text-sm">
+        <code>{`import { FlipCard } from "@mantleui/react/three";
 
-<Card3D maxTilt={15} glare>
-  <h3>Hover me</h3>
-  <p>I tilt in 3D with a glare effect!</p>
-</Card3D>`}</code>
+// Basic horizontal flip
+<FlipCard
+  width={300}
+  height={220}
+  frontBackground="#18181b"
+  backBackground="#18181b"
+  borderColor="#27272a"
+  front={
+    <div style={{ padding: 24, textAlign: "center" }}>
+      <h3>Front Side</h3>
+      <p>Click to flip</p>
+    </div>
+  }
+  back={
+    <div style={{ padding: 24, textAlign: "center" }}>
+      <p>Back side content here</p>
+    </div>
+  }
+/>
+
+// Gradient backgrounds
+<FlipCard
+  width={300}
+  height={220}
+  frontBackground="linear-gradient(135deg, #0ea5e9, #7c3aed)"
+  backBackground="linear-gradient(135deg, #7c3aed, #f43f5e)"
+  borderColor="transparent"
+  front={<div>Front</div>}
+  back={<div>Back</div>}
+/>
+
+// Vertical flip
+<FlipCard
+  direction="vertical"
+  front={<div>Flips top to bottom</div>}
+  back={<div>Back content</div>}
+/>
+
+// Controlled
+const [flipped, setFlipped] = useState(false);
+<FlipCard
+  flipped={flipped}
+  onFlippedChange={setFlipped}
+  front={<div>Controlled front</div>}
+  back={<div>Controlled back</div>}
+/>`}</code>
       </pre>
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>
