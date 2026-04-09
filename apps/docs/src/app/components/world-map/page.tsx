@@ -123,10 +123,31 @@ export default function WorldMapPage() {
         embedded.
       </p>
 
-      <h2 className="mt-10 text-xl font-semibold">Interactive Demo</h2>
+      <h2 className="mt-10 text-xl font-semibold">Basic — Hover to Explore</h2>
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
-        Hover for tooltips, click for events. Data shows visitor counts by
-        country.
+        No data passed — all countries are the same color. Hover to see country
+        names, click to trigger events.
+      </p>
+      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950">
+        <WorldMap
+          height={520}
+          emptyColor="#27272a"
+          strokeColor="#18181b"
+          backgroundColor="#09090b"
+          onCountryClick={(code, name) =>
+            setClicked(`${name} (${code})`)
+          }
+        />
+      </div>
+      {clicked && (
+        <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+          Clicked: {clicked}
+        </p>
+      )}
+
+      <h2 className="mt-10 text-xl font-semibold">Choropleth — Data Visualization</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Pass data to color countries by value. Higher values get darker shades.
       </p>
       <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950">
         <WorldMap
@@ -138,16 +159,8 @@ export default function WorldMapPage() {
           emptyColor="#27272a"
           strokeColor="#18181b"
           backgroundColor="#09090b"
-          onCountryClick={(code, name, data) =>
-            setClicked(`${name} (${code}): ${data?.value ?? "no data"}`)
-          }
         />
       </div>
-      {clicked && (
-        <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
-          Clicked: {clicked}
-        </p>
-      )}
 
       <div className="mt-4 flex flex-wrap gap-4">
         <div className="flex flex-col gap-2">
@@ -176,23 +189,18 @@ export default function WorldMapPage() {
         </div>
       </div>
 
-      <h2 className="mt-10 text-xl font-semibold">Dark Theme</h2>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950">
-        <WorldMap
-          data={sampleData}
-          color="#8b5cf6"
-          emptyColor="#27272a"
-          strokeColor="#3f3f46"
-          backgroundColor="#09090b"
-          title="Global Traffic"
-          subtitle="Last 30 days"
-          height={380}
-        />
-      </div>
-
       <h2 className="mt-10 text-xl font-semibold">Usage</h2>
       <CodeBlock code={`import { WorldMap } from "@mantleui/react/three";
 
+// Basic — hover to see country names
+<WorldMap
+  emptyColor="#27272a"
+  strokeColor="#18181b"
+  backgroundColor="#09090b"
+  onCountryClick={(code, name) => console.log(name)}
+/>
+
+// Choropleth — color by data values
 <WorldMap
   data={[
     { code: "US", value: 1200 },
@@ -201,8 +209,21 @@ export default function WorldMapPage() {
   ]}
   color="#3b82f6"
   title="Visitors by Country"
-  onCountryClick={(code, name) => console.log(code, name)}
-/>`} />
+  onCountryClick={(code, name, data) => console.log(name, data)}
+/>
+
+// Custom tooltip
+<WorldMap
+  renderTooltip={(data, name) => (
+    <div>
+      <strong>{name}</strong>
+      {data && <p>Population: {data.value}</p>}
+    </div>
+  )}
+/>
+
+// Disable tooltips
+<WorldMap showTooltip={false} />`} />
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>
       <PropsTable props={worldMapProps} />
