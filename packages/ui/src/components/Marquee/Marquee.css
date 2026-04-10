@@ -1,0 +1,23 @@
+.mantle-marquee {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  user-select: none;
+}
+
+.mantle-marquee-track {
+  display: flex;
+  flex-shrink: 0;
+  gap: 1rem;
+  will-change: transform;
+}
+
+.mantle-marquee-group {
+  display: flex;
+  flex-shrink: 0;
+  gap: 1rem;
+}
+
+.mantle-marquee[data-pause-on-hover="true"]:hover .mantle-marquee-track {
+  animation-play-state: paused;
+}

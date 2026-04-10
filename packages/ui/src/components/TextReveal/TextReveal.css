@@ -1,0 +1,9 @@
+.mantle-textreveal {
+  display: inline-block;
+}
+
+.mantle-textreveal-word {
+  display: inline-block;
+  white-space: pre;
+  will-change: transform, opacity;
+}
