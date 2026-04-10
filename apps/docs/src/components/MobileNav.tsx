@@ -113,6 +113,14 @@ const navItems = [
   { label: "TextReveal", href: "/components/text-reveal" },
   { label: "HoverCard", href: "/components/hover-card" },
   { label: "PulseDot", href: "/components/pulse-dot" },
+  { heading: "Carousels" },
+  { label: "Carousel", href: "/components/carousel" },
+  { label: "CardCarousel", href: "/components/card-carousel" },
+  { label: "VerticalCarousel", href: "/components/vertical-carousel" },
+  { label: "CoverflowCarousel", href: "/components/coverflow-carousel" },
+  { label: "ParallaxCarousel", href: "/components/parallax-carousel" },
+  { label: "ThumbnailCarousel", href: "/components/thumbnail-carousel" },
+  { label: "FadeCarousel", href: "/components/fade-carousel" },
 ] as const;
 
 export function MobileNav() {

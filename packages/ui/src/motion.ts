@@ -32,3 +32,32 @@ export type { HoverCardProps } from "./components/HoverCard";
 
 export { PulseDot } from "./components/PulseDot";
 export type { PulseDotProps } from "./components/PulseDot";
+
+// ─── Carousels ───
+
+export { Carousel } from "./components/Carousel";
+export type { CarouselProps } from "./components/Carousel";
+
+export { CardCarousel } from "./components/CardCarousel";
+export type { CardCarouselProps } from "./components/CardCarousel";
+
+export { VerticalCarousel } from "./components/VerticalCarousel";
+export type { VerticalCarouselProps } from "./components/VerticalCarousel";
+
+export { CoverflowCarousel } from "./components/CoverflowCarousel";
+export type { CoverflowCarouselProps } from "./components/CoverflowCarousel";
+
+export { ParallaxCarousel } from "./components/ParallaxCarousel";
+export type {
+  ParallaxCarouselProps,
+  ParallaxSlide,
+} from "./components/ParallaxCarousel";
+
+export { ThumbnailCarousel } from "./components/ThumbnailCarousel";
+export type {
+  ThumbnailCarouselProps,
+  ThumbnailImage,
+} from "./components/ThumbnailCarousel";
+
+export { FadeCarousel } from "./components/FadeCarousel";
+export type { FadeCarouselProps } from "./components/FadeCarousel";

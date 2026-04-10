@@ -327,4 +327,37 @@ export const searchData: SearchItem[] = [
     href: "/components/pulse-dot",
     category: "Motion / Animation",
   },
+
+  // Carousels
+  { title: "Carousel", href: "/components/carousel", category: "Carousels" },
+  {
+    title: "CardCarousel",
+    href: "/components/card-carousel",
+    category: "Carousels",
+  },
+  {
+    title: "VerticalCarousel",
+    href: "/components/vertical-carousel",
+    category: "Carousels",
+  },
+  {
+    title: "CoverflowCarousel",
+    href: "/components/coverflow-carousel",
+    category: "Carousels",
+  },
+  {
+    title: "ParallaxCarousel",
+    href: "/components/parallax-carousel",
+    category: "Carousels",
+  },
+  {
+    title: "ThumbnailCarousel",
+    href: "/components/thumbnail-carousel",
+    category: "Carousels",
+  },
+  {
+    title: "FadeCarousel",
+    href: "/components/fade-carousel",
+    category: "Carousels",
+  },
 ];

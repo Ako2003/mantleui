@@ -1,0 +1,61 @@
+.mantle-parallaxcarousel {
+  position: relative;
+  width: 100%;
+  height: 22rem;
+  overflow: hidden;
+  outline: none;
+}
+
+.mantle-parallaxcarousel-slide {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  will-change: transform, opacity;
+}
+
+.mantle-parallaxcarousel-bg {
+  position: absolute;
+  inset: -10% -20%;
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+}
+
+.mantle-parallaxcarousel-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 1.5rem;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.mantle-parallaxcarousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.mantle-parallaxcarousel-arrow[data-side="prev"] {
+  left: 0.75rem;
+}
+
+.mantle-parallaxcarousel-arrow[data-side="next"] {
+  right: 0.75rem;
+}

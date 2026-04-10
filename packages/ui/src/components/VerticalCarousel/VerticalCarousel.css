@@ -1,0 +1,82 @@
+.mantle-verticalcarousel {
+  position: relative;
+  display: flex;
+  width: 100%;
+  outline: none;
+}
+
+.mantle-verticalcarousel-viewport {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+}
+
+.mantle-verticalcarousel-track {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+  touch-action: pan-x;
+}
+
+.mantle-verticalcarousel-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  min-height: 0;
+  user-select: none;
+}
+
+.mantle-verticalcarousel-arrow {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.mantle-verticalcarousel-arrow:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.mantle-verticalcarousel-arrow[data-side="prev"] {
+  top: 0.5rem;
+}
+
+.mantle-verticalcarousel-arrow[data-side="next"] {
+  bottom: 0.5rem;
+}
+
+.mantle-verticalcarousel-dots {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0 0.75rem;
+}
+
+.mantle-verticalcarousel-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  padding: 0;
+  border-radius: 9999px;
+  border: none;
+  background: rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+.mantle-verticalcarousel-dot[data-active="true"] {
+  background: rgba(0, 0, 0, 0.8);
+}

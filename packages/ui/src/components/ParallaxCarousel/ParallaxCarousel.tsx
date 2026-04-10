@@ -1,0 +1,153 @@
+import { forwardRef, useCallback, useEffect, type KeyboardEvent } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useControllable } from "../../hooks";
+import type { ParallaxCarouselProps } from "./ParallaxCarousel.types";
+import "./ParallaxCarousel.css";
+
+/**
+ * Carousel whose background image moves at a slower rate than the foreground
+ * content, producing a parallax effect as slides transition.
+ */
+export const ParallaxCarousel = forwardRef<
+  HTMLDivElement,
+  ParallaxCarouselProps
+>(function ParallaxCarousel(
+  {
+    slides,
+    value,
+    defaultValue = 0,
+    onValueChange,
+    autoplay = false,
+    interval = 3000,
+    loop = true,
+    className,
+    style,
+    ...rest
+  },
+  ref,
+) {
+  const count = slides.length;
+  const [index, setIndex] = useControllable<number>({
+    value,
+    defaultValue,
+    onChange: onValueChange,
+  });
+
+  const goTo = useCallback(
+    (next: number) => {
+      if (count === 0) return;
+      let target = next;
+      if (loop) target = ((next % count) + count) % count;
+      else target = Math.max(0, Math.min(count - 1, next));
+      setIndex(target);
+    },
+    [count, loop, setIndex],
+  );
+
+  const goPrev = useCallback(() => goTo(index - 1), [goTo, index]);
+  const goNext = useCallback(() => goTo(index + 1), [goTo, index]);
+
+  useEffect(() => {
+    if (!autoplay || count <= 1) return;
+    const id = window.setInterval(() => {
+      setIndex((prev) => {
+        const next = prev + 1;
+        if (loop) return ((next % count) + count) % count;
+        return Math.min(count - 1, next);
+      });
+    }, interval);
+    return () => window.clearInterval(id);
+  }, [autoplay, interval, count, loop, setIndex]);
+
+  const handleKeyDown = useCallback(
+    (event: KeyboardEvent<HTMLDivElement>) => {
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        goPrev();
+      } else if (event.key === "ArrowRight") {
+        event.preventDefault();
+        goNext();
+      }
+    },
+    [goPrev, goNext],
+  );
+
+  const active = slides[index];
+  const canPrev = loop || index > 0;
+  const canNext = loop || index < count - 1;
+
+  return (
+    <div
+      ref={ref}
+      className={["mantle-parallaxcarousel", className]
+        .filter(Boolean)
+        .join(" ")}
+      style={style}
+      role="region"
+      aria-roledescription="carousel"
+      tabIndex={0}
+      onKeyDown={handleKeyDown}
+      {...rest}
+    >
+      <AnimatePresence mode="sync" initial={false}>
+        {active ? (
+          <motion.div
+            key={index}
+            className="mantle-parallaxcarousel-slide"
+            role="group"
+            aria-roledescription="slide"
+            aria-label={`slide ${index + 1} of ${count}`}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <motion.div
+              className="mantle-parallaxcarousel-bg"
+              style={{ backgroundImage: `url(${active.image})` }}
+              initial={{ x: 80 }}
+              animate={{ x: 0 }}
+              exit={{ x: -80 }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+            />
+            <motion.div
+              className="mantle-parallaxcarousel-content"
+              initial={{ x: 40, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: -40, opacity: 0 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            >
+              {active.content}
+            </motion.div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
+      {count > 1 && (
+        <>
+          <button
+            type="button"
+            className="mantle-parallaxcarousel-arrow"
+            data-side="prev"
+            aria-label="Previous slide"
+            onClick={goPrev}
+            disabled={!canPrev}
+          >
+            {"<"}
+          </button>
+          <button
+            type="button"
+            className="mantle-parallaxcarousel-arrow"
+            data-side="next"
+            aria-label="Next slide"
+            onClick={goNext}
+            disabled={!canNext}
+          >
+            {">"}
+          </button>
+        </>
+      )}
+    </div>
+  );
+});
+
+ParallaxCarousel.displayName = "ParallaxCarousel";
