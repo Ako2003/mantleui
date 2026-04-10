@@ -120,7 +120,7 @@ export const WorldMap = forwardRef<HTMLDivElement, WorldMapProps>(
         ref={ref}
         className={["mantle-worldmap", className].filter(Boolean).join(" ")}
         style={{
-          height: typeof height === "number" ? `${height}px` : height,
+          maxHeight: typeof height === "number" ? `${height}px` : height,
           background: backgroundColor,
           ...style,
         }}
