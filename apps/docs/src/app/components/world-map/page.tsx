@@ -130,7 +130,6 @@ export default function WorldMapPage() {
       </p>
       <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950">
         <WorldMap
-          height={520}
           emptyColor="#27272a"
           strokeColor="#18181b"
           backgroundColor="#09090b"
@@ -155,7 +154,6 @@ export default function WorldMapPage() {
           color={color}
           title="Visitors by Country"
           subtitle={`${sampleData.length} countries`}
-          height={520}
           emptyColor="#27272a"
           strokeColor="#18181b"
           backgroundColor="#09090b"

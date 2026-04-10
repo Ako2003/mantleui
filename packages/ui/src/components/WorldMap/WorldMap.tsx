@@ -51,7 +51,7 @@ export const WorldMap = forwardRef<HTMLDivElement, WorldMapProps>(
       showTooltip = true,
       renderTooltip,
       onCountryClick,
-      height = 400,
+      height,
       legend = "bottom-left",
       legendLow = "Low",
       legendHigh = "High",
@@ -115,15 +115,20 @@ export const WorldMap = forwardRef<HTMLDivElement, WorldMapProps>(
       [data],
     );
 
+    const containerStyle: React.CSSProperties = {
+      background: backgroundColor,
+      ...style,
+    };
+    if (height !== undefined) {
+      containerStyle.maxHeight =
+        typeof height === "number" ? `${height}px` : height;
+    }
+
     return (
       <div
         ref={ref}
         className={["mantle-worldmap", className].filter(Boolean).join(" ")}
-        style={{
-          maxHeight: typeof height === "number" ? `${height}px` : height,
-          background: backgroundColor,
-          ...style,
-        }}
+        style={containerStyle}
         onMouseMove={handleMouseMove}
         {...rest}
       >
