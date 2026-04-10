@@ -1,0 +1,18 @@
+.mantle-card3d {
+  display: inline-block;
+}
+
+.mantle-card3d-inner {
+  position: relative;
+  overflow: hidden;
+  padding: var(--mantle-space-6, 24px);
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+.mantle-card3d-glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease;
+}

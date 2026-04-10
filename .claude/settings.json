@@ -33,7 +33,11 @@
       "Bash(npx tsup:*)",
       "Bash(npm publish:*)",
       "Read(//Users/akifmursalov/**)",
-      "Bash(ls tsconfig.json packages/ui/tsconfig.json packages/ui/tsconfig.*.json)"
+      "Bash(ls tsconfig.json packages/ui/tsconfig.json packages/ui/tsconfig.*.json)",
+      "Bash(gh release create v0.2.0 --title v0.2.0 --notes ':*)",
+      "Bash(brew list:*)",
+      "Bash(brew install:*)",
+      "Bash(gh auth:*)"
     ]
   }
 }

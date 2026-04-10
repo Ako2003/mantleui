@@ -91,6 +91,17 @@ const navItems = [
   { label: "Kbd", href: "/components/kbd" },
   { heading: "Utility" },
   { label: "CloseButton", href: "/components/close-button" },
+  { heading: "3D / Advanced" },
+  { label: "Globe", href: "/components/globe" },
+  { label: "ParticleField", href: "/components/particle-field" },
+  { label: "Card3D", href: "/components/card-3d" },
+  { label: "WaveField", href: "/components/wave-field" },
+  { label: "Vortex", href: "/components/vortex" },
+  { label: "DNAHelix", href: "/components/dna-helix" },
+  { label: "MorphingSphere", href: "/components/morphing-sphere" },
+  { label: "StarField", href: "/components/star-field" },
+  { label: "Aurora", href: "/components/aurora" },
+  { label: "GridPlane", href: "/components/grid-plane" },
 ] as const;
 
 export function MobileNav() {
