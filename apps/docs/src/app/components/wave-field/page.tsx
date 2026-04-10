@@ -171,7 +171,8 @@ export default function WaveFieldPage() {
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Usage</h2>
-      <CodeBlock code={`import { WaveField } from "@mantleui/react/three";
+      <CodeBlock
+        code={`import { WaveField } from "@mantleui/react/three";
 
 <WaveField
   color="#3b82f6"
@@ -179,7 +180,8 @@ export default function WaveFieldPage() {
   speed={1}
   amplitude={0.3}
   height={400}
-/>`} />
+/>`}
+      />
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>
       <PropsTable props={waveFieldProps} />

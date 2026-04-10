@@ -50,7 +50,8 @@ export const FlipCard = forwardRef<HTMLDivElement, FlipCardProps>(
 
     const w = typeof width === "number" ? `${width}px` : width;
     const h = typeof height === "number" ? `${height}px` : height;
-    const r = typeof borderRadius === "number" ? `${borderRadius}px` : borderRadius;
+    const r =
+      typeof borderRadius === "number" ? `${borderRadius}px` : borderRadius;
 
     const flipClass = flipped
       ? direction === "vertical"
@@ -78,11 +79,7 @@ export const FlipCard = forwardRef<HTMLDivElement, FlipCardProps>(
         }}
         role="button"
         tabIndex={0}
-        className={[
-          "mantle-flipcard-container",
-          flipClass,
-          className,
-        ]
+        className={["mantle-flipcard-container", flipClass, className]
           .filter(Boolean)
           .join(" ")}
         style={{ width: w, height: h, ...style }}

@@ -158,24 +158,26 @@ export const WorldMap = forwardRef<HTMLDivElement, WorldMapProps>(
           className="mantle-worldmap-svg"
           preserveAspectRatio="xMidYMid meet"
         >
-          {(countriesGeo as Array<{ id: string; d: string }>).map((country, i) => (
-            <path
-              key={`${country.id}-${i}`}
-              d={country.d}
-              fill={
-                hovered === country.id ? color : getCountryColor(country.id)
-              }
-              stroke={strokeColor}
-              strokeWidth={strokeWidth}
-              className="mantle-worldmap-country"
-              onMouseEnter={() => setHovered(country.id)}
-              onMouseLeave={() => setHovered(null)}
-              onClick={() => {
-                const name = countryNames[country.id] ?? "Unknown";
-                onCountryClick?.(country.id, name, dataMap.get(country.id));
-              }}
-            />
-          ))}
+          {(countriesGeo as Array<{ id: string; d: string }>).map(
+            (country, i) => (
+              <path
+                key={`${country.id}-${i}`}
+                d={country.d}
+                fill={
+                  hovered === country.id ? color : getCountryColor(country.id)
+                }
+                stroke={strokeColor}
+                strokeWidth={strokeWidth}
+                className="mantle-worldmap-country"
+                onMouseEnter={() => setHovered(country.id)}
+                onMouseLeave={() => setHovered(null)}
+                onClick={() => {
+                  const name = countryNames[country.id] ?? "Unknown";
+                  onCountryClick?.(country.id, name, dataMap.get(country.id));
+                }}
+              />
+            ),
+          )}
         </svg>
 
         {/* Tooltip */}

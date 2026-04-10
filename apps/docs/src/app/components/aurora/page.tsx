@@ -83,7 +83,8 @@ export default function AuroraPage() {
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Usage</h2>
-      <CodeBlock code={`import { Aurora } from "@mantleui/react/three";
+      <CodeBlock
+        code={`import { Aurora } from "@mantleui/react/three";
 
 <Aurora
   colors={["#3b82f6", "#8b5cf6", "#22c55e"]}
@@ -91,7 +92,8 @@ export default function AuroraPage() {
   layers={3}
   opacity={0.5}
   height={400}
-/>`} />
+/>`}
+      />
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>
       <PropsTable props={auroraProps} />

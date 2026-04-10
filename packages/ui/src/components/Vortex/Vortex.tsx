@@ -1,4 +1,4 @@
-import { forwardRef, useMemo, useRef } from "react";
+import { forwardRef, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import type { VortexProps } from "./Vortex.types";
@@ -23,13 +23,13 @@ function SpiralParticles({
   const pointsRef = useRef<THREE.Points>(null);
   const groupRef = useRef<THREE.Group>(null);
 
-  const offsets = useMemo(() => {
+  const [offsets] = useState(() => {
     const arr = new Float32Array(count);
     for (let i = 0; i < count; i++) {
       arr[i] = Math.random();
     }
     return arr;
-  }, [count]);
+  });
 
   const initialPositions = useMemo(() => {
     const positions = new Float32Array(count * 3);

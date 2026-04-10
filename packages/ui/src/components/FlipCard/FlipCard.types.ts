@@ -1,7 +1,9 @@
 import type { HTMLAttributes, ReactNode } from "react";
 
-export interface FlipCardProps
-  extends Omit<HTMLAttributes<HTMLDivElement>, "children"> {
+export interface FlipCardProps extends Omit<
+  HTMLAttributes<HTMLDivElement>,
+  "children"
+> {
   /** Content for the front side of the card. */
   front: ReactNode;
   /** Content for the back side of the card. */

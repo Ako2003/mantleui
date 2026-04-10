@@ -132,13 +132,15 @@ export default function GridPlanePage() {
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Usage</h2>
-      <CodeBlock code={`import { GridPlane } from "@mantleui/react/three";
+      <CodeBlock
+        code={`import { GridPlane } from "@mantleui/react/three";
 
 <GridPlane
   color="#3b82f6"
   speed={1}
   height={400}
-/>`} />
+/>`}
+      />
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>
       <PropsTable props={gridPlaneProps} />

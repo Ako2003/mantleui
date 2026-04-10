@@ -1,4 +1,4 @@
-import { forwardRef, useMemo, useRef } from "react";
+import { forwardRef, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
@@ -24,7 +24,7 @@ function latLngToVector3(
 /* ─── Dot Sphere ─── */
 
 function DotSphere({ color, radius }: { color: string; radius: number }) {
-  const points = useMemo(() => {
+  const [points] = useState(() => {
     const pts: THREE.Vector3[] = [];
     const count = 2000;
     for (let i = 0; i < count; i++) {
@@ -39,7 +39,7 @@ function DotSphere({ color, radius }: { color: string; radius: number }) {
       );
     }
     return pts;
-  }, [radius]);
+  });
 
   const geometry = useMemo(() => {
     const geo = new THREE.BufferGeometry();
@@ -124,13 +124,7 @@ function Arc({
 
 /* ─── Country Outlines ─── */
 
-function CountryOutlines({
-  radius,
-  color,
-}: {
-  radius: number;
-  color: string;
-}) {
+function CountryOutlines({ radius, color }: { radius: number; color: string }) {
   const group = useMemo(() => {
     const g = new THREE.Group();
     const mat = new THREE.LineBasicMaterial({

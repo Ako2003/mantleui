@@ -7,10 +7,19 @@ import { useTheme } from "@mantleui/react";
 const darkTheme: PrismTheme = {
   plain: { color: "#e4e4e7", backgroundColor: "#18181b" },
   styles: [
-    { types: ["comment", "prolog", "doctype", "cdata"], style: { color: "#71717a" } },
+    {
+      types: ["comment", "prolog", "doctype", "cdata"],
+      style: { color: "#71717a" },
+    },
     { types: ["punctuation"], style: { color: "#a1a1aa" } },
-    { types: ["property", "tag", "boolean", "number", "constant", "symbol"], style: { color: "#7dd3fc" } },
-    { types: ["selector", "attr-name", "string", "char", "builtin"], style: { color: "#86efac" } },
+    {
+      types: ["property", "tag", "boolean", "number", "constant", "symbol"],
+      style: { color: "#7dd3fc" },
+    },
+    {
+      types: ["selector", "attr-name", "string", "char", "builtin"],
+      style: { color: "#86efac" },
+    },
     { types: ["operator", "entity", "url"], style: { color: "#a1a1aa" } },
     { types: ["atrule", "attr-value", "keyword"], style: { color: "#c4b5fd" } },
     { types: ["function", "class-name"], style: { color: "#fde68a" } },
@@ -21,10 +30,19 @@ const darkTheme: PrismTheme = {
 const lightTheme: PrismTheme = {
   plain: { color: "#1e293b", backgroundColor: "#f8fafc" },
   styles: [
-    { types: ["comment", "prolog", "doctype", "cdata"], style: { color: "#94a3b8" } },
+    {
+      types: ["comment", "prolog", "doctype", "cdata"],
+      style: { color: "#94a3b8" },
+    },
     { types: ["punctuation"], style: { color: "#64748b" } },
-    { types: ["property", "tag", "boolean", "number", "constant", "symbol"], style: { color: "#0369a1" } },
-    { types: ["selector", "attr-name", "string", "char", "builtin"], style: { color: "#15803d" } },
+    {
+      types: ["property", "tag", "boolean", "number", "constant", "symbol"],
+      style: { color: "#0369a1" },
+    },
+    {
+      types: ["selector", "attr-name", "string", "char", "builtin"],
+      style: { color: "#15803d" },
+    },
     { types: ["operator", "entity", "url"], style: { color: "#64748b" } },
     { types: ["atrule", "attr-value", "keyword"], style: { color: "#7c3aed" } },
     { types: ["function", "class-name"], style: { color: "#b45309" } },
@@ -50,9 +68,32 @@ function CopyButton({ code }: { code: string }) {
       aria-label={copied ? "Copied" : "Copy code"}
     >
       {copied ? (
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M20 6L9 17l-5-5" />
+        </svg>
       ) : (
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="8" y="8" width="12" height="12" rx="2" /><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" /></svg>
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <rect x="8" y="8" width="12" height="12" rx="2" />
+          <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" />
+        </svg>
       )}
     </button>
   );

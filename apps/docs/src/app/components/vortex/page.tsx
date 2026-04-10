@@ -153,14 +153,16 @@ export default function VortexPage() {
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Usage</h2>
-      <CodeBlock code={`import { Vortex } from "@mantleui/react/three";
+      <CodeBlock
+        code={`import { Vortex } from "@mantleui/react/three";
 
 <Vortex
   color="#8b5cf6"
   count={500}
   speed={1}
   height={400}
-/>`} />
+/>`}
+      />
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>
       <PropsTable props={vortexProps} />

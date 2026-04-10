@@ -1,4 +1,4 @@
-import { forwardRef, useMemo, useRef } from "react";
+import { forwardRef, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import type { ParticleFieldProps } from "./ParticleField.types";
@@ -27,7 +27,7 @@ function Particles({
   const pointsRef = useRef<THREE.Points>(null);
   const lineRef = useRef<THREE.LineSegments>(null);
 
-  const { positions, velocities } = useMemo(() => {
+  const [{ positions, velocitiesArr }] = useState(() => {
     const pos = new Float32Array(count * 3);
     const vel = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
@@ -38,8 +38,11 @@ function Particles({
       vel[i * 3 + 1] = (Math.random() - 0.5) * 0.01;
       vel[i * 3 + 2] = (Math.random() - 0.5) * 0.01;
     }
-    return { positions: pos, velocities: vel };
-  }, [count, spread]);
+    return { positions: pos, velocitiesArr: vel };
+  });
+
+  // Wrap velocities in a ref so React doesn't track its mutations
+  const velocitiesRef = useRef(velocitiesArr);
 
   const lineGeometry = useMemo(() => new THREE.BufferGeometry(), []);
 
@@ -51,15 +54,21 @@ function Particles({
     const arr = pos.array as Float32Array;
     const halfSpread = spread / 2;
 
+    const velocities = velocitiesRef.current;
+    if (!velocities) return;
+
     for (let i = 0; i < count; i++) {
       const ix = i * 3;
-      arr[ix]! += velocities[ix]! * speed * delta * 60;
-      arr[ix + 1]! += velocities[ix + 1]! * speed * delta * 60;
-      arr[ix + 2]! += velocities[ix + 2]! * speed * delta * 60;
+      arr[ix] = (arr[ix] ?? 0) + (velocities[ix] ?? 0) * speed * delta * 60;
+      arr[ix + 1] =
+        (arr[ix + 1] ?? 0) + (velocities[ix + 1] ?? 0) * speed * delta * 60;
+      arr[ix + 2] =
+        (arr[ix + 2] ?? 0) + (velocities[ix + 2] ?? 0) * speed * delta * 60;
 
       // Bounce off edges
       for (let j = 0; j < 3; j++) {
-        if (arr[ix + j]! > halfSpread || arr[ix + j]! < -halfSpread) {
+        const v = arr[ix + j] ?? 0;
+        if (v > halfSpread || v < -halfSpread) {
           velocities[ix + j] = -(velocities[ix + j] ?? 0);
         }
       }

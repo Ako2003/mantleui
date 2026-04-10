@@ -173,14 +173,16 @@ export default function ParticleFieldPage() {
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Usage</h2>
-      <CodeBlock code={`import { ParticleField } from "@mantleui/react/three";
+      <CodeBlock
+        code={`import { ParticleField } from "@mantleui/react/three";
 
 <ParticleField
   count={200}
   color="#8b5cf6"
   height={400}
   connections
-/>`} />
+/>`}
+      />
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>
       <PropsTable props={particleFieldProps} />

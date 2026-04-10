@@ -146,8 +146,11 @@ export default function GlobePage() {
 
       <h2 className="mt-10 text-xl font-semibold">World Map Globe</h2>
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
-        Use <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">showCountries</code> to
-        render real country outlines instead of the dot grid.
+        Use{" "}
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
+          showCountries
+        </code>{" "}
+        to render real country outlines instead of the dot grid.
       </p>
       <div className="mt-4 flex flex-wrap items-start gap-6">
         <div className="rounded-xl border border-slate-200 bg-black p-4 dark:border-zinc-800">
@@ -180,7 +183,8 @@ export default function GlobePage() {
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Usage</h2>
-      <CodeBlock code={`import { Globe } from "@mantleui/react/three";
+      <CodeBlock
+        code={`import { Globe } from "@mantleui/react/three";
 
 <Globe
   size={400}
@@ -192,7 +196,8 @@ export default function GlobePage() {
   arcs={[
     { startLat: 40.7, startLng: -74, endLat: 51.5, endLng: -0.1 },
   ]}
-/>`} />
+/>`}
+      />
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>
       <PropsTable props={globeProps} />

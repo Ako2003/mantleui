@@ -1,4 +1,4 @@
-import { forwardRef, useMemo, useRef } from "react";
+import { forwardRef, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import type { StarFieldProps } from "./StarField.types";
@@ -20,7 +20,7 @@ function Stars({
 }) {
   const pointsRef = useRef<THREE.Points>(null);
 
-  const positions = useMemo(() => {
+  const [positions] = useState(() => {
     const pos = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
       const ix = i * 3;
@@ -29,7 +29,7 @@ function Stars({
       pos[ix + 2] = -Math.random() * depth;
     }
     return pos;
-  }, [count, depth]);
+  });
 
   useFrame((_, delta) => {
     if (!pointsRef.current) return;

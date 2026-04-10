@@ -149,14 +149,16 @@ export default function MorphingSpherePage() {
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Usage</h2>
-      <CodeBlock code={`import { MorphingSphere } from "@mantleui/react/three";
+      <CodeBlock
+        code={`import { MorphingSphere } from "@mantleui/react/three";
 
 <MorphingSphere
   color="#3b82f6"
   distortion={0.3}
   wireframe={false}
   height={400}
-/>`} />
+/>`}
+      />
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>
       <PropsTable props={morphingSphereProps} />

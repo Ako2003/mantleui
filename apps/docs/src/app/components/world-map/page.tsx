@@ -133,9 +133,7 @@ export default function WorldMapPage() {
           emptyColor="#27272a"
           strokeColor="#18181b"
           backgroundColor="#09090b"
-          onCountryClick={(code, name) =>
-            setClicked(`${name} (${code})`)
-          }
+          onCountryClick={(code, name) => setClicked(`${name} (${code})`)}
         />
       </div>
       {clicked && (
@@ -144,7 +142,9 @@ export default function WorldMapPage() {
         </p>
       )}
 
-      <h2 className="mt-10 text-xl font-semibold">Choropleth — Data Visualization</h2>
+      <h2 className="mt-10 text-xl font-semibold">
+        Choropleth — Data Visualization
+      </h2>
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
         Pass data to color countries by value. Higher values get darker shades.
       </p>
@@ -188,7 +188,8 @@ export default function WorldMapPage() {
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Usage</h2>
-      <CodeBlock code={`import { WorldMap } from "@mantleui/react/three";
+      <CodeBlock
+        code={`import { WorldMap } from "@mantleui/react/three";
 
 // Basic — hover to see country names
 <WorldMap
@@ -221,7 +222,8 @@ export default function WorldMapPage() {
 />
 
 // Disable tooltips
-<WorldMap showTooltip={false} />`} />
+<WorldMap showTooltip={false} />`}
+      />
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>
       <PropsTable props={worldMapProps} />

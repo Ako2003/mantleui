@@ -35,7 +35,8 @@ function ButtonInner(
   }: ButtonProps<ElementType>,
   ref: Ref<HTMLElement>,
 ) {
-  const Component = as ?? "button";
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const Component: any = as ?? "button";
   const { dataColor, colorStyle } = resolveColor(color);
   const isDisabled = disabled || loading;
 

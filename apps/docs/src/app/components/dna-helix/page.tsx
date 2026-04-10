@@ -163,14 +163,16 @@ export default function DNAHelixPage() {
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Usage</h2>
-      <CodeBlock code={`import { DNAHelix } from "@mantleui/react/three";
+      <CodeBlock
+        code={`import { DNAHelix } from "@mantleui/react/three";
 
 <DNAHelix
   color1="#3b82f6"
   color2="#ef4444"
   speed={1}
   height={400}
-/>`} />
+/>`}
+      />
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>
       <PropsTable props={dnaHelixProps} />
