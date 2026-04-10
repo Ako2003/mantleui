@@ -99,6 +99,17 @@ const navItems = [
   { label: "StarField", href: "/components/star-field" },
   { label: "Aurora", href: "/components/aurora" },
   { label: "GridPlane", href: "/components/grid-plane" },
+  { heading: "Motion / Animation" },
+  { label: "AnimatedCounter", href: "/components/animated-counter" },
+  { label: "AnimatedList", href: "/components/animated-list" },
+  { label: "SpotlightCard", href: "/components/spotlight-card" },
+  { label: "MagneticButton", href: "/components/magnetic-button" },
+  { label: "Marquee", href: "/components/marquee" },
+  { label: "TypeWriter", href: "/components/type-writer" },
+  { label: "BlurReveal", href: "/components/blur-reveal" },
+  { label: "TextReveal", href: "/components/text-reveal" },
+  { label: "HoverCard", href: "/components/hover-card" },
+  { label: "PulseDot", href: "/components/pulse-dot" },
 ] as const;
 
 export function Sidebar() {

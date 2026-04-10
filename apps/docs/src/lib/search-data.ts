@@ -275,4 +275,56 @@ export const searchData: SearchItem[] = [
     href: "/components/grid-plane",
     category: "3D / Advanced",
   },
+
+  // Motion / Animation
+  {
+    title: "AnimatedCounter",
+    href: "/components/animated-counter",
+    category: "Motion / Animation",
+  },
+  {
+    title: "AnimatedList",
+    href: "/components/animated-list",
+    category: "Motion / Animation",
+  },
+  {
+    title: "SpotlightCard",
+    href: "/components/spotlight-card",
+    category: "Motion / Animation",
+  },
+  {
+    title: "MagneticButton",
+    href: "/components/magnetic-button",
+    category: "Motion / Animation",
+  },
+  {
+    title: "Marquee",
+    href: "/components/marquee",
+    category: "Motion / Animation",
+  },
+  {
+    title: "TypeWriter",
+    href: "/components/type-writer",
+    category: "Motion / Animation",
+  },
+  {
+    title: "BlurReveal",
+    href: "/components/blur-reveal",
+    category: "Motion / Animation",
+  },
+  {
+    title: "TextReveal",
+    href: "/components/text-reveal",
+    category: "Motion / Animation",
+  },
+  {
+    title: "HoverCard",
+    href: "/components/hover-card",
+    category: "Motion / Animation",
+  },
+  {
+    title: "PulseDot",
+    href: "/components/pulse-dot",
+    category: "Motion / Animation",
+  },
 ];
