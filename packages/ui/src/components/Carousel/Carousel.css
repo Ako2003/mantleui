@@ -36,11 +36,18 @@
   height: 2.25rem;
   border-radius: 9999px;
   border: 1px solid rgba(0, 0, 0, 0.12);
-  background: rgba(255, 255, 255, 0.9);
-  color: inherit;
+  background: rgba(255, 255, 255, 0.95);
+  color: #18181b;
   cursor: pointer;
-  font-size: 1rem;
   line-height: 1;
+  transition:
+    background 150ms ease,
+    transform 150ms ease;
+}
+
+.mantle-carousel-arrow:hover:not(:disabled) {
+  background: #fff;
+  transform: translateY(-50%) scale(1.05);
 }
 
 .mantle-carousel-arrow:disabled {
