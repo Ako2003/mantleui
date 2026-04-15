@@ -91,7 +91,9 @@ export const CardCarousel = forwardRef<HTMLDivElement, CardCarouselProps>(
     return (
       <div
         ref={ref}
-        className={["mantle-cardcarousel", className].filter(Boolean).join(" ")}
+        className={["mantle-cardcarousel-root", className]
+          .filter(Boolean)
+          .join(" ")}
         style={style}
         role="region"
         aria-roledescription="carousel"
@@ -99,86 +101,104 @@ export const CardCarousel = forwardRef<HTMLDivElement, CardCarouselProps>(
         onKeyDown={handleKeyDown}
         {...rest}
       >
-        {slides.map((slide, i) => {
-          const offset = getOffset(i);
-          const isActive = offset === 0;
-          const isVisible = Math.abs(offset) <= 1;
-          const x = `${offset * peekDistance}%`;
-          const scale = isActive ? 1 : peekScale;
-          const opacity = isVisible ? (isActive ? 1 : peekOpacity) : 0;
-          const zIndex = 10 - Math.abs(offset);
-          const position = isActive ? "active" : offset < 0 ? "prev" : "next";
-          return (
-            <motion.div
-              key={i}
-              className="mantle-cardcarousel-slide"
-              data-position={position}
-              role="group"
-              aria-roledescription="slide"
-              aria-label={`slide ${i + 1} of ${count}`}
-              aria-hidden={!isActive}
-              animate={{ x, scale, opacity, zIndex }}
-              transition={{ type: "spring", stiffness: 260, damping: 30 }}
-              style={{ pointerEvents: isVisible ? "auto" : "none" }}
-              onClick={() => {
-                if (!isActive) goTo(i);
-              }}
-            >
-              {slide}
-            </motion.div>
-          );
-        })}
-        {showArrows && count > 1 && (
-          <>
-            <button
-              type="button"
-              className="mantle-cardcarousel-arrow"
-              data-side="prev"
-              aria-label="Previous slide"
-              onClick={goPrev}
-              disabled={!canPrev}
-            >
-              {prevIcon ?? (
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <polyline points="15 18 9 12 15 6" />
-                </svg>
-              )}
-            </button>
-            <button
-              type="button"
-              className="mantle-cardcarousel-arrow"
-              data-side="next"
-              aria-label="Next slide"
-              onClick={goNext}
-              disabled={!canNext}
-            >
-              {nextIcon ?? (
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <polyline points="9 18 15 12 9 6" />
-                </svg>
-              )}
-            </button>
-          </>
+        <div className="mantle-cardcarousel">
+          {slides.map((slide, i) => {
+            const offset = getOffset(i);
+            const isActive = offset === 0;
+            const isVisible = Math.abs(offset) <= 1;
+            const x = `${offset * peekDistance}%`;
+            const scale = isActive ? 1 : peekScale;
+            const opacity = isVisible ? (isActive ? 1 : peekOpacity) : 0;
+            const zIndex = 10 - Math.abs(offset);
+            const position = isActive ? "active" : offset < 0 ? "prev" : "next";
+            return (
+              <motion.div
+                key={i}
+                className="mantle-cardcarousel-slide"
+                data-position={position}
+                role="group"
+                aria-roledescription="slide"
+                aria-label={`slide ${i + 1} of ${count}`}
+                aria-hidden={!isActive}
+                animate={{ x, scale, opacity, zIndex }}
+                transition={{ type: "spring", stiffness: 260, damping: 30 }}
+                style={{ pointerEvents: isVisible ? "auto" : "none" }}
+                onClick={() => {
+                  if (!isActive) goTo(i);
+                }}
+              >
+                {slide}
+              </motion.div>
+            );
+          })}
+          {showArrows && count > 1 && (
+            <>
+              <button
+                type="button"
+                className="mantle-cardcarousel-arrow"
+                data-side="prev"
+                aria-label="Previous slide"
+                onClick={goPrev}
+                disabled={!canPrev}
+              >
+                {prevIcon ?? (
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polyline points="15 18 9 12 15 6" />
+                  </svg>
+                )}
+              </button>
+              <button
+                type="button"
+                className="mantle-cardcarousel-arrow"
+                data-side="next"
+                aria-label="Next slide"
+                onClick={goNext}
+                disabled={!canNext}
+              >
+                {nextIcon ?? (
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polyline points="9 18 15 12 9 6" />
+                  </svg>
+                )}
+              </button>
+            </>
+          )}
+        </div>
+        {showDots && count > 1 && (
+          <div className="mantle-cardcarousel-dots" role="tablist">
+            {slides.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                className="mantle-cardcarousel-dot"
+                data-active={i === index}
+                aria-label={`Go to slide ${i + 1}`}
+                aria-selected={i === index ? "true" : "false"}
+                role="tab"
+                onClick={() => goTo(i)}
+              />
+            ))}
+          </div>
         )}
       </div>
     );

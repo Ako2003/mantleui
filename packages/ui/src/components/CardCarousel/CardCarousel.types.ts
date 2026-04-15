@@ -30,6 +30,8 @@ export interface CardCarouselProps extends Omit<
   peekDistance?: number;
   /** Whether to show prev/next arrow buttons. Defaults to false. */
   showArrows?: boolean;
+  /** Whether to show dot indicators below the cards. Defaults to false. */
+  showDots?: boolean;
   /** Custom icon for the previous button. Defaults to a chevron-left. */
   prevIcon?: ReactNode;
   /** Custom icon for the next button. Defaults to a chevron-right. */

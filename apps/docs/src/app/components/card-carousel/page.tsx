@@ -75,6 +75,12 @@ const cardCarouselProps = [
     description: "Whether to show prev/next arrow buttons.",
   },
   {
+    name: "showDots",
+    type: "boolean",
+    default: "false",
+    description: "Whether to show dot indicators below the cards.",
+  },
+  {
     name: "prevIcon",
     type: "ReactNode",
     description:
@@ -188,10 +194,11 @@ export default function CardCarouselPage() {
         </div>
       </div>
 
-      <h2 className="mt-10 text-xl font-semibold">With arrows</h2>
+      <h2 className="mt-10 text-xl font-semibold">With arrows and dots</h2>
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
-        Opt-in to prev/next buttons with <code>showArrows</code>. Side cards are
-        still clickable and drag-to-swipe still works.
+        Opt-in to prev/next buttons with <code>showArrows</code> and dot
+        indicators below with <code>showDots</code>. Side cards are still
+        clickable and drag-to-swipe still works.
       </p>
       <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
         <div className="mx-auto" style={{ maxWidth: 600 }}>
@@ -200,6 +207,23 @@ export default function CardCarouselPage() {
             defaultValue={0}
             loop
             showArrows
+            showDots
+          />
+        </div>
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Dots only</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Use just <code>showDots</code> for a minimal look — navigate via dots,
+        drag, or by clicking on side cards.
+      </p>
+      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
+        <div className="mx-auto" style={{ maxWidth: 600 }}>
+          <CardCarousel
+            slides={testimonialSlides}
+            defaultValue={0}
+            loop
+            showDots
           />
         </div>
       </div>
@@ -224,6 +248,12 @@ const slides = testimonials.map((t) => (
 
 // With arrow buttons
 <CardCarousel slides={slides} showArrows />
+
+// With dot indicators
+<CardCarousel slides={slides} showDots />
+
+// Both arrows and dots
+<CardCarousel slides={slides} showArrows showDots />
 
 // Custom icons
 <CardCarousel
