@@ -1,13 +1,12 @@
 .mantle-fadecarousel {
   position: relative;
   width: 100%;
-  min-height: 12rem;
+  display: grid;
+  grid-template-areas: "stack";
   outline: none;
 }
 
 .mantle-fadecarousel-slide {
-  position: absolute;
-  inset: 0;
+  grid-area: stack;
   width: 100%;
-  height: 100%;
 }
