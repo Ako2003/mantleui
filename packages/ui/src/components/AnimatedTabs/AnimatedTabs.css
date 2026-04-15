@@ -8,15 +8,35 @@
 }
 
 .mantle-animatedtabs[data-variant="pill"] {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(
+    --mantle-animatedtabs-bg,
+    var(--mantle-color-bg-muted, rgba(0, 0, 0, 0.04))
+  );
+  border: 1px solid
+    var(--mantle-animatedtabs-border, var(--mantle-color-border, #e2e8f0));
+}
+
+[data-theme="dark"] .mantle-animatedtabs[data-variant="pill"] {
+  background: var(--mantle-animatedtabs-bg, rgba(255, 255, 255, 0.04));
+  border-color: var(
+    --mantle-animatedtabs-border,
+    rgba(255, 255, 255, 0.08)
+  );
 }
 
 .mantle-animatedtabs[data-variant="underline"] {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid
+    var(--mantle-animatedtabs-border, var(--mantle-color-border, #e2e8f0));
   border-radius: 0;
   padding: 0;
   gap: 1rem;
+}
+
+[data-theme="dark"] .mantle-animatedtabs[data-variant="underline"] {
+  border-bottom-color: var(
+    --mantle-animatedtabs-border,
+    rgba(255, 255, 255, 0.08)
+  );
 }
 
 .mantle-animatedtabs-trigger {
@@ -27,7 +47,7 @@
   padding: 0.5rem 1rem;
   border: 0;
   background: transparent;
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--mantle-color-text-muted, #64748b);
   font: inherit;
   font-weight: 500;
   cursor: pointer;
@@ -36,11 +56,23 @@
   z-index: 1;
 }
 
+[data-theme="dark"] .mantle-animatedtabs-trigger {
+  color: rgba(255, 255, 255, 0.65);
+}
+
 .mantle-animatedtabs-trigger:hover {
+  color: var(--mantle-color-text, #18181b);
+}
+
+[data-theme="dark"] .mantle-animatedtabs-trigger:hover {
   color: rgba(255, 255, 255, 0.9);
 }
 
 .mantle-animatedtabs-trigger[data-active="true"] {
+  color: var(--mantle-color-text, #18181b);
+}
+
+[data-theme="dark"] .mantle-animatedtabs-trigger[data-active="true"] {
   color: #fff;
 }
 
@@ -52,9 +84,21 @@
 .mantle-animatedtabs-indicator-pill {
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.12);
+  background: var(
+    --mantle-animatedtabs-indicator,
+    var(--mantle-color-bg, #ffffff)
+  );
   border-radius: 8px;
   z-index: -1;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .mantle-animatedtabs-indicator-pill {
+  background: var(
+    --mantle-animatedtabs-indicator,
+    rgba(255, 255, 255, 0.12)
+  );
+  box-shadow: none;
 }
 
 .mantle-animatedtabs-indicator-underline {
