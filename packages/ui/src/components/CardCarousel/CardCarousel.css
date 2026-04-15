@@ -4,7 +4,7 @@
   height: 18rem;
   outline: none;
   perspective: 1000px;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .mantle-cardcarousel-slide {
