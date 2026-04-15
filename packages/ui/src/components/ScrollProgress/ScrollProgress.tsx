@@ -1,4 +1,5 @@
-import { forwardRef } from "react";
+import { forwardRef, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { motion, useScroll, useSpring } from "framer-motion";
 import type { ScrollProgressProps } from "./ScrollProgress.types";
 import "./ScrollProgress.css";
@@ -7,7 +8,9 @@ const SPRING_CONFIG = { stiffness: 100, damping: 30, restDelta: 0.001 };
 
 /**
  * A smooth progress bar fixed to the top or bottom of the viewport that
- * reflects how far the user has scrolled through the page.
+ * reflects how far the user has scrolled through the page. Renders via
+ * a portal to `document.body` so ancestor transforms don't break the
+ * fixed positioning.
  *
  * @example
  * ```tsx
@@ -30,7 +33,12 @@ export const ScrollProgress = forwardRef<HTMLDivElement, ScrollProgressProps>(
     const { scrollYProgress } = useScroll();
     const scaleX = useSpring(scrollYProgress, SPRING_CONFIG);
 
-    return (
+    const [mounted, setMounted] = useState(false);
+    useEffect(() => setMounted(true), []);
+
+    if (!mounted || typeof document === "undefined") return null;
+
+    return createPortal(
       <motion.div
         ref={ref}
         className={["mantle-scrollprogress", className]
@@ -46,7 +54,8 @@ export const ScrollProgress = forwardRef<HTMLDivElement, ScrollProgressProps>(
         }}
         aria-hidden="true"
         {...rest}
-      />
+      />,
+      document.body,
     );
   },
 );
