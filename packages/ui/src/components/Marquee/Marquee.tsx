@@ -1,5 +1,4 @@
-import { forwardRef, useCallback, useEffect, useRef, useState } from "react";
-import { motion, useAnimationControls } from "framer-motion";
+import { forwardRef, useEffect, useRef, useState } from "react";
 import type { MarqueeProps } from "./Marquee.types";
 import "./Marquee.css";
 
@@ -22,14 +21,11 @@ export const Marquee = forwardRef<HTMLDivElement, MarqueeProps>(
       pauseOnHover = true,
       className,
       style,
-      onMouseEnter,
-      onMouseLeave,
       ...rest
     },
     ref,
   ) {
     const groupRef = useRef<HTMLDivElement | null>(null);
-    const controls = useAnimationControls();
     const [width, setWidth] = useState(0);
 
     useEffect(() => {
@@ -42,52 +38,11 @@ export const Marquee = forwardRef<HTMLDivElement, MarqueeProps>(
       return () => observer.disconnect();
     }, [children]);
 
-    useEffect(() => {
-      if (width === 0) return;
-      const distance = direction === "left" ? -width : width;
-      const duration = width / speed;
-      controls.start({
-        x: [
-          direction === "left" ? 0 : -width,
-          distance === -width ? -width : 0,
-        ],
-        transition: {
-          duration,
-          ease: "linear",
-          repeat: Infinity,
-        },
-      });
-    }, [width, speed, direction, controls]);
-
-    const handleMouseEnter = useCallback(
-      (event: React.MouseEvent<HTMLDivElement>) => {
-        if (pauseOnHover) controls.stop();
-        onMouseEnter?.(event);
-      },
-      [pauseOnHover, controls, onMouseEnter],
-    );
-
-    const handleMouseLeave = useCallback(
-      (event: React.MouseEvent<HTMLDivElement>) => {
-        if (pauseOnHover && width > 0) {
-          const distance = direction === "left" ? -width : width;
-          const duration = width / speed;
-          controls.start({
-            x: [
-              direction === "left" ? 0 : -width,
-              distance === -width ? -width : 0,
-            ],
-            transition: {
-              duration,
-              ease: "linear",
-              repeat: Infinity,
-            },
-          });
-        }
-        onMouseLeave?.(event);
-      },
-      [pauseOnHover, controls, width, direction, speed, onMouseLeave],
-    );
+    const duration = width > 0 ? width / speed : 20;
+    const trackStyle = {
+      "--mantle-marquee-distance": `${width}px`,
+      "--mantle-marquee-duration": `${duration}s`,
+    } as React.CSSProperties;
 
     return (
       <div
@@ -95,18 +50,17 @@ export const Marquee = forwardRef<HTMLDivElement, MarqueeProps>(
         className={["mantle-marquee", className].filter(Boolean).join(" ")}
         style={style}
         data-pause-on-hover={pauseOnHover}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+        data-direction={direction}
         {...rest}
       >
-        <motion.div className="mantle-marquee-track" animate={controls}>
+        <div className="mantle-marquee-track" style={trackStyle}>
           <div ref={groupRef} className="mantle-marquee-group">
             {children}
           </div>
           <div className="mantle-marquee-group" aria-hidden="true">
             {children}
           </div>
-        </motion.div>
+        </div>
       </div>
     );
   },

@@ -2,6 +2,7 @@
   display: flex;
   overflow: hidden;
   width: 100%;
+  -webkit-user-select: none;
   user-select: none;
 }
 
@@ -10,6 +11,17 @@
   flex-shrink: 0;
   gap: 1rem;
   will-change: transform;
+  animation-duration: var(--mantle-marquee-duration, 20s);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.mantle-marquee[data-direction="left"] .mantle-marquee-track {
+  animation-name: mantle-marquee-left;
+}
+
+.mantle-marquee[data-direction="right"] .mantle-marquee-track {
+  animation-name: mantle-marquee-right;
 }
 
 .mantle-marquee-group {
@@ -20,4 +32,22 @@
 
 .mantle-marquee[data-pause-on-hover="true"]:hover .mantle-marquee-track {
   animation-play-state: paused;
+}
+
+@keyframes mantle-marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-1 * var(--mantle-marquee-distance, 100%)));
+  }
+}
+
+@keyframes mantle-marquee-right {
+  from {
+    transform: translateX(calc(-1 * var(--mantle-marquee-distance, 100%)));
+  }
+  to {
+    transform: translateX(0);
+  }
 }
