@@ -107,7 +107,7 @@ export default function MarqueePage() {
           </button>
         ))}
       </div>
-      <div className="mt-4 overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950 py-6">
+      <div className="mt-4 overflow-hidden rounded-xl border border-slate-200 bg-slate-50 py-6 dark:border-zinc-800 dark:bg-zinc-950">
         <Marquee speed={60} direction={direction} pauseOnHover>
           {logos.map((logo) => (
             <div
@@ -124,7 +124,7 @@ export default function MarqueePage() {
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
         A slower marquee with testimonial cards.
       </p>
-      <div className="mt-4 overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950 py-6">
+      <div className="mt-4 overflow-hidden rounded-xl border border-slate-200 bg-slate-50 py-6 dark:border-zinc-800 dark:bg-zinc-950">
         <Marquee speed={30} direction="left" pauseOnHover>
           {testimonials.map((t) => (
             <div

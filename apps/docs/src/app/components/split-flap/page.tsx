@@ -73,7 +73,7 @@ export default function SplitFlapPage() {
         Click the button to shuffle the ticker and watch each flap rotate into
         place.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-6 dark:border-zinc-800 dark:bg-zinc-950">
         <div className="flex flex-col items-center gap-5">
           <SplitFlap value={ticker} length={11} />
           <button
@@ -90,7 +90,7 @@ export default function SplitFlapPage() {
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
         Use shorter labels for a status board feel.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-6 dark:border-zinc-800 dark:bg-zinc-950">
         <div className="flex flex-col items-center gap-5">
           <SplitFlap value={status} length={9} />
           <button

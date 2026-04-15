@@ -64,7 +64,7 @@ export default function ImageComparePage() {
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
         Drag the handle left or right to compare the two images.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-6 dark:border-zinc-800 dark:bg-zinc-950">
         <ImageCompare
           beforeImage="https://picsum.photos/id/1018/1200/600"
           afterImage="https://picsum.photos/id/1025/1200/600"
@@ -79,7 +79,7 @@ export default function ImageComparePage() {
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
         Tailor the handle color to match your brand.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-6 dark:border-zinc-800 dark:bg-zinc-950">
         <ImageCompare
           beforeImage="https://picsum.photos/id/1018/1200/600"
           afterImage="https://picsum.photos/id/1025/1200/600"

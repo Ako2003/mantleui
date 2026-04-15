@@ -46,7 +46,7 @@ export default function PulseDotPage() {
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
         Pair a PulseDot with a label to communicate live state inline.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-6 dark:border-zinc-800 dark:bg-zinc-950">
         <div className="flex flex-col gap-4">
           {statuses.map((status) => (
             <div
@@ -66,7 +66,7 @@ export default function PulseDotPage() {
         <code className="rounded bg-zinc-800 px-1.5 py-0.5 text-sm">size</code>{" "}
         prop.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-8">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-8 dark:border-zinc-800 dark:bg-zinc-950">
         <div className="flex items-end gap-10">
           {sizes.map((s) => (
             <div key={s} className="flex flex-col items-center gap-3">
@@ -82,7 +82,7 @@ export default function PulseDotPage() {
         Anchor a pulse dot to a button or icon to draw attention to new
         activity.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-8">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-8 dark:border-zinc-800 dark:bg-zinc-950">
         <div className="flex items-center gap-8">
           <div className="relative">
             <button className="rounded-md border border-zinc-700 bg-zinc-900 px-4 py-2 text-sm font-medium text-white">

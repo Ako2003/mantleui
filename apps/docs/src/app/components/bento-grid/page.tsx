@@ -75,7 +75,7 @@ export default function BentoGridPage() {
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
         A 4-column bento grid with mixed cell sizes.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-6 dark:border-zinc-800 dark:bg-zinc-950">
         <BentoGrid columns={4} gap={16}>
           <BentoGrid.Item rowSpan={1}>
             <div className="flex h-full min-h-full w-full flex-col justify-between rounded-xl bg-gradient-to-br from-zinc-800 to-black p-5 text-white">

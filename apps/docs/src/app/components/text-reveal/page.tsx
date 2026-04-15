@@ -49,7 +49,7 @@ export default function TextRevealPage() {
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
         Click replay to run the animations again.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-8">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-8 dark:border-zinc-800 dark:bg-zinc-950">
         <button
           onClick={() => setKey((k) => k + 1)}
           className="mb-6 rounded-md border border-zinc-700 bg-zinc-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-zinc-800"

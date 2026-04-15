@@ -109,23 +109,27 @@ export default function DragDropListPage() {
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
         Grab any card and drag it up or down to reorder the todo list.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-6 dark:border-zinc-800 dark:bg-zinc-950">
         <DragDropList
           items={todos}
           onReorder={setTodos}
           keyAccessor={(todo) => todo.id}
           renderItem={(todo) => (
-            <div className="flex items-center gap-4 rounded-lg border border-zinc-800 bg-zinc-900 p-4">
-              <DragHandle />
+            <div className="flex items-center gap-4 rounded-lg p-4">
+              <span className="flex-shrink-0 text-slate-400 dark:text-zinc-500">
+                <DragHandle />
+              </span>
               <div
                 className={`h-10 w-10 flex-shrink-0 rounded-md bg-gradient-to-br ${todo.accent}`}
                 aria-hidden
               />
               <div className="flex-1">
-                <h3 className="text-sm font-semibold text-white">
+                <h3 className="text-sm font-semibold text-slate-900 dark:text-white">
                   {todo.title}
                 </h3>
-                <p className="text-xs text-zinc-400">{todo.description}</p>
+                <p className="text-xs text-slate-500 dark:text-zinc-400">
+                  {todo.description}
+                </p>
               </div>
             </div>
           )}

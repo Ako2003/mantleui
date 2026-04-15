@@ -76,7 +76,7 @@ export default function SpotlightCardPage() {
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
         Hover any card to reveal the spotlight.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-6 dark:border-zinc-800 dark:bg-zinc-950">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           {cards.map((card) => (
             <SpotlightCard

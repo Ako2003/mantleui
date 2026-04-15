@@ -133,7 +133,7 @@ export default function CarouselPage() {
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
         Navigate with the arrows, dots, or by dragging a slide.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-6 dark:border-zinc-800 dark:bg-zinc-950">
         <div className="mx-auto" style={{ maxWidth: 600 }}>
           <Carousel slides={featureSlides} defaultValue={0} loop />
         </div>
@@ -143,7 +143,7 @@ export default function CarouselPage() {
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
         Enable autoplay to cycle through slides automatically.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-6 dark:border-zinc-800 dark:bg-zinc-950">
         <div className="mx-auto" style={{ maxWidth: 600 }}>
           <Carousel
             slides={featureSlides}
@@ -159,7 +159,7 @@ export default function CarouselPage() {
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
         Add breathing room between slides with the <code>gap</code> prop.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-6 dark:border-zinc-800 dark:bg-zinc-950">
         <div className="mx-auto" style={{ maxWidth: 600 }}>
           <Carousel slides={featureSlides} defaultValue={0} gap={24} loop />
         </div>
@@ -170,7 +170,7 @@ export default function CarouselPage() {
         Pass any <code>ReactNode</code> to <code>prevIcon</code> and{" "}
         <code>nextIcon</code> to override the default chevrons.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-6 dark:border-zinc-800 dark:bg-zinc-950">
         <div className="mx-auto" style={{ maxWidth: 600 }}>
           <Carousel
             slides={featureSlides}
@@ -215,7 +215,7 @@ export default function CarouselPage() {
         Hide the arrows with <code>showArrows={"{false}"}</code> and rely on
         dots or drag-to-swipe for navigation.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-6 dark:border-zinc-800 dark:bg-zinc-950">
         <div className="mx-auto" style={{ maxWidth: 600 }}>
           <Carousel
             slides={featureSlides}
@@ -231,7 +231,7 @@ export default function CarouselPage() {
         Or hide the dots with <code>showDots={"{false}"}</code> for a cleaner
         look.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-6 dark:border-zinc-800 dark:bg-zinc-950">
         <div className="mx-auto" style={{ maxWidth: 600 }}>
           <Carousel
             slides={featureSlides}

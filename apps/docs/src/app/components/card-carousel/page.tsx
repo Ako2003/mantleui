@@ -153,7 +153,7 @@ export default function CardCarouselPage() {
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
         Navigate with the arrows or drag to swipe between cards.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-6 dark:border-zinc-800 dark:bg-zinc-950">
         <div className="mx-auto" style={{ maxWidth: 600 }}>
           <CardCarousel slides={testimonialSlides} defaultValue={0} loop />
         </div>
@@ -165,7 +165,7 @@ export default function CardCarouselPage() {
         <code>90</code> for a more airy layout where the neighbors are almost
         fully visible.
       </p>
-      <div className="mt-4 overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950 px-16 py-6">
+      <div className="mt-4 overflow-hidden rounded-xl border border-slate-200 bg-slate-50 px-16 py-6 dark:border-zinc-800 dark:bg-zinc-950">
         <div className="mx-auto" style={{ maxWidth: 450 }}>
           <CardCarousel
             slides={testimonialSlides}
@@ -182,7 +182,7 @@ export default function CardCarouselPage() {
         Smaller <code>peekDistance</code> values (e.g. <code>35</code>) stack
         the cards closer together for a more layered, peeking-behind look.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-6 dark:border-zinc-800 dark:bg-zinc-950">
         <div className="mx-auto" style={{ maxWidth: 600 }}>
           <CardCarousel
             slides={testimonialSlides}
@@ -200,7 +200,7 @@ export default function CardCarouselPage() {
         indicators below with <code>showDots</code>. Side cards are still
         clickable and drag-to-swipe still works.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-6 dark:border-zinc-800 dark:bg-zinc-950">
         <div className="mx-auto" style={{ maxWidth: 600 }}>
           <CardCarousel
             slides={testimonialSlides}
@@ -217,7 +217,7 @@ export default function CardCarouselPage() {
         Use just <code>showDots</code> for a minimal look — navigate via dots,
         drag, or by clicking on side cards.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-6 dark:border-zinc-800 dark:bg-zinc-950">
         <div className="mx-auto" style={{ maxWidth: 600 }}>
           <CardCarousel
             slides={testimonialSlides}

@@ -60,7 +60,7 @@ export default function TypeWriterPage() {
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
         A single sentence typed out once.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-8">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-8 dark:border-zinc-800 dark:bg-zinc-950">
         <TypeWriter
           className="text-2xl font-semibold text-white"
           text="Craft interfaces that feel inevitable."
@@ -73,7 +73,7 @@ export default function TypeWriterPage() {
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
         Pass an array of strings to cycle through them on repeat.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-8">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-8 dark:border-zinc-800 dark:bg-zinc-950">
         <div className="flex flex-wrap items-baseline gap-3 text-2xl font-semibold text-white">
           <span className="text-zinc-500">I am a</span>
           <TypeWriter
@@ -97,7 +97,7 @@ export default function TypeWriterPage() {
         </code>
         .
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-8">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-8 dark:border-zinc-800 dark:bg-zinc-950">
         <TypeWriter
           className="block text-xl font-medium text-white"
           text="Silent and steady."

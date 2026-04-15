@@ -137,7 +137,7 @@ export default function ParallaxCarouselPage() {
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
         Swipe or use the arrows to shift between scenes.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-6 dark:border-zinc-800 dark:bg-zinc-950">
         <div className="mx-auto" style={{ maxWidth: 600 }}>
           <ParallaxCarousel slides={parallaxSlides} defaultValue={0} loop />
         </div>
@@ -148,7 +148,7 @@ export default function ParallaxCarouselPage() {
         Pass any <code>ReactNode</code> to <code>prevIcon</code> and{" "}
         <code>nextIcon</code> to override the default chevrons.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-6 dark:border-zinc-800 dark:bg-zinc-950">
         <div className="mx-auto" style={{ maxWidth: 600 }}>
           <ParallaxCarousel
             slides={parallaxSlides}

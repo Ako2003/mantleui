@@ -52,7 +52,7 @@ export default function ScrollProgressPage() {
         fills in as you scroll. Each example below mounts its own bar, so only
         the last one mounted will be visible at any given time.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-6 dark:border-zinc-800 dark:bg-zinc-950">
         <ScrollProgress color="#3b82f6" height={3} />
         <div className="flex flex-col gap-4 text-sm text-zinc-300">
           <p>
@@ -75,7 +75,7 @@ export default function ScrollProgressPage() {
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
         Tailor the color and thickness to match your theme.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-6 dark:border-zinc-800 dark:bg-zinc-950">
         <ScrollProgress color="#ec4899" height={4} />
         <p className="text-sm text-zinc-300">
           A 4px pink bar — scroll to see it update in real time.
@@ -87,7 +87,7 @@ export default function ScrollProgressPage() {
         Use <code>position=&quot;bottom&quot;</code> to pin the bar to the
         bottom edge of the viewport.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-6 dark:border-zinc-800 dark:bg-zinc-950">
         <ScrollProgress color="#10b981" height={5} position="bottom" />
         <p className="text-sm text-zinc-300">
           A 5px emerald bar pinned to the bottom of the viewport.

@@ -47,7 +47,7 @@ export default function MagneticButtonPage() {
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
         Hover each button to feel the pull. Compare different strength values.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-10">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-10 dark:border-zinc-800 dark:bg-zinc-950">
         <div className="flex flex-wrap items-center justify-center gap-10">
           {variants.map((variant) => (
             <div

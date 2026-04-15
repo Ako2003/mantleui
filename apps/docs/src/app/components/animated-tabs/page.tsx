@@ -59,7 +59,7 @@ export default function AnimatedTabsPage() {
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
         A minimal underline glides beneath the active tab.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-6 dark:border-zinc-800 dark:bg-zinc-950">
         <AnimatedTabs tabs={tabs} defaultValue="overview" variant="underline" />
       </div>
 
@@ -67,7 +67,7 @@ export default function AnimatedTabsPage() {
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
         A rounded pill follows the active tab — great for segmented controls.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-6 dark:border-zinc-800 dark:bg-zinc-950">
         <AnimatedTabs tabs={tabs} defaultValue="analytics" variant="pill" />
       </div>
 

@@ -78,7 +78,7 @@ export default function HoverCardPage() {
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
         Hover any card to see the lift, scale, and shadow combination.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-8">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-8 dark:border-zinc-800 dark:bg-zinc-950">
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
           {cards.map((card) => (
             <HoverCard

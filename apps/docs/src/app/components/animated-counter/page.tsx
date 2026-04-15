@@ -67,7 +67,7 @@ export default function AnimatedCounterPage() {
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
         Click the button to animate the counters to new random values.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-6 dark:border-zinc-800 dark:bg-zinc-950">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           <div className="rounded-lg border border-zinc-800 bg-zinc-900 p-5">
             <p className="text-xs font-medium uppercase tracking-wide text-zinc-500">

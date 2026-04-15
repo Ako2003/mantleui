@@ -66,7 +66,7 @@ export default function FloatingDockPage() {
         Move your cursor across the dock to see the icons scale and labels
         appear.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-6 dark:border-zinc-800 dark:bg-zinc-950">
         <div className="flex min-h-40 items-center justify-center">
           <FloatingDock items={items} />
         </div>
