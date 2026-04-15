@@ -61,6 +61,13 @@ const cardCarouselProps = [
     default: "0.6",
     description: "Opacity applied to the previous/next peek cards.",
   },
+  {
+    name: "peekDistance",
+    type: "number",
+    default: "60",
+    description:
+      "Horizontal distance (as percent of slide width) from center where the peek cards are positioned. Higher values push side cards further out.",
+  },
 ];
 
 const testimonials = [
@@ -128,6 +135,41 @@ export default function CardCarouselPage() {
         </div>
       </div>
 
+      <h2 className="mt-10 text-xl font-semibold">Wider peek</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Push the side cards further out with <code>peekDistance</code>. Try{" "}
+        <code>90</code> for a more airy layout where the neighbors are almost
+        fully visible.
+      </p>
+      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
+        <div className="mx-auto" style={{ maxWidth: 600 }}>
+          <CardCarousel
+            slides={testimonialSlides}
+            defaultValue={0}
+            loop
+            peekDistance={90}
+            peekOpacity={0.75}
+          />
+        </div>
+      </div>
+
+      <h2 className="mt-10 text-xl font-semibold">Tight stack</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Smaller <code>peekDistance</code> values (e.g. <code>35</code>) stack
+        the cards closer together for a more layered, peeking-behind look.
+      </p>
+      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
+        <div className="mx-auto" style={{ maxWidth: 600 }}>
+          <CardCarousel
+            slides={testimonialSlides}
+            defaultValue={0}
+            loop
+            peekDistance={35}
+            peekScale={0.8}
+          />
+        </div>
+      </div>
+
       <h2 className="mt-10 text-xl font-semibold">Usage</h2>
       <CodeBlock
         code={`import { CardCarousel } from "@mantleui/react/motion";
@@ -136,7 +178,14 @@ const slides = testimonials.map((t) => (
   <div key={t.name}>{t.quote}</div>
 ));
 
-<CardCarousel slides={slides} defaultValue={0} loop />`}
+// Default
+<CardCarousel slides={slides} defaultValue={0} loop />
+
+// Wider side cards
+<CardCarousel slides={slides} peekDistance={90} peekOpacity={0.75} />
+
+// Tight stacked look
+<CardCarousel slides={slides} peekDistance={35} peekScale={0.8} />`}
       />
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>

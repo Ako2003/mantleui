@@ -20,6 +20,7 @@ export const CardCarousel = forwardRef<HTMLDivElement, CardCarouselProps>(
       loop = true,
       peekScale = 0.85,
       peekOpacity = 0.6,
+      peekDistance = 60,
       className,
       style,
       ...rest
@@ -96,7 +97,7 @@ export const CardCarousel = forwardRef<HTMLDivElement, CardCarouselProps>(
           const offset = getOffset(i);
           const isActive = offset === 0;
           const isVisible = Math.abs(offset) <= 1;
-          const x = `${offset * 60}%`;
+          const x = `${offset * peekDistance}%`;
           const scale = isActive ? 1 : peekScale;
           const opacity = isVisible ? (isActive ? 1 : peekOpacity) : 0;
           const zIndex = 10 - Math.abs(offset);

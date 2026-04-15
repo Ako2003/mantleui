@@ -22,4 +22,10 @@ export interface CardCarouselProps extends Omit<
   peekScale?: number;
   /** Opacity applied to the previous/next peek cards. Defaults to 0.6. */
   peekOpacity?: number;
+  /**
+   * Horizontal distance (as percent of slide width) from center where the
+   * peek cards are positioned. Higher values push side cards further out.
+   * Defaults to 60.
+   */
+  peekDistance?: number;
 }
