@@ -56,11 +56,13 @@ export default function MagneticButtonPage() {
             >
               <MagneticButton
                 strength={variant.strength}
-                className="rounded-full border border-zinc-700 bg-zinc-900 px-6 py-3 text-sm font-medium text-white transition hover:bg-zinc-800"
+                className="rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-medium text-slate-900 transition hover:bg-slate-100 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
               >
                 Hover me
               </MagneticButton>
-              <span className="text-xs text-zinc-500">{variant.label}</span>
+              <span className="text-xs text-slate-500 dark:text-zinc-500">
+                {variant.label}
+              </span>
             </div>
           ))}
         </div>

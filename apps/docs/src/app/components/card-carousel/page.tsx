@@ -129,12 +129,14 @@ const testimonials = [
 const testimonialSlides = testimonials.map((t) => (
   <div
     key={t.name}
-    className="flex h-64 w-full flex-col justify-between rounded-xl border border-zinc-800 bg-gradient-to-br from-zinc-900 to-zinc-950 p-6"
+    className="flex h-64 w-full flex-col justify-between rounded-xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-6 dark:border-zinc-800 dark:from-zinc-900 dark:to-zinc-950"
   >
-    <p className="text-lg text-zinc-100">“{t.quote}”</p>
+    <p className="text-lg text-slate-800 dark:text-zinc-100">“{t.quote}”</p>
     <div>
-      <p className="text-sm font-semibold text-white">{t.name}</p>
-      <p className="text-xs text-zinc-500">{t.role}</p>
+      <p className="text-sm font-semibold text-slate-900 dark:text-white">
+        {t.name}
+      </p>
+      <p className="text-xs text-slate-500 dark:text-zinc-500">{t.role}</p>
     </div>
   </div>
 ));

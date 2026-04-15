@@ -86,16 +86,16 @@ export default function HoverCardPage() {
               lift={card.lift}
               scale={card.scale}
               shadowColor={card.shadowColor}
-              className="cursor-pointer rounded-xl border border-zinc-800 bg-zinc-900 p-6"
+              className="cursor-pointer rounded-xl border border-slate-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900"
             >
               <div className={`text-3xl ${card.accent}`}>{card.icon}</div>
-              <h3 className="mt-4 text-base font-semibold text-white">
+              <h3 className="mt-4 text-base font-semibold text-slate-900 dark:text-white">
                 {card.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+              <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-zinc-400">
                 {card.description}
               </p>
-              <p className="mt-4 text-xs text-zinc-500">
+              <p className="mt-4 text-xs text-slate-500 dark:text-zinc-500">
                 lift {card.lift}px · scale {card.scale}
               </p>
             </HoverCard>

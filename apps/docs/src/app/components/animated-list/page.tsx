@@ -92,12 +92,12 @@ export default function AnimatedListPage() {
         <div className="mb-5 flex flex-wrap items-center gap-3">
           <button
             onClick={() => setVisible((v) => !v)}
-            className="rounded-md border border-zinc-700 bg-zinc-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-zinc-800"
+            className="rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-900 transition hover:bg-slate-100 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
           >
             {visible ? "Unmount list" : "Mount list"}
           </button>
           <div className="flex items-center gap-2">
-            <span className="text-xs font-medium text-zinc-400">
+            <span className="text-xs font-medium text-slate-600 dark:text-zinc-400">
               Direction:
             </span>
             {(["up", "down", "left", "right"] as Direction[]).map((d) => (
@@ -106,8 +106,8 @@ export default function AnimatedListPage() {
                 onClick={() => setDirection(d)}
                 className={`rounded-md border px-3 py-1 text-xs font-medium transition ${
                   direction === d
-                    ? "border-white bg-white text-black"
-                    : "border-zinc-700 bg-zinc-900 text-zinc-300 hover:bg-zinc-800"
+                    ? "border-slate-900 bg-slate-900 text-white dark:border-white dark:bg-white dark:text-black"
+                    : "border-slate-300 bg-white text-slate-700 hover:bg-slate-100 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800"
                 }`}
               >
                 {d}
@@ -126,14 +126,18 @@ export default function AnimatedListPage() {
             {notifications.map((n) => (
               <div
                 key={n.title}
-                className="flex items-center gap-4 rounded-lg border border-zinc-800 bg-zinc-900 p-4"
+                className="flex items-center gap-4 rounded-lg border border-slate-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-900"
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-800 text-lg text-white">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-lg text-slate-900 dark:bg-zinc-800 dark:text-white">
                   {n.icon}
                 </div>
                 <div className="flex-1">
-                  <p className="text-sm font-medium text-white">{n.title}</p>
-                  <p className="text-xs text-zinc-500">{n.time}</p>
+                  <p className="text-sm font-medium text-slate-900 dark:text-white">
+                    {n.title}
+                  </p>
+                  <p className="text-xs text-slate-500 dark:text-zinc-500">
+                    {n.time}
+                  </p>
                 </div>
               </div>
             ))}

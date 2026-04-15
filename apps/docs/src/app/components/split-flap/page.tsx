@@ -79,7 +79,7 @@ export default function SplitFlapPage() {
           <button
             type="button"
             onClick={randomizeTicker}
-            className="rounded-md border border-zinc-700 bg-zinc-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-zinc-800"
+            className="rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-900 transition hover:bg-slate-100 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
           >
             Shuffle ticker
           </button>
@@ -96,7 +96,7 @@ export default function SplitFlapPage() {
           <button
             type="button"
             onClick={randomizeStatus}
-            className="rounded-md border border-zinc-700 bg-zinc-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-zinc-800"
+            className="rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-900 transition hover:bg-slate-100 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
           >
             Update status
           </button>

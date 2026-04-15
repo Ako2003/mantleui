@@ -54,7 +54,7 @@ export default function ScrollProgressPage() {
       </p>
       <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-6 dark:border-zinc-800 dark:bg-zinc-950">
         <ScrollProgress color="#3b82f6" height={3} />
-        <div className="flex flex-col gap-4 text-sm text-zinc-300">
+        <div className="flex flex-col gap-4 text-sm text-slate-700 dark:text-zinc-300">
           <p>
             Default blue bar pinned to the top of the viewport with a height of
             3px.
@@ -77,7 +77,7 @@ export default function ScrollProgressPage() {
       </p>
       <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-6 dark:border-zinc-800 dark:bg-zinc-950">
         <ScrollProgress color="#ec4899" height={4} />
-        <p className="text-sm text-zinc-300">
+        <p className="text-sm text-slate-700 dark:text-zinc-300">
           A 4px pink bar — scroll to see it update in real time.
         </p>
       </div>
@@ -89,7 +89,7 @@ export default function ScrollProgressPage() {
       </p>
       <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-6 dark:border-zinc-800 dark:bg-zinc-950">
         <ScrollProgress color="#10b981" height={5} position="bottom" />
-        <p className="text-sm text-zinc-300">
+        <p className="text-sm text-slate-700 dark:text-zinc-300">
           A 5px emerald bar pinned to the bottom of the viewport.
         </p>
       </div>

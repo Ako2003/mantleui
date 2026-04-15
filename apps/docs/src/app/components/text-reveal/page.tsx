@@ -52,41 +52,41 @@ export default function TextRevealPage() {
       <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-8 dark:border-zinc-800 dark:bg-zinc-950">
         <button
           onClick={() => setKey((k) => k + 1)}
-          className="mb-6 rounded-md border border-zinc-700 bg-zinc-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-zinc-800"
+          className="mb-6 rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-900 transition hover:bg-slate-100 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
         >
           Replay animation
         </button>
 
         <div className="flex flex-col gap-10">
           <div>
-            <p className="mb-2 text-xs font-medium uppercase tracking-wide text-zinc-500">
+            <p className="mb-2 text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-zinc-500">
               Headline · stagger 0.08
             </p>
             <TextReveal
               key={`headline-${key}`}
               stagger={0.08}
-              className="text-3xl font-bold leading-tight text-white"
+              className="text-3xl font-bold leading-tight text-slate-900 dark:text-white"
             >
               {headline}
             </TextReveal>
           </div>
 
           <div>
-            <p className="mb-2 text-xs font-medium uppercase tracking-wide text-zinc-500">
+            <p className="mb-2 text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-zinc-500">
               Paragraph · stagger 0.03
             </p>
             <TextReveal
               key={`paragraph-${key}`}
               stagger={0.03}
               delay={0.3}
-              className="text-lg leading-relaxed text-zinc-300"
+              className="text-lg leading-relaxed text-slate-700 dark:text-zinc-300"
             >
               {paragraph}
             </TextReveal>
           </div>
 
           <div>
-            <p className="mb-2 text-xs font-medium uppercase tracking-wide text-zinc-500">
+            <p className="mb-2 text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-zinc-500">
               Fast · stagger 0.02
             </p>
             <TextReveal

@@ -99,8 +99,8 @@ export default function MarqueePage() {
             onClick={() => setDirection(d)}
             className={`rounded-md border px-3 py-1 text-xs font-medium transition ${
               direction === d
-                ? "border-white bg-white text-black"
-                : "border-zinc-700 bg-zinc-900 text-zinc-300 hover:bg-zinc-800"
+                ? "border-slate-900 bg-slate-900 text-white dark:border-white dark:bg-white dark:text-black"
+                : "border-slate-300 bg-white text-slate-700 hover:bg-slate-100 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800"
             }`}
           >
             {d}
@@ -112,7 +112,7 @@ export default function MarqueePage() {
           {logos.map((logo) => (
             <div
               key={logo}
-              className="mx-3 flex items-center rounded-full border border-zinc-800 bg-zinc-900 px-5 py-2 text-sm font-semibold uppercase tracking-wider text-zinc-300"
+              className="mx-3 flex items-center rounded-full border border-slate-200 bg-white px-5 py-2 text-sm font-semibold uppercase tracking-wider text-slate-700 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300"
             >
               {logo}
             </div>
@@ -129,12 +129,12 @@ export default function MarqueePage() {
           {testimonials.map((t) => (
             <div
               key={t.author}
-              className="mx-3 w-80 rounded-xl border border-zinc-800 bg-zinc-900 p-5"
+              className="mx-3 w-80 rounded-xl border border-slate-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900"
             >
-              <p className="text-sm leading-relaxed text-zinc-200">
+              <p className="text-sm leading-relaxed text-slate-700 dark:text-zinc-200">
                 &ldquo;{t.quote}&rdquo;
               </p>
-              <p className="mt-3 text-xs font-medium text-zinc-500">
+              <p className="mt-3 text-xs font-medium text-slate-500 dark:text-zinc-500">
                 — {t.author}
               </p>
             </div>

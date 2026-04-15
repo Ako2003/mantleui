@@ -79,7 +79,7 @@ export default function BlurRevealPage() {
       <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-6 dark:border-zinc-800 dark:bg-zinc-950">
         <button
           onClick={() => setKey((k) => k + 1)}
-          className="mb-5 rounded-md border border-zinc-700 bg-zinc-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-zinc-800"
+          className="mb-5 rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-900 transition hover:bg-slate-100 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
         >
           Replay animation
         </button>
@@ -90,12 +90,12 @@ export default function BlurRevealPage() {
               blur={card.blur}
               delay={card.delay}
               duration={0.9}
-              className="rounded-xl border border-zinc-800 bg-zinc-900 p-6"
+              className="rounded-xl border border-slate-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900"
             >
               <h3 className={`text-base font-semibold ${card.accent}`}>
                 {card.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+              <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-zinc-400">
                 {card.description}
               </p>
             </BlurReveal>

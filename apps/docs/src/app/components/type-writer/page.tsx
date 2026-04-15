@@ -62,7 +62,7 @@ export default function TypeWriterPage() {
       </p>
       <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-8 dark:border-zinc-800 dark:bg-zinc-950">
         <TypeWriter
-          className="text-2xl font-semibold text-white"
+          className="text-2xl font-semibold text-slate-900 dark:text-white"
           text="Craft interfaces that feel inevitable."
           speed={45}
           loop={false}
@@ -74,8 +74,8 @@ export default function TypeWriterPage() {
         Pass an array of strings to cycle through them on repeat.
       </p>
       <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-8 dark:border-zinc-800 dark:bg-zinc-950">
-        <div className="flex flex-wrap items-baseline gap-3 text-2xl font-semibold text-white">
-          <span className="text-zinc-500">I am a</span>
+        <div className="flex flex-wrap items-baseline gap-3 text-2xl font-semibold text-slate-900 dark:text-white">
+          <span className="text-slate-500 dark:text-zinc-500">I am a</span>
           <TypeWriter
             className="text-blue-400"
             text={["Designer", "Developer", "Engineer", "Builder"]}
@@ -88,18 +88,18 @@ export default function TypeWriterPage() {
       <h2 className="mt-10 text-xl font-semibold">Without cursor</h2>
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
         Disable the cursor with{" "}
-        <code className="rounded bg-zinc-800 px-1.5 py-0.5 text-sm">
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
           cursor=&#123;false&#125;
         </code>
         , or customise the character via{" "}
-        <code className="rounded bg-zinc-800 px-1.5 py-0.5 text-sm">
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-zinc-800">
           cursorChar
         </code>
         .
       </p>
       <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-8 dark:border-zinc-800 dark:bg-zinc-950">
         <TypeWriter
-          className="block text-xl font-medium text-white"
+          className="block text-xl font-medium text-slate-900 dark:text-white"
           text="Silent and steady."
           speed={55}
           cursor={false}
