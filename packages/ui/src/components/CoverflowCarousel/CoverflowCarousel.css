@@ -4,7 +4,7 @@
   height: 20rem;
   perspective: 1200px;
   outline: none;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .mantle-coverflowcarousel-stage {
@@ -18,12 +18,10 @@
 
 .mantle-coverflowcarousel-slide {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 10%;
+  left: 25%;
   width: 50%;
   height: 80%;
-  margin-left: -25%;
-  margin-top: -40%;
   transform-style: preserve-3d;
   will-change: transform, opacity;
   cursor: pointer;
