@@ -21,6 +21,9 @@ export const CardCarousel = forwardRef<HTMLDivElement, CardCarouselProps>(
       peekScale = 0.85,
       peekOpacity = 0.6,
       peekDistance = 60,
+      showArrows = false,
+      prevIcon,
+      nextIcon,
       className,
       style,
       ...rest
@@ -82,6 +85,9 @@ export const CardCarousel = forwardRef<HTMLDivElement, CardCarouselProps>(
       return diff;
     };
 
+    const canPrev = loop || index > 0;
+    const canNext = loop || index < count - 1;
+
     return (
       <div
         ref={ref}
@@ -122,6 +128,58 @@ export const CardCarousel = forwardRef<HTMLDivElement, CardCarouselProps>(
             </motion.div>
           );
         })}
+        {showArrows && count > 1 && (
+          <>
+            <button
+              type="button"
+              className="mantle-cardcarousel-arrow"
+              data-side="prev"
+              aria-label="Previous slide"
+              onClick={goPrev}
+              disabled={!canPrev}
+            >
+              {prevIcon ?? (
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <polyline points="15 18 9 12 15 6" />
+                </svg>
+              )}
+            </button>
+            <button
+              type="button"
+              className="mantle-cardcarousel-arrow"
+              data-side="next"
+              aria-label="Next slide"
+              onClick={goNext}
+              disabled={!canNext}
+            >
+              {nextIcon ?? (
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              )}
+            </button>
+          </>
+        )}
       </div>
     );
   },

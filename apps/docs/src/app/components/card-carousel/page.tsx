@@ -68,6 +68,24 @@ const cardCarouselProps = [
     description:
       "Horizontal distance (as percent of slide width) from center where the peek cards are positioned. Higher values push side cards further out.",
   },
+  {
+    name: "showArrows",
+    type: "boolean",
+    default: "false",
+    description: "Whether to show prev/next arrow buttons.",
+  },
+  {
+    name: "prevIcon",
+    type: "ReactNode",
+    description:
+      "Custom icon for the previous button. Defaults to a chevron-left.",
+  },
+  {
+    name: "nextIcon",
+    type: "ReactNode",
+    description:
+      "Custom icon for the next button. Defaults to a chevron-right.",
+  },
 ];
 
 const testimonials = [
@@ -170,9 +188,26 @@ export default function CardCarouselPage() {
         </div>
       </div>
 
+      <h2 className="mt-10 text-xl font-semibold">With arrows</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Opt-in to prev/next buttons with <code>showArrows</code>. Side cards are
+        still clickable and drag-to-swipe still works.
+      </p>
+      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
+        <div className="mx-auto" style={{ maxWidth: 600 }}>
+          <CardCarousel
+            slides={testimonialSlides}
+            defaultValue={0}
+            loop
+            showArrows
+          />
+        </div>
+      </div>
+
       <h2 className="mt-10 text-xl font-semibold">Usage</h2>
       <CodeBlock
         code={`import { CardCarousel } from "@mantleui/react/motion";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const slides = testimonials.map((t) => (
   <div key={t.name}>{t.quote}</div>
@@ -185,7 +220,18 @@ const slides = testimonials.map((t) => (
 <CardCarousel slides={slides} peekDistance={90} peekOpacity={0.75} />
 
 // Tight stacked look
-<CardCarousel slides={slides} peekDistance={35} peekScale={0.8} />`}
+<CardCarousel slides={slides} peekDistance={35} peekScale={0.8} />
+
+// With arrow buttons
+<CardCarousel slides={slides} showArrows />
+
+// Custom icons
+<CardCarousel
+  slides={slides}
+  showArrows
+  prevIcon={<ArrowLeft size={20} />}
+  nextIcon={<ArrowRight size={20} />}
+/>`}
       />
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>

@@ -20,3 +20,42 @@
 .mantle-cardcarousel-slide[data-position="active"] {
   cursor: grab;
 }
+
+.mantle-cardcarousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.95);
+  color: #18181b;
+  cursor: pointer;
+  line-height: 1;
+  transition:
+    background 150ms ease,
+    transform 150ms ease;
+}
+
+.mantle-cardcarousel-arrow:hover:not(:disabled) {
+  background: #fff;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.mantle-cardcarousel-arrow:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.mantle-cardcarousel-arrow[data-side="prev"] {
+  left: 0.5rem;
+}
+
+.mantle-cardcarousel-arrow[data-side="next"] {
+  right: 0.5rem;
+}

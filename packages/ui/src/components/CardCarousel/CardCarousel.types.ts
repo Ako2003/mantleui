@@ -28,4 +28,10 @@ export interface CardCarouselProps extends Omit<
    * Defaults to 60.
    */
   peekDistance?: number;
+  /** Whether to show prev/next arrow buttons. Defaults to false. */
+  showArrows?: boolean;
+  /** Custom icon for the previous button. Defaults to a chevron-left. */
+  prevIcon?: ReactNode;
+  /** Custom icon for the next button. Defaults to a chevron-right. */
+  nextIcon?: ReactNode;
 }
