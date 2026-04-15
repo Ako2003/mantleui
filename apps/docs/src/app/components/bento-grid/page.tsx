@@ -1,13 +1,8 @@
 "use client";
 
-import dynamic from "next/dynamic";
+import { BentoGrid } from "@mantleui/react/motion";
 import { PropsTable } from "@/components/PropsTable";
 import { CodeBlock } from "@/components/CodeBlock";
-
-const BentoGrid = dynamic(
-  () => import("@mantleui/react/motion").then((mod) => mod.BentoGrid),
-  { ssr: false },
-) as unknown as typeof import("@mantleui/react/motion").BentoGrid;
 
 const bentoGridProps = [
   {

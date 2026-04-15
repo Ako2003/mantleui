@@ -1,14 +1,9 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { useState } from "react";
+import { DragDropList } from "@mantleui/react/motion";
 import { PropsTable } from "@/components/PropsTable";
 import { CodeBlock } from "@/components/CodeBlock";
-
-const DragDropList = dynamic(
-  () => import("@mantleui/react/motion").then((mod) => mod.DragDropList),
-  { ssr: false },
-) as unknown as typeof import("@mantleui/react/motion").DragDropList;
 
 const dragDropListProps = [
   {
