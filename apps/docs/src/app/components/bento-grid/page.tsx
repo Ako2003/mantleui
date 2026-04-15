@@ -77,14 +77,14 @@ export default function BentoGridPage() {
       </p>
       <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
         <BentoGrid columns={4} gap={16}>
-          <BentoGrid.Item rowSpan={2}>
+          <BentoGrid.Item rowSpan={1}>
             <div className="flex h-full min-h-full w-full flex-col justify-between rounded-xl bg-gradient-to-br from-zinc-800 to-black p-5 text-white">
               <CellIcon path="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
               <div>
                 <h3 className="text-xl font-bold">Dark Mode</h3>
-                <p className="text-sm text-white/80">
+                {/* <p className="text-sm text-white/80">
                   First-class light and dark themes.
-                </p>
+                </p> */}
               </div>
             </div>
           </BentoGrid.Item>
@@ -105,13 +105,13 @@ export default function BentoGridPage() {
               <h3 className="text-lg font-bold">Accessible</h3>
             </div>
           </BentoGrid.Item>
-          <BentoGrid.Item colSpan={2}>
+          <BentoGrid.Item colSpan={3}>
             <div className="flex h-32 w-full flex-col justify-between rounded-xl bg-gradient-to-br from-rose-500 to-orange-500 p-5 text-white">
               <CellIcon path="M22 12h-4l-3 9L9 3l-3 9H2" />
               <h3 className="text-lg font-bold">Animated</h3>
             </div>
           </BentoGrid.Item>
-          <BentoGrid.Item>
+          <BentoGrid.Item colSpan={1}>
             <div className="flex h-32 w-full flex-col justify-between rounded-xl bg-gradient-to-br from-fuchsia-500 to-pink-600 p-5 text-white">
               <CellIcon path="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
               <h3 className="text-lg font-bold">Tested</h3>

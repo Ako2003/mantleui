@@ -69,16 +69,18 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: 9999px;
-  background: currentColor;
+  background: #fff;
   transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #111;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  color: #18181b;
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.5),
+    0 0 0 2px currentColor;
 }
 
 .mantle-imagecompare-handle:focus-visible {
