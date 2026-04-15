@@ -44,22 +44,22 @@ const cards = [
     title: "Lightning fast",
     description:
       "Tree-shakable components with zero runtime overhead. Build what you need, ship nothing more.",
-    color: "rgba(59,130,246,0.15)",
-    accent: "text-blue-400",
+    color: "rgba(59,130,246,0.2)",
+    accent: "text-blue-600 dark:text-blue-400",
   },
   {
     title: "Accessible by default",
     description:
       "Every component ships with full keyboard navigation, ARIA attributes, and screen reader support.",
-    color: "rgba(168,85,247,0.15)",
-    accent: "text-purple-400",
+    color: "rgba(168,85,247,0.2)",
+    accent: "text-purple-600 dark:text-purple-400",
   },
   {
     title: "Composable",
     description:
       "Small, focused primitives that compose into the UI patterns your product needs.",
-    color: "rgba(34,197,94,0.15)",
-    accent: "text-green-400",
+    color: "rgba(34,197,94,0.2)",
+    accent: "text-green-600 dark:text-green-400",
   },
 ];
 
