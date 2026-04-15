@@ -22,6 +22,10 @@ export interface CarouselProps extends Omit<
   showArrows?: boolean;
   /** Whether to show dot indicators. Defaults to true. */
   showDots?: boolean;
+  /** Custom icon for the previous button. Defaults to a chevron-left. */
+  prevIcon?: ReactNode;
+  /** Custom icon for the next button. Defaults to a chevron-right. */
+  nextIcon?: ReactNode;
   /** Gap between slides in pixels. Defaults to 0. */
   gap?: number;
 }

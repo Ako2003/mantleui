@@ -18,6 +18,14 @@ export interface VerticalCarouselProps extends Omit<
   interval?: number;
   /** Whether to wrap around at edges. Defaults to true. */
   loop?: boolean;
+  /** Whether to show prev/next arrow buttons. Defaults to true. */
+  showArrows?: boolean;
+  /** Whether to show dot indicators. Defaults to true. */
+  showDots?: boolean;
+  /** Custom icon for the previous (up) button. Defaults to chevron-up. */
+  prevIcon?: ReactNode;
+  /** Custom icon for the next (down) button. Defaults to chevron-down. */
+  nextIcon?: ReactNode;
   /** Viewport height in pixels. Defaults to 400. */
   height?: number;
 }
