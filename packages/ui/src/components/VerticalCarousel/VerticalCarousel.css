@@ -80,11 +80,21 @@
   padding: 0;
   border-radius: 9999px;
   border: none;
-  background: rgba(0, 0, 0, 0.25);
+  background: var(--mantle-color-text-muted, rgba(127, 127, 127, 0.5));
+  opacity: 0.5;
   cursor: pointer;
-  transition: background 150ms ease;
+  transition:
+    background 150ms ease,
+    opacity 150ms ease,
+    height 150ms ease;
+}
+
+.mantle-verticalcarousel-dot:hover {
+  opacity: 0.8;
 }
 
 .mantle-verticalcarousel-dot[data-active="true"] {
-  background: rgba(0, 0, 0, 0.8);
+  background: var(--mantle-color-text, #18181b);
+  opacity: 1;
+  height: 1.25rem;
 }
