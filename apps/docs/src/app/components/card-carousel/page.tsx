@@ -141,8 +141,8 @@ export default function CardCarouselPage() {
         <code>90</code> for a more airy layout where the neighbors are almost
         fully visible.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
-        <div className="mx-auto" style={{ maxWidth: 600 }}>
+      <div className="mt-4 overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950 px-16 py-6">
+        <div className="mx-auto" style={{ maxWidth: 450 }}>
           <CardCarousel
             slides={testimonialSlides}
             defaultValue={0}
