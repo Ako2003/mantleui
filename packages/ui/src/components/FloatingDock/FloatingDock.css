@@ -45,11 +45,17 @@
   outline-offset: 3px;
 }
 
-.mantle-floatingdock-tooltip {
+.mantle-floatingdock-tooltip-wrapper {
   position: absolute;
   bottom: calc(100% + 8px);
   left: 50%;
   transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.mantle-floatingdock-tooltip {
+  display: inline-block;
   padding: 4px 10px;
   border-radius: 6px;
   background: rgba(0, 0, 0, 0.85);
@@ -57,5 +63,4 @@
   font-size: 12px;
   line-height: 1;
   white-space: nowrap;
-  pointer-events: none;
 }

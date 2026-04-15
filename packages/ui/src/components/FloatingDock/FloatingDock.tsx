@@ -88,16 +88,17 @@ function DockItem({ item, mouseX }: DockItemProps) {
       )}
       <AnimatePresence>
         {tooltipVisible && (
-          <motion.span
-            className="mantle-floatingdock-tooltip"
-            initial={{ opacity: 0, y: 6 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 6 }}
-            transition={TOOLTIP_TRANSITION}
-            role="tooltip"
-          >
-            {item.label}
-          </motion.span>
+          <span className="mantle-floatingdock-tooltip-wrapper" role="tooltip">
+            <motion.span
+              className="mantle-floatingdock-tooltip"
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 6 }}
+              transition={TOOLTIP_TRANSITION}
+            >
+              {item.label}
+            </motion.span>
+          </span>
         )}
       </AnimatePresence>
     </motion.div>
