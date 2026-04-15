@@ -116,6 +116,10 @@ export const CoverflowCarousel = forwardRef<
               : 0.7 - absOffset * 0.2
             : 0;
           const zIndex = 10 - absOffset;
+          // Push active card forward in 3D space so it always appears in
+          // front of the rotated side cards (which otherwise stick their
+          // near edge out past the center card).
+          const z = isActive ? 100 : -absOffset * 80;
           return (
             <motion.div
               key={i}
@@ -124,7 +128,7 @@ export const CoverflowCarousel = forwardRef<
               aria-roledescription="slide"
               aria-label={`slide ${i + 1} of ${count}`}
               aria-hidden={!isActive}
-              animate={{ x, rotateY, scale, opacity, zIndex }}
+              animate={{ x, z, rotateY, scale, opacity, zIndex }}
               transition={{ type: "spring", stiffness: 200, damping: 28 }}
               style={{ pointerEvents: isVisible ? "auto" : "none" }}
               onClick={() => {
