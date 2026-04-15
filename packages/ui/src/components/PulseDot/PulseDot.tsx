@@ -34,10 +34,12 @@ export const PulseDot = forwardRef<HTMLDivElement, PulseDotProps>(
         <motion.span
           className="mantle-pulsedot-ring"
           style={dimension}
-          animate={{ scale: [1, 2.2], opacity: [0.6, 0] }}
+          initial={{ scale: 1, opacity: 0 }}
+          animate={{ scale: [1, 1.6, 2.4], opacity: [0, 0.55, 0] }}
           transition={{
-            duration: 1.4,
+            duration: 1.8,
             ease: "easeOut",
+            times: [0, 0.4, 1],
             repeat: Infinity,
           }}
           aria-hidden="true"
