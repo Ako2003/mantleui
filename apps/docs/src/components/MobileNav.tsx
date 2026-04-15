@@ -121,6 +121,15 @@ const navItems = [
   { label: "ParallaxCarousel", href: "/components/parallax-carousel" },
   { label: "ThumbnailCarousel", href: "/components/thumbnail-carousel" },
   { label: "FadeCarousel", href: "/components/fade-carousel" },
+  { heading: "Advanced Motion" },
+  { label: "BentoGrid", href: "/components/bento-grid" },
+  { label: "ImageCompare", href: "/components/image-compare" },
+  { label: "GradientText", href: "/components/gradient-text" },
+  { label: "SplitFlap", href: "/components/split-flap" },
+  { label: "ScrollProgress", href: "/components/scroll-progress" },
+  { label: "AnimatedTabs", href: "/components/animated-tabs" },
+  { label: "FloatingDock", href: "/components/floating-dock" },
+  { label: "DragDropList", href: "/components/drag-drop-list" },
 ] as const;
 
 export function MobileNav() {

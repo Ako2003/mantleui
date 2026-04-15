@@ -1,0 +1,68 @@
+.mantle-animatedtabs {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 12px;
+}
+
+.mantle-animatedtabs[data-variant="pill"] {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mantle-animatedtabs[data-variant="underline"] {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0;
+  padding: 0;
+  gap: 1rem;
+}
+
+.mantle-animatedtabs-trigger {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.65);
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: color 180ms ease;
+  z-index: 1;
+}
+
+.mantle-animatedtabs-trigger:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.mantle-animatedtabs-trigger[data-active="true"] {
+  color: #fff;
+}
+
+.mantle-animatedtabs-trigger:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.mantle-animatedtabs-indicator-pill {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  z-index: -1;
+}
+
+.mantle-animatedtabs-indicator-underline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}

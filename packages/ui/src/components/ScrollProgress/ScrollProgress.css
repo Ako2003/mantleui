@@ -1,0 +1,17 @@
+.mantle-scrollprogress {
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100%;
+  transform-origin: 0% 0%;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.mantle-scrollprogress[data-position="top"] {
+  top: 0;
+}
+
+.mantle-scrollprogress[data-position="bottom"] {
+  bottom: 0;
+}

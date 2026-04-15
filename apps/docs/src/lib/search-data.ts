@@ -360,4 +360,46 @@ export const searchData: SearchItem[] = [
     href: "/components/fade-carousel",
     category: "Carousels",
   },
+
+  // Advanced Motion
+  {
+    title: "BentoGrid",
+    href: "/components/bento-grid",
+    category: "Advanced Motion",
+  },
+  {
+    title: "ImageCompare",
+    href: "/components/image-compare",
+    category: "Advanced Motion",
+  },
+  {
+    title: "GradientText",
+    href: "/components/gradient-text",
+    category: "Advanced Motion",
+  },
+  {
+    title: "SplitFlap",
+    href: "/components/split-flap",
+    category: "Advanced Motion",
+  },
+  {
+    title: "ScrollProgress",
+    href: "/components/scroll-progress",
+    category: "Advanced Motion",
+  },
+  {
+    title: "AnimatedTabs",
+    href: "/components/animated-tabs",
+    category: "Advanced Motion",
+  },
+  {
+    title: "FloatingDock",
+    href: "/components/floating-dock",
+    category: "Advanced Motion",
+  },
+  {
+    title: "DragDropList",
+    href: "/components/drag-drop-list",
+    category: "Advanced Motion",
+  },
 ];

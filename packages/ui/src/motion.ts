@@ -61,3 +61,44 @@ export type {
 
 export { FadeCarousel } from "./components/FadeCarousel";
 export type { FadeCarouselProps } from "./components/FadeCarousel";
+
+// ─── Layout / Content ───
+
+export { BentoGrid } from "./components/BentoGrid";
+export type {
+  BentoGridProps,
+  BentoGridItemProps,
+} from "./components/BentoGrid";
+
+export { ImageCompare } from "./components/ImageCompare";
+export type { ImageCompareProps } from "./components/ImageCompare";
+
+// ─── Text ───
+
+export { GradientText } from "./components/GradientText";
+export type { GradientTextProps } from "./components/GradientText";
+
+export { SplitFlap } from "./components/SplitFlap";
+export type { SplitFlapProps } from "./components/SplitFlap";
+
+// ─── Navigation ───
+
+export { ScrollProgress } from "./components/ScrollProgress";
+export type { ScrollProgressProps } from "./components/ScrollProgress";
+
+export { AnimatedTabs } from "./components/AnimatedTabs";
+export type {
+  AnimatedTabsProps,
+  AnimatedTabItem,
+} from "./components/AnimatedTabs";
+
+export { FloatingDock } from "./components/FloatingDock";
+export type {
+  FloatingDockProps,
+  FloatingDockItem,
+} from "./components/FloatingDock";
+
+// ─── Advanced ───
+
+export { DragDropList } from "./components/DragDropList";
+export type { DragDropListProps } from "./components/DragDropList";

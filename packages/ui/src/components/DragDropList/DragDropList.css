@@ -1,0 +1,47 @@
+.mantle-dragdroplist {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mantle-dragdroplist-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: inherit;
+  user-select: none;
+  will-change: transform;
+}
+
+.mantle-dragdroplist-handle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.55);
+  cursor: grab;
+  border-radius: 6px;
+}
+
+.mantle-dragdroplist-handle:active {
+  cursor: grabbing;
+}
+
+.mantle-dragdroplist-handle:hover {
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.mantle-dragdroplist-content {
+  flex: 1 1 auto;
+  min-width: 0;
+}

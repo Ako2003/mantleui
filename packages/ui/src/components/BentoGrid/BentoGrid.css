@@ -1,0 +1,27 @@
+.mantle-bentogrid {
+  display: grid;
+  width: 100%;
+  grid-auto-rows: minmax(0, auto);
+}
+
+.mantle-bentogrid-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  color: inherit;
+  overflow: hidden;
+  will-change: transform;
+  cursor: default;
+}
+
+.mantle-bentogrid-item:hover {
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.25),
+    0 2px 8px rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.18);
+}
