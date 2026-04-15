@@ -83,7 +83,7 @@ export default function SpotlightCardPage() {
               key={card.title}
               spotlightColor={card.color}
               size={350}
-              className="rounded-xl border border-slate-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900"
+              className="rounded-xl p-6"
             >
               <h3 className={`text-base font-semibold ${card.accent}`}>
                 {card.title}

@@ -2,10 +2,22 @@
   position: relative;
   overflow: hidden;
   border-radius: 12px;
-  background: rgba(20, 20, 22, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(
+    --mantle-spotlightcard-bg,
+    var(--mantle-color-bg-subtle, #ffffff)
+  );
+  border: 1px solid
+    var(
+      --mantle-spotlightcard-border,
+      var(--mantle-color-border, rgba(0, 0, 0, 0.08))
+    );
   padding: 1.5rem;
   color: inherit;
+}
+
+[data-theme="dark"] .mantle-spotlightcard {
+  background: var(--mantle-spotlightcard-bg, rgba(20, 20, 22, 0.9));
+  border-color: var(--mantle-spotlightcard-border, rgba(255, 255, 255, 0.08));
 }
 
 .mantle-spotlightcard-overlay {
