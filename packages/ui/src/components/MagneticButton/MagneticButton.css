@@ -4,12 +4,24 @@
   justify-content: center;
   padding: 0.75rem 1.5rem;
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid
+    var(--mantle-magneticbutton-border, var(--mantle-color-border, #e2e8f0));
+  background: var(
+    --mantle-magneticbutton-bg,
+    var(--mantle-color-bg-subtle, #f8fafc)
+  );
   color: inherit;
   font: inherit;
   cursor: pointer;
   will-change: transform;
+}
+
+[data-theme="dark"] .mantle-magneticbutton {
+  border-color: var(
+    --mantle-magneticbutton-border,
+    rgba(255, 255, 255, 0.12)
+  );
+  background: var(--mantle-magneticbutton-bg, rgba(255, 255, 255, 0.06));
 }
 
 .mantle-magneticbutton:focus-visible {
