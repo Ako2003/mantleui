@@ -77,6 +77,17 @@ export default function BentoGridPage() {
       </p>
       <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
         <BentoGrid columns={4} gap={16}>
+          <BentoGrid.Item rowSpan={2}>
+            <div className="flex h-full min-h-full w-full flex-col justify-between rounded-xl bg-gradient-to-br from-zinc-800 to-black p-5 text-white">
+              <CellIcon path="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+              <div>
+                <h3 className="text-xl font-bold">Dark Mode</h3>
+                <p className="text-sm text-white/80">
+                  First-class light and dark themes.
+                </p>
+              </div>
+            </div>
+          </BentoGrid.Item>
           <BentoGrid.Item colSpan={2}>
             <div className="flex h-32 w-full flex-col justify-between rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 p-5 text-white">
               <CellIcon path="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
@@ -92,23 +103,6 @@ export default function BentoGridPage() {
             <div className="flex h-32 w-full flex-col justify-between rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 p-5 text-white">
               <CellIcon path="M12 2a10 10 0 100 20 10 10 0 000-20zm0 6v4m0 4h.01" />
               <h3 className="text-lg font-bold">Accessible</h3>
-            </div>
-          </BentoGrid.Item>
-          <BentoGrid.Item>
-            <div className="flex h-32 w-full flex-col justify-between rounded-xl bg-gradient-to-br from-sky-500 to-blue-600 p-5 text-white">
-              <CellIcon path="M4 7h16M4 12h16M4 17h10" />
-              <h3 className="text-lg font-bold">TypeSafe</h3>
-            </div>
-          </BentoGrid.Item>
-          <BentoGrid.Item rowSpan={2}>
-            <div className="flex h-full min-h-64 w-full flex-col justify-between rounded-xl bg-gradient-to-br from-zinc-800 to-black p-5 text-white">
-              <CellIcon path="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
-              <div>
-                <h3 className="text-xl font-bold">Dark Mode</h3>
-                <p className="text-sm text-white/80">
-                  First-class light and dark themes.
-                </p>
-              </div>
             </div>
           </BentoGrid.Item>
           <BentoGrid.Item colSpan={2}>
