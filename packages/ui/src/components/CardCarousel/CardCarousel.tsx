@@ -22,6 +22,7 @@ export const CardCarousel = forwardRef<HTMLDivElement, CardCarouselProps>(
       peekOpacity = 0.6,
       peekDistance = 60,
       showArrows = false,
+      showDots = false,
       prevIcon,
       nextIcon,
       className,
