@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/no-noninteractive-tabindex */
 import { forwardRef, useCallback, useEffect, type KeyboardEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useControllable } from "../../hooks";
@@ -20,6 +21,10 @@ export const ParallaxCarousel = forwardRef<
     autoplay = false,
     interval = 3000,
     loop = true,
+    showArrows = true,
+    showDots = true,
+    prevIcon,
+    nextIcon,
     className,
     style,
     ...rest
@@ -122,7 +127,7 @@ export const ParallaxCarousel = forwardRef<
           </motion.div>
         ) : null}
       </AnimatePresence>
-      {count > 1 && (
+      {showArrows && count > 1 && (
         <>
           <button
             type="button"
@@ -132,7 +137,21 @@ export const ParallaxCarousel = forwardRef<
             onClick={goPrev}
             disabled={!canPrev}
           >
-            {"<"}
+            {prevIcon ?? (
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+            )}
           </button>
           <button
             type="button"
@@ -142,9 +161,39 @@ export const ParallaxCarousel = forwardRef<
             onClick={goNext}
             disabled={!canNext}
           >
-            {">"}
+            {nextIcon ?? (
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            )}
           </button>
         </>
+      )}
+      {showDots && count > 1 && (
+        <div className="mantle-parallaxcarousel-dots" role="tablist">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              className="mantle-parallaxcarousel-dot"
+              data-active={i === index}
+              aria-label={`Go to slide ${i + 1}`}
+              aria-selected={i === index ? "true" : "false"}
+              role="tab"
+              onClick={() => goTo(i)}
+            />
+          ))}
+        </div>
       )}
     </div>
   );

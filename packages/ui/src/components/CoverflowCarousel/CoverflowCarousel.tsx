@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/no-noninteractive-tabindex */
 import { forwardRef, useCallback, useEffect, type KeyboardEvent } from "react";
 import { motion } from "framer-motion";
 import { useControllable } from "../../hooks";

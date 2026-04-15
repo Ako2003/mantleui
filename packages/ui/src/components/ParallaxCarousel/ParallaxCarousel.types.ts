@@ -25,4 +25,12 @@ export interface ParallaxCarouselProps extends Omit<
   interval?: number;
   /** Whether to wrap around at edges. Defaults to true. */
   loop?: boolean;
+  /** Whether to show prev/next arrow buttons. Defaults to true. */
+  showArrows?: boolean;
+  /** Whether to show dot indicators. Defaults to true. */
+  showDots?: boolean;
+  /** Custom icon for the previous button. Defaults to a chevron-left. */
+  prevIcon?: ReactNode;
+  /** Custom icon for the next button. Defaults to a chevron-right. */
+  nextIcon?: ReactNode;
 }

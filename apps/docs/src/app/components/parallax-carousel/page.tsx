@@ -50,6 +50,30 @@ const parallaxCarouselProps = [
     default: "true",
     description: "Whether to wrap around at edges.",
   },
+  {
+    name: "showArrows",
+    type: "boolean",
+    default: "true",
+    description: "Whether to show prev/next arrow buttons.",
+  },
+  {
+    name: "showDots",
+    type: "boolean",
+    default: "true",
+    description: "Whether to show dot indicators.",
+  },
+  {
+    name: "prevIcon",
+    type: "ReactNode",
+    description:
+      "Custom icon for the previous button. Defaults to a chevron-left.",
+  },
+  {
+    name: "nextIcon",
+    type: "ReactNode",
+    description:
+      "Custom icon for the next button. Defaults to a chevron-right.",
+  },
 ];
 
 const parallaxSlides = [
@@ -119,9 +143,55 @@ export default function ParallaxCarouselPage() {
         </div>
       </div>
 
+      <h2 className="mt-10 text-xl font-semibold">Custom icons</h2>
+      <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
+        Pass any <code>ReactNode</code> to <code>prevIcon</code> and{" "}
+        <code>nextIcon</code> to override the default chevrons.
+      </p>
+      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950 p-6">
+        <div className="mx-auto" style={{ maxWidth: 600 }}>
+          <ParallaxCarousel
+            slides={parallaxSlides}
+            defaultValue={0}
+            loop
+            prevIcon={
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <line x1="19" y1="12" x2="5" y2="12" />
+                <polyline points="12 19 5 12 12 5" />
+              </svg>
+            }
+            nextIcon={
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            }
+          />
+        </div>
+      </div>
+
       <h2 className="mt-10 text-xl font-semibold">Usage</h2>
       <CodeBlock
         code={`import { ParallaxCarousel } from "@mantleui/react/motion";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const slides = [
   {
@@ -134,7 +204,21 @@ const slides = [
   },
 ];
 
-<ParallaxCarousel slides={slides} defaultValue={0} loop />`}
+// Basic
+<ParallaxCarousel slides={slides} defaultValue={0} loop />
+
+// Custom icons
+<ParallaxCarousel
+  slides={slides}
+  prevIcon={<ArrowLeft size={20} />}
+  nextIcon={<ArrowRight size={20} />}
+/>
+
+// Hide arrows — rely on dots or drag
+<ParallaxCarousel slides={slides} showArrows={false} />
+
+// Hide dots
+<ParallaxCarousel slides={slides} showDots={false} />`}
       />
 
       <h2 className="mt-10 text-xl font-semibold">Props</h2>
