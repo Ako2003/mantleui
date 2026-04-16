@@ -4,9 +4,9 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { ComponentShowcase } from "@/components/HomeShowcase";
 
 const stats = [
-  { value: "73", label: "Components" },
+  { value: "109", label: "Components" },
   { value: "676+", label: "Tests" },
-  { value: "6", label: "Accent Colors" },
+  { value: "3", label: "Entry Points" },
   { value: "0kb", label: "CSS-in-JS Runtime" },
 ];
 
@@ -178,6 +178,62 @@ const categories = [
       "ErrorMessage",
       "FieldError",
       "CloseButton",
+    ],
+  },
+  {
+    name: "3D / Advanced",
+    components: [
+      "Globe",
+      "ParticleField",
+      "WaveField",
+      "Vortex",
+      "DNAHelix",
+      "MorphingSphere",
+      "StarField",
+      "Aurora",
+      "GridPlane",
+      "Card3D",
+      "FlipCard",
+    ],
+  },
+  {
+    name: "Motion / Animation",
+    components: [
+      "AnimatedCounter",
+      "AnimatedList",
+      "SpotlightCard",
+      "MagneticButton",
+      "Marquee",
+      "TypeWriter",
+      "BlurReveal",
+      "TextReveal",
+      "HoverCard",
+      "PulseDot",
+    ],
+  },
+  {
+    name: "Carousels",
+    components: [
+      "Carousel",
+      "CardCarousel",
+      "VerticalCarousel",
+      "CoverflowCarousel",
+      "ParallaxCarousel",
+      "ThumbnailCarousel",
+      "FadeCarousel",
+    ],
+  },
+  {
+    name: "Advanced Motion",
+    components: [
+      "BentoGrid",
+      "ImageCompare",
+      "GradientText",
+      "SplitFlap",
+      "ScrollProgress",
+      "AnimatedTabs",
+      "FloatingDock",
+      "DragDropList",
     ],
   },
 ];
@@ -398,7 +454,7 @@ export default function HomePage() {
 
         <div className="relative mx-auto max-w-3xl text-center">
           <div className="mb-4 inline-block rounded-full border border-slate-200 bg-white/80 px-4 py-1.5 text-sm font-medium text-slate-600 backdrop-blur-sm dark:border-zinc-700 dark:bg-zinc-900/80 dark:text-zinc-300">
-            73 components &middot; 676+ tests &middot; Production ready
+            109 components &middot; 676+ tests &middot; 3 entry points
           </div>
 
           <h1 className="bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900 bg-clip-text text-5xl font-extrabold tracking-tight text-transparent sm:text-6xl lg:text-7xl dark:from-white dark:via-zinc-300 dark:to-white">
@@ -594,7 +650,7 @@ export default function HomePage() {
               All Components
             </h2>
             <p className="mx-auto mt-3 max-w-xl text-center text-sm text-slate-600 dark:text-zinc-400">
-              73 components organized across 8 categories.
+              109 components organized across 13 categories.
             </p>
 
             <div className="mt-10 space-y-8">

@@ -1,6 +1,6 @@
 # @mantleui/react
 
-A production-grade React component library with 73+ components, dark mode, full TypeScript support, and zero CSS-in-JS runtime. Every color, border, background, and hover effect is customizable via CSS variables.
+A production-grade React component library with 109 components, dark mode, full TypeScript support, and zero CSS-in-JS runtime. Includes 72 core UI components, 11 Three.js-powered 3D components, 10 framer-motion animations, 7 carousels, and 8 advanced motion components. Every color, border, background, and hover effect is customizable via CSS variables.
 
 [![CI](https://github.com/Ako2003/mantleui/actions/workflows/ci.yml/badge.svg)](https://github.com/Ako2003/mantleui/actions)
 [![npm](https://img.shields.io/npm/v/@mantleui/react)](https://www.npmjs.com/package/@mantleui/react)
@@ -38,18 +38,29 @@ function App() {
 
 ## What's Inside
 
-### 73+ Components
+### 109 Components
 
-| Category          | Components                                                                                                                                                                                                            |
-| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Form**          | Input, TextField, TextArea, NumberField, Select, MultiSelect, Autocomplete, ComboBox, Checkbox, RadioGroup, Switch, Slider, DatePicker, DateRangePicker, TimeField, SearchField, InputGroup, InputOTP, Form, Fieldset |
-| **Interactive**   | Button, ButtonGroup, Toggle, ToggleButton, ToggleButtonGroup, Accordion, Tabs, Popover, Tooltip, Dropdown, Modal, Drawer, Disclosure, Toolbar                                                                         |
-| **Feedback**      | Alert, AlertDialog, Toast, Badge, Spinner, ProgressBar, ProgressCircle, Meter, Skeleton                                                                                                                               |
-| **Data**          | DataTable, DataField, ListBox, TagGroup, Chip, Kbd, Calendar, RadioCalendar                                                                                                                                           |
-| **Navigation**    | Breadcrumb, Pagination, Link                                                                                                                                                                                          |
-| **Layout**        | Card, Surface, Avatar, Separator, ScrollShadow                                                                                                                                                                        |
-| **Color**         | ColorPicker, ColorArea, ColorSlider, ColorField, ColorSwatch, ColorSwatchPicker                                                                                                                                       |
-| **3D / Advanced** | Globe, ParticleField, Card3D, WaveField, Vortex, DNAHelix, MorphingSphere, StarField, Aurora, GridPlane, WorldMap                                                                                                     |
+**Core — `@mantleui/react`**
+
+| Category        | Components                                                                                                                                                                                                            |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Form**        | Input, TextField, TextArea, NumberField, Select, MultiSelect, Autocomplete, ComboBox, Checkbox, RadioGroup, Switch, Slider, DatePicker, DateRangePicker, TimeField, SearchField, InputGroup, InputOTP, Form, Fieldset |
+| **Interactive** | Button, ButtonGroup, Toggle, ToggleButton, ToggleButtonGroup, Accordion, Tabs, Popover, Tooltip, Dropdown, Modal, Drawer, Disclosure, Toolbar                                                                         |
+| **Feedback**    | Alert, AlertDialog, Toast, Badge, Spinner, ProgressBar, ProgressCircle, Meter, Skeleton                                                                                                                               |
+| **Data**        | DataTable, DataField, ListBox, TagGroup, Chip, Kbd, Calendar, RadioCalendar                                                                                                                                           |
+| **Navigation**  | Breadcrumb, Pagination, Link                                                                                                                                                                                          |
+| **Layout**      | Card, Surface, Avatar, Separator, ScrollShadow                                                                                                                                                                        |
+| **Color**       | ColorPicker, ColorArea, ColorSlider, ColorField, ColorSwatch, ColorSwatchPicker                                                                                                                                       |
+
+**3D — `@mantleui/react/three`** _(optional peer deps: `three`, `@react-three/fiber`, `@react-three/drei`)_
+
+Globe, ParticleField, WaveField, Vortex, DNAHelix, MorphingSphere, StarField, Aurora, GridPlane, Card3D, FlipCard
+
+**Motion — `@mantleui/react/motion`** _(optional peer dep: `framer-motion`)_
+
+- **Animation:** AnimatedCounter, AnimatedList, SpotlightCard, MagneticButton, Marquee, TypeWriter, BlurReveal, TextReveal, HoverCard, PulseDot
+- **Carousels:** Carousel, CardCarousel, VerticalCarousel, CoverflowCarousel, ParallaxCarousel, ThumbnailCarousel, FadeCarousel
+- **Advanced:** BentoGrid, ImageCompare, GradientText, SplitFlap, ScrollProgress, AnimatedTabs, FloatingDock, DragDropList
 
 ### 6 Accent Colors + Custom Hex
 
@@ -195,8 +206,10 @@ npm install three @react-three/fiber @react-three/drei
 
 ```tsx
 import { Globe, ParticleField, Card3D } from "@mantleui/react/three";
+import "@mantleui/react/three-styles.css";
 
 <Globe
+  showCountries
   markers={[{ lat: 40.7, lng: -74, label: "NYC" }]}
   arcs={[{ startLat: 40.7, startLng: -74, endLat: 51.5, endLng: -0.1 }]}
 />
@@ -209,6 +222,38 @@ import { Globe, ParticleField, Card3D } from "@mantleui/react/three";
 ```
 
 Three.js deps are **optional peer dependencies** — they won't be installed unless you use the 3D components.
+
+## Motion Components
+
+Optional framer-motion-powered animations, carousels, and advanced motion components via a separate entry point:
+
+```bash
+npm install framer-motion
+```
+
+```tsx
+import {
+  BentoGrid,
+  Carousel,
+  FloatingDock,
+  AnimatedCounter,
+  Marquee,
+  TypeWriter,
+} from "@mantleui/react/motion";
+import "@mantleui/react/motion-styles.css";
+
+<AnimatedCounter value={12847} prefix="$" duration={1.5} />
+
+<TypeWriter text={["Designer", "Developer", "Engineer"]} loop />
+
+<Carousel slides={slides} autoplay interval={3000} />
+
+<BentoGrid columns={4} gap={16}>
+  <BentoGrid.Item colSpan={2}>...</BentoGrid.Item>
+</BentoGrid>
+```
+
+All motion components are **theme-aware** — every background, border, and accent adapts automatically to light and dark modes. `framer-motion` is an optional peer dependency.
 
 ## Accessibility
 

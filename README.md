@@ -11,14 +11,14 @@ I built MantleUI to deepen my understanding of frontend architecture and design 
 
 ## Highlights
 
-- **72 components** across 10 categories
+- **109 components** across 13 categories including 3D, motion, and advanced animations
 - **676+ tests** with Vitest + React Testing Library
 - **Dark mode** built-in via CSS custom properties + ThemeProvider
 - **6 accent colors** (blue, red, green, yellow, purple, neutral) + any custom hex
 - **Accessible** — keyboard navigation, ARIA attributes, screen reader support
 - **Zero runtime CSS** — plain CSS with `mantle-` prefixed classes, no CSS-in-JS
-- **Tree-shakeable** — ESM + CJS builds via tsup
-- **Live documentation** — 72 interactive playground pages with syntax highlighting
+- **Tree-shakeable** — three separate entry points (`@mantleui/react`, `/three`, `/motion`) so optional deps stay optional
+- **Live documentation** — 109 interactive pages with syntax highlighting
 
 ## Tech Stack
 
@@ -26,7 +26,9 @@ I built MantleUI to deepen my understanding of frontend architecture and design 
 | --------------------- | -------------------------------------- | -------------------------------------------------- |
 | **Monorepo**          | Turborepo + pnpm workspaces            | Parallel builds, caching, strict deps              |
 | **Component library** | React 19, TypeScript 5.9 (strict)      | Modern React with full type safety                 |
-| **Build**             | tsup (esbuild)                         | Zero-config ESM + CJS + DTS output                 |
+| **3D (optional)**     | Three.js + @react-three/fiber + drei   | Advanced 3D components via `@mantleui/react/three` |
+| **Motion (optional)** | framer-motion                          | Animation components via `@mantleui/react/motion`  |
+| **Build**             | tsup (esbuild) — 3 entry points        | ESM + CJS + DTS output for core, three, motion     |
 | **Styling**           | Plain CSS + CSS custom properties      | Zero runtime, framework-agnostic, tree-shakeable   |
 | **Testing**           | Vitest + React Testing Library + jsdom | Fast ESM-native testing, behavioral tests          |
 | **Documentation**     | Next.js 15 App Router                  | SSR, file-based routing, optimized builds          |
@@ -44,24 +46,27 @@ mantleui/
 ├── packages/
 │   ├── ui/              # Component library (published as @mantleui/react)
 │   │   ├── src/
-│   │   │   ├── components/   # 72 component directories
+│   │   │   ├── components/   # 109 component directories
 │   │   │   ├── hooks/        # useControllable, useComposedRefs, useId
 │   │   │   ├── theme/        # ThemeProvider, CSS tokens, color system
-│   │   │   └── utils/        # polymorphic types, resolveColor, mergeProps
+│   │   │   ├── utils/        # polymorphic types, resolveColor, mergeProps
+│   │   │   ├── index.ts      # Core entry
+│   │   │   ├── three.ts      # 3D entry (@mantleui/react/three)
+│   │   │   └── motion.ts     # Motion entry (@mantleui/react/motion)
 │   │   ├── tsup.config.ts
 │   │   └── vitest.config.ts
 │   └── tsconfig/        # Shared TypeScript configs
 ├── apps/
 │   └── docs/            # Next.js documentation site
 │       └── src/
-│           ├── app/components/   # 72 component doc pages
-│           └── components/       # LivePlayground, PropsTable, Sidebar
+│           ├── app/components/   # 109 component doc pages
+│           └── components/       # LivePlayground, CodeBlock, PropsTable, Sidebar
 ├── .github/workflows/ci.yml     # CI + deploy pipeline
 ├── turbo.json
 └── pnpm-workspace.yaml
 ```
 
-## Components (72)
+## Components (109)
 
 ### Form (22)
 
@@ -190,6 +195,70 @@ mantleui/
 | Fieldset  | Form fieldset with legend                  |
 | ListBox   | Selectable list with custom item rendering |
 
+### 3D / Three.js (11)
+
+Optional — requires `three`, `@react-three/fiber`, and `@react-three/drei` as peer deps. Imported from `@mantleui/react/three`.
+
+| Component      | Description                                               |
+| -------------- | --------------------------------------------------------- |
+| Globe          | Interactive 3D globe with markers, arcs, country outlines |
+| ParticleField  | Animated floating particles with connection lines         |
+| WaveField      | Sine wave mesh that ripples like water                    |
+| Vortex         | Spiraling particle tornado / tunnel effect                |
+| DNAHelix       | Rotating double helix with connecting rungs               |
+| MorphingSphere | Sphere that deforms with noise / organic movement         |
+| StarField      | Warp-speed star tunnel / hyperspace effect                |
+| Aurora         | Flowing northern lights gradient ribbons                  |
+| GridPlane      | Tron-style infinite perspective grid                      |
+| Card3D         | Mouse-tracking 3D tilt card (pure CSS, no Three.js)       |
+| FlipCard       | Click-to-flip card with front/back sides                  |
+
+### Motion / Animation (10)
+
+Optional — requires `framer-motion` as peer dep. Imported from `@mantleui/react/motion`.
+
+| Component       | Description                                      |
+| --------------- | ------------------------------------------------ |
+| AnimatedCounter | Spring-animated number with prefix/suffix        |
+| AnimatedList    | Staggered fade + slide list entry animation      |
+| SpotlightCard   | Mouse-tracking radial gradient highlight         |
+| MagneticButton  | Cursor-following pull effect with spring physics |
+| Marquee         | Infinite horizontal scroll with pause-on-hover   |
+| TypeWriter      | Text typing / deleting state machine with cursor |
+| BlurReveal      | Scroll-triggered blur-to-clear content fade      |
+| TextReveal      | Word-by-word scroll-triggered text reveal        |
+| HoverCard       | Lift + shadow on hover with spring physics       |
+| PulseDot        | Animated pulsing notification ring + core        |
+
+### Carousels (7)
+
+Imported from `@mantleui/react/motion`.
+
+| Component         | Description                                                    |
+| ----------------- | -------------------------------------------------------------- |
+| Carousel          | Classic slider with drag, arrows, dots, autoplay, custom icons |
+| CardCarousel      | Peek effect with scaled side cards                             |
+| VerticalCarousel  | Vertical slider variant                                        |
+| CoverflowCarousel | Apple-style 3D coverflow with rotateY                          |
+| ParallaxCarousel  | Slides with parallax background images                         |
+| ThumbnailCarousel | Main image + thumbnail strip navigation                        |
+| FadeCarousel      | Pure cross-fade transitions                                    |
+
+### Advanced Motion (8)
+
+Imported from `@mantleui/react/motion`.
+
+| Component      | Description                                                     |
+| -------------- | --------------------------------------------------------------- |
+| BentoGrid      | Modern bento-box layout with hover tilt (compound API)          |
+| ImageCompare   | Draggable before/after image slider                             |
+| GradientText   | Animated flowing gradient through text (polymorphic)            |
+| SplitFlap      | Airport-board-style flipping character cells                    |
+| ScrollProgress | Smooth scroll progress bar (portaled, uses useScroll/useSpring) |
+| AnimatedTabs   | Magic underline / pill indicator with shared layoutId           |
+| FloatingDock   | macOS-style dock with cursor-proximity magnification            |
+| DragDropList   | Generic reorderable list via Reorder.Group/Item                 |
+
 ## Design Patterns Demonstrated
 
 | Pattern                     | Components                                                              |
@@ -286,6 +355,28 @@ function App() {
     </ThemeProvider>
   );
 }
+```
+
+### Optional 3D components
+
+```bash
+pnpm add three @react-three/fiber @react-three/drei
+```
+
+```tsx
+import { Globe, Card3D } from "@mantleui/react/three";
+import "@mantleui/react/three-styles.css";
+```
+
+### Optional motion components
+
+```bash
+pnpm add framer-motion
+```
+
+```tsx
+import { BentoGrid, Carousel, FloatingDock } from "@mantleui/react/motion";
+import "@mantleui/react/motion-styles.css";
 ```
 
 ## Project Scripts
