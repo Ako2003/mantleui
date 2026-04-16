@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "@mantleui/react/styles.css";
 @import "@mantleui/react/three-styles.css";
+@import "@mantleui/react/motion-styles.css";
 
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 

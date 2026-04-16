@@ -1,0 +1,27 @@
+.mantle-gradienttext {
+  display: inline-block;
+  background-image: var(--mantle-gradienttext-gradient);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: mantle-gradienttext-flow var(--mantle-gradienttext-duration, 3s)
+    linear infinite;
+  will-change: background-position;
+}
+
+@keyframes mantle-gradienttext-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mantle-gradienttext {
+    animation: none;
+  }
+}

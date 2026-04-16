@@ -128,7 +128,7 @@ export default function WorldMapPage() {
         No data passed — all countries are the same color. Hover to see country
         names, click to trigger events.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 dark:border-zinc-800 dark:bg-zinc-950">
         <WorldMap
           emptyColor="#27272a"
           strokeColor="#18181b"
@@ -148,7 +148,7 @@ export default function WorldMapPage() {
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">
         Pass data to color countries by value. Higher values get darker shades.
       </p>
-      <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950">
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 dark:border-zinc-800 dark:bg-zinc-950">
         <WorldMap
           data={sampleData}
           color={color}

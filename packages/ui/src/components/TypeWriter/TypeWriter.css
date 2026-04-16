@@ -1,0 +1,18 @@
+.mantle-typewriter {
+  display: inline-flex;
+  align-items: baseline;
+  font-variant-ligatures: none;
+  white-space: pre;
+}
+
+.mantle-typewriter-cursor {
+  display: inline-block;
+  margin-left: 1px;
+  animation: mantle-typewriter-blink 1s steps(2, start) infinite;
+}
+
+@keyframes mantle-typewriter-blink {
+  to {
+    visibility: hidden;
+  }
+}

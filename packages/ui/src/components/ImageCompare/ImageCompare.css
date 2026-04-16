@@ -1,0 +1,93 @@
+.mantle-imagecompare {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  user-select: none;
+  touch-action: none;
+  background: #000;
+}
+
+.mantle-imagecompare-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.mantle-imagecompare-after-wrapper {
+  position: absolute;
+  inset: 0;
+  will-change: clip-path;
+}
+
+.mantle-imagecompare-label {
+  position: absolute;
+  top: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  pointer-events: none;
+}
+
+.mantle-imagecompare-label[data-side="before"] {
+  left: 12px;
+}
+
+.mantle-imagecompare-label[data-side="after"] {
+  right: 12px;
+}
+
+.mantle-imagecompare-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  transform: translateX(-50%);
+  cursor: ew-resize;
+  will-change: left;
+  z-index: 2;
+}
+
+.mantle-imagecompare-handle-line {
+  position: absolute;
+  inset: 0;
+  width: 2px;
+  background: currentColor;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+}
+
+.mantle-imagecompare-handle-knob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  background: #fff;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #18181b;
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.5),
+    0 0 0 2px currentColor;
+}
+
+.mantle-imagecompare-handle:focus-visible {
+  outline: none;
+}
+
+.mantle-imagecompare-handle:focus-visible .mantle-imagecompare-handle-knob {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}

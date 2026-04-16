@@ -1,0 +1,28 @@
+.mantle-coverflowcarousel {
+  position: relative;
+  width: 100%;
+  height: 20rem;
+  perspective: 1200px;
+  outline: none;
+  overflow: visible;
+}
+
+.mantle-coverflowcarousel-stage {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mantle-coverflowcarousel-slide {
+  position: absolute;
+  top: 10%;
+  left: 25%;
+  width: 50%;
+  height: 80%;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+  cursor: pointer;
+}

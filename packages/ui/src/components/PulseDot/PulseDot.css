@@ -1,0 +1,17 @@
+.mantle-pulsedot {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+}
+
+.mantle-pulsedot-core,
+.mantle-pulsedot-ring {
+  display: block;
+  border-radius: 9999px;
+}
+
+.mantle-pulsedot-ring {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}

@@ -1,0 +1,8 @@
+.mantle-animatedlist {
+  display: flex;
+  flex-direction: column;
+}
+
+.mantle-animatedlist-item {
+  display: block;
+}

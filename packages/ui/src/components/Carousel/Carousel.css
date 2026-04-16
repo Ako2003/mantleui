@@ -1,0 +1,96 @@
+.mantle-carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  outline: none;
+}
+
+.mantle-carousel-viewport {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.mantle-carousel-track {
+  display: flex;
+  width: 100%;
+  will-change: transform;
+  touch-action: pan-y;
+}
+
+.mantle-carousel-slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  user-select: none;
+}
+
+.mantle-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.95);
+  color: #18181b;
+  cursor: pointer;
+  line-height: 1;
+  transition:
+    background 150ms ease,
+    transform 150ms ease;
+}
+
+.mantle-carousel-arrow:hover:not(:disabled) {
+  background: #fff;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.mantle-carousel-arrow:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.mantle-carousel-arrow[data-side="prev"] {
+  left: 0.5rem;
+}
+
+.mantle-carousel-arrow[data-side="next"] {
+  right: 0.5rem;
+}
+
+.mantle-carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.mantle-carousel-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  padding: 0;
+  border-radius: 9999px;
+  border: none;
+  background: var(--mantle-color-text-muted, rgba(127, 127, 127, 0.5));
+  opacity: 0.5;
+  cursor: pointer;
+  transition:
+    background 150ms ease,
+    opacity 150ms ease,
+    width 150ms ease;
+}
+
+.mantle-carousel-dot:hover {
+  opacity: 0.8;
+}
+
+.mantle-carousel-dot[data-active="true"] {
+  background: var(--mantle-color-text, #18181b);
+  opacity: 1;
+  width: 1.25rem;
+}

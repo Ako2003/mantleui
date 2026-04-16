@@ -1,0 +1,65 @@
+.mantle-dragdroplist {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mantle-dragdroplist-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid
+    var(--mantle-dragdroplist-border, var(--mantle-color-border, #e2e8f0));
+  background: var(--mantle-dragdroplist-bg, var(--mantle-color-bg, #ffffff));
+  color: inherit;
+  -webkit-user-select: none;
+  user-select: none;
+  will-change: transform;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="dark"] .mantle-dragdroplist-item {
+  border-color: var(--mantle-dragdroplist-border, rgba(255, 255, 255, 0.1));
+  background: var(--mantle-dragdroplist-bg, rgba(255, 255, 255, 0.04));
+  box-shadow: none;
+}
+
+.mantle-dragdroplist-handle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  color: var(--mantle-color-text-muted, #94a3b8);
+  cursor: grab;
+  border-radius: 6px;
+}
+
+[data-theme="dark"] .mantle-dragdroplist-handle {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.mantle-dragdroplist-handle:active {
+  cursor: grabbing;
+}
+
+.mantle-dragdroplist-handle:hover {
+  color: var(--mantle-color-text, #18181b);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="dark"] .mantle-dragdroplist-handle:hover {
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.mantle-dragdroplist-content {
+  flex: 1 1 auto;
+  min-width: 0;
+}

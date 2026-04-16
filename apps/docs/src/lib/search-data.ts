@@ -275,4 +275,131 @@ export const searchData: SearchItem[] = [
     href: "/components/grid-plane",
     category: "3D / Advanced",
   },
+
+  // Motion / Animation
+  {
+    title: "AnimatedCounter",
+    href: "/components/animated-counter",
+    category: "Motion / Animation",
+  },
+  {
+    title: "AnimatedList",
+    href: "/components/animated-list",
+    category: "Motion / Animation",
+  },
+  {
+    title: "SpotlightCard",
+    href: "/components/spotlight-card",
+    category: "Motion / Animation",
+  },
+  {
+    title: "MagneticButton",
+    href: "/components/magnetic-button",
+    category: "Motion / Animation",
+  },
+  {
+    title: "Marquee",
+    href: "/components/marquee",
+    category: "Motion / Animation",
+  },
+  {
+    title: "TypeWriter",
+    href: "/components/type-writer",
+    category: "Motion / Animation",
+  },
+  {
+    title: "BlurReveal",
+    href: "/components/blur-reveal",
+    category: "Motion / Animation",
+  },
+  {
+    title: "TextReveal",
+    href: "/components/text-reveal",
+    category: "Motion / Animation",
+  },
+  {
+    title: "HoverCard",
+    href: "/components/hover-card",
+    category: "Motion / Animation",
+  },
+  {
+    title: "PulseDot",
+    href: "/components/pulse-dot",
+    category: "Motion / Animation",
+  },
+
+  // Carousels
+  { title: "Carousel", href: "/components/carousel", category: "Carousels" },
+  {
+    title: "CardCarousel",
+    href: "/components/card-carousel",
+    category: "Carousels",
+  },
+  {
+    title: "VerticalCarousel",
+    href: "/components/vertical-carousel",
+    category: "Carousels",
+  },
+  {
+    title: "CoverflowCarousel",
+    href: "/components/coverflow-carousel",
+    category: "Carousels",
+  },
+  {
+    title: "ParallaxCarousel",
+    href: "/components/parallax-carousel",
+    category: "Carousels",
+  },
+  {
+    title: "ThumbnailCarousel",
+    href: "/components/thumbnail-carousel",
+    category: "Carousels",
+  },
+  {
+    title: "FadeCarousel",
+    href: "/components/fade-carousel",
+    category: "Carousels",
+  },
+
+  // Advanced Motion
+  {
+    title: "BentoGrid",
+    href: "/components/bento-grid",
+    category: "Advanced Motion",
+  },
+  {
+    title: "ImageCompare",
+    href: "/components/image-compare",
+    category: "Advanced Motion",
+  },
+  {
+    title: "GradientText",
+    href: "/components/gradient-text",
+    category: "Advanced Motion",
+  },
+  {
+    title: "SplitFlap",
+    href: "/components/split-flap",
+    category: "Advanced Motion",
+  },
+  {
+    title: "ScrollProgress",
+    href: "/components/scroll-progress",
+    category: "Advanced Motion",
+  },
+  {
+    title: "AnimatedTabs",
+    href: "/components/animated-tabs",
+    category: "Advanced Motion",
+  },
+  {
+    title: "FloatingDock",
+    href: "/components/floating-dock",
+    category: "Advanced Motion",
+  },
+  {
+    title: "DragDropList",
+    href: "/components/drag-drop-list",
+    category: "Advanced Motion",
+  },
 ];

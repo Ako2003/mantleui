@@ -1,0 +1,18 @@
+.mantle-hovercard {
+  display: block;
+  border-radius: 12px;
+  background: var(
+    --mantle-hovercard-bg,
+    var(--mantle-color-bg-subtle, #ffffff)
+  );
+  border: 1px solid
+    var(--mantle-hovercard-border, var(--mantle-color-border, #e2e8f0));
+  padding: 1.25rem;
+  color: inherit;
+  will-change: transform, box-shadow;
+}
+
+[data-theme="dark"] .mantle-hovercard {
+  background: var(--mantle-hovercard-bg, rgba(20, 20, 22, 0.9));
+  border-color: var(--mantle-hovercard-border, rgba(255, 255, 255, 0.08));
+}
