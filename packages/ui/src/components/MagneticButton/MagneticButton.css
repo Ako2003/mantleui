@@ -17,10 +17,7 @@
 }
 
 [data-theme="dark"] .mantle-magneticbutton {
-  border-color: var(
-    --mantle-magneticbutton-border,
-    rgba(255, 255, 255, 0.12)
-  );
+  border-color: var(--mantle-magneticbutton-border, rgba(255, 255, 255, 0.12));
   background: var(--mantle-magneticbutton-bg, rgba(255, 255, 255, 0.06));
 }
 

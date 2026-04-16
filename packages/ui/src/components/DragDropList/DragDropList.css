@@ -15,10 +15,7 @@
   border-radius: 10px;
   border: 1px solid
     var(--mantle-dragdroplist-border, var(--mantle-color-border, #e2e8f0));
-  background: var(
-    --mantle-dragdroplist-bg,
-    var(--mantle-color-bg, #ffffff)
-  );
+  background: var(--mantle-dragdroplist-bg, var(--mantle-color-bg, #ffffff));
   color: inherit;
   -webkit-user-select: none;
   user-select: none;
@@ -27,10 +24,7 @@
 }
 
 [data-theme="dark"] .mantle-dragdroplist-item {
-  border-color: var(
-    --mantle-dragdroplist-border,
-    rgba(255, 255, 255, 0.1)
-  );
+  border-color: var(--mantle-dragdroplist-border, rgba(255, 255, 255, 0.1));
   background: var(--mantle-dragdroplist-bg, rgba(255, 255, 255, 0.04));
   box-shadow: none;
 }

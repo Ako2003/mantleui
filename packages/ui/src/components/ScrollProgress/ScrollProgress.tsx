@@ -1,8 +1,16 @@
-import { forwardRef, useEffect, useState } from "react";
+import { forwardRef, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import { motion, useScroll, useSpring } from "framer-motion";
 import type { ScrollProgressProps } from "./ScrollProgress.types";
 import "./ScrollProgress.css";
+
+const subscribe = () => () => {};
+const getSnapshot = () => true;
+const getServerSnapshot = () => false;
+
+function useIsMounted(): boolean {
+  return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+}
 
 const SPRING_CONFIG = { stiffness: 100, damping: 30, restDelta: 0.001 };
 
@@ -33,8 +41,7 @@ export const ScrollProgress = forwardRef<HTMLDivElement, ScrollProgressProps>(
     const { scrollYProgress } = useScroll();
     const scaleX = useSpring(scrollYProgress, SPRING_CONFIG);
 
-    const [mounted, setMounted] = useState(false);
-    useEffect(() => setMounted(true), []);
+    const mounted = useIsMounted();
 
     if (!mounted || typeof document === "undefined") return null;
 
