@@ -85,19 +85,22 @@ const features = [
 const entryPoints = [
   {
     name: "@mantleui/react",
-    description: "72 core UI components — forms, feedback, navigation, layout, data display, color pickers, and utilities.",
+    description:
+      "72 core UI components — forms, feedback, navigation, layout, data display, color pickers, and utilities.",
     css: "@mantleui/react/styles.css",
     deps: "None (just React)",
   },
   {
     name: "@mantleui/react/three",
-    description: "11 Three.js-powered 3D components — Globe, ParticleField, Vortex, Aurora, and more.",
+    description:
+      "11 Three.js-powered 3D components — Globe, ParticleField, Vortex, Aurora, and more.",
     css: "@mantleui/react/three-styles.css",
     deps: "three, @react-three/fiber, @react-three/drei",
   },
   {
     name: "@mantleui/react/motion",
-    description: "25 framer-motion components — animations, 7 carousels, and advanced motion effects.",
+    description:
+      "25 framer-motion components — animations, 7 carousels, and advanced motion effects.",
     css: "@mantleui/react/motion-styles.css",
     deps: "framer-motion",
   },
@@ -152,10 +155,10 @@ export default function GettingStartedPage() {
       <p className="mt-3 leading-relaxed text-slate-600 dark:text-zinc-400">
         MantleUI is a comprehensive React component library designed for
         building modern web applications. It provides 109 components across 13
-        categories, from everyday form controls and feedback elements to advanced
-        3D visualizations and motion animations. Every component is built from
-        scratch with clean abstractions, composability, and accessibility as
-        first-class priorities.
+        categories, from everyday form controls and feedback elements to
+        advanced 3D visualizations and motion animations. Every component is
+        built from scratch with clean abstractions, composability, and
+        accessibility as first-class priorities.
       </p>
       <p className="mt-3 leading-relaxed text-slate-600 dark:text-zinc-400">
         The library ships as three tree-shakeable entry points. The core package
@@ -249,10 +252,7 @@ export default function GettingStartedPage() {
         </table>
       </div>
 
-      <h3
-        id="compound-components"
-        className="mt-8 text-lg font-medium"
-      >
+      <h3 id="compound-components" className="mt-8 text-lg font-medium">
         Compound Components
       </h3>
       <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">

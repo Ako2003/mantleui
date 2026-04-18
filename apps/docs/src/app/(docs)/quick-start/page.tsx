@@ -169,7 +169,11 @@ export default function QuickStartPage() {
       <p className="mt-3 text-slate-600 dark:text-zinc-400">
         Install the core package with your preferred package manager.
       </p>
-      <PackageManagerTabs commands={installCommands} selected={pm} onSelect={setPm} />
+      <PackageManagerTabs
+        commands={installCommands}
+        selected={pm}
+        onSelect={setPm}
+      />
 
       <h2 id="import-styles" className="mt-12 text-xl font-semibold">
         Import Styles
@@ -226,8 +230,8 @@ export default function QuickStartPage() {
         3D Components (Optional)
       </h2>
       <p className="mt-3 text-slate-600 dark:text-zinc-400">
-        MantleUI includes 11 Three.js-powered 3D components via a separate
-        entry point. Install the peer dependencies to use them.
+        MantleUI includes 11 Three.js-powered 3D components via a separate entry
+        point. Install the peer dependencies to use them.
       </p>
       <PackageManagerTabs
         commands={threeInstallCommands}
